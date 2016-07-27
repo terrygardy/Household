@@ -1,0 +1,75 @@
+﻿@{
+	ViewBag.Title = "Master Data";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="divContent" class="container">
+	<ol class="breadcrumb">
+		<li><a href="@Url.Action("Index", "Home")">Home</a></li>
+		<li><a href="@Url.Action("Finance", "Finance")">Finance</a></li>
+		<li>Master Data</li>
+	</ol>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="panel-main-clickable panel-people" onclick="Common.LoadContent('@Url.Action("People", "MasterData")');">
+				<div>
+					<h2>People</h2>
+					<p>Add, edit and delete people</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="panel-main-clickable panel-bankAccounts" onclick="Common.LoadContent('@Url.Action("BankAccounts", "MasterData")');">
+				<div>
+					<h2>Bank Accounts</h2>
+					<p>Manage your bank accounts</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="panel-main-clickable panel-companies" onclick="Common.LoadContent('@Url.Action("Companies", "MasterData")');">
+				<div>
+					<h2>Companies</h2>
+					<p>Input your companies for income</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="panel-main-clickable panel-shops" onclick="Common.LoadContent('@Url.Action("Shops", "MasterData")');">
+				<div>
+					<h2>Shops</h2>
+					<p>Enter shops for your purchases</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="panel-main-clickable panel-days" onclick="Common.LoadContent('@Url.Action("Days", "MasterData")');">
+				<div>
+					<h2>Days</h2>
+					<p>Manage your payment days</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="panel-main-clickable panel-intervals" onclick="Common.LoadContent('@Url.Action("Intervals", "MasterData")');">
+				<div>
+					<h2>Intervals</h2>
+					<p>Edit the intervals for payments</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="panel-main-clickable panel-incomes" onclick="Common.LoadContent('@Url.Action("Incomes", "MasterData")');">
+				<div>
+					<h2>Income</h2>
+					<p>Manage your income for payment reports</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+@section scripts{
+	@Scripts.Render("~/bundles/MasterData")
+}

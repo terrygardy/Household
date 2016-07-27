@@ -1,0 +1,85 @@
+﻿@model Household.Models.Finance.CReportsModel
+<div class="row">
+	<div class="fLeft">
+		<ol class="breadcrumb">
+			<li><a href="@Url.Action("Index", "Home")">Home</a></li>
+			<li><a href="@Url.Action("Finance", "Finance")">Finance</a></li>
+			<li>Reports</li>
+		</ol>
+	</div>
+	<div class="fRight">
+		<ul class="pagination">
+			<li><button class="button-default" onclick="Common.LoadContent('@Url.Action("Purchases", "Finance")');">Purchases</button></li>
+			<li><button class="button-default" onclick="Common.LoadContent('@Url.Action("Expenses", "Finance")');">Expenses</button></li>
+		</ul>
+	</div>
+	<div class="fClear"></div>
+</div>
+<div class="row">
+	<h3>Shops</h3>
+	<div class="col-xs-12 col-sm-4">
+		<span>Shop</span>
+		<select class="fLeft" id="cboShopA" onchange="buildChartShop();">
+			@foreach (var cxxShop in Model.Shops)
+			{
+			<option value="@cxxShop.ID">@cxxShop.ToString()</option>
+			}
+		</select>
+	</div>
+	<div class="col-xs-12 col-sm-4">
+		<span>Shop</span>
+		<select id="cboShopB" onchange="buildChartShop();">
+			@foreach (var cxxShop in Model.Shops)
+			{
+			<option value="@cxxShop.ID">@cxxShop.ToString()</option>
+			}
+		</select>
+	</div>
+	<div class="col-xs-12 col-sm-4">
+		<span>Year</span>
+		<select id="cboYearB" onchange="buildChartShop();">
+			@for (int i = 0; i < 10; i++)
+			{
+			<option value="@(DateTime.Today.Year - i)">@(DateTime.Today.Year - i)</option>
+			}
+		</select>
+	</div>
+</div>
+<div id="divReportShop" class="row"></div>
+<div class="row">
+	<h3>Year</h3>
+	<div class="col-xs-6">
+		<span>Year</span>
+		<select id="cboYearC" onchange="buildChartYear();">
+			@for (int i = 0; i < 10; i++)
+			{
+				<option value="@(DateTime.Today.Year - i)">@(DateTime.Today.Year - i)</option>
+			}
+		</select>
+	</div>
+	<div class="col-xs-6">
+		<span>Year</span>
+		<select id="cboYearD" onchange="buildChartYear();">
+			@for (int i = 0; i < 10; i++)
+			{
+				<option value="@(DateTime.Today.Year - i)">@(DateTime.Today.Year - i)</option>
+			}
+		</select>
+	</div>
+</div>
+<div id="divReportYear" class="row"></div>
+@Scripts.Render("~/bundles/highcharts", "~/bundles/Report")
+<script type="text/javascript">
+	(function () {
+		buildChartShop();
+		buildChartYear();
+	})();
+
+	function buildChartShop() {
+		Report.RunCompareShop('divReportShop', '@Url.Action("CompareShopInfo", "Report")', [$('#cboShopA').val(), $('#cboShopB').val()], $('#cboYearB').val());
+	}
+
+	function buildChartYear() {
+		Report.RunCompareYear('divReportYear', '@Url.Action("CompareYearInfo", "Report")', [$('#cboYearC').val(), $('#cboYearD').val()]);
+	}
+</script>

@@ -1,0 +1,36 @@
+﻿@model Household.BL.Interfaces.txx.IInterval
+
+@{
+	string m_strBaseAction = Url.Action("", "Interval");
+}
+
+<div class="row">
+	<div class="col-xs-12">
+		<h3>Interval</h3>
+	</div>
+	<div class="col-xs-12 mB10">
+		<input type="button" class="button-default" id="btnSave" value="Save" onclick="Interval.Save();" />
+		<input type="button" class="button-default" id="btnDelete" value="Delete" onclick="Interval.Delete();" />
+		<input type="button" class="button-default" id="btnClose" value="Close" onclick="Common.hideSubContent();" />
+	</div>
+	<div class="col-xs-12">
+		<ul class="" id="ulError"></ul>
+	</div>
+</div>
+<form class="row">
+	<div class="col-xs-12">
+		<span>Name</span>
+		<input type="text" id="tbxName" data-bind="value: Name" required />
+	</div>
+</form>
+
+@Scripts.Render("~/bundles/Interval")
+<script type="text/javascript">
+	(function () {
+		Interval.Fill('@Html.Raw(m_strBaseAction)', @Model.ID, '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.Name))');
+		MasterData.start();
+		Interval.start();
+
+		if(@Model.ID < 1){$('#btnDelete').remove();}
+	})();
+</script>

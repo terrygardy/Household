@@ -1,0 +1,213 @@
+﻿@import "bootstrap/panels";
+@import "bootstrap/grid";
+@import "bootstrap/buttons";
+@import "bootstrap/forms";
+@import "bootstrap/list-group";
+@import "bootstrap/type";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+body {
+	padding-top: 50px;
+	padding-bottom: 20px;
+}
+
+.noScroll, .noScrollSub {
+	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+.container {
+	padding-left: 4px !important;
+	padding-right: 4px !important;
+}
+
+.panel-main {
+	.panel;
+	.panel-default;
+}
+
+.panel-main-clickable,
+.panel-finance,
+.panel-homeHDD,
+.panel-serverManager,
+.panel-purchases,
+.panel-expenses,
+.panel-reports,
+.panel-masterData {
+	.panel-main;
+	.clickable;
+}
+
+.panel-main-clickable > div,
+.panel-finance > div,
+.panel-homeHDD > div,
+.panel-serverManager > div,
+.panel-purchases > div,
+.panel-expenses > div,
+.panel-reports > div,
+.panel-masterData > div {
+	.panel-body;
+}
+
+.panel-main-clickable:hover, .panel-main-clickable:focus,
+.panel-finance:focus, .panel-finance:hover,
+.panel-homeHDD:focus, .panel-homeHDD:hover,
+.panel-serverManager:focus, .panel-serverManager:hover,
+.panel-purchases:focus, .panel-purchases:hover,
+.panel-expenses:focus, .panel-expenses:hover,
+.panel-reports:focus, .panel-reports:hover,
+.panel-masterData:focus, .panel-masterData:hover {
+	background-color: @gray-lighter;
+}
+
+.panel-main-clickable:hover, .panel-main-clickable:focus,
+#divSubContent,
+.panel-finance:focus, .panel-finance:hover,
+.panel-homeHDD:focus, .panel-homeHDD:hover,
+.panel-serverManager:focus, .panel-serverManager:hover,
+.panel-purchases:focus, .panel-purchases:hover,
+.panel-expenses:focus, .panel-expenses:hover,
+.panel-reports:focus, .panel-reports:hover,
+.panel-masterData:focus, .panel-masterData:hover {
+	border-color: @gray-light;
+	.box-shadow(0 0 10px 2px @gray-light);
+}
+
+.row-fixed {
+	.row;
+	position: fixed;
+}
+
+.button-default {
+	.btn;
+	.btn-default;
+}
+
+.clickable {
+	cursor: pointer;
+}
+
+.fClear {
+	clear: both;
+}
+
+.fLeft {
+	float: left;
+}
+
+.fRight {
+	float: right;
+}
+
+.right {
+	text-align: right;
+}
+
+.left {
+	text-align: left;
+}
+
+.mB10 {
+	margin-top: 10px;
+}
+
+.mT60 {
+	margin-top: 60px;
+}
+
+.invisible {
+	display: none;
+}
+
+#divSubContent {
+	.panel-main;
+	box-shadow: 0 0 10px 2px @gray-dark;
+	position: absolute;
+	top: 0px;
+	z-index: 2000;
+	padding: 8px 8px 8px 8px;
+	margin-left: -5px;
+	margin-right: auto;
+}
+
+
+#divContentCover {
+	position: absolute;
+	z-index: 9;
+	width: 100%;
+	height: 100%;
+	background-color: @gray-light;
+	opacity: 0.4;
+	filter: alpha(opacity=90);
+	top: 0;
+	left: 0;
+}
+
+#divInput {
+	margin-top: 10px;
+}
+
+textarea {
+	min-height: 60px;
+}
+
+input[type=password], input[type=email], input[type=url], input[type=text], input[type=checkbox], input[type=radio], textarea, select {
+	.form-control;
+}
+
+.error {
+	color: @brand-danger !important;
+}
+
+input[type=password].error, input[type=email].error, input[type=url].error, input[type=text].error, input[type=checkbox].error, input[type=radio].error, textarea.error, select.error {
+	border: 1px solid @brand-danger !important;
+	.box-shadow(inset 0 1px 1px @brand-danger) !important;
+	.transition(~"border-color ease-in-out .15s, box-shadow ease-in-out .15s") !important;
+}
+
+#ulError {
+	.list-unstyled;
+}
+
+#divSearch {
+	background-image: url('../Images/search32.png');
+	background-position: center center;
+	background-repeat: no-repeat no-repeat;
+	background-size: 100%;
+	width: 35px;
+	height: 35px;
+	float: left;
+	cursor: pointer;
+}
+
+.searchContainer, .contentContainer {
+	.container;
+	.panel-main;
+	padding: 4px 4px 4px 4px;
+}
+
+/*.searchCol {
+	.col-xs-12;
+	.col-sm-6;
+	.col-lg-4;
+}*/
+
+input[type=button], button {
+	.button-default;
+}
+
+.pT4 {
+	padding-top: 4px;
+}
+
+.mL30 {
+	margin-left: 30px;
+}

@@ -1,0 +1,49 @@
+﻿@model Household.BL.Interfaces.txx.IDay
+
+@{
+	string m_strBaseAction = Url.Action("", "Day");
+}
+
+<div class="row">
+	<div class="col-xs-12">
+		<h3>Day</h3>
+	</div>
+	<div class="col-xs-12 mB10">
+		<input type="button" class="button-default" id="btnSave" value="Save" onclick="Day.Save();" />
+		<input type="button" class="button-default" value="Multiple" onclick="Day.ShowMultiple();" />
+		<input type="button" class="button-default" id="btnDelete" value="Delete" onclick="Day.Delete();" />
+		<input type="button" class="button-default" id="btnClose" value="Close" onclick="Common.hideSubContent();" />
+	</div>
+	<div class="col-xs-12">
+		<ul class="" id="ulError"></ul>
+	</div>
+</div>
+
+<div id="divMultiple" class="row invisible">
+	<div class="col-xs-12 col-sm-6">
+		<span>Start</span>
+		<input type="text" id="tbxStart" value="1" />
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		<span>End</span>
+		<input type="text" id="tbxEnd" value="31" />
+	</div>
+</div>
+
+<form class="row">
+	<div class="col-xs-12 col-sm-6">
+		<span>Day</span>
+		<input type="text" id="tbxDay" data-bind="value: Day" required />
+	</div>
+</form>
+
+@Scripts.Render("~/bundles/Day")
+<script type="text/javascript">
+	(function () {
+		Day.Fill('@Html.Raw(m_strBaseAction)', @Model.ID, '@Model.Day');
+		MasterData.start();
+		Day.start();
+
+		if(@Model.ID < 1){$('#btnDelete').remove();}
+	})();
+</script>
