@@ -1,0 +1,89 @@
+﻿@using Household.Models.DisplayTable
+
+@model Household.Models.CMasterData
+
+@{
+	CDisplayTable m_dtTable = Model.DisplayTable;
+
+	if (m_dtTable == null) { m_dtTable = new CDisplayTable(); }
+}
+
+@if (Model != null)
+{
+	<ol class="breadcrumb" id="olBC_MasterData">
+		@foreach (var cBreadCrumb in Model.BreadCrumbs)
+		{
+			<li>
+				@if (!string.IsNullOrEmpty(cBreadCrumb.ActionName))
+				{
+					<a href="@Url.Action(cBreadCrumb.ActionName, cBreadCrumb.ActionController)">@cBreadCrumb.Text</a>
+				}
+				else {
+					@cBreadCrumb.Text
+				}
+			</li>
+		}
+	</ol>
+	if (!string.IsNullOrEmpty(m_dtTable.OnClickAction))
+	{
+		<div class="row">
+			<input type="button" class="mL30" id="btnAdd" title="Add entry" value="Add" onclick="Common.LoadSubContent('@Url.Action(m_dtTable.OnClickAction, m_dtTable.OnClickController, new { id = 0})');Common.showSubContent();" />
+		</div>
+	}
+	<div class="row">
+		<table id="tblDisplay" class="@m_dtTable.CSS">
+			@if (m_dtTable.Head.Count > 0)
+				{
+				<thead>
+					@foreach (var objRow in m_dtTable.Head)
+					{
+						<tr>
+							@foreach (var objColumn in objRow.Columns)
+						{
+								<th colspan="@objColumn.ColumnSpan" class="@objColumn.CSS" onclick="@objColumn.OnClick" title="@objColumn.Tooltip">@objColumn.Content</th>
+						}
+						</tr>
+					}
+				</thead>
+				}
+			@if (m_dtTable.Body.Count > 0)
+				{
+				<tbody>
+					@foreach (var objRow in m_dtTable.Body)
+					{
+						<tr id="@objRow.OnClickParam" @if (!string.IsNullOrEmpty(m_dtTable.OnClickAction)) { <text> class="clickable" onclick="Common.LoadSubContent('@Url.Action(m_dtTable.OnClickAction, m_dtTable.OnClickController, new { id = objRow.OnClickParam })');Common.showSubContent();" </text>                    }>
+							@foreach (var objColumn in objRow.Columns)
+						{
+								<td colspan="@objColumn.ColumnSpan" class="@objColumn.CSS" onclick="@objColumn.OnClick" title="@objColumn.Tooltip">@objColumn.Content</td>
+						}
+						</tr>
+					}
+				</tbody>
+				}
+			@if (m_dtTable.Foot.Count > 0)
+				{
+				<tfoot>
+					@foreach (var objRow in m_dtTable.Foot)
+					{
+						<tr>
+							@foreach (var objColumn in objRow.Columns)
+						{
+								<th colspan="@objColumn.ColumnSpan" class="@objColumn.CSS" onclick="@objColumn.OnClick" title="@objColumn.Tooltip"><span id="spDisplayFoot">@objColumn.Content</span></th>
+						}
+						</tr>
+					}
+				</tfoot>
+				}
+		</table>
+	</div>
+	<div class="row">
+		<div id="divSubContent" class="invisible"></div>
+	</div>
+	@Scripts.Render("~/bundles/MasterData", "~/bundles/jqueryval")
+	<script type="text/javascript">
+		$(document).ready(function () {
+			window.document.title = '@Model.Title';
+			MasterData.OnClickAdd = '@Url.Action(m_dtTable.OnClickAction, m_dtTable.OnClickController)';
+		});
+	</script>
+}

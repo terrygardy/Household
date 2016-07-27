@@ -1,0 +1,1 @@
+<Playlist Version="1.0"><Add Test="Household.Test.MainObjects.CTestPerson.MainTest" /><Add Test="Household.Test.MainObjects.CTestExpense.MainTest" /><Add Test="Household.Test.MainObjects.CTestPurchase.MainTest" /><Add Test="Household.Test.MainObjects.CTestIncome.MainTest" /></Playlist>

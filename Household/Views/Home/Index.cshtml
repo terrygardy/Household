@@ -1,0 +1,35 @@
+﻿@{
+	ViewBag.Title = "Main Page";
+}
+
+<div class="jumbotron">
+	<h1>Household</h1>
+	<p class="lead">Welcome to our household management system</p>
+</div>
+
+<div class="row">
+	<div class="col-md-4">
+		<div class="panel-homeHDD" onclick="document.location = '@Url.Action("HomeHDD", "HomeHDD")';">
+			<div>
+				<h2>Home-HDD</h2>
+				<p>Come on in and manage your documents and pictures</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="panel-finance" onclick="document.location = '@Url.Action("Finance", "Finance")'">
+			<div>
+				<h2>Finance</h2>
+				<p>This is where you can manage your expenses, purchases and monthly bills</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="panel-serverManager" onclick="document.location = '@Url.Action("ServerManager", "ServerManager")'">
+			<div>
+				<h2>Server Manager</h2>
+				<p>Check out the server and look what's going on in the world</p>
+			</div>
+		</div>
+	</div>
+</div>

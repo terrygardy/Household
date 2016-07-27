@@ -1,0 +1,42 @@
+﻿@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	font-size: 16px;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+table thead tr th, table tfoot tr th {
+	background-color: @body-bg;
+	color: @link-color;
+}
+
+table tbody tr td
+/*, table thead tr th, table tfoot tr th*/ 
+{
+	color: @gray-dark;
+}
+
+table tbody tr:hover {
+	border: 1px solid @gray-table-cell-hover;
+	.box-shadow(0 0 8px 1px @gray-light);
+}
+
+/*table tbody tr:hover > td {
+	background-color: @gray-lighter;
+	color: @link-hover-color;
+}*/
+
+table tbody tr:nth-child(2n) {
+	background-color: @gray-lighter;
+}
+
+table thead tr th, table tbody tr td, tfoot tr th {
+	border-bottom: 1px solid @gray-light;
+	border-top: 1px solid @body-bg;
+	padding: 8px;
+}

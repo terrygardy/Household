@@ -1,0 +1,40 @@
+﻿@model Household.BL.Interfaces.txx.ICompany
+
+@{
+	string m_strBaseAction = Url.Action("", "Company");
+}
+
+<div class="row">
+	<div class="col-xs-12">
+		<h3>Company</h3>
+	</div>
+	<div class="col-xs-12 mB10">
+		<input type="button" class="button-default" id="btnSave" value="Save" onclick="Company.Save();" />
+		<input type="button" class="button-default" id="btnDelete" value="Delete" onclick="Company.Delete();" />
+		<input type="button" class="button-default" id="btnClose" value="Close" onclick="Common.hideSubContent();" />
+	</div>
+	<div class="col-xs-12">
+		<ul class="" id="ulError"></ul>
+	</div>
+</div>
+<form class="row">
+	<div class="col-xs-12 col-sm-6">
+		<span>Name</span>
+		<input type="text" id="tbxName" data-bind="value: Name" required />
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		<span>Description</span>
+		<input type="text" id="tbxDescription" data-bind="value: Description" />
+	</div>
+</form>
+
+@Scripts.Render("~/bundles/Company")
+<script type="text/javascript">
+	(function () {
+		Company.Fill('@Html.Raw(m_strBaseAction)', @Model.ID, '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.Name))', '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.Description))');
+		MasterData.start();
+		Company.start();
+
+		if(@Model.ID < 1){$('#btnDelete').remove();}
+	})();
+</script>

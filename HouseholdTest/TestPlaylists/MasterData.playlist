@@ -1,0 +1,1 @@
+<Playlist Version="1.0"><Add Test="Household.Test.MasterData.CTestBankAccount.MainTest" /><Add Test="Household.Test.MasterData.CTestCompany.MainTest" /><Add Test="Household.Test.MasterData.CTestDay.MainTest" /><Add Test="Household.Test.MasterData.CTestInterval.MainTest" /><Add Test="Household.Test.MasterData.CTestShop.MainTest" /></Playlist>

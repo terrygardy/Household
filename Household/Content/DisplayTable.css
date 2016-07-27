@@ -1,0 +1,35 @@
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 16px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+table thead tr th,
+table tfoot tr th {
+  background-color: #fff;
+  color: #337ab7;
+}
+table tbody tr td {
+  color: #333333;
+}
+table tbody tr:hover {
+  border: 1px solid #d9d9d9;
+  -webkit-box-shadow: 0 0 8px 1px #777777;
+  box-shadow: 0 0 8px 1px #777777;
+}
+/*table tbody tr:hover > td {
+	background-color: @gray-lighter;
+	color: @link-hover-color;
+}*/
+table tbody tr:nth-child(2n) {
+  background-color: #eeeeee;
+}
+table thead tr th,
+table tbody tr td,
+tfoot tr th {
+  border-bottom: 1px solid #777777;
+  border-top: 1px solid #fff;
+  padding: 8px;
+}

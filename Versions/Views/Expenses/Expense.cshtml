@@ -1,0 +1,88 @@
+﻿@model Household.Models.Finance.CExpenseModel
+
+@using GARTE.TypeHandling;
+
+@{
+	string m_strBaseAction = Url.Action("", "Expenses");
+}
+
+<div class="row">
+	<div class="col-xs-12">
+		<h3>Expense</h3>
+	</div>
+	<div class="col-xs-12 mB10">
+		<input type="button" class="button-default" id="btnSave" value="Save" onclick="Expense.Save();" />
+		<input type="button" class="button-default" id="btnDelete" value="Delete" onclick="Expense.Delete();" />
+		<input type="button" class="button-default" id="btnClose" value="Close" onclick="Common.hideSubContent();" />
+	</div>
+	<div class="col-xs-12">
+		<ul class="" id="ulError"></ul>
+	</div>
+</div>
+<form class="row">
+	<div class="col-xs-12 col-sm-6">
+		<span>Start Date (dd.mm.yyyy)</span>
+		<input type="text" id="tbxStartDate" data-bind="value: StartDate" required />
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		<span>End Date (dd.mm.yyyy)</span>
+		<input type="text" id="tbxEndDate" data-bind="value: EndDate" required />
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		<span>Company</span>
+		<select id="cboCompany" data-bind="value: Company_ID" required>
+			@foreach (var cxCompany in Model.Companies)
+			{
+				<option value="@cxCompany.ID.ToString()">@cxCompany.ToString()</option>
+			}
+		</select>
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		<span>Interval</span>
+		<select id="cboInterval" data-bind="value: Interval_ID" required>
+			@foreach (var cxInterval in Model.Intervals)
+			{
+				<option value="@cxInterval.ID.ToString()">@cxInterval.ToString()</option>
+			}
+		</select>
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		<span>Day</span>
+		<select id="cboDay" data-bind="value: PaymentDay_ID" required>
+			@foreach (var cxDay in Model.Days)
+			{
+				<option value="@cxDay.ID.ToString()">@cxDay.ToString()</option>
+			}
+		</select>
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		<span>Bank Account</span>
+		<select id="cboBankAccount" data-bind="value: BankAccount_ID" required>
+			@foreach (var cxBankAccount in Model.BankAccounts)
+			{
+				<option value="@cxBankAccount.ID.ToString()">@cxBankAccount.ToString()</option>
+			}
+		</select>
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		<span>Amount (€)</span>
+		<input type="text" id="tbxAmount" data-bind="value: Amount" required />
+	</div>
+	<div class="col-xs-12">
+		<span>Description</span>
+		<textarea id="tbxDescription" data-bind="value: Description" />
+	</div>
+</form>
+
+@Scripts.Render("~/bundles/Expense")
+<script type="text/javascript">
+	(function () {
+		Expense.Fill('@Html.Raw(m_strBaseAction)', @Model.Expense.ID, '@Base.convertShortDateString(Model.Expense.StartDate)', '@Base.convertShortDateString(Model.Expense.EndDate)',
+						@Base.convertLong(Model.Expense.Company_ID).ToString(), @Base.convertLong(Model.Expense.BankAccount_ID).ToString(), @Base.convertLong(Model.Expense.PaymentDay_ID).ToString(),
+						@Base.convertLong(Model.Expense.Interval_ID).ToString(), '@Model.Expense.Amount.ToString("N2")', '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.Expense.Description))');
+		MasterData.start();
+		Expense.start();
+
+		if(@Model.Expense.ID < 1){$('#btnDelete').remove();}
+	})();
+</script>

@@ -1,0 +1,26 @@
+﻿<div class="row">
+	<div class="fLeft">
+		<ol class="breadcrumb">
+			<li><a href="@Url.Action("Index", "Home")">Home</a></li>
+			<li><a href="@Url.Action("Finance", "Finance")">Finance</a></li>
+			<li>Expenses</li>
+		</ol>
+	</div>
+	<div class="fRight">
+		<ul class="pagination">
+			<li><button class="button-default" onclick="Common.LoadContent('@Url.Action("Purchases", "Finance")');">Purchases</button></li>
+			<li><button class="button-default" onclick="Common.LoadContent('@Url.Action("Reports", "Finance")');">Reports</button></li>
+		</ul>
+	</div>
+	<div class="fClear"></div>
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<div id="divExpenses" class="contentContainer">
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	Common.LoadContentWithSelector('@Url.Action("Expenses", "Expenses")', '#divExpenses');
+</script>
