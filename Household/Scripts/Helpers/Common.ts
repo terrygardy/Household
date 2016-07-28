@@ -61,7 +61,6 @@
 		showPleaseWait();
 		$(GetSubContainerSelector()).removeClass(m_strInvisibleClass);
 		resizeSubContent();
-		showContentCover();
 		resizeContentCover();
 
 		window.onresize = function () {
@@ -85,18 +84,26 @@
 	}
 
 	function resizeContentCover(): void {
-		var intWidth: number = $(window).outerWidth();
-		var intHeight: number = $(window).outerHeight();
-		var intBodyWidth: number = $('body').outerWidth();
-		var intBodyHeight: number = $('body').outerHeight();
+		var intWidth: number, intHeight: number, intBodyWidth: number, intBodyHeight: number;
 
-		if (intBodyHeight > intHeight) { intHeight = intBodyHeight; }
-		if (intBodyWidth > intWidth) { intWidth = intBodyWidth; }
+		deleteContentCover();
 
-		$(m_strCoverSelector).css({
-			'width': intWidth + 'px',
-			'height': intHeight + 'px'
-		});
+		if (($(GetSubContainerSelector()).length > 0) && (!$(GetSubContainerSelector()).hasClass(m_strInvisibleClass))) {
+			showContentCover();
+
+			intWidth = $(window).outerWidth();
+			intHeight = $(window).outerHeight();
+			intBodyWidth = $('body').outerWidth();
+			intBodyHeight = $('body').outerHeight();
+
+			if (intBodyHeight > intHeight) { intHeight = intBodyHeight; }
+			if (intBodyWidth > intWidth) { intWidth = intBodyWidth; }
+
+			$(m_strCoverSelector).css({
+				'width': intWidth + 'px',
+				'height': intHeight + 'px'
+			});
+		}
 	}
 
 	function deleteContentCover(): void { $(m_strCoverSelector).remove(); }
@@ -105,7 +112,7 @@
 		var elSubContent: JQuery = $(GetSubContainerSelector());
 
 		if ((elSubContent.length > 0) && (elSubContent.hasClass(m_strInvisibleClass) == false)) {
-			var intTop: number = $(document).scrollTop();
+			var intTop: number = 5;
 
 			if (elSubContent.parent().parent().attr('id') == GetContainerId()) {
 

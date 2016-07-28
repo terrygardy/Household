@@ -19,14 +19,9 @@ body {
 }
 
 /* Set padding to keep content from hitting the edges */
-.body-content {
-	padding-left: 4px;
-	padding-right: 4px;
-}
-
-.container {
-	padding-left: 4px !important;
-	padding-right: 4px !important;
+.container, .body-content {
+	padding-left: 8px !important;
+	padding-right: 8px !important;
 }
 
 .panel-main {
@@ -127,14 +122,20 @@ body {
 	display: none;
 }
 
+@media (min-width: @screen-xs-min) {
+    #divSubContent {
+        margin-left: 8px;
+    }
+}
+
 #divSubContent {
 	.panel-main;
 	box-shadow: 0 0 10px 2px @gray-dark;
 	position: absolute;
 	top: 0px;
-	z-index: 2000;
+	z-index: 10;
 	padding: 8px 8px 8px 8px;
-	margin-left: -5px;
+	margin-left: 0;
 	margin-right: auto;
 }
 

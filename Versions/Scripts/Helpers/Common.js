@@ -60,7 +60,6 @@ var Common;
         showPleaseWait();
         $(GetSubContainerSelector()).removeClass(m_strInvisibleClass);
         resizeSubContent();
-        showContentCover();
         resizeContentCover();
         window.onresize = function () {
             resizePleaseWait();
@@ -81,26 +80,31 @@ var Common;
         }
     }
     function resizeContentCover() {
-        var intWidth = $(window).outerWidth();
-        var intHeight = $(window).outerHeight();
-        var intBodyWidth = $('body').outerWidth();
-        var intBodyHeight = $('body').outerHeight();
-        if (intBodyHeight > intHeight) {
-            intHeight = intBodyHeight;
+        var intWidth, intHeight, intBodyWidth, intBodyHeight;
+        deleteContentCover();
+        if (($(GetSubContainerSelector()).length > 0) && (!$(GetSubContainerSelector()).hasClass(m_strInvisibleClass))) {
+            showContentCover();
+            intWidth = $(window).outerWidth();
+            intHeight = $(window).outerHeight();
+            intBodyWidth = $('body').outerWidth();
+            intBodyHeight = $('body').outerHeight();
+            if (intBodyHeight > intHeight) {
+                intHeight = intBodyHeight;
+            }
+            if (intBodyWidth > intWidth) {
+                intWidth = intBodyWidth;
+            }
+            $(m_strCoverSelector).css({
+                'width': intWidth + 'px',
+                'height': intHeight + 'px'
+            });
         }
-        if (intBodyWidth > intWidth) {
-            intWidth = intBodyWidth;
-        }
-        $(m_strCoverSelector).css({
-            'width': intWidth + 'px',
-            'height': intHeight + 'px'
-        });
     }
     function deleteContentCover() { $(m_strCoverSelector).remove(); }
     function resizeSubContent() {
         var elSubContent = $(GetSubContainerSelector());
         if ((elSubContent.length > 0) && (elSubContent.hasClass(m_strInvisibleClass) == false)) {
-            var intTop = $(document).scrollTop();
+            var intTop = 5;
             if (elSubContent.parent().parent().attr('id') == GetContainerId()) {
                 if (intTop < 60) {
                     intTop = 60;

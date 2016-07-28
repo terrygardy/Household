@@ -2555,13 +2555,10 @@ body {
   overflow-y: hidden;
 }
 /* Set padding to keep content from hitting the edges */
+.container,
 .body-content {
-  padding-left: 4px;
-  padding-right: 4px;
-}
-.container {
-  padding-left: 4px !important;
-  padding-right: 4px !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
 }
 .panel-main {
   margin-bottom: 20px;
@@ -3927,6 +3924,11 @@ fieldset[disabled] .button-default.focus {
 .invisible {
   display: none;
 }
+@media (min-width: 480px) {
+  #divSubContent {
+    margin-left: 8px;
+  }
+}
 #divSubContent {
   margin-bottom: 20px;
   background-color: #fff;
@@ -3938,9 +3940,9 @@ fieldset[disabled] .button-default.focus {
   box-shadow: 0 0 10px 2px #333333;
   position: absolute;
   top: 0px;
-  z-index: 2000;
+  z-index: 10;
   padding: 8px 8px 8px 8px;
-  margin-left: -5px;
+  margin-left: 0;
   margin-right: auto;
 }
 #divSubContent > .list-group,
@@ -4314,8 +4316,8 @@ select.error {
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
-  padding-left: 4px !important;
-  padding-right: 4px !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
   margin-bottom: 20px;
   background-color: #fff;
   border: 1px solid transparent;
