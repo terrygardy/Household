@@ -10,7 +10,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
-      <publishTime>07/13/2016 14:46:42</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>05/08/2016 18:18:03</publishTime>
@@ -19,7 +19,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/08/2016 18:18:03</publishTime>
     </File>
     <File Include="bin/ApplicationInsights.config">
-      <publishTime>07/13/2016 14:46:42</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="bin/dotless.Core.dll">
       <publishTime>05/05/2016 15:09:25</publishTime>
@@ -34,16 +34,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/05/2016 14:15:14</publishTime>
     </File>
     <File Include="bin/GARTE.TypeHandling.dll">
-      <publishTime>07/20/2016 22:03:46</publishTime>
+      <publishTime>07/27/2016 23:40:57</publishTime>
     </File>
     <File Include="bin/GARTE.TypeHandling.pdb">
-      <publishTime>07/20/2016 22:03:46</publishTime>
+      <publishTime>07/27/2016 23:40:57</publishTime>
     </File>
     <File Include="bin/Helpers.dll">
-      <publishTime>07/20/2016 22:03:46</publishTime>
+      <publishTime>07/27/2016 23:40:58</publishTime>
     </File>
     <File Include="bin/Helpers.pdb">
-      <publishTime>07/20/2016 22:03:46</publishTime>
+      <publishTime>07/27/2016 23:40:58</publishTime>
     </File>
     <File Include="bin/Highcharts.dll">
       <publishTime>01/18/2013 22:54:36</publishTime>
@@ -58,22 +58,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/18/2013 22:54:36</publishTime>
     </File>
     <File Include="bin/Household.BL.dll">
-      <publishTime>07/21/2016 22:58:27</publishTime>
+      <publishTime>07/28/2016 15:47:20</publishTime>
     </File>
     <File Include="bin/Household.BL.pdb">
-      <publishTime>07/21/2016 22:58:27</publishTime>
+      <publishTime>07/28/2016 15:47:20</publishTime>
     </File>
     <File Include="bin/Household.Data.dll">
-      <publishTime>07/20/2016 22:03:47</publishTime>
+      <publishTime>07/28/2016 15:47:20</publishTime>
     </File>
     <File Include="bin/Household.Data.pdb">
-      <publishTime>07/20/2016 22:03:47</publishTime>
+      <publishTime>07/28/2016 15:47:20</publishTime>
     </File>
     <File Include="bin/Household.dll">
-      <publishTime>07/21/2016 22:58:46</publishTime>
+      <publishTime>07/28/2016 15:47:38</publishTime>
     </File>
     <File Include="bin/Household.pdb">
-      <publishTime>07/21/2016 22:58:46</publishTime>
+      <publishTime>07/28/2016 15:47:38</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
       <publishTime>05/08/2016 18:22:33</publishTime>
@@ -223,13 +223,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/Scripts/MasterData/BankAccount.js">
-      <publishTime>07/22/2016 12:34:35</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="bin/Scripts/MasterData/Company.js">
-      <publishTime>07/22/2016 12:34:35</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="bin/Scripts/MasterData/Day.js">
-      <publishTime>07/22/2016 12:34:35</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>05/07/2013 13:09:16</publishTime>
@@ -268,10 +268,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/08/2016 18:24:30</publishTime>
     </File>
     <File Include="bin/WebHelpers.dll">
-      <publishTime>07/20/2016 22:03:46</publishTime>
+      <publishTime>07/27/2016 23:40:58</publishTime>
     </File>
     <File Include="bin/WebHelpers.pdb">
-      <publishTime>07/20/2016 22:03:46</publishTime>
+      <publishTime>07/27/2016 23:40:58</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.css">
       <publishTime>07/12/2016 23:21:21</publishTime>
@@ -304,778 +304,778 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/05/2016 16:17:12</publishTime>
     </File>
     <File Include="Content/Bootstrap/alerts.less">
-      <publishTime>07/20/2016 22:11:14</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/badges.less">
-      <publishTime>07/20/2016 22:11:09</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/bootstrap.css">
       <publishTime>07/20/2016 00:18:52</publishTime>
     </File>
     <File Include="Content/Bootstrap/bootstrap.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/breadcrumbs.less">
-      <publishTime>07/20/2016 22:14:38</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/button-groups.less">
-      <publishTime>07/20/2016 22:14:35</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/buttons.less">
-      <publishTime>07/20/2016 22:14:30</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/carousel.less">
-      <publishTime>07/20/2016 22:14:25</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/close.less">
-      <publishTime>07/20/2016 22:14:20</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/code.less">
-      <publishTime>07/20/2016 22:14:13</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/component-animations.less">
-      <publishTime>07/20/2016 22:10:06</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/dropdowns.less">
-      <publishTime>07/20/2016 22:14:02</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/forms.less">
-      <publishTime>07/20/2016 22:13:32</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/glyphicons.less">
-      <publishTime>07/20/2016 22:25:37</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/grid.less">
-      <publishTime>07/20/2016 22:13:36</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/input-groups.less">
-      <publishTime>07/20/2016 22:12:36</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/jumbotron.less">
-      <publishTime>07/20/2016 22:14:41</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/labels.less">
-      <publishTime>07/20/2016 22:14:44</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/list-group.less">
-      <publishTime>07/20/2016 22:14:47</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/media.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/mixins.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/mixins/alerts.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/mixins/background-variant.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/mixins/border-radius.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/mixins/buttons.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/mixins/center-block.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/mixins/clearfix.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/mixins/forms.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/mixins/gradients.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/mixins/grid-framework.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/mixins/grid.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/mixins/hide-text.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/mixins/image.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/mixins/labels.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/mixins/list-group.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/mixins/nav-divider.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/mixins/nav-vertical-align.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/mixins/opacity.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/mixins/pagination.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/mixins/panels.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/mixins/progress-bar.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/mixins/reset-filter.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/mixins/reset-text.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/mixins/resize.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/mixins/responsive-visibility.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/mixins/size.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/mixins/tab-focus.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/mixins/table-row.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/mixins/text-emphasis.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/mixins/text-overflow.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/mixins/vendor-prefixes.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/modals.less">
-      <publishTime>07/20/2016 22:09:11</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/navbar.less">
-      <publishTime>07/20/2016 22:16:15</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/navs.less">
-      <publishTime>07/20/2016 22:16:37</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/normalize.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/pager.less">
-      <publishTime>07/20/2016 22:16:41</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/pagination.less">
-      <publishTime>07/20/2016 22:16:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/panels.less">
-      <publishTime>07/20/2016 22:16:50</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/popovers.less">
-      <publishTime>07/20/2016 22:16:54</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/print.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/progress-bars.less">
-      <publishTime>07/20/2016 22:16:57</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/responsive-embed.less">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/responsive-utilities.less">
-      <publishTime>07/20/2016 22:17:01</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/scaffolding.less">
-      <publishTime>07/20/2016 22:17:06</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/tables.less">
-      <publishTime>07/20/2016 22:10:19</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/theme.less">
-      <publishTime>07/20/2016 22:17:11</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/thumbnails.less">
-      <publishTime>07/20/2016 22:08:10</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/tooltip.less">
-      <publishTime>07/20/2016 22:07:10</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/type.less">
-      <publishTime>07/20/2016 22:09:43</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/utilities.less">
-      <publishTime>07/20/2016 22:09:28</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/variables.less">
-      <publishTime>07/20/2016 22:20:33</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Bootstrap/wells.less">
-      <publishTime>07/20/2016 22:08:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/DisplayTable.css">
-      <publishTime>07/22/2016 12:34:25</publishTime>
+      <publishTime>07/28/2016 16:17:19</publishTime>
     </File>
     <File Include="Content/fonts/glyphicons-halflings-regular.eot">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/fonts/glyphicons-halflings-regular.svg">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/fonts/glyphicons-halflings-regular.ttf">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/fonts/glyphicons-halflings-regular.woff">
-      <publishTime>07/20/2016 21:54:34</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/fonts/glyphicons-halflings-regular.woff2">
-      <publishTime>07/20/2016 21:54:33</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/pleaseWait.css">
-      <publishTime>07/22/2016 12:34:25</publishTime>
+      <publishTime>07/28/2016 16:17:19</publishTime>
     </File>
     <File Include="Content/pleaseWait.less">
-      <publishTime>07/20/2016 22:18:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Styles.css">
-      <publishTime>07/22/2016 12:34:26</publishTime>
+      <publishTime>07/28/2016 16:17:20</publishTime>
     </File>
     <File Include="Content/Styles.less">
-      <publishTime>07/22/2016 11:57:12</publishTime>
+      <publishTime>07/28/2016 16:14:39</publishTime>
     </File>
     <File Include="favicon.ico">
-      <publishTime>05/05/2016 14:14:58</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.eot">
-      <publishTime>07/12/2016 23:21:21</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.svg">
-      <publishTime>07/12/2016 23:21:21</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.ttf">
-      <publishTime>07/12/2016 23:21:21</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.woff">
-      <publishTime>07/12/2016 23:21:21</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.woff2">
-      <publishTime>07/12/2016 23:21:21</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>05/05/2016 14:14:58</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="gulpfile.js">
-      <publishTime>05/05/2016 15:42:18</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Images/arrow32.png">
-      <publishTime>07/17/2016 10:29:44</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/arrowright32.png">
-      <publishTime>07/17/2016 10:29:44</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/article32.png">
-      <publishTime>07/17/2016 10:29:44</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/bag32.png">
-      <publishTime>07/17/2016 10:29:44</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/bargraph32.png">
-      <publishTime>07/17/2016 10:29:44</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/block32.png">
-      <publishTime>07/17/2016 10:29:44</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/box32.png">
-      <publishTime>07/17/2016 10:29:44</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/boxdownload32.png">
-      <publishTime>07/17/2016 10:29:44</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/boxupload32.png">
-      <publishTime>07/17/2016 10:29:44</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/camera32.png">
-      <publishTime>07/17/2016 10:29:44</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/cameraminus32.png">
-      <publishTime>07/17/2016 10:29:44</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/cameraplus32.png">
-      <publishTime>07/17/2016 10:29:44</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/camerastar32.png">
-      <publishTime>07/17/2016 10:29:44</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/cardgame32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/check32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/circleleft32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/circleright32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/clock32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/comment32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/commentblack32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/contactbook32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/contactcard32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/cup32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/download32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/exchange32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/folder32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/folderblock32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/folderminus32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/folderplus32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/gear32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/glitter32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/heart32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/home32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/leftarrow32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/leftturnarrow32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/lightbulb32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/linedpaper32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/linedpapercheck32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/linedpaperlock32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/linedpaperminus32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/linedpaperpencil32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/linedpaperplus32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/lock32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/mail32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/mailblock32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/mailminus32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/mailopened32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/mailplus32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/mailstar32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/mapleleaf32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/melody32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/minus32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/moneyreceipt32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/monitor32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/mouse32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/note32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/notecheck32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/notepencil32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/paper32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/papercheck32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/paperheart32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/paperlock32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/paperminus32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/papermusic32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/paperpencil32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/paperphoto32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/paperplus32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/paperstar32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/pencil32.png">
-      <publishTime>07/17/2016 10:29:45</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/pencilplus32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/phone32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/phonebook32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/pleaseWait.gif">
-      <publishTime>05/05/2016 18:56:39</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/plug32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/plus32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/printer32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/questionbook32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/radio32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/recycle32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/risegraph32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/rss32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/scissors32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/search32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/shield32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/shieldcross32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/shoppingcart32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/sleep32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/slide32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/smile32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/spanner32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/speaker32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/speakermute32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/star32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/stop32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/turnright32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/unlock32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/upload32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/user32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/userblock32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/userminus32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/userplus32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/users32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/usersblock32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/usersminus32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/usersplus32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/wand32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/warning32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/wordpress32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Images/wrench32.png">
-      <publishTime>07/17/2016 10:29:46</publishTime>
+      <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="package.json">
-      <publishTime>05/05/2016 15:34:03</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>07/20/2016 22:29:26</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/ai.0.15.0-build58334.js">
-      <publishTime>05/05/2016 14:15:35</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
-      <publishTime>07/20/2016 22:30:33</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/bootstrap.min.js">
-      <publishTime>07/20/2016 22:32:08</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/Finance/Expense.js">
-      <publishTime>07/22/2016 12:34:34</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/Finance/Expense.js.map">
-      <publishTime>07/22/2016 12:34:34</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/Finance/Finance.js">
-      <publishTime>07/22/2016 12:34:35</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/Finance/Finance.js.map">
-      <publishTime>07/22/2016 12:34:35</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/Finance/Purchase.js">
-      <publishTime>07/22/2016 12:34:34</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/Finance/Purchase.js.map">
-      <publishTime>07/22/2016 12:34:34</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/Finance/Report.js">
-      <publishTime>07/22/2016 12:34:34</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/Finance/Report.js.map">
-      <publishTime>07/22/2016 12:34:34</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/Helpers/Common.js">
-      <publishTime>07/22/2016 12:34:34</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/Helpers/Common.js.map">
-      <publishTime>07/22/2016 12:34:34</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/Helpers/HTTPRequest.js">
-      <publishTime>07/22/2016 12:34:34</publishTime>
+      <publishTime>07/28/2016 16:17:29</publishTime>
     </File>
     <File Include="Scripts/Helpers/HTTPRequest.js.map">
-      <publishTime>07/22/2016 12:34:34</publishTime>
+      <publishTime>07/28/2016 16:17:29</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/adapters/standalone-framework.js">
-      <publishTime>06/20/2016 16:39:34</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/adapters/standalone-framework.src.js">
-      <publishTime>06/20/2016 16:39:33</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/highcharts-3d.js">
-      <publishTime>06/20/2016 16:39:33</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/highcharts-3d.src.js">
-      <publishTime>06/20/2016 16:39:32</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/highcharts-more.js">
-      <publishTime>06/20/2016 16:39:32</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/highcharts-more.src.js">
-      <publishTime>06/20/2016 16:39:32</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/highcharts.js">
-      <publishTime>06/20/2016 16:39:31</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/highcharts.src.js">
-      <publishTime>06/20/2016 16:39:31</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/modules/boost.js">
-      <publishTime>06/20/2016 16:39:30</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/modules/boost.src.js">
-      <publishTime>06/20/2016 16:39:30</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/modules/broken-axis.js">
-      <publishTime>06/20/2016 16:39:29</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/modules/broken-axis.src.js">
-      <publishTime>06/20/2016 16:39:29</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/modules/canvas-tools.js">
-      <publishTime>06/20/2016 16:39:29</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/modules/canvas-tools.src.js">
-      <publishTime>06/20/2016 16:39:28</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/modules/data.js">
-      <publishTime>06/20/2016 16:39:28</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/modules/data.src.js">
-      <publishTime>06/20/2016 16:39:28</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/modules/drilldown.js">
-      <publishTime>06/20/2016 16:39:27</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/modules/drilldown.src.js">
-      <publishTime>06/20/2016 16:39:27</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/modules/exporting.js">
-      <publishTime>06/20/2016 16:39:27</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/modules/exporting.src.js">
-      <publishTime>06/20/2016 16:39:26</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/modules/funnel.js">
-      <publishTime>06/20/2016 16:39:26</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/modules/funnel.src.js">
-      <publishTime>06/20/2016 16:39:26</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/modules/heatmap.js">
-      <publishTime>06/20/2016 16:39:25</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/modules/heatmap.src.js">
-      <publishTime>06/20/2016 16:39:25</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/modules/no-data-to-display.js">
-      <publishTime>06/20/2016 16:39:25</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/modules/no-data-to-display.src.js">
-      <publishTime>06/20/2016 16:39:24</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/modules/offline-exporting.js">
-      <publishTime>06/20/2016 16:39:24</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/modules/offline-exporting.src.js">
-      <publishTime>06/20/2016 16:39:23</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/modules/solid-gauge.js">
-      <publishTime>06/20/2016 16:39:23</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/modules/solid-gauge.src.js">
-      <publishTime>06/20/2016 16:39:23</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/modules/treemap.js">
-      <publishTime>06/20/2016 16:39:23</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/modules/treemap.src.js">
-      <publishTime>06/20/2016 16:39:22</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/themes/dark-blue.js">
-      <publishTime>06/20/2016 16:39:22</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/themes/dark-green.js">
-      <publishTime>06/20/2016 16:39:22</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/themes/dark-unica.js">
-      <publishTime>06/20/2016 16:39:22</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/themes/gray.js">
-      <publishTime>06/20/2016 16:39:22</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/themes/grid-light.js">
-      <publishTime>06/20/2016 16:39:21</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/themes/grid.js">
-      <publishTime>06/20/2016 16:39:21</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/themes/sand-signika.js">
-      <publishTime>06/20/2016 16:39:21</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/themes/skies.js">
-      <publishTime>06/20/2016 16:39:21</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/highcharts.helpers.js">
-      <publishTime>07/22/2016 12:34:34</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/highcharts/highcharts.helpers.js.map">
-      <publishTime>07/22/2016 12:34:34</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/jquery-2.2.3.js">
       <publishTime>05/23/2016 14:59:22</publishTime>
@@ -1087,112 +1087,112 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/23/2016 14:59:21</publishTime>
     </File>
     <File Include="Scripts/jquery-3.0.0.js">
-      <publishTime>07/12/2016 23:21:17</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/jquery-3.0.0.min.js">
-      <publishTime>07/12/2016 23:21:17</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/jquery-3.0.0.min.map">
-      <publishTime>07/12/2016 23:21:17</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/jquery-3.0.0.slim.js">
-      <publishTime>07/12/2016 23:21:17</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/jquery-3.0.0.slim.min.js">
-      <publishTime>07/12/2016 23:21:16</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/jquery-3.0.0.slim.min.map">
-      <publishTime>07/12/2016 23:21:16</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/jquery-knockout.js">
-      <publishTime>05/08/2016 17:34:18</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/jquery-pleaseWait.js">
-      <publishTime>07/22/2016 12:34:34</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/jquery-pleaseWait.js.map">
-      <publishTime>07/22/2016 12:34:34</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.js">
-      <publishTime>05/08/2016 18:20:03</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.min.js">
-      <publishTime>05/08/2016 18:20:03</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.unobtrusive.js">
-      <publishTime>05/05/2016 14:15:13</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/MasterData/BankAccount.js">
-      <publishTime>07/22/2016 12:34:35</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/MasterData/BankAccount.js.map">
-      <publishTime>07/22/2016 12:34:35</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/MasterData/Company.js">
-      <publishTime>07/22/2016 12:34:35</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/MasterData/Company.js.map">
-      <publishTime>07/22/2016 12:34:35</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/MasterData/Day.js">
-      <publishTime>07/22/2016 12:34:35</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/MasterData/Day.js.map">
-      <publishTime>07/22/2016 12:34:35</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/MasterData/Income.js">
-      <publishTime>07/22/2016 12:34:35</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/MasterData/Income.js.map">
-      <publishTime>07/22/2016 12:34:35</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/MasterData/Interval.js">
-      <publishTime>07/22/2016 12:34:34</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/MasterData/Interval.js.map">
-      <publishTime>07/22/2016 12:34:34</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/MasterData/MasterData.js">
-      <publishTime>07/22/2016 12:34:34</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/MasterData/MasterData.js.map">
-      <publishTime>07/22/2016 12:34:34</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/MasterData/Person.js">
-      <publishTime>07/22/2016 12:34:35</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/MasterData/Person.js.map">
-      <publishTime>07/22/2016 12:34:35</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/MasterData/Shop.js">
-      <publishTime>07/22/2016 12:34:35</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/MasterData/Shop.js.map">
-      <publishTime>07/22/2016 12:34:35</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/modernizr-2.8.3.js">
-      <publishTime>05/08/2016 18:24:26</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/respond.js">
-      <publishTime>05/08/2016 18:24:30</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/respond.matchmedia.addListener.js">
-      <publishTime>05/08/2016 18:24:30</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/respond.matchmedia.addListener.min.js">
-      <publishTime>05/08/2016 18:24:30</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/respond.min.js">
-      <publishTime>05/08/2016 18:24:29</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/validation.js">
-      <publishTime>07/22/2016 12:34:34</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/validation.js.map">
-      <publishTime>07/22/2016 12:34:34</publishTime>
+      <publishTime>07/28/2016 16:17:30</publishTime>
     </File>
     <File Include="Scripts/_references.js">
-      <publishTime>07/20/2016 22:30:19</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Views/Account/ConfirmEmail.cshtml">
       <publishTime>05/05/2016 14:15:14</publishTime>
@@ -1231,37 +1231,37 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/05/2016 14:15:14</publishTime>
     </File>
     <File Include="Views/Expenses/Expense.cshtml">
-      <publishTime>07/22/2016 12:30:46</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Views/Finance/Expenses.cshtml">
-      <publishTime>07/17/2016 11:13:08</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Views/Finance/Finance.cshtml">
-      <publishTime>07/20/2016 22:48:14</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Views/Finance/Intervals.cshtml">
       <publishTime>05/06/2016 22:44:06</publishTime>
     </File>
     <File Include="Views/Finance/MasterData.cshtml">
-      <publishTime>07/22/2016 11:55:51</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Views/Finance/Purchases.cshtml">
-      <publishTime>07/20/2016 00:09:34</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Views/Finance/Reports.cshtml">
-      <publishTime>06/24/2016 13:48:42</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
-      <publishTime>05/05/2016 14:14:58</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
-      <publishTime>05/05/2016 14:14:58</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>07/20/2016 22:34:45</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Views/HomeHDD/HomeHDD.cshtml">
-      <publishTime>05/05/2016 21:32:22</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Views/Manage/AddPhoneNumber.cshtml">
       <publishTime>05/05/2016 14:15:14</publishTime>
@@ -1282,58 +1282,58 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/05/2016 14:15:14</publishTime>
     </File>
     <File Include="Views/MasterData/BankAccount.cshtml">
-      <publishTime>07/22/2016 12:29:38</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Views/MasterData/Company.cshtml">
-      <publishTime>07/22/2016 12:33:14</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Views/MasterData/Day.cshtml">
-      <publishTime>07/22/2016 11:31:41</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Views/MasterData/Income.cshtml">
-      <publishTime>07/22/2016 12:32:57</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Views/MasterData/Interval.cshtml">
-      <publishTime>07/22/2016 12:32:30</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Views/MasterData/Person.cshtml">
-      <publishTime>07/22/2016 12:32:22</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Views/MasterData/Shop.cshtml">
-      <publishTime>07/22/2016 12:28:27</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Views/Purchases/Purchase.cshtml">
-      <publishTime>07/22/2016 12:32:07</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Views/ServerManager/ServerManager.cshtml">
-      <publishTime>05/05/2016 21:32:08</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
-      <publishTime>05/05/2016 14:15:14</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Views/Shared/Lockout.cshtml">
-      <publishTime>05/05/2016 14:15:14</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Views/Shared/MasterData.cshtml">
-      <publishTime>07/21/2016 15:10:16</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>05/18/2016 11:03:59</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutNoM.cshtml">
-      <publishTime>05/06/2016 23:53:11</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
-      <publishTime>05/05/2016 14:15:14</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Views/Web.config">
-      <publishTime>05/05/2016 14:14:58</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
-      <publishTime>05/05/2016 14:14:58</publishTime>
+      <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/22/2016 11:38:18</publishTime>
+      <publishTime>07/28/2016 16:17:31</publishTime>
     </File>
   </ItemGroup>
 </Project>
