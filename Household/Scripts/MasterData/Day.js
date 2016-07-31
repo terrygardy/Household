@@ -1,24 +1,29 @@
 /// <reference path="../typings/knockout/knockout.d.ts" />
 /// <reference path="../Helpers/httprequest.ts" />
 /// <reference path="MasterData.ts" />
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var Day;
 (function (Day_1) {
     var m_objDay;
-    var Day = (function () {
-        function Day(pv_intID, pv_intDay, pv_strBaseAction) {
-            this.ID = ko.observable(pv_intID);
-            this.Day = ko.observable(pv_intDay);
-            this.BaseAction = pv_strBaseAction;
+    var Day = (function (_super) {
+        __extends(Day, _super);
+        function Day(pv_objOptions) {
+            _super.call(this, pv_objOptions);
+            this.Day = ko.observable(pv_objOptions.Day);
             ko.applyBindings(this);
         }
         Day.prototype.Save = function (pv_blnClose) {
             return MasterData.saveMasterRecordWithMessage(this.BaseAction, ko.toJSON({ Day: this }), [this.Day()], pv_blnClose);
         };
         Day.prototype.Delete = function () {
-            MasterData.deleteMasterRecord(this.BaseAction, this.ID());
+            MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() });
         };
         return Day;
-    }());
+    }(MasterData.BaseMasterData));
     Day_1.Day = Day;
     function SaveSingle() {
         if (m_objDay == null) {
@@ -82,7 +87,11 @@ var Day;
     Day_1.HideMultiple = HideMultiple;
     function Fill(pv_strBaseAction, pv_intID, pv_intDay) {
         if (m_objDay == null) {
-            m_objDay = new Day(pv_intID, pv_intDay, pv_strBaseAction);
+            m_objDay = new Day({
+                ID: pv_intID,
+                Day: pv_intDay,
+                BaseAction: pv_strBaseAction
+            });
         }
         else {
             m_objDay.BaseAction = pv_strBaseAction;

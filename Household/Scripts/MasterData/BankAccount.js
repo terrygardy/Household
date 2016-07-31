@@ -1,17 +1,23 @@
 /// <reference path="../typings/knockout/knockout.d.ts" />
 /// <reference path="../Helpers/httprequest.ts" />
+/// <reference path="../Helpers/Common.ts" />
 /// <reference path="MasterData.ts" />
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var BankAccount;
 (function (BankAccount_1) {
     var m_objBankAccount;
-    var BankAccount = (function () {
-        function BankAccount(pv_intID, pv_strAccountName, pv_strBankName, pv_strIBAN, pv_strBIC, pv_strBaseAction) {
-            this.ID = ko.observable(pv_intID);
-            this.AccountName = ko.observable(pv_strAccountName);
-            this.BankName = ko.observable(pv_strBankName);
-            this.IBAN = ko.observable(pv_strIBAN);
-            this.BIC = ko.observable(pv_strBIC);
-            this.BaseAction = pv_strBaseAction;
+    var BankAccount = (function (_super) {
+        __extends(BankAccount, _super);
+        function BankAccount(pv_objOptions) {
+            _super.call(this, pv_objOptions);
+            this.AccountName = ko.observable(pv_objOptions.AccountName);
+            this.BankName = ko.observable(pv_objOptions.BankName);
+            this.IBAN = ko.observable(pv_objOptions.IBAN);
+            this.BIC = ko.observable(pv_objOptions.BIC);
             ko.applyBindings(this);
         }
         BankAccount.prototype.Save = function () {
@@ -19,10 +25,10 @@ var BankAccount;
             MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ BankAccount: this }), [this.AccountName(), this.BankName(), this.IBAN()]);
         };
         BankAccount.prototype.Delete = function () {
-            MasterData.deleteMasterRecord(this.BaseAction, this.ID());
+            MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() });
         };
         return BankAccount;
-    }());
+    }(MasterData.BaseMasterData));
     BankAccount_1.BankAccount = BankAccount;
     function Save() {
         this.m_objBankAccount.Save();
@@ -33,7 +39,14 @@ var BankAccount;
     }
     BankAccount_1.Delete = Delete;
     function Fill(pv_strBaseAction, pv_intID, pv_strAccountName, pv_strBankName, pv_strIBAN, pv_strBIC) {
-        this.m_objBankAccount = new BankAccount(pv_intID, pv_strAccountName, pv_strBankName, formatIBAN(pv_strIBAN), pv_strBIC, pv_strBaseAction);
+        this.m_objBankAccount = new BankAccount({
+            ID: pv_intID,
+            AccountName: pv_strAccountName,
+            BankName: pv_strBankName,
+            IBAN: formatIBAN(pv_strIBAN),
+            BIC: pv_strBIC,
+            BaseAction: pv_strBaseAction
+        });
     }
     BankAccount_1.Fill = Fill;
     function formatIBAN(pv_strIBAN) {

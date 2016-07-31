@@ -31,8 +31,9 @@ namespace Household
 					  "~/Scripts/highcharts/highcharts.helpers.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/Finance").Include(
-					  "~/Scripts/Finance/*.js",
-					  "~/Scripts/Helpers/*.js"));
+					  "~/Scripts/Helpers/*.js",
+					  "~/Scripts/MasterData/MasterData.js",
+					  "~/Scripts/Finance/*.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/Purchase").Include(
 				"~/Scripts/jquery-knockout.js",
@@ -46,8 +47,8 @@ namespace Household
 				"~/Scripts/Finace/Report.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/MasterData").Include(
-					  "~/Scripts/MasterData/MasterData.js",
-					  "~/Scripts/Helpers/*.js"));
+					  "~/Scripts/Helpers/*.js",
+					  "~/Scripts/MasterData/MasterData.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/Person").Include(
 				"~/Scripts/jquery-knockout.js",

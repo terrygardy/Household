@@ -5,17 +5,10 @@
 module Company {
 	var m_objCompany: Company;
 
-	export class Company {
-		ID: any;
-		Name: any;
-		Description: any;
-		BaseAction: string;
+	export class Company extends MasterData.BaseNameDescMasterData {
 
-		constructor(pv_intID: number, pv_strName: string, pv_strDescription: string, pv_strBaseAction: string) {
-			this.ID = ko.observable(pv_intID);
-			this.Name = ko.observable(pv_strName);
-			this.Description = ko.observable(pv_strDescription);
-			this.BaseAction = pv_strBaseAction;
+		constructor(pv_objOptions: MasterData.IMasterNameDescOptions) {
+			super(pv_objOptions);
 
 			ko.applyBindings(this);
 		}
@@ -25,7 +18,7 @@ module Company {
 		}
 
 		Delete(): void {
-			MasterData.deleteMasterRecord(this.BaseAction, this.ID());
+			MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() });
 		}
 	}
 
@@ -38,7 +31,12 @@ module Company {
 	}
 
 	export function Fill(pv_strBaseAction: string, pv_intID: number, pv_strName: string, pv_strDescription: string): void {
-		this.m_objCompany = new Company(pv_intID, pv_strName, pv_strDescription, pv_strBaseAction);
+		this.m_objCompany = new Company({
+			ID: pv_intID,
+			Name: pv_strName,
+			Description: pv_strDescription,
+			BaseAction: pv_strBaseAction
+		});
 	}
 
 	export function start() {

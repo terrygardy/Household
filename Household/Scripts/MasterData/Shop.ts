@@ -5,27 +5,20 @@
 module Shop {
 	var m_objShop: Shop;
 
-	export class Shop {
-		ID: any;
-		Name: any;
-		Description: any;
-		BaseAction: string;
+	export class Shop extends MasterData.BaseNameDescMasterData {
 
-		constructor(pv_intID: number, pv_strName: string, pv_strDescription: string, pv_strBaseAction: string) {
-			this.ID = ko.observable(pv_intID);
-			this.Name = ko.observable(pv_strName);
-			this.Description = ko.observable(pv_strDescription);
-			this.BaseAction = pv_strBaseAction;
-
+		constructor(pv_objOptions: MasterData.IMasterNameDescOptions) {
+			super(pv_objOptions);
+			
 			ko.applyBindings(this);
 		}
 
 		Save(): void {
-			MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ "Shop": this }), [this.Name(), this.Description()]);
+			MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Shop: this }), [this.Name(), this.Description()]);
 		}
 
 		Delete(): void {
-			MasterData.deleteMasterRecord(this.BaseAction, this.ID());
+			MasterData.deleteMasterRecord({ ID: this.ID(), BaseAction: this.BaseAction });
 		}
 	}
 
@@ -38,7 +31,12 @@ module Shop {
 	}
 
 	export function Fill(pv_strBaseAction: string, pv_intID: number, pv_strName: string, pv_strDescription: string): void {
-		this.m_objShop = new Shop(pv_intID, pv_strName, pv_strDescription, pv_strBaseAction);
+		this.m_objShop = new Shop({
+			ID: pv_intID,
+			BaseAction: pv_strBaseAction,
+			Name: pv_strName,
+			Description: pv_strDescription
+		});
 	}
 
 	export function start() {

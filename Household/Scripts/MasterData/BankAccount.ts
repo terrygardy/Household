@@ -1,25 +1,30 @@
 ﻿/// <reference path="../typings/knockout/knockout.d.ts" />
 /// <reference path="../Helpers/httprequest.ts" />
+/// <reference path="../Helpers/Common.ts" />
 /// <reference path="MasterData.ts" />
 
 module BankAccount {
 	var m_objBankAccount: BankAccount;
 
-	export class BankAccount {
-		ID: any;
+	interface IBankAccountOptions extends MasterData.IMasterBaseOptions {
+		AccountName: string;
+		BankName: string;
+		IBAN: string;
+		BIC: string;
+	}
+
+	export class BankAccount extends MasterData.BaseMasterData {
 		AccountName: any;
 		BankName: any;
 		IBAN: any;
 		BIC: any;
-		BaseAction: string;
 
-		constructor(pv_intID: number, pv_strAccountName: string, pv_strBankName: string, pv_strIBAN: string, pv_strBIC: string, pv_strBaseAction: string) {
-			this.ID = ko.observable(pv_intID);
-			this.AccountName = ko.observable(pv_strAccountName);
-			this.BankName = ko.observable(pv_strBankName);
-			this.IBAN = ko.observable(pv_strIBAN);
-			this.BIC = ko.observable(pv_strBIC);
-			this.BaseAction = pv_strBaseAction;
+		constructor(pv_objOptions: IBankAccountOptions) {
+			super(pv_objOptions);
+			this.AccountName = ko.observable(pv_objOptions.AccountName);
+			this.BankName = ko.observable(pv_objOptions.BankName);
+			this.IBAN = ko.observable(pv_objOptions.IBAN);
+			this.BIC = ko.observable(pv_objOptions.BIC);
 
 			ko.applyBindings(this);
 		}
@@ -31,7 +36,7 @@ module BankAccount {
 		}
 
 		Delete(): void {
-			MasterData.deleteMasterRecord(this.BaseAction, this.ID());
+			MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() });
 		}
 	}
 
@@ -44,7 +49,14 @@ module BankAccount {
 	}
 
 	export function Fill(pv_strBaseAction: string, pv_intID: number, pv_strAccountName: string, pv_strBankName: string, pv_strIBAN: string, pv_strBIC: string): void {
-		this.m_objBankAccount = new BankAccount(pv_intID, pv_strAccountName, pv_strBankName, formatIBAN(pv_strIBAN), pv_strBIC, pv_strBaseAction);
+		this.m_objBankAccount = new BankAccount({
+			ID: pv_intID,
+			AccountName: pv_strAccountName,
+			BankName: pv_strBankName,
+			IBAN: formatIBAN(pv_strIBAN),
+			BIC: pv_strBIC,
+			BaseAction: pv_strBaseAction
+		});
 	}
 
 	export function formatIBAN(pv_strIBAN: string) {

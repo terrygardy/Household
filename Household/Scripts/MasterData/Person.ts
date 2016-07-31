@@ -5,17 +5,19 @@
 module Person {
 	var m_objPerson: Person;
 
-	export class Person {
-		ID: any;
+	interface IPersonOptions extends MasterData.IMasterBaseOptions {
+		Surname: string;
+		Forename: string;
+	}
+
+	export class Person extends MasterData.BaseMasterData {
 		Surname: any;
 		Forename: any;
-		BaseAction: string;
 
-		constructor(pv_intID: number, pv_strSurname: string, pv_strForename: string, pv_strBaseAction: string) {
-			this.ID = ko.observable(pv_intID);
-			this.Surname = ko.observable(pv_strSurname);
-			this.Forename = ko.observable(pv_strForename);
-			this.BaseAction = pv_strBaseAction;
+		constructor(pv_objOptions: IPersonOptions) {
+			super(pv_objOptions);
+			this.Surname = ko.observable(pv_objOptions.Surname);
+			this.Forename = ko.observable(pv_objOptions.Forename);
 
 			ko.applyBindings(this);
 		}
@@ -25,7 +27,7 @@ module Person {
 		}
 
 		Delete(): void {
-			MasterData.deleteMasterRecord(this.BaseAction, this.ID());
+			MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() });
 		}
 	}
 
@@ -38,7 +40,7 @@ module Person {
 	}
 
 	export function Fill(pv_strBaseAction: string, pv_intID: number, pv_strSurname: string, pv_strForename: string): void {
-		this.m_objPerson = new Person(pv_intID, pv_strSurname, pv_strForename, pv_strBaseAction);
+		this.m_objPerson = new Person({ ID: pv_intID, Surname: pv_strSurname, Forename: pv_strForename, BaseAction: pv_strBaseAction });
 	}
 
 	export function start() {

@@ -5,15 +5,10 @@
 module Interval {
 	var m_objInterval: Interval;
 
-	export class Interval {
-		ID: any;
-		Name: any;
-		BaseAction: any;
+	export class Interval extends MasterData.BaseNameMasterData{
 
-		constructor(pv_intID: number, pv_strName: string, pv_strBaseAction: string) {
-			this.ID = ko.observable(pv_intID);
-			this.Name = ko.observable(pv_strName);
-			this.BaseAction = pv_strBaseAction;
+		constructor(pv_objOptions: MasterData.IMasterNameOptions) {
+			super(pv_objOptions);
 
 			ko.applyBindings(this);
 		}
@@ -23,7 +18,7 @@ module Interval {
 		}
 
 		Delete(): void {
-			MasterData.deleteMasterRecord(this.BaseAction, this.ID());
+			MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() });
 		}
 	}
 
@@ -36,7 +31,7 @@ module Interval {
 	}
 
 	export function Fill(pv_strBaseAction: string, pv_intID: number, pv_strName: string): void {
-		this.m_objInterval = new Interval(pv_intID, pv_strName, pv_strBaseAction);
+		this.m_objInterval = new Interval({ ID: pv_intID, Name: pv_strName, BaseAction: pv_strBaseAction });
 	}
 
 	export function start() {

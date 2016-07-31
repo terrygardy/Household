@@ -5,8 +5,17 @@
 module Expense {
 	var m_objExpense: Expense;
 
-	export class Expense {
-		ID: any;
+	interface IExpenseOptions extends MasterData.IMasterDescOptions {
+		StartDate: string;
+		EndDate: string;
+		Company_ID: number;
+		BankAccount_ID: number;
+		PaymentDay_ID: number;
+		Interval_ID: number;
+		Amount: number;
+	}
+
+	export class Expense extends MasterData.BaseMasterData {
 		StartDate: any;
 		EndDate: any;
 		Company_ID: any;
@@ -17,18 +26,15 @@ module Expense {
 		Description: any;
 		BaseAction: string;
 
-		constructor(pv_intID: number, pv_strStartDate: string, pv_strEndDate: string, pv_lngCompany: number, pv_lngBankAccount: number,
-			pv_lngPaymentDay: number, pv_lngInterval: number, pv_decAmount: number, pv_strDescription: string, pv_strBaseAction: string) {
-			this.ID = ko.observable(pv_intID);
-			this.StartDate = ko.observable(pv_strStartDate);
-			this.EndDate = ko.observable(pv_strEndDate);
-			this.Company_ID = ko.observable(pv_lngCompany);
-			this.BankAccount_ID = ko.observable(pv_lngBankAccount);
-			this.PaymentDay_ID = ko.observable(pv_lngPaymentDay);
-			this.Interval_ID = ko.observable(pv_lngInterval);
-			this.Amount = ko.observable(pv_decAmount);
-			this.Description = ko.observable(pv_strDescription);
-			this.BaseAction = pv_strBaseAction;
+		constructor(pv_objOptions: IExpenseOptions) {
+			super(pv_objOptions);
+			this.StartDate = ko.observable(pv_objOptions.StartDate);
+			this.EndDate = ko.observable(pv_objOptions.EndDate);
+			this.Company_ID = ko.observable(pv_objOptions.Company_ID);
+			this.BankAccount_ID = ko.observable(pv_objOptions.BankAccount_ID);
+			this.PaymentDay_ID = ko.observable(pv_objOptions.PaymentDay_ID);
+			this.Interval_ID = ko.observable(pv_objOptions.Interval_ID);
+			this.Amount = ko.observable(pv_objOptions.Amount);
 
 			ko.applyBindings(this);
 		}
@@ -38,7 +44,7 @@ module Expense {
 		}
 
 		Delete(): void {
-			MasterData.deleteMasterRecord(this.BaseAction, this.ID());
+			MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() });
 		}
 	}
 
@@ -52,8 +58,18 @@ module Expense {
 
 	export function Fill(pv_strBaseAction: string, pv_intID: number, pv_strStartDate: string, pv_strEndDate: string, pv_lngCompany: number, pv_lngBankAccount: number,
 		pv_lngPaymentDay: number, pv_lngInterval: number, pv_decAmount: number, pv_strDescription: string): void {
-		this.m_objExpense = new Expense(pv_intID, pv_strStartDate, pv_strEndDate, pv_lngCompany, pv_lngBankAccount, pv_lngPaymentDay, pv_lngInterval,
-			pv_decAmount, pv_strDescription, pv_strBaseAction);
+		this.m_objExpense = new Expense({
+			ID: pv_intID,
+			StartDate: pv_strStartDate,
+			EndDate: pv_strEndDate,
+			Company_ID: pv_lngCompany,
+			BankAccount_ID: pv_lngBankAccount,
+			PaymentDay_ID: pv_lngPaymentDay,
+			Interval_ID: pv_lngInterval,
+			Amount: pv_decAmount,
+			Description: pv_strDescription,
+			BaseAction: pv_strBaseAction
+		});
 	}
 
 	function getCurrentCompanyText(): string {
