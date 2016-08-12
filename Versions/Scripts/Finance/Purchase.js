@@ -1,28 +1,32 @@
 /// <reference path="../typings/knockout/knockout.d.ts" />
 /// <reference path="../Helpers/httprequest.ts" />
 /// <reference path="../MasterData/MasterData.ts" />
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var Purchase;
 (function (Purchase_1) {
     var m_objPurchase;
-    var Purchase = (function () {
-        function Purchase(pv_intID, pv_strOccurrence, pv_lngShop, pv_lngPayer, pv_decAmount, pv_strDescription, pv_strBaseAction) {
-            this.ID = ko.observable(pv_intID);
-            this.Occurrence = ko.observable(pv_strOccurrence);
-            this.Shop_ID = ko.observable(pv_lngShop);
-            this.Payer_ID = ko.observable(pv_lngPayer);
-            this.Amount = ko.observable(pv_decAmount);
-            this.Description = ko.observable(pv_strDescription);
-            this.BaseAction = pv_strBaseAction;
+    var Purchase = (function (_super) {
+        __extends(Purchase, _super);
+        function Purchase(pv_objOptions) {
+            _super.call(this, pv_objOptions);
+            this.Occurrence = ko.observable(pv_objOptions.Occurrence);
+            this.Shop_ID = ko.observable(pv_objOptions.Shop_ID);
+            this.Payer_ID = ko.observable(pv_objOptions.Payer_ID);
+            this.Amount = ko.observable(pv_objOptions.Amount);
             ko.applyBindings(this);
         }
         Purchase.prototype.Save = function () {
             MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Purchase: this }), [this.Occurrence(), getCurrentPayerText(), getCurrentShopText(), this.Amount() + ' €']);
         };
         Purchase.prototype.Delete = function () {
-            MasterData.deleteMasterRecord(this.BaseAction, this.ID());
+            MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() });
         };
         return Purchase;
-    }());
+    }(MasterData.BaseDescMasterData));
     Purchase_1.Purchase = Purchase;
     function Save() {
         this.m_objPurchase.Save();
@@ -33,7 +37,15 @@ var Purchase;
     }
     Purchase_1.Delete = Delete;
     function Fill(pv_strBaseAction, pv_intID, pv_strOccurrence, pv_lngShop, pv_lngPayer, pv_decAmount, pv_strDescription) {
-        this.m_objPurchase = new Purchase(pv_intID, pv_strOccurrence, pv_lngShop, pv_lngPayer, pv_decAmount, pv_strDescription, pv_strBaseAction);
+        this.m_objPurchase = new Purchase({
+            ID: pv_intID,
+            Occurrence: pv_strOccurrence,
+            Shop_ID: pv_lngShop,
+            Payer_ID: pv_lngPayer,
+            Amount: pv_decAmount,
+            Description: pv_strDescription,
+            BaseAction: pv_strBaseAction
+        });
     }
     Purchase_1.Fill = Fill;
     function getCurrentShopText() {

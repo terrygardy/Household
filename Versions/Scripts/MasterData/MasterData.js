@@ -2,6 +2,11 @@
 /// <reference path="../Helpers/Common.ts" />
 /// <reference path="../jquery-pleaseWait.ts" />
 /// <reference path="../validation.ts" />
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var MasterData;
 (function (MasterData) {
     var m_strTableId = "tblDisplay";
@@ -12,7 +17,41 @@ var MasterData;
         }
         return Return;
     }());
-    MasterData.Return = Return;
+    var BaseMasterData = (function () {
+        function BaseMasterData(pv_objOptions) {
+            this.ID = ko.observable(pv_objOptions.ID);
+            this.BaseAction = pv_objOptions.BaseAction;
+        }
+        return BaseMasterData;
+    }());
+    MasterData.BaseMasterData = BaseMasterData;
+    var BaseNameMasterData = (function (_super) {
+        __extends(BaseNameMasterData, _super);
+        function BaseNameMasterData(pv_objOptions) {
+            _super.call(this, pv_objOptions);
+            this.Name = ko.observable(pv_objOptions.Name);
+        }
+        return BaseNameMasterData;
+    }(BaseMasterData));
+    MasterData.BaseNameMasterData = BaseNameMasterData;
+    var BaseNameDescMasterData = (function (_super) {
+        __extends(BaseNameDescMasterData, _super);
+        function BaseNameDescMasterData(pv_objOptions) {
+            _super.call(this, pv_objOptions);
+            this.Description = ko.observable(pv_objOptions.Description);
+        }
+        return BaseNameDescMasterData;
+    }(BaseNameMasterData));
+    MasterData.BaseNameDescMasterData = BaseNameDescMasterData;
+    var BaseDescMasterData = (function (_super) {
+        __extends(BaseDescMasterData, _super);
+        function BaseDescMasterData(pv_objOptions) {
+            _super.call(this, pv_objOptions);
+            this.Description = ko.observable(pv_objOptions.Description);
+        }
+        return BaseDescMasterData;
+    }(BaseMasterData));
+    MasterData.BaseDescMasterData = BaseDescMasterData;
     function deleteRow(pv_intID) {
         var spFooter;
         $(m_strTableSelector + ' tbody tr[id="' + pv_intID.toString() + '"]').remove();
@@ -53,10 +92,10 @@ var MasterData;
         }
     }
     MasterData.updateRow = updateRow;
-    function deleteMasterRecord(pv_strBaseURL, pv_intID) {
+    function deleteMasterRecord(pv_objOptions) {
         showPleaseWait();
         try {
-            var objRequest = Helpers.HttpRequests.CreateSyncRequestHandlerPOST(pv_strBaseURL + '/Delete/' + pv_intID.toString(), Helpers.HttpRequests.GetContentTypeForm());
+            var objRequest = Helpers.HttpRequests.CreateSyncRequestHandlerPOST(pv_objOptions.BaseAction + '/Delete/' + pv_objOptions.ID.toString(), Helpers.HttpRequests.GetContentTypeForm());
             var strReturn;
             objRequest.send();
             strReturn = objRequest.response;
@@ -64,7 +103,7 @@ var MasterData;
                 alert(strReturn);
             }
             else {
-                MasterData.deleteRow(pv_intID);
+                MasterData.deleteRow(pv_objOptions.ID);
                 Common.hideSubContent();
             }
         }

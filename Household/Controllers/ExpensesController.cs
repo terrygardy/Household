@@ -23,7 +23,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult Expense(long id)
 		{
-			return PartialView("Expense", new CExpenseModel(CDbContext.getInstance(), id));
+			return PartialView(new CExpenseModel(CDbContext.getInstance(), id));
 		}
 
 		[HttpPost]

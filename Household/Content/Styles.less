@@ -29,49 +29,20 @@ body {
 	.panel-default;
 }
 
-.panel-main-clickable,
-.panel-finance,
-.panel-homeHDD,
-.panel-serverManager,
-.panel-purchases,
-.panel-expenses,
-.panel-reports,
-.panel-masterData {
+.panel-main-clickable {
 	.panel-main;
 	.clickable;
 }
 
-.panel-main-clickable > div,
-.panel-finance > div,
-.panel-homeHDD > div,
-.panel-serverManager > div,
-.panel-purchases > div,
-.panel-expenses > div,
-.panel-reports > div,
-.panel-masterData > div {
+.panel-main-clickable > div {
 	.panel-body;
 }
 
-.panel-main-clickable:hover, .panel-main-clickable:focus,
-.panel-finance:focus, .panel-finance:hover,
-.panel-homeHDD:focus, .panel-homeHDD:hover,
-.panel-serverManager:focus, .panel-serverManager:hover,
-.panel-purchases:focus, .panel-purchases:hover,
-.panel-expenses:focus, .panel-expenses:hover,
-.panel-reports:focus, .panel-reports:hover,
-.panel-masterData:focus, .panel-masterData:hover {
+.panel-main-clickable:hover, .panel-main-clickable:focus {
 	background-color: @gray-lighter;
 }
 
-.panel-main-clickable:hover, .panel-main-clickable:focus,
-#divSubContent,
-.panel-finance:focus, .panel-finance:hover,
-.panel-homeHDD:focus, .panel-homeHDD:hover,
-.panel-serverManager:focus, .panel-serverManager:hover,
-.panel-purchases:focus, .panel-purchases:hover,
-.panel-expenses:focus, .panel-expenses:hover,
-.panel-reports:focus, .panel-reports:hover,
-.panel-masterData:focus, .panel-masterData:hover {
+.panel-main-clickable:hover, .panel-main-clickable:focus, #divSubContent {
 	border-color: @gray-light;
 	.box-shadow(0 0 10px 2px @gray-light);
 }
@@ -123,9 +94,9 @@ body {
 }
 
 @media (min-width: @screen-xs-min) {
-    #divSubContent {
-        margin-left: 8px;
-    }
+	#divSubContent {
+		margin-left: 8px;
+	}
 }
 
 #divSubContent {

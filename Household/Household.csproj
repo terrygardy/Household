@@ -228,6 +228,7 @@
     <Compile Include="Controllers\BankAccountController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\ServerManagerController.cs" />
+    <Compile Include="Controllers\WorkController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -257,6 +258,7 @@
     <Compile Include="Models\MasterData\CPeopleModel.cs" />
     <Compile Include="Models\MasterData\CReturn.cs" />
     <Compile Include="Models\Search\CSearchPurchase.cs" />
+    <Compile Include="Models\Work\CWorkHoursModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Views\Home\Index.generated.cs">
@@ -582,6 +584,8 @@
     <Content Include="Scripts\MasterData\Income.js.map" />
     <Content Include="Views\Purchases\Purchase.cshtml" />
     <Content Include="Views\Expenses\Expense.cshtml" />
+    <Content Include="Views\Work\Work.cshtml" />
+    <Content Include="Views\Work\WorkHours.cshtml" />
     <TypeScriptCompile Include="Scripts\Finance\Expense.ts" />
     <TypeScriptCompile Include="Scripts\Finance\Purchase.ts" />
     <TypeScriptCompile Include="Scripts\Finance\Report.ts" />
@@ -651,9 +655,9 @@
       <Project>{3c4faf9e-01d0-4711-ad71-34bfce920b40}</Project>
       <Name>Helpers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HouseholdData\HouseholdData.csproj">
+    <ProjectReference Include="..\HouseholdData\Household.Data.csproj">
       <Project>{9eb8b86e-ae48-4945-a833-476a85e6b6e7}</Project>
-      <Name>HouseholdData</Name>
+      <Name>Household.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\TypeHandling\TypeHandling.csproj">
       <Project>{d0f10307-3590-49a5-b55a-9129dd0404c4}</Project>
@@ -663,9 +667,9 @@
       <Project>{6ae80545-000e-4d72-9320-b5c988391fd7}</Project>
       <Name>WebHelpers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HouseholdBL\HouseholdBL.csproj">
+    <ProjectReference Include="..\HouseholdBL\Household.BL.csproj">
       <Project>{c0faff73-d6ed-4f7b-8f53-c589648db8d3}</Project>
-      <Name>HouseholdBL</Name>
+      <Name>Household.BL</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

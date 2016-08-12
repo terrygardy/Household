@@ -1,9 +1,6 @@
 namespace Household.Data.Context
 {
-	using System;
 	using System.Data.Entity;
-	using System.ComponentModel.DataAnnotations.Schema;
-	using System.Linq;
 
 	public partial class DataModel : DbContext
 	{
@@ -19,6 +16,7 @@ namespace Household.Data.Context
 		public virtual DbSet<t_Income> t_Income { get; set; }
 		public virtual DbSet<t_Person> t_Person { get; set; }
 		public virtual DbSet<t_Purchase> t_Purchase { get; set; }
+		public virtual DbSet<t_WorkDay> t_WorkDay { get; set; }
 		public virtual DbSet<tbr_BankAccountPerson> tbr_BankAccountPerson { get; set; }
 		public virtual DbSet<txx_BankAccount> txx_BankAccount { get; set; }
 		public virtual DbSet<txx_Company> txx_Company { get; set; }
