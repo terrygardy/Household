@@ -25,7 +25,9 @@ namespace Household.Data.Context
 		{
 			get
 			{
-				return (Begin - End).Hours - BreakDuration;
+				var tsDifference = End - Begin;
+				var decResult = tsDifference.Hours + (tsDifference.Minutes / (decimal)60);
+				return decResult - BreakDuration;
 			}
 		}
 	}

@@ -1,0 +1,23 @@
+﻿@{
+	ViewBag.Title = "Work";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="divContent" class="container">
+	<ol class="breadcrumb">
+		<li><a href="@Url.Action("Index", "Home")">Home</a></li>
+		<li>Work</li>
+	</ol>
+	<div class="row">
+		<div>
+			<div class="panel-main-clickable panel-workHours" onclick="Common.LoadContent('@Url.Action("WorkHours", "Work")');">
+				<div>
+					<h2>Work Hours</h2>
+					<p>Manage your working hours</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+@section scripts{
+	@Scripts.Render("~/bundles/MasterData")
+}

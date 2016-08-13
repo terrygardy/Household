@@ -58,8 +58,8 @@ namespace Household.Models.Work
 			foreach (var tWorkDay in lstWorkDays)
 			{
 				var strDay = Base.convertShortDateString(tWorkDay.WorkDay, "...");
-				var strBegin = Base.convertShortDateString(tWorkDay.Begin, "...");
-				var strEnd = Base.convertShortDateString(tWorkDay.End);
+				var strBegin = Base.convertShortTimeString(tWorkDay.Begin, "...");
+				var strEnd = Base.convertShortTimeString(tWorkDay.End, "...");
 				var strTooltip = $"{strDay}: from {strBegin}";
 				var drBody = new CDisplayRow()
 				{

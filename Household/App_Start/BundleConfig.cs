@@ -78,6 +78,10 @@ namespace Household
 				"~/Scripts/jquery-knockout.js",
 				"~/Scripts/MasterData/Income.js"));
 
+			bundles.Add(new ScriptBundle("~/bundles/WorkDay").Include(
+				"~/Scripts/jquery-knockout.js",
+				"~/Scripts/Work/WorkHours.js"));
+
 			bundles.Add(new StyleBundle("~/Content/css").Include(
 					  "~/Content/Bootstrap/bootstrap.css",
 					  "~/Content/*.css"));
