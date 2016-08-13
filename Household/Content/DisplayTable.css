@@ -10,6 +10,7 @@ table thead tr th,
 table tfoot tr th {
   background-color: #fff;
   color: #337ab7;
+  white-space: nowrap;
 }
 table tbody tr td {
   color: #333333;

@@ -47,6 +47,9 @@
     <Compile Include="DATA\txx\CShopData.cs" />
     <Compile Include="DATA\txx\CIntervalData.cs" />
     <Compile Include="DATA\txx\CDayData.cs" />
+    <Compile Include="DATA\t\CWorkDayData.cs" />
+    <Compile Include="Functions\t\CWorkDay.cs" />
+    <Compile Include="Interfaces\t\IWorkDay.cs" />
     <Compile Include="Returns\CDateDecimal.cs" />
     <Compile Include="DATA\t\CExpenseData.cs" />
     <Compile Include="DATA\t\CIncomeData.cs" />
@@ -80,9 +83,9 @@
       <Project>{3c4faf9e-01d0-4711-ad71-34bfce920b40}</Project>
       <Name>Helpers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HouseholdData\HouseholdData.csproj">
+    <ProjectReference Include="..\HouseholdData\Household.Data.csproj">
       <Project>{9eb8b86e-ae48-4945-a833-476a85e6b6e7}</Project>
-      <Name>HouseholdData</Name>
+      <Name>Household.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\TypeHandling\TypeHandling.csproj">
       <Project>{d0f10307-3590-49a5-b55a-9129dd0404c4}</Project>

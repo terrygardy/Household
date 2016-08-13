@@ -5,24 +5,25 @@
 module Purchase {
 	var m_objPurchase: Purchase;
 
-	export class Purchase {
-		ID: any;
+	interface IPurchaseOptions extends MasterData.IMasterDescOptions {
+		Occurrence: string;
+		Shop_ID: number;
+		Payer_ID: number;
+		Amount: number;
+	}
+
+	export class Purchase extends MasterData.BaseDescMasterData {
 		Occurrence: any;
 		Shop_ID: any;
 		Payer_ID: any;
 		Amount: any;
-		Description: any;
-		BaseAction: string;
 
-		constructor(pv_intID: number, pv_strOccurrence: string, pv_lngShop: number, pv_lngPayer: number, pv_decAmount: number,
-			pv_strDescription: string, pv_strBaseAction: string) {
-			this.ID = ko.observable(pv_intID);
-			this.Occurrence = ko.observable(pv_strOccurrence);
-			this.Shop_ID = ko.observable(pv_lngShop);
-			this.Payer_ID = ko.observable(pv_lngPayer);
-			this.Amount = ko.observable(pv_decAmount);
-			this.Description = ko.observable(pv_strDescription);
-			this.BaseAction = pv_strBaseAction;
+		constructor(pv_objOptions: IPurchaseOptions) {
+			super(pv_objOptions);
+			this.Occurrence = ko.observable(pv_objOptions.Occurrence);
+			this.Shop_ID = ko.observable(pv_objOptions.Shop_ID);
+			this.Payer_ID = ko.observable(pv_objOptions.Payer_ID);
+			this.Amount = ko.observable(pv_objOptions.Amount);
 
 			ko.applyBindings(this);
 		}
@@ -32,7 +33,7 @@ module Purchase {
 		}
 
 		Delete(): void {
-			MasterData.deleteMasterRecord(this.BaseAction, this.ID());
+			MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() });
 		}
 	}
 
@@ -46,7 +47,15 @@ module Purchase {
 
 	export function Fill(pv_strBaseAction: string, pv_intID: number, pv_strOccurrence: string, pv_lngShop: number,
 		pv_lngPayer: number, pv_decAmount: number, pv_strDescription: string): void {
-		this.m_objPurchase = new Purchase(pv_intID, pv_strOccurrence, pv_lngShop, pv_lngPayer, pv_decAmount, pv_strDescription, pv_strBaseAction);
+		this.m_objPurchase = new Purchase({
+			ID: pv_intID,
+			Occurrence: pv_strOccurrence,
+			Shop_ID: pv_lngShop,
+			Payer_ID: pv_lngPayer,
+			Amount: pv_decAmount,
+			Description: pv_strDescription,
+			BaseAction: pv_strBaseAction
+		});
 	}
 
 	function getCurrentShopText(): string {

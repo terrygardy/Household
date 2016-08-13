@@ -1,24 +1,28 @@
 /// <reference path="../typings/knockout/knockout.d.ts" />
 /// <reference path="../Helpers/httprequest.ts" />
 /// <reference path="MasterData.ts" />
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var Interval;
 (function (Interval_1) {
     var m_objInterval;
-    var Interval = (function () {
-        function Interval(pv_intID, pv_strName, pv_strBaseAction) {
-            this.ID = ko.observable(pv_intID);
-            this.Name = ko.observable(pv_strName);
-            this.BaseAction = pv_strBaseAction;
+    var Interval = (function (_super) {
+        __extends(Interval, _super);
+        function Interval(pv_objOptions) {
+            _super.call(this, pv_objOptions);
             ko.applyBindings(this);
         }
         Interval.prototype.Save = function () {
             MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Interval: this }), [this.Name()]);
         };
         Interval.prototype.Delete = function () {
-            MasterData.deleteMasterRecord(this.BaseAction, this.ID());
+            MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() });
         };
         return Interval;
-    }());
+    }(MasterData.BaseNameMasterData));
     Interval_1.Interval = Interval;
     function Save() {
         this.m_objInterval.Save();
@@ -29,7 +33,7 @@ var Interval;
     }
     Interval_1.Delete = Delete;
     function Fill(pv_strBaseAction, pv_intID, pv_strName) {
-        this.m_objInterval = new Interval(pv_intID, pv_strName, pv_strBaseAction);
+        this.m_objInterval = new Interval({ ID: pv_intID, Name: pv_strName, BaseAction: pv_strBaseAction });
     }
     Interval_1.Fill = Fill;
     function start() {

@@ -112,7 +112,7 @@
 		var elSubContent: JQuery = $(GetSubContainerSelector());
 
 		if ((elSubContent.length > 0) && (elSubContent.hasClass(m_strInvisibleClass) == false)) {
-			var intTop: number = 5;
+			var intTop: number = $(document).scrollTop() + 5;
 
 			if (elSubContent.parent().parent().attr('id') == GetContainerId()) {
 

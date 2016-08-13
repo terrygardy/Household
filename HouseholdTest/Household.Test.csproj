@@ -194,17 +194,17 @@
       <Project>{3C4FAF9E-01D0-4711-AD71-34BFCE920B40}</Project>
       <Name>Helpers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HouseholdData\HouseholdData.csproj">
+    <ProjectReference Include="..\HouseholdData\Household.Data.csproj">
       <Project>{9EB8B86E-AE48-4945-A833-476A85E6B6E7}</Project>
-      <Name>HouseholdData</Name>
+      <Name>Household.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\WebHelpers\WebHelpers.csproj">
       <Project>{6AE80545-000E-4D72-9320-B5C988391FD7}</Project>
       <Name>WebHelpers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HouseholdBL\HouseholdBL.csproj">
+    <ProjectReference Include="..\HouseholdBL\Household.BL.csproj">
       <Project>{c0faff73-d6ed-4f7b-8f53-c589648db8d3}</Project>
-      <Name>HouseholdBL</Name>
+      <Name>Household.BL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Household\Household.csproj">
       <Project>{d66d2796-ae21-4b42-908b-ad20d7bc00af}</Project>

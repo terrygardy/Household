@@ -60,70 +60,93 @@ WriteLiteral(" class=\"row\"");
 
 WriteLiteral(">\r\n\t<div");
 
-WriteLiteral(" class=\"col-md-4\"");
+WriteLiteral(" class=\"col-sm-6\"");
 
 WriteLiteral(">\r\n\t\t<div");
 
-WriteLiteral(" class=\"panel-homeHDD\"");
+WriteLiteral(" class=\"panel-finance panel-main-clickable\"");
 
-WriteAttribute("onclick", Tuple.Create(" onclick=\"", 233), Tuple.Create("\"", 299)
-, Tuple.Create(Tuple.Create("", 243), Tuple.Create("document.location", 243), true)
-, Tuple.Create(Tuple.Create(" ", 260), Tuple.Create("=", 261), true)
-, Tuple.Create(Tuple.Create(" ", 262), Tuple.Create("\'", 263), true)
+WriteAttribute("onclick", Tuple.Create(" onclick=\"", 254), Tuple.Create("\"", 319)
+, Tuple.Create(Tuple.Create("", 264), Tuple.Create("document.location", 264), true)
+, Tuple.Create(Tuple.Create(" ", 281), Tuple.Create("=", 282), true)
+, Tuple.Create(Tuple.Create(" ", 283), Tuple.Create("\'", 284), true)
             
             #line 12 "..\..\Views\Home\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 264), Tuple.Create<System.Object, System.Int32>(Url.Action("HomeHDD", "HomeHDD")
+       , Tuple.Create(Tuple.Create("", 285), Tuple.Create<System.Object, System.Int32>(Url.Action("Finance", "Finance")
             
             #line default
             #line hidden
-, 264), false)
-, Tuple.Create(Tuple.Create("", 297), Tuple.Create("\';", 297), true)
+, 285), false)
+, Tuple.Create(Tuple.Create("", 318), Tuple.Create("\'", 318), true)
+);
+
+WriteLiteral(">\r\n\t\t\t<div>\r\n\t\t\t\t<h2>Finance</h2>\r\n\t\t\t\t<p>Expenses, purchases and monthly bills</" +
+"p>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n\t<div");
+
+WriteLiteral(" class=\"col-sm-6\"");
+
+WriteLiteral(">\r\n\t\t<div");
+
+WriteLiteral(" class=\"panel-work panel-main-clickable\"");
+
+WriteAttribute("onclick", Tuple.Create(" onclick=\"", 506), Tuple.Create("\"", 566)
+, Tuple.Create(Tuple.Create("", 516), Tuple.Create("document.location", 516), true)
+, Tuple.Create(Tuple.Create(" ", 533), Tuple.Create("=", 534), true)
+, Tuple.Create(Tuple.Create(" ", 535), Tuple.Create("\'", 536), true)
+            
+            #line 20 "..\..\Views\Home\Index.cshtml"
+    , Tuple.Create(Tuple.Create("", 537), Tuple.Create<System.Object, System.Int32>(Url.Action("Work", "Work")
+            
+            #line default
+            #line hidden
+, 537), false)
+, Tuple.Create(Tuple.Create("", 564), Tuple.Create("\';", 564), true)
+);
+
+WriteLiteral(">\r\n\t\t\t<div>\r\n\t\t\t\t<h2>Work</h2>\r\n\t\t\t\t<p>Manage your working hours</p>\r\n\t\t\t</div>\r\n" +
+"\t\t</div>\r\n\t</div>\r\n\t<div");
+
+WriteLiteral(" class=\"col-sm-6\"");
+
+WriteLiteral(">\r\n\t\t<div");
+
+WriteLiteral(" class=\"panel-homeHDD panel-main-clickable\"");
+
+WriteAttribute("onclick", Tuple.Create(" onclick=\"", 741), Tuple.Create("\"", 807)
+, Tuple.Create(Tuple.Create("", 751), Tuple.Create("document.location", 751), true)
+, Tuple.Create(Tuple.Create(" ", 768), Tuple.Create("=", 769), true)
+, Tuple.Create(Tuple.Create(" ", 770), Tuple.Create("\'", 771), true)
+            
+            #line 28 "..\..\Views\Home\Index.cshtml"
+       , Tuple.Create(Tuple.Create("", 772), Tuple.Create<System.Object, System.Int32>(Url.Action("HomeHDD", "HomeHDD")
+            
+            #line default
+            #line hidden
+, 772), false)
+, Tuple.Create(Tuple.Create("", 805), Tuple.Create("\';", 805), true)
 );
 
 WriteLiteral(">\r\n\t\t\t<div>\r\n\t\t\t\t<h2>Home-HDD</h2>\r\n\t\t\t\t<p>Come on in and manage your documents a" +
 "nd pictures</p>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n\t<div");
 
-WriteLiteral(" class=\"col-md-4\"");
+WriteLiteral(" class=\"col-sm-6\"");
 
 WriteLiteral(">\r\n\t\t<div");
 
-WriteLiteral(" class=\"panel-finance\"");
+WriteLiteral(" class=\"panel-serverManager panel-main-clickable\"");
 
-WriteAttribute("onclick", Tuple.Create(" onclick=\"", 481), Tuple.Create("\"", 546)
-, Tuple.Create(Tuple.Create("", 491), Tuple.Create("document.location", 491), true)
-, Tuple.Create(Tuple.Create(" ", 508), Tuple.Create("=", 509), true)
-, Tuple.Create(Tuple.Create(" ", 510), Tuple.Create("\'", 511), true)
+WriteAttribute("onclick", Tuple.Create(" onclick=\"", 1016), Tuple.Create("\"", 1093)
+, Tuple.Create(Tuple.Create("", 1026), Tuple.Create("document.location", 1026), true)
+, Tuple.Create(Tuple.Create(" ", 1043), Tuple.Create("=", 1044), true)
+, Tuple.Create(Tuple.Create(" ", 1045), Tuple.Create("\'", 1046), true)
             
-            #line 20 "..\..\Views\Home\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 512), Tuple.Create<System.Object, System.Int32>(Url.Action("Finance", "Finance")
-            
-            #line default
-            #line hidden
-, 512), false)
-, Tuple.Create(Tuple.Create("", 545), Tuple.Create("\'", 545), true)
-);
-
-WriteLiteral(">\r\n\t\t\t<div>\r\n\t\t\t\t<h2>Finance</h2>\r\n\t\t\t\t<p>This is where you can manage your expen" +
-"ses, purchases and monthly bills</p>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n\t<div");
-
-WriteLiteral(" class=\"col-md-4\"");
-
-WriteLiteral(">\r\n\t\t<div");
-
-WriteLiteral(" class=\"panel-serverManager\"");
-
-WriteAttribute("onclick", Tuple.Create(" onclick=\"", 755), Tuple.Create("\"", 832)
-, Tuple.Create(Tuple.Create("", 765), Tuple.Create("document.location", 765), true)
-, Tuple.Create(Tuple.Create(" ", 782), Tuple.Create("=", 783), true)
-, Tuple.Create(Tuple.Create(" ", 784), Tuple.Create("\'", 785), true)
-            
-            #line 28 "..\..\Views\Home\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 786), Tuple.Create<System.Object, System.Int32>(Url.Action("ServerManager", "ServerManager")
+            #line 36 "..\..\Views\Home\Index.cshtml"
+            , Tuple.Create(Tuple.Create("", 1047), Tuple.Create<System.Object, System.Int32>(Url.Action("ServerManager", "ServerManager")
             
             #line default
             #line hidden
-, 786), false)
-, Tuple.Create(Tuple.Create("", 831), Tuple.Create("\'", 831), true)
+, 1047), false)
+, Tuple.Create(Tuple.Create("", 1092), Tuple.Create("\'", 1092), true)
 );
 
 WriteLiteral(">\r\n\t\t\t<div>\r\n\t\t\t\t<h2>Server Manager</h2>\r\n\t\t\t\t<p>Check out the server and look wh" +

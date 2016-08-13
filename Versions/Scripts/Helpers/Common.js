@@ -104,7 +104,7 @@ var Common;
     function resizeSubContent() {
         var elSubContent = $(GetSubContainerSelector());
         if ((elSubContent.length > 0) && (elSubContent.hasClass(m_strInvisibleClass) == false)) {
-            var intTop = 5;
+            var intTop = $(document).scrollTop() + 5;
             if (elSubContent.parent().parent().attr('id') == GetContainerId()) {
                 if (intTop < 60) {
                     intTop = 60;

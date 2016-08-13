@@ -5,15 +5,16 @@
 module Day {
 	var m_objDay: Day;
 
-	export class Day {
-		ID: any;
-		Day: any;
-		BaseAction: string;
+	interface IDayOptions extends MasterData.IMasterBaseOptions {
+		Day: number;
+	}
 
-		constructor(pv_intID: number, pv_intDay: number, pv_strBaseAction: string) {
-			this.ID = ko.observable(pv_intID);
-			this.Day = ko.observable(pv_intDay);
-			this.BaseAction = pv_strBaseAction;
+	export class Day extends MasterData.BaseMasterData {
+		Day: any;
+
+		constructor(pv_objOptions: IDayOptions) {
+			super(pv_objOptions);
+			this.Day = ko.observable(pv_objOptions.Day);
 
 			ko.applyBindings(this);
 		}
@@ -23,7 +24,7 @@ module Day {
 		}
 
 		Delete(): void {
-			MasterData.deleteMasterRecord(this.BaseAction, this.ID());
+			MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() });
 		}
 	}
 
@@ -88,7 +89,11 @@ module Day {
 
 	export function Fill(pv_strBaseAction: string, pv_intID: number, pv_intDay: number): void {
 		if (m_objDay == null) {
-			m_objDay = new Day(pv_intID, pv_intDay, pv_strBaseAction);
+			m_objDay = new Day({
+				ID: pv_intID,
+				Day: pv_intDay,
+				BaseAction: pv_strBaseAction
+			});
 		} else {
 			m_objDay.BaseAction = pv_strBaseAction;
 			m_objDay.Day(pv_intDay);

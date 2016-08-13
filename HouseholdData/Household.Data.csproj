@@ -62,6 +62,7 @@
     <Compile Include="Context\txx_Shop.cs" />
     <Compile Include="Context\t_Expense.cs" />
     <Compile Include="Context\t_Income.cs" />
+    <Compile Include="Context\t_WorkDay.cs" />
     <Compile Include="Context\t_Person.cs" />
     <Compile Include="Context\t_Purchase.cs" />
     <Compile Include="Migrations\201605181607231_IBAN.cs" />
@@ -79,6 +80,10 @@
     <Compile Include="Migrations\201606070835435_ForeignKey_Purchase.cs" />
     <Compile Include="Migrations\201606070835435_ForeignKey_Purchase.Designer.cs">
       <DependentUpon>201606070835435_ForeignKey_Purchase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608121905384_AddWorkDay.cs" />
+    <Compile Include="Migrations\201608121905384_AddWorkDay.Designer.cs">
+      <DependentUpon>201608121905384_AddWorkDay.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Base\CModelBase.cs" />
@@ -121,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606070835435_ForeignKey_Purchase.resx">
       <DependentUpon>201606070835435_ForeignKey_Purchase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608121905384_AddWorkDay.resx">
+      <DependentUpon>201608121905384_AddWorkDay.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

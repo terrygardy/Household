@@ -8,9 +8,62 @@ module MasterData {
 	var m_strTableSelector: string = "#" + m_strTableId;
 	export var OnClickAdd: string = '';
 
-	export class Return {
+	class Return {
 		Message: string;
 		ID: number;
+	}
+
+	export interface IMasterBaseOptions {
+		ID: any;
+		BaseAction: string;
+	}
+
+	export interface IMasterNameOptions extends IMasterBaseOptions {
+		Name: any;
+	}
+
+	export interface IMasterDescOptions extends IMasterBaseOptions {
+		Description: any;
+	}
+
+	export interface IMasterNameDescOptions extends IMasterNameOptions, IMasterDescOptions {
+	}
+
+	export class BaseMasterData {
+		ID: any;
+		BaseAction: string;
+
+		constructor(pv_objOptions: IMasterBaseOptions) {
+			this.ID = ko.observable(pv_objOptions.ID);
+			this.BaseAction = pv_objOptions.BaseAction;
+		}
+	}
+
+	export class BaseNameMasterData extends BaseMasterData {
+		Name: any;
+
+		constructor(pv_objOptions: IMasterNameOptions) {
+			super(pv_objOptions);
+			this.Name = ko.observable(pv_objOptions.Name);
+		}
+	}
+
+	export class BaseNameDescMasterData extends BaseNameMasterData {
+		Description: any;
+
+		constructor(pv_objOptions: IMasterNameDescOptions) {
+			super(pv_objOptions);
+			this.Description = ko.observable(pv_objOptions.Description);
+		}
+	}
+
+	export class BaseDescMasterData extends BaseMasterData {
+		Description: any;
+
+		constructor(pv_objOptions: IMasterDescOptions) {
+			super(pv_objOptions);
+			this.Description = ko.observable(pv_objOptions.Description);
+		}
 	}
 
 	export function deleteRow(pv_intID: number) {
@@ -63,11 +116,11 @@ module MasterData {
 		}
 	}
 
-	export function deleteMasterRecord(pv_strBaseURL: string, pv_intID: number): void {
+	export function deleteMasterRecord(pv_objOptions: IMasterBaseOptions): void {
 		showPleaseWait();
 
 		try {
-			var objRequest: XMLHttpRequest = Helpers.HttpRequests.CreateSyncRequestHandlerPOST(pv_strBaseURL + '/Delete/' + pv_intID.toString(), Helpers.HttpRequests.GetContentTypeForm());
+			var objRequest: XMLHttpRequest = Helpers.HttpRequests.CreateSyncRequestHandlerPOST(pv_objOptions.BaseAction + '/Delete/' + pv_objOptions.ID.toString(), Helpers.HttpRequests.GetContentTypeForm());
 			var strReturn: string;
 
 			objRequest.send();
@@ -77,7 +130,7 @@ module MasterData {
 				alert(strReturn);
 			}
 			else {
-				MasterData.deleteRow(pv_intID);
+				MasterData.deleteRow(pv_objOptions.ID);
 				Common.hideSubContent();
 			}
 		}
@@ -105,8 +158,8 @@ module MasterData {
 
 			try {
 				var objRequest: XMLHttpRequest = Helpers.HttpRequests.CreateSyncRequestHandlerPOST(pv_strBaseURL + '/Save/', Helpers.HttpRequests.GetContentTypeJson());
-				var objReturn: MasterData.Return;
-				
+				var objReturn: Return;
+
 				objRequest.send(pv_objData);
 				objReturn = JSON.parse(objRequest.response);
 

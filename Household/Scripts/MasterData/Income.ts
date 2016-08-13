@@ -6,8 +6,17 @@
 module Income {
 	var m_objIncome: Income;
 
-	export class Income {
-		ID: any;
+	interface IIncomeOptions extends MasterData.IMasterDescOptions {
+		StartDate: string;
+		EndDate: string;
+		Interval_ID: number;
+		Day_ID: number;
+		Payee_ID: number;
+		Company_ID: number;
+		Amount: number;
+	}
+
+	export class Income extends MasterData.BaseDescMasterData {
 		StartDate: any;
 		EndDate: any;
 		Interval_ID: any;
@@ -15,21 +24,16 @@ module Income {
 		Payee_ID: any;
 		Company_ID: any;
 		Amount: any;
-		Description: any;
-		BaseAction: string;
 
-		constructor(pv_intID: number, pv_strStartDate: string, pv_strEndDate: string, pv_intInterval: number, pv_intDay: number, pv_intPayee: number,
-			pv_intCompany: number, pv_decAmount: number, pv_strDescription: string, pv_strBaseAction: string) {
-			this.ID = ko.observable(pv_intID);
-			this.StartDate = ko.observable(pv_strStartDate);
-			this.EndDate = ko.observable(pv_strEndDate);
-			this.Interval_ID = ko.observable(pv_intInterval);
-			this.Day_ID = ko.observable(pv_intDay);
-			this.Payee_ID = ko.observable(pv_intPayee);
-			this.Company_ID = ko.observable(pv_intCompany);
-			this.Amount = ko.observable(pv_decAmount);
-			this.Description = ko.observable(pv_strDescription);
-			this.BaseAction = pv_strBaseAction;
+		constructor(pv_objOptions: IIncomeOptions) {
+			super(pv_objOptions);
+			this.StartDate = ko.observable(pv_objOptions.StartDate);
+			this.EndDate = ko.observable(pv_objOptions.EndDate);
+			this.Interval_ID = ko.observable(pv_objOptions.Interval_ID);
+			this.Day_ID = ko.observable(pv_objOptions.Day_ID);
+			this.Payee_ID = ko.observable(pv_objOptions.Payee_ID);
+			this.Company_ID = ko.observable(pv_objOptions.Company_ID);
+			this.Amount = ko.observable(pv_objOptions.Amount);
 
 			ko.applyBindings(this);
 		}
@@ -39,7 +43,7 @@ module Income {
 		}
 
 		Delete(): void {
-			MasterData.deleteMasterRecord(this.BaseAction, this.ID());
+			MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() });
 		}
 	}
 
@@ -53,8 +57,18 @@ module Income {
 
 	export function Fill(pv_strBaseAction: string, pv_intID: number, pv_strStartDate: string, pv_strEndDate: string, pv_intInterval: number,
 		pv_intDay: number, pv_intPayee: number, pv_intCompany: number, pv_decAmount: number, pv_strDescription: string): void {
-		this.m_objIncome = new Income(pv_intID, pv_strStartDate, pv_strEndDate, pv_intInterval, pv_intDay, pv_intPayee, pv_intCompany,
-			pv_decAmount, pv_strDescription, pv_strBaseAction);
+		this.m_objIncome = new Income({
+			ID: pv_intID,
+			Description: pv_strDescription,
+			BaseAction: pv_strBaseAction,
+			StartDate: pv_strStartDate,
+			EndDate: pv_strEndDate,
+			Interval_ID: pv_intInterval,
+			Day_ID: pv_intDay,
+			Payee_ID: pv_intPayee,
+			Company_ID: pv_intCompany,
+			Amount: pv_decAmount
+		});
 	}
 
 	function getCurrentCompanyText(): string {
