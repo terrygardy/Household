@@ -2,46 +2,18 @@
 using WebHelpers;
 using System.Web.Mvc;
 using Household.Models.MasterData;
-using Household.Models.Db;
 using System;
 using Household.BL.DATA.t;
+using Household.Controllers.Base;
+using Household.Data.Context;
 
 namespace Household.Controllers
 {
-	public class IncomeController : Controller
+	public class IncomeController : CRUDController<t_Income, CIncome, DateTime, string, CIncomeData>
 	{
-		[HttpPost]
-		public string Save([System.Web.Http.FromBody]CIncomeData Income)
+		protected override long GetDataID(CIncomeData data)
 		{
-			string strMessage = "";
-
-			try
-			{
-				new CIncome(CDbContext.getInstance()).save(Income);
-			}
-			catch (Exception ex)
-			{
-				strMessage = ex.Message;
-			}
-
-			return JSON.serialiseObject(new CReturn() { ID = Income.ID, Message = strMessage });
-		}
-
-		[HttpPost]
-		public string Delete(long id)
-		{
-			string strMessage = "";
-
-			try
-			{
-				new CIncome(CDbContext.getInstance()).deleteByID(id);
-			}
-			catch (Exception ex)
-			{
-				strMessage = ex.Message;
-			}
-
-			return strMessage;
+			return data.ID;
 		}
 	}
 }

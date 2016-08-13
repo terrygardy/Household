@@ -213,6 +213,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Base\CRUDController.cs" />
     <Compile Include="Controllers\IncomeController.cs" />
     <Compile Include="Controllers\ExpensesController.cs" />
     <Compile Include="Controllers\PurchasesController.cs" />
@@ -239,7 +240,6 @@
     <Compile Include="Models\Chart\CYearChart.cs" />
     <Compile Include="Models\Chart\CShopChart.cs" />
     <Compile Include="Models\CMasterData.cs" />
-    <Compile Include="Models\Db\CDbContext.cs" />
     <Compile Include="Models\DisplayTable\CDisplayColumn.cs" />
     <Compile Include="Models\DisplayTable\CDisplayRow.cs" />
     <Compile Include="Models\DisplayTable\CDisplayTable.cs" />

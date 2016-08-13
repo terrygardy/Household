@@ -14,7 +14,7 @@ module Shop {
 		}
 
 		Save(): void {
-			MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Shop: this }), [this.Name(), this.Description()]);
+			MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), [this.Name(), this.Description()]);
 		}
 
 		Delete(): void {

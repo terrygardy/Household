@@ -5,7 +5,6 @@ using Household.BL.Functions.txx;
 using Household.BL.Interfaces.t;
 using Household.BL.Interfaces.txx;
 using Household.Models;
-using Household.Models.Db;
 using Household.Models.MasterData;
 using System.Web.Mvc;
 
@@ -46,7 +45,7 @@ namespace Household.Controllers
 				Text = "People"
 			});
 
-			cData.DisplayTable = new CPeopleModel(CDbContext.getInstance()).getDisplayTable();
+			cData.DisplayTable = new CPeopleModel().getDisplayTable();
 
 			return PartialView(m_strMasterDataUrl, cData);
 		}
@@ -54,7 +53,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult Person(long id)
 		{
-			IPerson objPerson = new CPerson(CDbContext.getInstance()).getDataByID(id);
+			IPerson objPerson = new CPerson().getDataByID(id);
 
 			if (objPerson == null) objPerson = new CPersonData();
 
@@ -92,7 +91,7 @@ namespace Household.Controllers
 				Text = "Bank Accounts"
 			});
 
-			cData.DisplayTable = new CBankAccountsModel(CDbContext.getInstance()).getDisplayTable();
+			cData.DisplayTable = new CBankAccountsModel().getDisplayTable();
 
 			return PartialView(m_strMasterDataUrl, cData);
 		}
@@ -100,7 +99,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult BankAccount(long id)
 		{
-			IBankAccount objBankAccount = new CBankAccount(CDbContext.getInstance()).getDataByID(id);
+			IBankAccount objBankAccount = new CBankAccount().getDataByID(id);
 
 			if (objBankAccount == null) objBankAccount = new CBankAccountData();
 
@@ -138,7 +137,7 @@ namespace Household.Controllers
 				Text = "Companies"
 			});
 
-			cData.DisplayTable = new CCompaniesModel(CDbContext.getInstance()).getDisplayTable();
+			cData.DisplayTable = new CCompaniesModel().getDisplayTable();
 
 			return PartialView(m_strMasterDataUrl, cData);
 		}
@@ -146,7 +145,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult Company(long id)
 		{
-			ICompany objCompany = new CCompany(CDbContext.getInstance()).getDataByID(id);
+			ICompany objCompany = new CCompany().getDataByID(id);
 
 			if (objCompany == null) objCompany = new CCompanyData();
 
@@ -184,7 +183,7 @@ namespace Household.Controllers
 				Text = "Days"
 			});
 
-			cData.DisplayTable = new CDaysModel(CDbContext.getInstance()).getDisplayTable();
+			cData.DisplayTable = new CDaysModel().getDisplayTable();
 
 			return PartialView(m_strMasterDataUrl, cData);
 		}
@@ -192,7 +191,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult Day(long id)
 		{
-			var objDay = new CDay(CDbContext.getInstance()).getDataByID(id);
+			var objDay = new CDay().getDataByID(id);
 
 			if (objDay == null) objDay = new CDayData();
 
@@ -230,7 +229,7 @@ namespace Household.Controllers
 				Text = "Intervals"
 			});
 
-			cData.DisplayTable = new CIntervalsModel(CDbContext.getInstance()).getDisplayTable();
+			cData.DisplayTable = new CIntervalsModel().getDisplayTable();
 
 			return PartialView(m_strMasterDataUrl, cData);
 		}
@@ -238,7 +237,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult Interval(long id)
 		{
-			IInterval objInterval = new CInterval(CDbContext.getInstance()).getDataByID(id);
+			IInterval objInterval = new CInterval().getDataByID(id);
 
 			if (objInterval == null) objInterval = new CIntervalData();
 
@@ -276,7 +275,7 @@ namespace Household.Controllers
 				Text = "Shops"
 			});
 
-			cData.DisplayTable = new CShopsModel(CDbContext.getInstance()).getDisplayTable();
+			cData.DisplayTable = new CShopsModel().getDisplayTable();
 
 			return PartialView(m_strMasterDataUrl, cData);
 		}
@@ -284,7 +283,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult Shop(long id)
 		{
-			IShop objShop = new CShop(CDbContext.getInstance()).getDataByID(id);
+			IShop objShop = new CShop().getDataByID(id);
 
 			if (objShop == null) objShop = new CShopData();
 
@@ -322,7 +321,7 @@ namespace Household.Controllers
 				Text = "Income"
 			});
 
-			cData.DisplayTable = new CIncomesModel(CDbContext.getInstance()).getDisplayTable();
+			cData.DisplayTable = new CIncomesModel().getDisplayTable();
 
 			return PartialView(m_strMasterDataUrl, cData);
 		}
@@ -330,7 +329,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult Income(long id)
 		{
-			return PartialView("Income", new CIncomeModel(CDbContext.getInstance(), id));
+			return PartialView("Income", new CIncomeModel(id));
 		}
 	}
 }

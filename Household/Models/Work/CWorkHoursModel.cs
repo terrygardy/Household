@@ -1,19 +1,16 @@
 ﻿using Household.Models.DisplayTable;
 using Household.BL.Functions.t;
-using Household.Data.Context;
 using GARTE.TypeHandling;
 
 namespace Household.Models.Work
 {
 	public class CWorkHoursModel
 	{
-		private Database DbHousehold { get; set; }
-
-		public CWorkHoursModel(Database pv_dbHousehold) { DbHousehold = pv_dbHousehold; }
+		public CWorkHoursModel() { }
 
 		public CDisplayTable getDisplayTable()
 		{
-			var cWorkDay = new CWorkDay(DbHousehold);
+			var cWorkDay = new CWorkDay();
 			var lstWorkDays = cWorkDay.getWorkingDays();
 			var dtTable = new CDisplayTable()
 			{

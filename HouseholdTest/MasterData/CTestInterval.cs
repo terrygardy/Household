@@ -118,7 +118,7 @@ namespace Household.Test.MasterData
 		{
 			try
 			{
-				return new CInterval(Models.Db.CDbContext.getInstance());
+				return new CInterval();
 			}
 			catch (Exception ex)
 			{

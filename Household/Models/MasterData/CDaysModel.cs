@@ -6,13 +6,13 @@ namespace Household.Models.MasterData
 {
 	public class CDaysModel
 	{
-		private Database DbHousehold { get; set; }
+		
 
-		public CDaysModel(Database pv_dbHousehold) { DbHousehold = pv_dbHousehold; }
+		public CDaysModel() { }
 
 		public CDisplayTable getDisplayTable()
 		{
-			var cDay = new CDay(DbHousehold);
+			var cDay = new CDay();
 			var lstDays = cDay.getDays();
 			var dtTable = new CDisplayTable()
 			{

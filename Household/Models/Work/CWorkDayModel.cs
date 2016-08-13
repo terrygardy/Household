@@ -1,6 +1,5 @@
 ﻿using Household.BL.DATA.t;
 using Household.BL.Functions.t;
-using Household.Data.Context;
 
 namespace Household.Models.Work
 {
@@ -8,9 +7,9 @@ namespace Household.Models.Work
 	{
 		public CWorkDayData WorkDay { get; set; }
 
-		public CWorkDayModel(Database pv_dbHousehold, long pv_lngID)
+		public CWorkDayModel(long pv_lngID)
 		{
-			WorkDay = new CWorkDay(pv_dbHousehold).getDataByID(pv_lngID);
+			WorkDay = new CWorkDay().getDataByID(pv_lngID);
 
 			if (WorkDay == null) WorkDay = new CWorkDayData();
 		}

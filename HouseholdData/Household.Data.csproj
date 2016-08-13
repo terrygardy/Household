@@ -65,6 +65,7 @@
     <Compile Include="Context\t_WorkDay.cs" />
     <Compile Include="Context\t_Person.cs" />
     <Compile Include="Context\t_Purchase.cs" />
+    <Compile Include="Db\CDbConnection.cs" />
     <Compile Include="Migrations\201605181607231_IBAN.cs" />
     <Compile Include="Migrations\201605181607231_IBAN.Designer.cs">
       <DependentUpon>201605181607231_IBAN.cs</DependentUpon>

@@ -23,8 +23,8 @@ namespace Household.Test.MainObjects
 
 		public CTestPurchase()
 		{
-			m_xxPayer = new CBankAccount(Models.Db.CDbContext.getInstance()).getBankAccounts()[0];
-			m_xxShop = new CShop(Models.Db.CDbContext.getInstance()).getShops()[0];
+			m_xxPayer = new CBankAccount().getBankAccounts()[0];
+			m_xxShop = new CShop().getShops()[0];
 		}
 
 		[Test]
@@ -248,7 +248,7 @@ namespace Household.Test.MainObjects
 		{
 			try
 			{
-				return new CPurchase(Models.Db.CDbContext.getInstance());
+				return new CPurchase();
 			}
 			catch (Exception ex)
 			{

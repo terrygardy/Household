@@ -9,9 +9,9 @@ using System.Collections.Generic;
 
 namespace Household.BL.Functions.t
 {
-	public class CWorkDay : CModelBase<t_WorkDay, DateTime, string, CWorkDayData>
+	public class CWorkDay : CModelBase<t_WorkDay, DateTime, TimeSpan, CWorkDayData>
 	{
-		public CWorkDay(Database pv_dmHH_DB) : base(pv_dmHH_DB) { }
+		public CWorkDay() { }
 
 		public override void validate(t_WorkDay pv_cEntity)
 		{
@@ -23,9 +23,9 @@ namespace Household.BL.Functions.t
 			return x => x.WorkDay;
 		}
 
-		protected override Expression<Func<t_WorkDay, string>> getStandardThenBy()
+		protected override Expression<Func<t_WorkDay, TimeSpan>> getStandardThenBy()
 		{
-			return x => x.Begin.ToString();
+			return x => x.Begin;
 		}
 
 		protected override Expression<Func<t_WorkDay, bool>> getStandardWhereID(long pv_lngID)

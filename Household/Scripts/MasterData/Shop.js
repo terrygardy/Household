@@ -16,7 +16,7 @@ var Shop;
             ko.applyBindings(this);
         }
         Shop.prototype.Save = function () {
-            MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Shop: this }), [this.Name(), this.Description()]);
+            MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), [this.Name(), this.Description()]);
         };
         Shop.prototype.Delete = function () {
             MasterData.deleteMasterRecord({ ID: this.ID(), BaseAction: this.BaseAction });

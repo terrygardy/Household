@@ -1,4 +1,5 @@
 ﻿using Household.Data.Context;
+using Household.Data.Db;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace Household.Data.Models.Base
 
 		protected Database Database { get; set; }
 
-		public CModelBase() { }
+		public CModelBase() { setDatabase(CDbConnection.getInstance()); }
 
 		public CModelBase(Database pv_dmHH_DB) { setDatabase(pv_dmHH_DB); }
 

@@ -32,7 +32,7 @@ module BankAccount {
 		Save(): void {
 			this.IBAN(this.IBAN().toString().toUpperCase());
 
-			MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ BankAccount: this }), [this.AccountName(), this.BankName(), this.IBAN()]);
+			MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), [this.AccountName(), this.BankName(), this.IBAN()]);
 		}
 
 		Delete(): void {

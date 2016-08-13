@@ -1,6 +1,5 @@
 ﻿using Household.BL.Functions.t;
 using Household.BL.Functions.txx;
-using Household.Data.Context;
 using Household.Models.Chart;
 using Household.Models.DisplayTable;
 
@@ -8,13 +7,11 @@ namespace Household.Models.MasterData
 {
 	public class CShopsModel
 	{
-		private Database DbHousehold { get; set; }
-
-		public CShopsModel(Database pv_dbHousehold) { DbHousehold = pv_dbHousehold; }
+		public CShopsModel() { }
 
 		public CDisplayTable getDisplayTable()
 		{
-			var cShop = new CShop(DbHousehold);
+			var cShop = new CShop();
 			var lstShops = cShop.getShops();
 			var dtTable = new CDisplayTable()
 			{
@@ -80,10 +77,10 @@ namespace Household.Models.MasterData
 
 		public CShopChart GetCompareChartInfo(long pv_lngID, int pv_intYear)
 		{
-			var cPurchase = new CPurchase(DbHousehold);
+			var cPurchase = new CPurchase();
 			var cShopChart = new CShopChart();
 
-			cShopChart.name = new CShop(DbHousehold).getDataByID(pv_lngID).Name;
+			cShopChart.name = new CShop().getDataByID(pv_lngID).Name;
 
 			foreach (var objInfo in cPurchase.getPurchaseInfoForShopChart(pv_lngID, pv_intYear))
 			{

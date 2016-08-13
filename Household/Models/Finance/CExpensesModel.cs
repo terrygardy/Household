@@ -1,19 +1,14 @@
 ﻿using Household.Models.DisplayTable;
 using Household.BL.Functions.t;
-using Household.Data.Context;
 using GARTE.TypeHandling;
 
 namespace Household.Models.Finance
 {
 	public class CExpensesModel
 	{
-		private Database DbHousehold { get; set; }
-
-		public CExpensesModel(Database pv_dbHousehold) { DbHousehold = pv_dbHousehold; }
-
 		public CDisplayTable getDisplayTable()
 		{
-			var cExpense = new CExpense(DbHousehold);
+			var cExpense = new CExpense();
 			var lstExpenses = cExpense.getExpenses();
 			var dtTable = new CDisplayTable()
 			{

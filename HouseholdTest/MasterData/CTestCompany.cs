@@ -113,7 +113,7 @@ namespace Household.Test.MasterData
 		{
 			try
 			{
-				return new CCompany(Models.Db.CDbContext.getInstance());
+				return new CCompany();
 			}
 			catch (Exception ex)
 			{

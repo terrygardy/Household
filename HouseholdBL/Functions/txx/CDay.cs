@@ -12,7 +12,7 @@ namespace Household.BL.Functions.txx
 {
 	public class CDay : CModelBase<txx_Day, int, int, CDayData>
 	{
-		public CDay(Database pv_dmHH_DB) : base(pv_dmHH_DB) { }
+		public CDay() { }
 
 		public override void validate(txx_Day pv_cEntity)
 		{

@@ -13,8 +13,6 @@ namespace Household.BL.Functions.t
 	{
 		public CPerson() { }
 
-		public CPerson(Database dbHousehold) : base(dbHousehold) { }
-
 		public override void validate(t_Person pv_cEntity)
 		{
 			if (string.IsNullOrWhiteSpace(pv_cEntity.Surname)) { throw new ValidationException(Person.EnterName); }

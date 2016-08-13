@@ -161,7 +161,7 @@ namespace Household.Test.MasterData
 		{
 			try
 			{
-				return new CBankAccount(Models.Db.CDbContext.getInstance());
+				return new CBankAccount();
 			}
 			catch (Exception ex)
 			{

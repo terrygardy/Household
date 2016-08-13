@@ -18,7 +18,7 @@ var Person;
             ko.applyBindings(this);
         }
         Person.prototype.Save = function () {
-            MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Person: this }), [this.Surname(), this.Forename()]);
+            MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), [this.Surname(), this.Forename()]);
         };
         Person.prototype.Delete = function () {
             MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() });

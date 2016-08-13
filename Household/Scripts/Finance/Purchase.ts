@@ -29,7 +29,7 @@ module Purchase {
 		}
 
 		Save(): void {
-			MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Purchase: this }), [this.Occurrence(), getCurrentPayerText(), getCurrentShopText(), this.Amount() + ' €']);
+			MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), [this.Occurrence(), getCurrentPayerText(), getCurrentShopText(), this.Amount() + ' €']);
 		}
 
 		Delete(): void {

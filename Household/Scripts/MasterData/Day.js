@@ -17,7 +17,7 @@ var Day;
             ko.applyBindings(this);
         }
         Day.prototype.Save = function (pv_blnClose) {
-            return MasterData.saveMasterRecordWithMessage(this.BaseAction, ko.toJSON({ Day: this }), [this.Day()], pv_blnClose);
+            return MasterData.saveMasterRecordWithMessage(this.BaseAction, ko.toJSON({ Data: this }), [this.Day()], pv_blnClose);
         };
         Day.prototype.Delete = function () {
             MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() });

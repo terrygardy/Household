@@ -12,7 +12,7 @@ namespace Household.BL.Functions.txx
 {
 	public class CShop : CModelBase<txx_Shop, string, string, CShopData>
 	{
-		public CShop(Database pv_dmHH_DB) : base(pv_dmHH_DB) { }
+		public CShop() { }
 
 		public override void validate(txx_Shop pv_cEntity)
 		{

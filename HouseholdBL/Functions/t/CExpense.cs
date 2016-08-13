@@ -11,7 +11,7 @@ namespace Household.BL.Functions.t
 {
 	public class CExpense : CModelBase<t_Expense, DateTime, string, CExpenseData>
 	{
-		public CExpense(Database pv_dmHH_DB) : base(pv_dmHH_DB) { }
+		public CExpense() { }
 
 		public override void validate(t_Expense pv_cEntity)
 		{

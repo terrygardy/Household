@@ -16,7 +16,7 @@ var Interval;
             ko.applyBindings(this);
         }
         Interval.prototype.Save = function () {
-            MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Interval: this }), [this.Name()]);
+            MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), [this.Name()]);
         };
         Interval.prototype.Delete = function () {
             MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() });
