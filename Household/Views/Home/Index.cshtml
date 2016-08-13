@@ -41,3 +41,11 @@
 		</div>
 	</div>
 </div>
+@section scripts{
+	@Scripts.Render("~/bundles/Helpers")
+	<script type="text/javascript">
+		(function () {
+			Helpers.HttpRequests.CreateAsyncRequestHandlerPOST('@Url.Action("SetEnvironment", "Home")', Helpers.HttpRequests.GetContentTypeText()).send();
+		})();
+	</script>
+}

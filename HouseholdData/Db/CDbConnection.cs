@@ -4,28 +4,16 @@ namespace Household.Data.Db
 {
 	public static class CDbConnection
 	{
-		private static Database m_dbHousehold = null;
-
+		private static bool Updated { get; set; }
+		
 		public static Database getInstance()
 		{
-			if (m_dbHousehold == null) Database.UpdateDatabase();
+			if (!Updated) {
+				Database.UpdateDatabase();
+				Updated = true;
+			}
 
-			resetDb();
-
-			return m_dbHousehold;
-		}
-
-		private static void resetDb()
-		{
-			closeDb();
-			m_dbHousehold = new Database();
-		}
-
-		public static void closeDb()
-		{
-			if (m_dbHousehold != null) m_dbHousehold.Dispose();
-
-			m_dbHousehold = null;
+			return new Database();
 		}
 	}
 }

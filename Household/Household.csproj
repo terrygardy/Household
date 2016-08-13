@@ -243,6 +243,7 @@
     <Compile Include="Models\DisplayTable\CDisplayColumn.cs" />
     <Compile Include="Models\DisplayTable\CDisplayRow.cs" />
     <Compile Include="Models\DisplayTable\CDisplayTable.cs" />
+    <Compile Include="Models\Environment\CEnvironment.cs" />
     <Compile Include="Models\Finance\CExpenseModel.cs" />
     <Compile Include="Models\Finance\CPurchaseModel.cs" />
     <Compile Include="Models\Finance\CExpensesModel.cs" />

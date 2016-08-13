@@ -24,6 +24,9 @@ namespace Household
 			bundles.Add(new ScriptBundle("~/bundles/pleaseWait").Include(
 					  "~/Scripts/jquery-pleaseWait.js"));
 
+			bundles.Add(new ScriptBundle("~/bundles/Helpers").Include(
+					  "~/Scripts/Helpers/*.js"));
+
 			bundles.Add(new ScriptBundle("~/bundles/highcharts").Include(
 					  "~/Scripts/highcharts/4.2.0/highcharts.js",
 					  "~/Scripts/highcharts/4.2.0/themes/grid-light.js",

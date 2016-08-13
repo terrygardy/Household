@@ -23,7 +23,7 @@ var Expense;
             ko.applyBindings(this);
         }
         Expense.prototype.Save = function () {
-            MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Expense: this }), [this.StartDate(), this.EndDate(), getCurrentBankAccountText(), getCurrentCompanyText(), this.Amount() + ' €']);
+            MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), [this.StartDate(), this.EndDate(), getCurrentBankAccountText(), getCurrentCompanyText(), this.Amount() + ' €']);
         };
         Expense.prototype.Delete = function () {
             MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() });

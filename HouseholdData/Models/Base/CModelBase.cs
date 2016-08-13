@@ -22,7 +22,7 @@ namespace Household.Data.Models.Base
 
 		public CModelBase(string pv_strConnString) { setDatabase(new Database(pv_strConnString)); }
 
-		public void setDatabase(Database pv_dmHH_DB) { Database = pv_dmHH_DB; }
+		protected void setDatabase(Database pv_dmHH_DB) { Database = pv_dmHH_DB; }
 
 		#region CRUD
 		protected virtual void deleteAllowed(T pv_cEntity)
