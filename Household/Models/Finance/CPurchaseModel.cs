@@ -12,14 +12,14 @@ namespace Household.Models.Finance
 		public List<txx_Shop> Shops { get; set; }
 		public CPurchaseData Purchase { get; set; }
 
-		public CPurchaseModel(Database pv_dbHousehold, long pv_lngID)
+		public CPurchaseModel(long pv_lngID)
 		{
-			Purchase = new CPurchase(pv_dbHousehold).getDataByID(pv_lngID);
+			Purchase = new CPurchase().getDataByID(pv_lngID);
 
 			if (Purchase == null) Purchase = new CPurchaseData();
 
-			BankAccounts = new CBankAccount(pv_dbHousehold).getBankAccounts();
-			Shops = new CShop(pv_dbHousehold).getShops();
+			BankAccounts = new CBankAccount().getBankAccounts();
+			Shops = new CShop().getShops();
 		}
 	}
 }

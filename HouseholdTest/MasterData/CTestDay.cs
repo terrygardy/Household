@@ -133,7 +133,7 @@ namespace Household.Test.MasterData
 		{
 			try
 			{
-				return new CDay(Models.Db.CDbContext.getInstance());
+				return new CDay();
 			}
 			catch (Exception ex)
 			{

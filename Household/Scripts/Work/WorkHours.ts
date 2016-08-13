@@ -29,7 +29,7 @@ module WorkDay {
 		}
 
 		Save(): void {
-			MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ WorkDay: this }), [this.WorkDay(), this.Begin(), this.End(), this.BreakDuration()]);
+			MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), [this.WorkDay(), this.Begin(), this.End(), this.BreakDuration()]);
 		}
 
 		Delete(): void {

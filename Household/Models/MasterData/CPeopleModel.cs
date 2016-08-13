@@ -1,18 +1,15 @@
 ﻿using Household.BL.Functions.t;
-using Household.Data.Context;
 using Household.Models.DisplayTable;
 
 namespace Household.Models.MasterData
 {
 	public class CPeopleModel
 	{
-		private Database DbHousehold { get; set; }
-
-		public CPeopleModel(Database pv_dbHousehold) { DbHousehold = pv_dbHousehold; }
+		public CPeopleModel() { }
 
 		public CDisplayTable getDisplayTable()
 		{
-			var cPerson = new CPerson(DbHousehold);
+			var cPerson = new CPerson();
 			var lstPeople = cPerson.getPeople();
 			var dtTable = new CDisplayTable()
 			{

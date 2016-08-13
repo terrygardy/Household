@@ -13,7 +13,7 @@ namespace Household.BL.Functions.t
 {
 	public class CPurchase : CModelBase<t_Purchase, DateTime, string, CPurchaseData>
 	{
-		public CPurchase(Database pv_dmHH_DB) : base(pv_dmHH_DB) { }
+		public CPurchase() { }
 
 		public override void validate(t_Purchase pv_cEntity)
 		{

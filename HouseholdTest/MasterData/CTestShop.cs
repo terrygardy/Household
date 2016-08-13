@@ -112,7 +112,7 @@ namespace Household.Test.MasterData
 		{
 			try
 			{
-				return new CShop(Models.Db.CDbContext.getInstance());
+				return new CShop();
 			}
 			catch (Exception ex)
 			{

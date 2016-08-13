@@ -1,6 +1,5 @@
 ﻿using Household.BL.Functions.t;
 using Household.BL.Functions.txx;
-using Household.Data.Context;
 using Household.Models.DisplayTable;
 using System;
 
@@ -10,13 +9,11 @@ namespace Household.Models.MasterData
 	{
 		private DateTime DatNULL { get { return new DateTime(1753, 1, 1, 0, 0, 0); } }
 
-		private Database DbHousehold { get; set; }
-
-		public CIncomesModel(Database pv_dbHousehold) { DbHousehold = pv_dbHousehold; }
+		public CIncomesModel() { }
 
 		public CDisplayTable getDisplayTable()
 		{
-			var cIncome = new CIncome(DbHousehold);
+			var cIncome = new CIncome();
 			var lstIncomes = cIncome.getIncomes();
 			var dtTable = new CDisplayTable()
 			{
@@ -26,7 +23,7 @@ namespace Household.Models.MasterData
 			var drHead = new CDisplayRow();
 			var drFoot = new CDisplayRow();
 			var dcColumn = new CDisplayColumn();
-			var cCompany = new CCompany(DbHousehold);
+			var cCompany = new CCompany();
 
 			dcColumn.Content = "Start";
 			dcColumn.CSS = "center";

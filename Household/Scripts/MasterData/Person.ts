@@ -23,7 +23,7 @@ module Person {
 		}
 
 		Save(): void {
-			MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Person: this }), [this.Surname(), this.Forename()]);
+			MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), [this.Surname(), this.Forename()]);
 		}
 
 		Delete(): void {

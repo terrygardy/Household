@@ -1,47 +1,15 @@
-﻿using WebHelpers;
-using System.Web.Mvc;
-using Household.Models.MasterData;
-using Household.Models.Db;
-using System;
-using Household.BL.Functions.txx;
+﻿using Household.BL.Functions.txx;
 using Household.BL.DATA.txx;
+using Household.Controllers.Base;
+using Household.Data.Context;
 
 namespace Household.Controllers
 {
-	public class DayController : Controller
+	public class DayController : CRUDController<txx_Day, CDay, int, int, CDayData>
 	{
-		[HttpPost]
-		public string Save([System.Web.Http.FromBody]CDayData Day)
+		protected override long GetDataID(CDayData data)
 		{
-			string strMessage = "";
-
-			try
-			{
-				new CDay(CDbContext.getInstance()).save(Day);
-			}
-			catch (Exception ex)
-			{
-				strMessage = ex.Message;
-			}
-
-			return JSON.serialiseObject(new CReturn() { ID = Day.ID, Message = strMessage });
-		}
-
-		[HttpPost]
-		public string Delete(long id)
-		{
-			string strMessage = "";
-
-			try
-			{
-				new CDay(CDbContext.getInstance()).deleteByID(id);
-			}
-			catch (Exception ex)
-			{
-				strMessage = ex.Message;
-			}
-
-			return strMessage;
+			return data.ID;
 		}
 	}
 }

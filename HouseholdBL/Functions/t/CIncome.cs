@@ -2,7 +2,6 @@
 using Household.Data.Models.Base;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 using Helpers.Exceptions;
 using Household.Data.Text.Error;
@@ -13,7 +12,7 @@ namespace Household.BL.Functions.t
 {
 	public class CIncome : CModelBase<t_Income, DateTime, string, CIncomeData>
 	{
-		public CIncome(Database pv_dmHH_DB) : base(pv_dmHH_DB) { }
+		public CIncome() { }
 
 		public override void validate(t_Income pv_cEntity)
 		{

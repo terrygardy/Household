@@ -1,18 +1,15 @@
 ﻿using Household.BL.Functions.txx;
-using Household.Data.Context;
 using Household.Models.DisplayTable;
 
 namespace Household.Models.MasterData
 {
 	public class CBankAccountsModel
 	{
-		private Database DbHousehold { get; set; }
-
-		public CBankAccountsModel(Database pv_dbHousehold) { DbHousehold = pv_dbHousehold; }
+		public CBankAccountsModel() { }
 
 		public CDisplayTable getDisplayTable()
 		{
-			var cBankAccount = new CBankAccount(DbHousehold);
+			var cBankAccount = new CBankAccount();
 			var lstAccounts = cBankAccount.getBankAccounts();
 			var dtTable = new CDisplayTable()
 			{

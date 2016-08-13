@@ -1,8 +1,8 @@
 ﻿using Household.Data.Context;
 
-namespace Household.Models.Db
+namespace Household.Data.Db
 {
-	public static class CDbContext
+	public static class CDbConnection
 	{
 		private static Database m_dbHousehold = null;
 

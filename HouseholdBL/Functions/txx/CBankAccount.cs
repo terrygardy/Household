@@ -12,7 +12,7 @@ namespace Household.BL.Functions.txx
 {
 	public class CBankAccount : CModelBase<txx_BankAccount, string, string, CBankAccountData>
 	{
-		public CBankAccount(Database pv_dmHH_DB) : base(pv_dmHH_DB) { }
+		public CBankAccount() { }
 
 		public override void validate(txx_BankAccount pv_cEntity)
 		{

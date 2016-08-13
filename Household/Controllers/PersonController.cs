@@ -1,48 +1,15 @@
 ﻿using Household.BL.Functions.t;
-using WebHelpers;
-using System;
-using System.Web.Mvc;
-using Household.Models.MasterData;
-using Household.Models.Db;
-using Household.BL.Interfaces.t;
 using Household.BL.DATA.t;
+using Household.Data.Context;
+using Household.Controllers.Base;
 
 namespace Household.Controllers
 {
-	public class PersonController : Controller
+	public class PersonController : CRUDController<t_Person, CPerson, string, string, CPersonData>
 	{
-		[HttpPost]
-		public string Save([System.Web.Http.FromBody]CPersonData Person)
+		protected override long GetDataID(CPersonData data)
 		{
-			string strMessage = "";
-
-			try
-			{
-				new CPerson(CDbContext.getInstance()).save(Person);
-			}
-			catch (Exception ex)
-			{
-				strMessage = ex.Message;
-			}
-
-			return JSON.serialiseObject(new CReturn() { ID = Person.ID, Message = strMessage });
-		}
-
-		[HttpPost]
-		public string Delete(long id)
-		{
-			string strMessage = "";
-
-			try
-			{
-				new CPerson(CDbContext.getInstance()).deleteByID(id);
-			}
-			catch (Exception ex)
-			{
-				strMessage = ex.Message;
-			}
-
-			return strMessage;
+			return data.ID;
 		}
 	}
 }

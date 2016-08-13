@@ -112,7 +112,7 @@ namespace Household.Test.MainObjects
 		{
 			try
 			{
-				return new CPerson(Models.Db.CDbContext.getInstance());
+				return new CPerson();
 			}
 			catch (Exception ex)
 			{

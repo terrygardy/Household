@@ -27,10 +27,10 @@ namespace Household.Test.MainObjects
 
 		public CTestExpense()
 		{
-			m_xxInterval = new CInterval(Models.Db.CDbContext.getInstance()).getIntervals()[0];
-			m_xxDay = new CDay(Models.Db.CDbContext.getInstance()).getDays()[0];
-			m_xxBankAccount = new CBankAccount(Models.Db.CDbContext.getInstance()).getBankAccounts()[0];
-			m_xxCompany = new CCompany(Models.Db.CDbContext.getInstance()).getCompanies()[0];
+			m_xxInterval = new CInterval().getIntervals()[0];
+			m_xxDay = new CDay().getDays()[0];
+			m_xxBankAccount = new CBankAccount().getBankAccounts()[0];
+			m_xxCompany = new CCompany().getCompanies()[0];
 		}
 
 		[Test]
@@ -324,7 +324,7 @@ namespace Household.Test.MainObjects
 		{
 			try
 			{
-				return new CExpense(Models.Db.CDbContext.getInstance());
+				return new CExpense();
 			}
 			catch (Exception ex)
 			{

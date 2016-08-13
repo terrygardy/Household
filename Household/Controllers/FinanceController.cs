@@ -1,5 +1,4 @@
 ﻿using Household.Models.Finance;
-using Household.Models.Db;
 using System.Web.Mvc;
 
 namespace Household.Controllers
@@ -32,7 +31,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult Reports()
 		{
-			return PartialView(new CReportsModel(CDbContext.getInstance(), true));
+			return PartialView(new CReportsModel(true));
 		}
 	}
 }

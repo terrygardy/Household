@@ -12,13 +12,12 @@ namespace Household.Models.Finance
 	public class CPurchasesModel
 	{
 		private DateTime m_datNull = new DateTime(1753, 1, 1);
-		private Database DbHousehold { get; set; }
 
-		public CPurchasesModel(Database pv_dbHousehold) { DbHousehold = pv_dbHousehold; }
+		public CPurchasesModel() { }
 
 		public CDisplayTable getDisplayTable()
 		{
-			var cPurchase = new CPurchase(DbHousehold);
+			var cPurchase = new CPurchase();
 			var lstPurchases = cPurchase.getPurchases();
 			var dtTable = new CDisplayTable()
 			{
@@ -138,14 +137,14 @@ namespace Household.Models.Finance
 
 			cYearChart.name = pv_intYear.ToString();
 
-			cYearChart.data = new List<object>() { pv_intYear.ToString(), new CPurchase(DbHousehold).getSumByYear(pv_intYear) };
+			cYearChart.data = new List<object>() { pv_intYear.ToString(), new CPurchase().getSumByYear(pv_intYear) };
 
 			return cYearChart;
 		}
 
 		public CDisplayTable search(CSearchPurchase pv_spSearch)
 		{
-			var cPurchase = new CPurchase(DbHousehold);
+			var cPurchase = new CPurchase();
 			Expression<Func<t_Purchase, bool>> exSearch;
 			List<t_Purchase> lstPurchases;
 			var dtTable = new CDisplayTable()

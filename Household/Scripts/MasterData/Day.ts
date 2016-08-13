@@ -20,7 +20,7 @@ module Day {
 		}
 
 		Save(pv_blnClose: boolean): string {
-			return MasterData.saveMasterRecordWithMessage(this.BaseAction, ko.toJSON({ Day: this }), [this.Day()], pv_blnClose);
+			return MasterData.saveMasterRecordWithMessage(this.BaseAction, ko.toJSON({ Data: this }), [this.Day()], pv_blnClose);
 		}
 
 		Delete(): void {

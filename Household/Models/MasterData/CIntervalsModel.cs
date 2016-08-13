@@ -1,18 +1,15 @@
 ﻿using Household.BL.Functions.txx;
-using Household.Data.Context;
 using Household.Models.DisplayTable;
 
 namespace Household.Models.MasterData
 {
 	public class CIntervalsModel
 	{
-		private Database DbHousehold { get; set; }
-
-		public CIntervalsModel(Database pv_dbHousehold) { DbHousehold = pv_dbHousehold; }
+		public CIntervalsModel() { }
 
 		public CDisplayTable getDisplayTable()
 		{
-			var cInterval = new CInterval(DbHousehold);
+			var cInterval = new CInterval();
 			var lstIntervals = cInterval.getIntervals();
 			var dtTable = new CDisplayTable()
 			{
