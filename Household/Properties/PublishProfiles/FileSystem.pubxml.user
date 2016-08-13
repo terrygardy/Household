@@ -58,22 +58,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/18/2013 22:54:36</publishTime>
     </File>
     <File Include="bin/Household.BL.dll">
-      <publishTime>08/13/2016 21:45:57</publishTime>
+      <publishTime>08/13/2016 23:37:36</publishTime>
     </File>
     <File Include="bin/Household.BL.pdb">
-      <publishTime>08/13/2016 21:45:57</publishTime>
+      <publishTime>08/13/2016 23:37:36</publishTime>
     </File>
     <File Include="bin/Household.Data.dll">
-      <publishTime>08/13/2016 21:45:56</publishTime>
+      <publishTime>08/13/2016 23:37:36</publishTime>
     </File>
     <File Include="bin/Household.Data.pdb">
-      <publishTime>08/13/2016 21:45:56</publishTime>
+      <publishTime>08/13/2016 23:37:36</publishTime>
     </File>
     <File Include="bin/Household.dll">
-      <publishTime>08/13/2016 22:08:45</publishTime>
+      <publishTime>08/13/2016 23:37:51</publishTime>
     </File>
     <File Include="bin/Household.pdb">
-      <publishTime>08/13/2016 22:08:45</publishTime>
+      <publishTime>08/13/2016 23:37:51</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
       <publishTime>05/08/2016 18:22:33</publishTime>
@@ -223,13 +223,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/Scripts/MasterData/BankAccount.js">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="bin/Scripts/MasterData/Company.js">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="bin/Scripts/MasterData/Day.js">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>05/07/2013 13:09:16</publishTime>
@@ -520,7 +520,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/DisplayTable.css">
-      <publishTime>08/13/2016 22:11:25</publishTime>
+      <publishTime>08/13/2016 23:41:24</publishTime>
     </File>
     <File Include="Content/fonts/glyphicons-halflings-regular.eot">
       <publishTime>07/28/2016 00:21:30</publishTime>
@@ -538,16 +538,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/pleaseWait.css">
-      <publishTime>08/13/2016 22:11:26</publishTime>
+      <publishTime>08/13/2016 23:41:24</publishTime>
     </File>
     <File Include="Content/pleaseWait.less">
       <publishTime>07/28/2016 00:21:30</publishTime>
     </File>
     <File Include="Content/Styles.css">
-      <publishTime>08/13/2016 22:11:27</publishTime>
+      <publishTime>08/13/2016 23:41:25</publishTime>
     </File>
     <File Include="Content/Styles.less">
-      <publishTime>08/13/2016 22:04:03</publishTime>
+      <publishTime>08/13/2016 22:16:03</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>07/28/2016 00:21:31</publishTime>
@@ -916,40 +916,40 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/Finance/Expense.js">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/Finance/Expense.js.map">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/Finance/Finance.js">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/Finance/Finance.js.map">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/Finance/Purchase.js">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/Finance/Purchase.js.map">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/Finance/Report.js">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/Finance/Report.js.map">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/Helpers/Common.js">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/Helpers/Common.js.map">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/Helpers/HTTPRequest.js">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/Helpers/HTTPRequest.js.map">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/highcharts/4.2.0/adapters/standalone-framework.js">
       <publishTime>07/28/2016 00:21:31</publishTime>
@@ -1072,10 +1072,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/highcharts/highcharts.helpers.js">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/highcharts/highcharts.helpers.js.map">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/jquery-2.2.3.js">
       <publishTime>05/23/2016 14:59:22</publishTime>
@@ -1108,10 +1108,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/jquery-pleaseWait.js">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/jquery-pleaseWait.js.map">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.js">
       <publishTime>07/28/2016 00:21:31</publishTime>
@@ -1123,52 +1123,52 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/MasterData/BankAccount.js">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/MasterData/BankAccount.js.map">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/MasterData/Company.js">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/MasterData/Company.js.map">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/MasterData/Day.js">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/MasterData/Day.js.map">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/MasterData/Income.js">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/MasterData/Income.js.map">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/MasterData/Interval.js">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/MasterData/Interval.js.map">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/MasterData/MasterData.js">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/MasterData/MasterData.js.map">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/MasterData/Person.js">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/MasterData/Person.js.map">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/MasterData/Shop.js">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/MasterData/Shop.js.map">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/modernizr-2.8.3.js">
       <publishTime>07/28/2016 00:21:31</publishTime>
@@ -1186,19 +1186,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Scripts/validation.js">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/validation.js.map">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/Work/WorkHours.js">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/Work/WorkHours.js.map">
-      <publishTime>08/13/2016 22:11:33</publishTime>
+      <publishTime>08/13/2016 23:41:32</publishTime>
     </File>
     <File Include="Scripts/_references.js">
-      <publishTime>08/13/2016 21:56:01</publishTime>
+      <publishTime>08/13/2016 22:16:03</publishTime>
     </File>
     <File Include="Views/Account/ConfirmEmail.cshtml">
       <publishTime>05/05/2016 14:15:14</publishTime>
@@ -1243,7 +1243,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Views/Finance/Finance.cshtml">
-      <publishTime>08/13/2016 19:52:36</publishTime>
+      <publishTime>08/13/2016 22:16:03</publishTime>
     </File>
     <File Include="Views/Finance/Intervals.cshtml">
       <publishTime>05/06/2016 22:44:06</publishTime>
@@ -1264,7 +1264,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>08/13/2016 19:52:36</publishTime>
+      <publishTime>08/13/2016 23:22:45</publishTime>
     </File>
     <File Include="Views/HomeHDD/HomeHDD.cshtml">
       <publishTime>07/28/2016 00:21:31</publishTime>
@@ -1324,7 +1324,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>08/13/2016 19:52:36</publishTime>
+      <publishTime>08/13/2016 22:16:03</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutNoM.cshtml">
       <publishTime>07/28/2016 00:21:31</publishTime>
@@ -1336,19 +1336,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Views/Work/Work.cshtml">
-      <publishTime>08/13/2016 19:52:36</publishTime>
+      <publishTime>08/13/2016 22:16:03</publishTime>
     </File>
     <File Include="Views/Work/WorkDay.cshtml">
-      <publishTime>08/13/2016 22:04:31</publishTime>
+      <publishTime>08/13/2016 22:16:03</publishTime>
     </File>
     <File Include="Views/Work/WorkHours.cshtml">
-      <publishTime>08/13/2016 21:22:06</publishTime>
+      <publishTime>08/13/2016 22:16:03</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
       <publishTime>07/28/2016 00:21:31</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/13/2016 21:48:46</publishTime>
+      <publishTime>08/13/2016 23:41:34</publishTime>
     </File>
   </ItemGroup>
 </Project>

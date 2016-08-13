@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using Household.Models.Environment;
+using System.Web.Mvc;
 
 namespace Household.Controllers
 {
@@ -7,6 +8,12 @@ namespace Household.Controllers
 		public ActionResult Index()
 		{
 			return View();
+		}
+
+		[HttpPost]
+		public void SetEnvironment()
+		{
+			new CEnvironment();
 		}
 	}
 }

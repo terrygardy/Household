@@ -22,7 +22,7 @@ var BankAccount;
         }
         BankAccount.prototype.Save = function () {
             this.IBAN(this.IBAN().toString().toUpperCase());
-            MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ BankAccount: this }), [this.AccountName(), this.BankName(), this.IBAN()]);
+            MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), [this.AccountName(), this.BankName(), this.IBAN()]);
         };
         BankAccount.prototype.Delete = function () {
             MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() });

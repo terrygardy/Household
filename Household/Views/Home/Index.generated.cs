@@ -150,7 +150,37 @@ WriteAttribute("onclick", Tuple.Create(" onclick=\"", 1016), Tuple.Create("\"", 
 );
 
 WriteLiteral(">\r\n\t\t\t<div>\r\n\t\t\t\t<h2>Server Manager</h2>\r\n\t\t\t\t<p>Check out the server and look wh" +
-"at\'s going on in the world</p>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n</div>");
+"at\'s going on in the world</p>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n");
+
+DefineSection("scripts", () => {
+
+WriteLiteral("\r\n");
+
+WriteLiteral("\t");
+
+            
+            #line 45 "..\..\Views\Home\Index.cshtml"
+Write(Scripts.Render("~/bundles/Helpers"));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n\t<script");
+
+WriteLiteral(" type=\"text/javascript\"");
+
+WriteLiteral(">\r\n\t\t(function () {\r\n\t\t\tHelpers.HttpRequests.CreateAsyncRequestHandlerPOST(\'");
+
+            
+            #line 48 "..\..\Views\Home\Index.cshtml"
+                                                           Write(Url.Action("SetEnvironment", "Home"));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\', Helpers.HttpRequests.GetContentTypeText()).send();\r\n\t\t})();\r\n\t</script>\r\n");
+
+});
 
         }
     }
