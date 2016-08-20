@@ -18,7 +18,7 @@ namespace Household.Test.Controllers.MasterData
 
 			cIntervalTest.NewInterval();
 
-			xxInterval = cIntervalTest.getTestEntity();
+			xxInterval = cIntervalTest.GetTestEntity();
 
 			Assert.That(new IntervalController().Delete(xxInterval.ID), Is.EqualTo(""));
 		}

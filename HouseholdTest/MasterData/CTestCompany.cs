@@ -1,6 +1,7 @@
 ﻿using Helpers.Exceptions;
 using Household.BL.Functions.txx;
 using Household.Data.Context;
+using Household.Test.Base;
 using Household.Test.Text;
 using NUnit.Framework;
 using System;
@@ -9,7 +10,7 @@ using System.Reflection;
 namespace Household.Test.MasterData
 {
 	[TestFixture]
-	public class CTestCompany
+	public class CTestCompany : ITestBase<txx_Company>
 	{
 		public string TestName { get { return "NewCompanyForTest"; } }
 		public string TestDescription { get { return TextBase.TestDescription; } }
@@ -22,14 +23,12 @@ namespace Household.Test.MasterData
 			NewCompany();
 			EditCompany();
 			DeleteCompany();
-
-			Assert.That(0, Is.EqualTo(0));
 		}
 
 		public void RemoveTestEntity()
 		{
 			var toCompany = getTestObject();
-			var xxCompany = getTestEntity(toCompany, false);
+			var xxCompany = GetTestEntity(toCompany, false);
 
 			if (xxCompany != null) DeleteCompany();
 		}
@@ -75,7 +74,7 @@ namespace Household.Test.MasterData
 
 			try
 			{
-				var cCompany = getTestEntity(toCompany);
+				var cCompany = GetTestEntity(toCompany);
 				long lngResult;
 
 				cCompany.Description = TestDescription;
@@ -96,7 +95,7 @@ namespace Household.Test.MasterData
 
 			try
 			{
-				var cCompany = getTestEntity(toCompany);
+				var cCompany = GetTestEntity(toCompany);
 				long lngResult;
 
 				lngResult = toCompany.delete(cCompany);
@@ -123,13 +122,13 @@ namespace Household.Test.MasterData
 			return null;
 		}
 
-		public txx_Company getTestEntity() { return getTestEntity(getTestObject()); }
+		public txx_Company GetTestEntity() { return GetTestEntity(getTestObject()); }
 
-		public txx_Company getTestEntity(bool pv_blnWithAssert) { return getTestEntity(getTestObject(), pv_blnWithAssert); }
+		public txx_Company GetTestEntity(bool pv_blnWithAssert) { return GetTestEntity(getTestObject(), pv_blnWithAssert); }
 
-		public txx_Company getTestEntity(CCompany pv_toCompany) { return getTestEntity(pv_toCompany, true); }
+		public txx_Company GetTestEntity(CCompany pv_toCompany) { return GetTestEntity(pv_toCompany, true); }
 
-		public txx_Company getTestEntity(CCompany pv_toCompany, bool pv_blnWithAssert)
+		public txx_Company GetTestEntity(CCompany pv_toCompany, bool pv_blnWithAssert)
 		{
 			try
 			{

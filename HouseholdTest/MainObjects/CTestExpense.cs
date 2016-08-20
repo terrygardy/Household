@@ -2,6 +2,7 @@
 using Household.BL.Functions.t;
 using Household.BL.Functions.txx;
 using Household.Data.Context;
+using Household.Test.Base;
 using Household.Test.Text;
 using NUnit.Framework;
 using System;
@@ -10,7 +11,7 @@ using System.Reflection;
 namespace Household.Test.MainObjects
 {
 	[TestFixture]
-	public class CTestExpense
+	public class CTestExpense : ITestBase<t_Expense>
 	{
 		private txx_Interval m_xxInterval;
 		private txx_Day m_xxDay;
@@ -40,15 +41,13 @@ namespace Household.Test.MainObjects
 			BadExpense();
 			NewExpense();
 			EditExpense();
-			DeleteExpense();
-
-			Assert.That(0, Is.EqualTo(0));
+			DeleteExpense();		
 		}
 
 		public void RemoveTestEntity()
 		{
 			var toExpense = getTestObject();
-			var xxExpense = getTestEntity(toExpense, false);
+			var xxExpense = GetTestEntity(toExpense, false);
 
 			if (xxExpense != null) DeleteExpense();
 		}
@@ -286,7 +285,7 @@ namespace Household.Test.MainObjects
 
 			try
 			{
-				var cExpense = getTestEntity(toExpense);
+				var cExpense = GetTestEntity(toExpense);
 				long lngResult;
 
 				cExpense.Description = TextBase.TestDescription;
@@ -307,7 +306,7 @@ namespace Household.Test.MainObjects
 
 			try
 			{
-				var cExpense = getTestEntity(toExpense);
+				var cExpense = GetTestEntity(toExpense);
 				long lngResult;
 
 				lngResult = toExpense.delete(cExpense);
@@ -334,9 +333,11 @@ namespace Household.Test.MainObjects
 			return null;
 		}
 
-		private t_Expense getTestEntity(CExpense pv_toExpense) { return getTestEntity(pv_toExpense, true); }
+		public t_Expense GetTestEntity(bool withAssert) { return GetTestEntity(getTestObject(), withAssert); }
 
-		private t_Expense getTestEntity(CExpense pv_toExpense, bool pv_blnWithAssert)
+		public t_Expense GetTestEntity(CExpense pv_toExpense) { return GetTestEntity(pv_toExpense, true); }
+
+		public t_Expense GetTestEntity(CExpense pv_toExpense, bool pv_blnWithAssert)
 		{
 			try
 			{

@@ -2,6 +2,7 @@
 using Household.BL.Functions.t;
 using Household.BL.Functions.txx;
 using Household.Data.Context;
+using Household.Test.Base;
 using Household.Test.Text;
 using NUnit.Framework;
 using System;
@@ -10,7 +11,7 @@ using System.Reflection;
 namespace Household.Test.MainObjects
 {
 	[TestFixture]
-	public class CTestPurchase
+	public class CTestPurchase : ITestBase<t_Purchase>
 	{
 		private txx_BankAccount m_xxPayer;
 		private txx_Shop m_xxShop;
@@ -35,14 +36,12 @@ namespace Household.Test.MainObjects
 			NewPurchase();
 			EditPurchase();
 			DeletePurchase();
-
-			Assert.That(0, Is.EqualTo(0));
 		}
 
 		public void RemoveTestEntity()
 		{
 			var toPurchase = getTestObject();
-			var xxPurchase = getTestEntity(toPurchase, false);
+			var xxPurchase = GetTestEntity(toPurchase, false);
 
 			if (xxPurchase != null) DeletePurchase();
 		}
@@ -210,7 +209,7 @@ namespace Household.Test.MainObjects
 
 			try
 			{
-				var cPurchase = getTestEntity(toPurchase);
+				var cPurchase = GetTestEntity(toPurchase);
 				long lngResult;
 
 				cPurchase.Description = TestDescription;
@@ -231,7 +230,7 @@ namespace Household.Test.MainObjects
 
 			try
 			{
-				var cPurchase = getTestEntity(toPurchase);
+				var cPurchase = GetTestEntity(toPurchase);
 				long lngResult;
 
 				lngResult = toPurchase.delete(cPurchase);
@@ -258,13 +257,13 @@ namespace Household.Test.MainObjects
 			return null;
 		}
 
-		public t_Purchase getTestEntity() { return getTestEntity(getTestObject(), true); }
+		public t_Purchase GetTestEntity() { return GetTestEntity(getTestObject(), true); }
 
-		public t_Purchase getTestEntity(bool pv_blnWithAsserts) { return getTestEntity(getTestObject(), pv_blnWithAsserts); }
+		public t_Purchase GetTestEntity(bool pv_blnWithAsserts) { return GetTestEntity(getTestObject(), pv_blnWithAsserts); }
 
-		public t_Purchase getTestEntity(CPurchase pv_toPurchase) { return getTestEntity(pv_toPurchase, true); }
+		public t_Purchase GetTestEntity(CPurchase pv_toPurchase) { return GetTestEntity(pv_toPurchase, true); }
 
-		public t_Purchase getTestEntity(CPurchase pv_toPurchase, bool pv_blnWithAssert)
+		public t_Purchase GetTestEntity(CPurchase pv_toPurchase, bool pv_blnWithAssert)
 		{
 			try
 			{

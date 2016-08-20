@@ -2,13 +2,14 @@ namespace Household.Data.Context
 {
 	using Common;
 	using GARTE.TypeHandling;
+	using Models.Base;
 	using System;
 	using System.Collections.Generic;
 	using System.ComponentModel.DataAnnotations;
 	using System.ComponentModel.DataAnnotations.Schema;
 	using Text.Error;
 
-	public partial class t_Income : IValidatableObject
+	public partial class t_Income : IValidatableObject, IDataBase
 	{
 		public long ID { get; set; }
 

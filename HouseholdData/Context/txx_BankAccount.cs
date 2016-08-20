@@ -1,12 +1,13 @@
 namespace Household.Data.Context
 {
+	using Models.Base;
 	using System;
 	using System.Collections.Generic;
 	using System.ComponentModel.DataAnnotations;
 	using System.Linq;
 	using Text.Error;
 
-	public partial class txx_BankAccount : IValidatableObject
+	public partial class txx_BankAccount : IValidatableObject, IDataBase
 	{
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
 		public txx_BankAccount()

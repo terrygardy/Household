@@ -18,7 +18,7 @@ namespace Household.Test.Controllers.MasterData
 
 			cCompanyTest.NewCompany();
 
-			xxCompany = cCompanyTest.getTestEntity();
+			xxCompany = cCompanyTest.GetTestEntity();
 
 			Assert.That(new CompanyController().Delete(xxCompany.ID), Is.EqualTo(""));
 		}

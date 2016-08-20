@@ -1,6 +1,7 @@
 ﻿using Helpers.Exceptions;
 using Household.BL.Functions.txx;
 using Household.Data.Context;
+using Household.Test.Base;
 using Household.Test.Text;
 using NUnit.Framework;
 using System;
@@ -9,7 +10,7 @@ using System.Reflection;
 namespace Household.Test.MasterData
 {
 	[TestFixture]
-	public class CTestInterval
+	public class CTestInterval : ITestBase<txx_Interval>
 	{
 		public string TestName { get { return "NewIntervalForTest"; } }
 		public string TestDescription { get { return TextBase.TestDescription; } }
@@ -22,13 +23,12 @@ namespace Household.Test.MasterData
 			NewInterval();
 			EditInterval();
 			DeleteInterval();
-
-			Assert.That(0, Is.EqualTo(0));
 		}
 
-		public void RemoveTestEntity() {
+		public void RemoveTestEntity()
+		{
 			var toInterval = getTestObject();
-			var xxInterval = getTestEntity(toInterval, false);
+			var xxInterval = GetTestEntity(toInterval, false);
 
 			if (xxInterval != null) DeleteInterval();
 		}
@@ -74,7 +74,7 @@ namespace Household.Test.MasterData
 
 			try
 			{
-				var cInterval = getTestEntity(toInterval);
+				var cInterval = GetTestEntity(toInterval);
 				long lngResult;
 
 				cInterval.Name = TestDescription;
@@ -101,7 +101,7 @@ namespace Household.Test.MasterData
 
 			try
 			{
-				var cInterval = getTestEntity(toInterval);
+				var cInterval = GetTestEntity(toInterval);
 				long lngResult;
 
 				lngResult = toInterval.delete(cInterval);
@@ -128,13 +128,13 @@ namespace Household.Test.MasterData
 			return null;
 		}
 
-		public txx_Interval getTestEntity() { return getTestEntity(getTestObject()); }
+		public txx_Interval GetTestEntity() { return GetTestEntity(getTestObject()); }
 
-		public txx_Interval getTestEntity(bool pv_blnWithAssert) { return getTestEntity(getTestObject(), pv_blnWithAssert); }
+		public txx_Interval GetTestEntity(bool pv_blnWithAssert) { return GetTestEntity(getTestObject(), pv_blnWithAssert); }
 
-		public txx_Interval getTestEntity(CInterval pv_toInterval) { return getTestEntity(pv_toInterval, true); }
+		public txx_Interval GetTestEntity(CInterval pv_toInterval) { return GetTestEntity(pv_toInterval, true); }
 
-		public txx_Interval getTestEntity(CInterval pv_toInterval, bool pv_blnWithAssert)
+		public txx_Interval GetTestEntity(CInterval pv_toInterval, bool pv_blnWithAssert)
 		{
 			try
 			{

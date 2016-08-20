@@ -175,8 +175,10 @@
     <Compile Include="Text\TextBase.cs" />
     <Compile Include="UI\BrowserHost.cs" />
     <Compile Include="UI\CTestUIBase.cs" />
+    <Compile Include="UI\CTestUIWork.cs" />
     <Compile Include="UI\CTestUIFinance.cs" />
     <Compile Include="UI\CTestUIMasterData.cs" />
+    <Compile Include="UI\MainObjects\CTestUIWorkDay.cs" />
     <Compile Include="UI\MainObjects\CTestUIPurchase.cs" />
     <Compile Include="UI\MasterData\CTestUIPerson.cs" />
     <Compile Include="UI\MasterData\CTestUICompany.cs" />

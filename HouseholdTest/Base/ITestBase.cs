@@ -3,6 +3,8 @@
 	public interface ITestBase<T>
 		where T : class
 	{
-		T getTestEntity();
+		T GetTestEntity(bool withAssert);
+
+		void RemoveTestEntity();
 	}
 }

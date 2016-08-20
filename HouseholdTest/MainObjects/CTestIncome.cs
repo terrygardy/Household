@@ -2,6 +2,7 @@
 using Household.BL.Functions.t;
 using Household.BL.Functions.txx;
 using Household.Data.Context;
+using Household.Test.Base;
 using Household.Test.Text;
 using NUnit.Framework;
 using System;
@@ -10,7 +11,7 @@ using System.Reflection;
 namespace Household.Test.MainObjects
 {
 	[TestFixture]
-	public class CTestIncome
+	public class CTestIncome : ITestBase<t_Income>
 	{
 		private txx_Interval m_xxInterval;
 		private txx_Day m_xxDay;
@@ -43,13 +44,13 @@ namespace Household.Test.MainObjects
 			EditIncome();
 			DeleteIncome();
 
-			Assert.That(0, Is.EqualTo(0));
+
 		}
 
 		public void RemoveTestEntity()
 		{
 			var toIncome = getTestObject();
-			var xxIncome = getTestEntity(toIncome, false);
+			var xxIncome = GetTestEntity(toIncome, false);
 
 			if (xxIncome != null) DeleteIncome();
 		}
@@ -286,7 +287,7 @@ namespace Household.Test.MainObjects
 
 			try
 			{
-				var cIncome = getTestEntity(toIncome);
+				var cIncome = GetTestEntity(toIncome);
 				long lngResult;
 
 				cIncome.Description = TestDescription;
@@ -307,7 +308,7 @@ namespace Household.Test.MainObjects
 
 			try
 			{
-				var cIncome = getTestEntity(toIncome);
+				var cIncome = GetTestEntity(toIncome);
 				long lngResult;
 
 				lngResult = toIncome.delete(cIncome);
@@ -334,13 +335,13 @@ namespace Household.Test.MainObjects
 			return null;
 		}
 
-		public t_Income getTestEntity(CIncome pv_toIncome) { return getTestEntity(pv_toIncome, true); }
+		public t_Income GetTestEntity(CIncome pv_toIncome) { return GetTestEntity(pv_toIncome, true); }
 
-		public t_Income getTestEntity() { return getTestEntity(getTestObject(), true); }
+		public t_Income GetTestEntity() { return GetTestEntity(getTestObject(), true); }
 
-		public t_Income getTestEntity(bool pv_blnWithAssert) { return getTestEntity(getTestObject(), pv_blnWithAssert); }
+		public t_Income GetTestEntity(bool pv_blnWithAssert) { return GetTestEntity(getTestObject(), pv_blnWithAssert); }
 
-		public t_Income getTestEntity(CIncome pv_toIncome, bool pv_blnWithAssert)
+		public t_Income GetTestEntity(CIncome pv_toIncome, bool pv_blnWithAssert)
 		{
 			try
 			{

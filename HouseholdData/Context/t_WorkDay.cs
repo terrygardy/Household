@@ -1,12 +1,13 @@
 namespace Household.Data.Context
 {
 	using Common;
+	using Models.Base;
 	using System;
 	using System.Collections.Generic;
 	using System.ComponentModel.DataAnnotations;
 	using System.Linq;
 
-	public partial class t_WorkDay : IValidatableObject
+	public partial class t_WorkDay : IValidatableObject, IDataBase
 	{
 		#region Properties
 		public t_WorkDay() { }

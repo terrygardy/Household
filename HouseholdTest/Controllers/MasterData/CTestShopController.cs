@@ -18,7 +18,7 @@ namespace Household.Test.Controllers.MasterData
 
 			cShopTest.NewShop();
 
-			xxShop = cShopTest.getTestEntity();
+			xxShop = cShopTest.GetTestEntity();
 
 			Assert.That(new ShopController().Delete(xxShop.ID), Is.EqualTo(""));
 		}
