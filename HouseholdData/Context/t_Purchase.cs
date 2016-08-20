@@ -1,13 +1,14 @@
 namespace Household.Data.Context
 {
 	using Common;
+	using Models.Base;
 	using System;
 	using System.Collections.Generic;
 	using System.ComponentModel.DataAnnotations;
 	using System.ComponentModel.DataAnnotations.Schema;
 	using Text.Error;
 
-	public partial class t_Purchase : IValidatableObject
+	public partial class t_Purchase : IValidatableObject, IDataBase
 	{
 		[Key]
 		public long ID { get; set; }

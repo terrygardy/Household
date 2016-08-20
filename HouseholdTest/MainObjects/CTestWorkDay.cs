@@ -1,6 +1,7 @@
 ﻿using Helpers.Exceptions;
 using Household.BL.Functions.t;
 using Household.Data.Context;
+using Household.Test.Base;
 using Household.Test.Text;
 using NUnit.Framework;
 using System;
@@ -9,7 +10,7 @@ using System.Reflection;
 namespace Household.Test.MainObjects
 {
 	[TestFixture]
-	public class CTestWorkDay
+	public class CTestWorkDay : ITestBase<t_WorkDay>
 	{
 		public DateTime TestWorkDay { get { return new DateTime(1900, 1, 1); } }
 		public TimeSpan TestBegin { get { return new TimeSpan(8, 0, 0); } }
@@ -24,14 +25,12 @@ namespace Household.Test.MainObjects
 			NewWorkDay();
 			EditWorkDay();
 			DeleteWorkDay();
-
-			Assert.That(0, Is.EqualTo(0));
 		}
 
 		public void RemoveTestEntity()
 		{
 			var toWorkDay = getTestObject();
-			var xxWorkDay = getTestEntity(toWorkDay, false);
+			var xxWorkDay = GetTestEntity(toWorkDay, false);
 
 			if (xxWorkDay != null) DeleteWorkDay();
 		}
@@ -78,7 +77,7 @@ namespace Household.Test.MainObjects
 				toWorkDay.save(new t_WorkDay()
 				{
 					WorkDay = TestWorkDay,
-					Begin = new TimeSpan(0,0,0),
+					Begin = new TimeSpan(0, 0, 0),
 					End = TestEnd,
 					BreakDuration = TestBreakDuration
 				});
@@ -172,7 +171,7 @@ namespace Household.Test.MainObjects
 
 			try
 			{
-				var cWorkDay = getTestEntity(toWorkDay);
+				var cWorkDay = GetTestEntity(toWorkDay);
 				long lngResult;
 
 				cWorkDay.BreakDuration = 2;
@@ -193,7 +192,7 @@ namespace Household.Test.MainObjects
 
 			try
 			{
-				var cWorkDay = getTestEntity(toWorkDay);
+				var cWorkDay = GetTestEntity(toWorkDay);
 				long lngResult;
 
 				lngResult = toWorkDay.delete(cWorkDay);
@@ -220,18 +219,18 @@ namespace Household.Test.MainObjects
 			return null;
 		}
 
-		public t_WorkDay getTestEntity() { return getTestEntity(getTestObject(), true); }
+		public t_WorkDay GetTestEntity() { return GetTestEntity(getTestObject(), true); }
 
-		public t_WorkDay getTestEntity(bool pv_blnWithAsserts) { return getTestEntity(getTestObject(), pv_blnWithAsserts); }
+		public t_WorkDay GetTestEntity(bool pv_blnWithAsserts) { return GetTestEntity(getTestObject(), pv_blnWithAsserts); }
 
-		public t_WorkDay getTestEntity(CWorkDay pv_toWorkDay) { return getTestEntity(pv_toWorkDay, true); }
+		public t_WorkDay GetTestEntity(CWorkDay pv_toWorkDay) { return GetTestEntity(pv_toWorkDay, true); }
 
-		public t_WorkDay getTestEntity(CWorkDay pv_toWorkDay, bool pv_blnWithAssert)
+		public t_WorkDay GetTestEntity(CWorkDay pv_toWorkDay, bool pv_blnWithAssert)
 		{
 			try
 			{
 				return pv_toWorkDay.getWorkingDays(x => x.WorkDay == TestWorkDay && x.Begin == TestBegin
-													&& x.End == TestEnd && x.BreakDuration == TestBreakDuration)[0];
+													&& x.End == TestEnd)[0];
 			}
 			catch (Exception ex)
 			{

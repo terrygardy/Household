@@ -89,6 +89,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Base\CModelBase.cs" />
+    <Compile Include="Models\Base\IDataBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Text\BankAccount.cs" />
     <Compile Include="Text\Income.cs" />

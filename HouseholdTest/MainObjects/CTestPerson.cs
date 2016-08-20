@@ -1,6 +1,7 @@
 ﻿using Helpers.Exceptions;
 using Household.BL.Functions.t;
 using Household.Data.Context;
+using Household.Test.Base;
 using Household.Test.Text;
 using NUnit.Framework;
 using System;
@@ -9,7 +10,7 @@ using System.Reflection;
 namespace Household.Test.MainObjects
 {
 	[TestFixture]
-	public class CTestPerson
+	public class CTestPerson : ITestBase<t_Person>
 	{
 		public string TestName { get { return "NewPersonForTest"; } }
 		public string TestForename { get { return TextBase.TestDescription; } }
@@ -21,14 +22,12 @@ namespace Household.Test.MainObjects
 			BadPerson();
 			NewPerson();
 			EditPerson();
-			DeletePerson();
-
-			Assert.That(0, Is.EqualTo(0));
+			DeletePerson();		
 		}
 
 		public void RemoveTestEntity() {
 			var toPerson = getTestObject();
-			var xxPerson = getTestEntity(toPerson, false);
+			var xxPerson = GetTestEntity(toPerson, false);
 
 			if (xxPerson != null) DeletePerson();
 		}
@@ -74,7 +73,7 @@ namespace Household.Test.MainObjects
 
 			try
 			{
-				var cPerson = getTestEntity(toPerson);
+				var cPerson = GetTestEntity(toPerson);
 				long lngResult;
 
 				cPerson.Forename = TestForename;
@@ -95,7 +94,7 @@ namespace Household.Test.MainObjects
 
 			try
 			{
-				var cPerson = getTestEntity(toPerson);
+				var cPerson = GetTestEntity(toPerson);
 				long lngResult;
 
 				lngResult = toPerson.delete(cPerson);
@@ -122,13 +121,13 @@ namespace Household.Test.MainObjects
 			return null;
 		}
 
-		public t_Person getTestEntity() { return getTestEntity(getTestObject()); }
+		public t_Person getTestEntity() { return GetTestEntity(getTestObject()); }
 
-		public t_Person getTestEntity(bool pv_blnWithAssert) { return getTestEntity(getTestObject(), pv_blnWithAssert); }
+		public t_Person GetTestEntity(bool pv_blnWithAssert) { return GetTestEntity(getTestObject(), pv_blnWithAssert); }
 
-		public t_Person getTestEntity(CPerson pv_toPerson) { return getTestEntity(pv_toPerson, true); }
+		public t_Person GetTestEntity(CPerson pv_toPerson) { return GetTestEntity(pv_toPerson, true); }
 
-		public t_Person getTestEntity(CPerson pv_toPerson, bool pv_blnWithAssert)
+		public t_Person GetTestEntity(CPerson pv_toPerson, bool pv_blnWithAssert)
 		{
 			try
 			{
