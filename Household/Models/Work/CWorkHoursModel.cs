@@ -1,6 +1,8 @@
 ﻿using Household.Models.DisplayTable;
 using Household.BL.Functions.t;
 using GARTE.TypeHandling;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace Household.Models.Work
 {
@@ -18,35 +20,30 @@ namespace Household.Models.Work
 				OnClickController = "Work"
 			};
 			var drHead = new CDisplayRow();
-			var drFoot = new CDisplayRow();
+			var drFeet = new List<CDisplayRow>();
 			var dcColumn = new CDisplayColumn();
 
 			dcColumn.Content = "Day";
-			dcColumn.CSS = "center";
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = "Begin";
-			dcColumn.CSS = "center";
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = "End";
-			dcColumn.CSS = "center";
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = "Break [h]";
-			dcColumn.CSS = "right";
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = "Worked [h]";
-			dcColumn.CSS = "right";
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
@@ -88,14 +85,14 @@ namespace Household.Models.Work
 
 				drBody.Columns.Add(new CDisplayColumn()
 				{
-					Content = tWorkDay.BreakDuration.ToString(),
+					Content = tWorkDay.BreakDuration.ToString("N2"),
 					CSS = "right",
 					Tooltip = strTooltip
 				});
 
 				drBody.Columns.Add(new CDisplayColumn()
 				{
-					Content = tWorkDay.HoursWorked.ToString(),
+					Content = tWorkDay.HoursWorked.ToString("N2"),
 					CSS = "right",
 					Tooltip = strTooltip
 				});
@@ -103,15 +100,48 @@ namespace Household.Models.Work
 				dtTable.Body.Add(drBody);
 			}
 
+			var countDays = lstWorkDays.Count;
+			var drFoot = new CDisplayRow();
+
 			drFoot.Columns.Add(new CDisplayColumn()
 			{
-				Content = "Count: " + lstWorkDays.Count.ToString(),
+				Content = "Count: " + countDays.ToString(),
 				CSS = "right",
-				Tooltip = "Count: " + lstWorkDays.Count.ToString(),
+				Tooltip = "Count: " + countDays.ToString(),
 				ColumnSpan = 5
 			});
 
-			dtTable.Foot.Add(drFoot);
+			drFeet.Add(drFoot);
+
+			drFoot = new CDisplayRow();
+
+			var hoursWorked = lstWorkDays.Sum(x => x.HoursWorked);
+
+			drFoot.Columns.Add(new CDisplayColumn()
+			{
+				Content = "Total Hours Worked: " + hoursWorked.ToString("N2"),
+				CSS = "right",
+				Tooltip = "Total Hours Worked: " + hoursWorked.ToString("N2"),
+				ColumnSpan = 5
+			});
+
+			drFeet.Add(drFoot);
+
+			drFoot = new CDisplayRow();
+
+			var averageHours = (hoursWorked / (decimal)countDays).ToString("N2");
+
+			drFoot.Columns.Add(new CDisplayColumn()
+			{
+				Content = "Average Hours Worked: " + averageHours,
+				CSS = "right",
+				Tooltip = "Average Hours Worked: " + averageHours,
+				ColumnSpan = 5
+			});
+
+			drFeet.Add(drFoot);
+
+			dtTable.Foot = drFeet;
 
 			return dtTable;
 		}

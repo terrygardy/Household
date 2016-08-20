@@ -22,7 +22,6 @@ namespace Household.Models.MasterData
 			drHead.Columns.Add(new CDisplayColumn()
 			{
 				Content = "Interval",
-				CSS = "left",
 				Tooltip = "Interval"
 			});
 
