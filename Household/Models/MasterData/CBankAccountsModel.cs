@@ -21,19 +21,16 @@ namespace Household.Models.MasterData
 			var dcColumn = new CDisplayColumn();
 
 			dcColumn.Content = "Account Name";
-			dcColumn.CSS = "left";
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = "Bank Name";
-			dcColumn.CSS = "left";
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = "IBAN";
-			dcColumn.CSS = "left";
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 

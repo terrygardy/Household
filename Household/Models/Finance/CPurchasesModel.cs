@@ -29,25 +29,21 @@ namespace Household.Models.Finance
 			var dcColumn = new CDisplayColumn();
 
 			dcColumn.Content = "Date";
-			dcColumn.CSS = "center";
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = "Who";
-			dcColumn.CSS = "left";
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = "Where";
-			dcColumn.CSS = "left";
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = "Amount";
-			dcColumn.CSS = "right";
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
@@ -175,25 +171,21 @@ namespace Household.Models.Finance
 			lstPurchases = cPurchase.getPurchases(exSearch);
 
 			dcColumn.Content = "Date";
-			dcColumn.CSS = "center";
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = "Who";
-			dcColumn.CSS = "left";
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = "Where";
-			dcColumn.CSS = "left";
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = "Amount";
-			dcColumn.CSS = "right";
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
