@@ -26,25 +26,21 @@ namespace Household.Models.MasterData
 			var cCompany = new CCompany();
 
 			dcColumn.Content = "Start";
-			dcColumn.CSS = "center";
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = "End";
-			dcColumn.CSS = "center";
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = "Amount";
-			dcColumn.CSS = "right";
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = "Company";
-			dcColumn.CSS = "left";
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 

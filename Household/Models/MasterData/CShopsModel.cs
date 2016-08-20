@@ -23,13 +23,11 @@ namespace Household.Models.MasterData
 			var dcColumn = new CDisplayColumn();
 
 			dcColumn.Content = "Name";
-			dcColumn.CSS = "left";
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = "Description";
-			dcColumn.CSS = "left";
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 

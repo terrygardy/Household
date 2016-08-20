@@ -25,7 +25,6 @@ namespace Household.Models.MasterData
 			drHead.Columns.Add(new CDisplayColumn()
 			{
 				Content = "Day",
-				CSS = "left",
 				Tooltip = "Day"
 			});
 

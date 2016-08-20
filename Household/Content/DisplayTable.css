@@ -27,6 +27,9 @@ table tbody tr:hover {
 table tbody tr:nth-child(2n) {
   background-color: #eeeeee;
 }
+table thead tr th {
+  text-align: center;
+}
 table thead tr th,
 table tbody tr td,
 tfoot tr th {
