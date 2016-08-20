@@ -6,8 +6,9 @@ namespace Household.Data.Context
 	using System.ComponentModel.DataAnnotations.Schema;
 	using Text.Error;
 	using System.Collections.Generic;
+	using Models.Base;
 
-	public partial class t_Expense : IValidatableObject
+	public partial class t_Expense : IValidatableObject, IDataBase
 	{
 		#region Properties
 		[Key]

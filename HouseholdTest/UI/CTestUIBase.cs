@@ -1,15 +1,23 @@
-﻿using NUnit.Framework;
+﻿using Household.Test.Base;
+using NUnit.Framework;
 using System;
+using Household.Data.Models.Base;
 
 namespace Household.Test.UI
 {
 	[TestFixture]
-	public abstract class CTestUIBase<T>
-		where T: class
+	public abstract class CTestUIBase<T, Tinterface>
+		where T : class, IDataBase
+		where Tinterface : ITestBase<T>, new()
 	{
 		protected string GroupName { get; set; }
+		protected Tinterface TestObj { get; set; }
 
-		public CTestUIBase(string pv_strGroupName) { GroupName = pv_strGroupName; }
+		public CTestUIBase(string pv_strGroupName)
+		{
+			GroupName = pv_strGroupName;
+			TestObj = new Tinterface();
+		}
 
 		public void NavigateToHome()
 		{
@@ -21,6 +29,12 @@ namespace Household.Test.UI
 		{
 			NavigateToHome();
 			ClickPanel("finance");
+		}
+
+		public void NavigateToWork()
+		{
+			NavigateToHome();
+			ClickPanel("work");
 		}
 
 		public void NavigateToMasterData()
@@ -116,11 +130,11 @@ namespace Household.Test.UI
 		public virtual void LoadEditData() { throw new NotImplementedException(); }
 		#endregion
 
-		public virtual T GetTestEntity() { throw new NotImplementedException(); }
+		public T GetTestEntity() { return TestObj.GetTestEntity(false); }
 
-		public virtual long GetTestId() { throw new NotImplementedException(); }
+		public long GetTestId() { return GetTestEntity().ID; }
 
-		public virtual void RemoveTestEntity() { throw new NotImplementedException(); }
+		public void RemoveTestEntity() { TestObj.RemoveTestEntity(); }
 
 		#region "Delete Entries"
 		public virtual void DeleteEntry()

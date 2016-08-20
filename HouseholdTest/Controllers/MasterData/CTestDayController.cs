@@ -18,7 +18,7 @@ namespace Household.Test.Controllers.MasterData
 
 			cDayTest.NewDay();
 
-			xxDay = cDayTest.getTestEntity();
+			xxDay = cDayTest.GetTestEntity();
 
 			Assert.That(new DayController().Delete(xxDay.ID), Is.EqualTo(""));
 		}

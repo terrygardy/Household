@@ -5,14 +5,10 @@ using NUnit.Framework;
 namespace Household.Test.UI.MainObjects
 {
 	[TestFixture]
-	public class CTestUIPurchase : CTestUIFinance<t_Purchase>
+	public class CTestUIPurchase : CTestUIFinance<t_Purchase, CTestPurchase>
 	{
-		private CTestPurchase TestObj { get; set; }
-
 		public CTestUIPurchase() : base("purchases")
-		{
-			TestObj = new CTestPurchase();
-		}
+		{ }
 
 		public override void LoadTestData()
 		{
@@ -27,11 +23,5 @@ namespace Household.Test.UI.MainObjects
 		{
 			SendTextToElement("tbxDescription", "Test umlauts ÜÄÖüäö");
 		}
-
-		public override t_Purchase GetTestEntity() { return TestObj.getTestEntity(false); }
-
-		public override long GetTestId() { return GetTestEntity().ID; }
-
-		public override void RemoveTestEntity() { TestObj.RemoveTestEntity(); }
 	}
 }

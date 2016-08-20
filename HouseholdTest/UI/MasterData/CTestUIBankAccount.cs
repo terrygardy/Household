@@ -5,14 +5,10 @@ using NUnit.Framework;
 namespace Household.Test.UI.MasterData
 {
 	[TestFixture]
-	public class CTestUIBankAccount : CTestUIMasterData<txx_BankAccount>
+	public class CTestUIBankAccount : CTestUIMasterData<txx_BankAccount, CTestBankAccount>
 	{
-		private CTestBankAccount TestObj { get; set; }
-
 		public CTestUIBankAccount() : base("bankAccounts")
-		{
-			TestObj = new CTestBankAccount();
-		}
+		{ }
 
 		public override void LoadTestData()
 		{
@@ -21,12 +17,6 @@ namespace Household.Test.UI.MasterData
 			SendTextToElement("tbxBIC", TestObj.TestBIC);
 			SendTextToElement("tbxBankName", TestObj.TestBank);
 		}
-
-		public override txx_BankAccount GetTestEntity() { return TestObj.getTestEntity(false); }
-
-		public override long GetTestId() { return GetTestEntity().ID; }
-
-		public override void RemoveTestEntity() { TestObj.RemoveTestEntity(); }
 
 		public override void LoadEditData()
 		{

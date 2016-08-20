@@ -2,6 +2,7 @@
 using Household.BL.DATA.txx;
 using Household.BL.Functions.txx;
 using Household.Data.Context;
+using Household.Test.Base;
 using Household.Test.Text;
 using NUnit.Framework;
 using System;
@@ -10,7 +11,7 @@ using System.Reflection;
 namespace Household.Test.MasterData
 {
 	[TestFixture]
-	public class CTestBankAccount
+	public class CTestBankAccount : ITestBase<txx_BankAccount>
 	{
 		public string TestAccountName { get { return "NewBankAccountForTest"; } }
 		public string TestIBAN { get { return "1234567890123456789012"; } }
@@ -26,13 +27,13 @@ namespace Household.Test.MasterData
 			EditBankAccount();
 			DeleteBankAccount();
 
-			Assert.That(0, Is.EqualTo(0));
+
 		}
 
 		public void RemoveTestEntity()
 		{
 			var toBankAccount = getTestObject();
-			var xxBankAccount = getTestEntity(toBankAccount, false);
+			var xxBankAccount = GetTestEntity(toBankAccount, false);
 
 			if (xxBankAccount != null) DeleteBankAccount();
 		}
@@ -123,7 +124,7 @@ namespace Household.Test.MasterData
 
 			try
 			{
-				var cBankAccount = getTestEntity(toBankAccount);
+				var cBankAccount = GetTestEntity(toBankAccount);
 				long lngResult;
 
 				cBankAccount.BankName = TestBank;
@@ -144,7 +145,7 @@ namespace Household.Test.MasterData
 
 			try
 			{
-				var cBankAccount = getTestEntity(toBankAccount);
+				var cBankAccount = GetTestEntity(toBankAccount);
 				long lngResult;
 
 				lngResult = toBankAccount.delete(cBankAccount);
@@ -171,13 +172,13 @@ namespace Household.Test.MasterData
 			return null;
 		}
 
-		public txx_BankAccount getTestEntity() { return getTestEntity(getTestObject()); }
+		public txx_BankAccount GetTestEntity() { return GetTestEntity(getTestObject()); }
 
-		public txx_BankAccount getTestEntity(bool pv_blnWithAssert) { return getTestEntity(getTestObject(), pv_blnWithAssert); }
+		public txx_BankAccount GetTestEntity(bool pv_blnWithAssert) { return GetTestEntity(getTestObject(), pv_blnWithAssert); }
 
-		public txx_BankAccount getTestEntity(CBankAccount pv_toBankAccount) { return getTestEntity(pv_toBankAccount, true); }
+		public txx_BankAccount GetTestEntity(CBankAccount pv_toBankAccount) { return GetTestEntity(pv_toBankAccount, true); }
 
-		public txx_BankAccount getTestEntity(CBankAccount pv_toBankAccount, bool pv_blnWithAssert)
+		public txx_BankAccount GetTestEntity(CBankAccount pv_toBankAccount, bool pv_blnWithAssert)
 		{
 			try
 			{

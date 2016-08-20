@@ -1,6 +1,7 @@
 ﻿using Helpers.Exceptions;
 using Household.BL.Functions.txx;
 using Household.Data.Context;
+using Household.Test.Base;
 using Household.Test.Text;
 using NUnit.Framework;
 using System;
@@ -9,7 +10,7 @@ using System.Reflection;
 namespace Household.Test.MasterData
 {
 	[TestFixture]
-	public class CTestShop
+	public class CTestShop : ITestBase<txx_Shop>
 	{
 		public string TestName { get { return "NewShopForTest"; } }
 		public string TestDescription { get { return TextBase.TestDescription; } }
@@ -23,12 +24,12 @@ namespace Household.Test.MasterData
 			EditShop();
 			DeleteShop();
 
-			Assert.That(0, Is.EqualTo(0));
+			
 		}
 
 		public void RemoveTestEntity() {
 			var toShop = getTestObject();
-			var xxShop = getTestEntity(toShop, false);
+			var xxShop = GetTestEntity(toShop, false);
 
 			if (xxShop != null) DeleteShop();
 		}
@@ -74,7 +75,7 @@ namespace Household.Test.MasterData
 
 			try
 			{
-				var cShop = getTestEntity(toShop);
+				var cShop = GetTestEntity(toShop);
 				long lngResult;
 
 				cShop.Description = TestDescription;
@@ -95,7 +96,7 @@ namespace Household.Test.MasterData
 
 			try
 			{
-				var cShop = getTestEntity(toShop);
+				var cShop = GetTestEntity(toShop);
 				long lngResult;
 
 				lngResult = toShop.delete(cShop);
@@ -122,13 +123,13 @@ namespace Household.Test.MasterData
 			return null;
 		}
 
-		public txx_Shop getTestEntity() { return getTestEntity(getTestObject()); }
+		public txx_Shop GetTestEntity() { return GetTestEntity(getTestObject()); }
 
-		public txx_Shop getTestEntity(bool pv_blnWithAssert) { return getTestEntity(getTestObject(), pv_blnWithAssert); }
+		public txx_Shop GetTestEntity(bool pv_blnWithAssert) { return GetTestEntity(getTestObject(), pv_blnWithAssert); }
 
-		public txx_Shop getTestEntity(CShop pv_toShop) { return getTestEntity(pv_toShop, true); }
+		public txx_Shop GetTestEntity(CShop pv_toShop) { return GetTestEntity(pv_toShop, true); }
 
-		public txx_Shop getTestEntity(CShop pv_toShop, bool pv_blnWithAssert)
+		public txx_Shop GetTestEntity(CShop pv_toShop, bool pv_blnWithAssert)
 		{
 			try
 			{

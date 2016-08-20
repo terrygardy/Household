@@ -1,6 +1,7 @@
 ﻿using Helpers.Exceptions;
 using Household.BL.Functions.txx;
 using Household.Data.Context;
+using Household.Test.Base;
 using Household.Test.Text;
 using NUnit.Framework;
 using System;
@@ -9,7 +10,7 @@ using System.Reflection;
 namespace Household.Test.MasterData
 {
 	[TestFixture]
-	public class CTestDay
+	public class CTestDay : ITestBase<txx_Day>
 	{
 		public int TestDay { get { return 6; } }
 		public int TestDayEdit { get { return 7; } }
@@ -22,17 +23,15 @@ namespace Household.Test.MasterData
 			NewDay();
 			EditDay();
 			DeleteDay();
-
-			Assert.That(0, Is.EqualTo(0));
 		}
 
 		public void RemoveTestEntity()
 		{
-			var xxDay = getTestEntity(getTestObject(), false);
+			var xxDay = GetTestEntity(getTestObject(), false);
 
 			if (xxDay != null) DeleteDay();
 
-			xxDay = getTestEntity(getTestObject(), false, TestDayEdit);
+			xxDay = GetTestEntity(getTestObject(), false, TestDayEdit);
 
 			if (xxDay != null) DeleteDay(TestDayEdit);
 		}
@@ -75,7 +74,7 @@ namespace Household.Test.MasterData
 		public void EditDay()
 		{
 			var toDay = getTestObject();
-			var xxDay = getTestEntity(toDay);
+			var xxDay = GetTestEntity(toDay);
 
 			try
 			{
@@ -116,7 +115,7 @@ namespace Household.Test.MasterData
 
 			try
 			{
-				var cDay = getTestEntity(toDay, true, pv_intDay);
+				var cDay = GetTestEntity(toDay, true, pv_intDay);
 				long lngResult;
 
 				lngResult = toDay.delete(cDay);
@@ -143,15 +142,15 @@ namespace Household.Test.MasterData
 			return null;
 		}
 
-		public txx_Day getTestEntity() { return getTestEntity(getTestObject()); }
+		public txx_Day GetTestEntity() { return GetTestEntity(getTestObject()); }
 
-		public txx_Day getTestEntity(bool pv_blnWithAssert) { return getTestEntity(getTestObject(), pv_blnWithAssert); }
+		public txx_Day GetTestEntity(bool pv_blnWithAssert) { return GetTestEntity(getTestObject(), pv_blnWithAssert); }
 
-		public txx_Day getTestEntity(CDay pv_toDay) { return getTestEntity(pv_toDay, true, TestDay); }
+		public txx_Day GetTestEntity(CDay pv_toDay) { return GetTestEntity(pv_toDay, true, TestDay); }
 
-		public txx_Day getTestEntity(CDay pv_toDay, bool pv_blnWithAssert) { return getTestEntity(pv_toDay, pv_blnWithAssert, TestDay); }
+		public txx_Day GetTestEntity(CDay pv_toDay, bool pv_blnWithAssert) { return GetTestEntity(pv_toDay, pv_blnWithAssert, TestDay); }
 
-		public txx_Day getTestEntity(CDay pv_toDay, bool pv_blnWithAssert, int pv_intDay)
+		public txx_Day GetTestEntity(CDay pv_toDay, bool pv_blnWithAssert, int pv_intDay)
 		{
 			try
 			{

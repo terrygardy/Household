@@ -5,14 +5,10 @@ using NUnit.Framework;
 namespace Household.Test.UI.MasterData
 {
 	[TestFixture]
-	public class CTestUIIncome : CTestUIMasterData<t_Income>
+	public class CTestUIIncome : CTestUIMasterData<t_Income, CTestIncome>
 	{
-		private CTestIncome TestObj { get; set; }
-
 		public CTestUIIncome() : base("incomes")
-		{
-			TestObj = new CTestIncome();
-		}
+		{ }
 
 		public override void LoadTestData()
 		{
@@ -29,15 +25,6 @@ namespace Household.Test.UI.MasterData
 		public override void LoadEditData()
 		{
 			SendTextToElement("tbxDescription", "Test umlauts ÜÄÖüäö");
-		}
-
-		public override t_Income GetTestEntity() { return TestObj.getTestEntity(false); }
-
-		public override long GetTestId() { return GetTestEntity().ID; }
-
-		public override void RemoveTestEntity()
-		{
-			TestObj.RemoveTestEntity();
 		}
 	}
 }

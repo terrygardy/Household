@@ -18,7 +18,7 @@ namespace Household.Test.Controllers.MasterData
 
 			cBankTest.NewBankAccount();
 
-			xxBankAccount = cBankTest.getTestEntity();
+			xxBankAccount = cBankTest.GetTestEntity();
 
 			Assert.That(new BankAccountController().Delete(xxBankAccount.ID), Is.EqualTo(""));
 		}

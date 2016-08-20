@@ -24,7 +24,7 @@ namespace Household.Test.Search.MainObjects
 
 				cTest.RemoveTestEntity();
 				cTest.NewPurchase();
-				tPurchase = cTest.getTestEntity();
+				tPurchase = cTest.GetTestEntity();
 
 				cSearch.Amount = tPurchase.Amount;
 				cSearch.Description = tPurchase.Description;
