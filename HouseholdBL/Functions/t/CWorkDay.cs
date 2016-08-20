@@ -28,7 +28,12 @@ namespace Household.BL.Functions.t
 
 		public List<t_WorkDay> getWorkingDays()
 		{
-			return base.getEntities(null, getStandardOrderBy(), getStandardThenBy());
+			return getWorkingDays(null);
+		}
+
+		public List<t_WorkDay> getWorkingDays(Expression<Func<t_WorkDay, bool>> pv_exWhere)
+		{
+			return base.getEntities(pv_exWhere, getStandardOrderBy(), getStandardThenBy());
 		}
 	}
 }

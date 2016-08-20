@@ -55,7 +55,7 @@ namespace Household.Data.Context
 			if (PaymentDay_ID < 1) list.Add(new ValidationResult(Expense.EnterDay));
 			if (BankAccount_ID < 1) list.Add(new ValidationResult(Expense.EnterBankAccount));
 			if ((Company_ID < 1) && (string.IsNullOrEmpty(Description))) list.Add(new ValidationResult(Expense.EnterCompanyOrDescription));
-			if (Amount < 1) list.Add(new ValidationResult(Expense.EnterAmount));
+			if (Amount <= 0) list.Add(new ValidationResult(Expense.EnterAmount));
 
 			return list;
 		}

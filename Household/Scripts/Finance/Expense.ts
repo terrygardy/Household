@@ -15,7 +15,7 @@ module Expense {
 		Amount: number;
 	}
 
-	export class Expense extends MasterData.BaseMasterData {
+	export class Expense extends MasterData.BaseDescMasterData {
 		StartDate: any;
 		EndDate: any;
 		Company_ID: any;
@@ -23,8 +23,6 @@ module Expense {
 		PaymentDay_ID: any;
 		Interval_ID: any;
 		Amount: any;
-		Description: any;
-		BaseAction: string;
 
 		constructor(pv_objOptions: IExpenseOptions) {
 			super(pv_objOptions);

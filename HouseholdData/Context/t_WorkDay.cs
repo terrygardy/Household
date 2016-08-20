@@ -4,6 +4,7 @@ namespace Household.Data.Context
 	using System;
 	using System.Collections.Generic;
 	using System.ComponentModel.DataAnnotations;
+	using System.Linq;
 
 	public partial class t_WorkDay : IValidatableObject
 	{
@@ -44,6 +45,11 @@ namespace Household.Data.Context
 			if (End < Begin) list.Add(new ValidationResult("The end time cannot be before the the begin time"));
 			if (End <= Begin && BreakDuration > 0) list.Add(new ValidationResult("The end time cannot be before the the begin time"));
 			if (BreakDuration < 0) list.Add(new ValidationResult("The break duration cannot be a minus number"));
+
+			if (Db.CDbConnection.getInstance().t_WorkDay.Count(x => x.WorkDay == WorkDay
+																&& x.Begin <= Begin
+																&& x.End >= Begin
+																&& x.ID != ID) > 0) list.Add(new ValidationResult("This time frame has already been entered"));
 
 			return list;
 		}
