@@ -1,12 +1,11 @@
 namespace Household.Data.Context
 {
-	using System;
 	using System.Collections.Generic;
 	using System.ComponentModel.DataAnnotations;
-	using System.ComponentModel.DataAnnotations.Schema;
-	using System.Data.Entity.Spatial;
+	using System.Linq;
+	using Text.Error;
 
-	public partial class t_Person
+	public partial class t_Person : IValidatableObject
 	{
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
 		public t_Person()
@@ -14,6 +13,7 @@ namespace Household.Data.Context
 			tbr_BankAccountPerson = new HashSet<tbr_BankAccountPerson>();
 		}
 
+		[Key]
 		public long ID { get; set; }
 
 		[Required]
@@ -29,6 +29,24 @@ namespace Household.Data.Context
 		public override string ToString()
 		{
 			return GARTE.TypeHandling.Strings.concatStrings(Surname, Forename, ", ");
+		}
+
+		public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+		{
+			var list = new List<ValidationResult>();
+
+			if (string.IsNullOrWhiteSpace(Surname)) { list.Add(new ValidationResult(Person.EnterName)); }
+
+			if (string.IsNullOrWhiteSpace(Forename)) Forename = "";
+
+			Surname = Surname.Trim();
+			Forename = Forename.Trim();
+
+			if (Db.CDbConnection.getInstance().t_Person.Count(x => x.ID != ID &&
+						 string.Compare(x.Surname, Surname, true) == 0 &&
+						 string.Compare(x.Forename, Forename, true) == 0) > 0) list.Add(new ValidationResult(Person.PersonExists));
+
+			return list;
 		}
 	}
 }

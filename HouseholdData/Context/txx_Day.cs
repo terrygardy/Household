@@ -1,12 +1,10 @@
 namespace Household.Data.Context
 {
-	using System;
 	using System.Collections.Generic;
 	using System.ComponentModel.DataAnnotations;
-	using System.ComponentModel.DataAnnotations.Schema;
-	using System.Data.Entity.Spatial;
+	using System.Linq;
 
-	public partial class txx_Day
+	public partial class txx_Day : IValidatableObject
 	{
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
 		public txx_Day()
@@ -44,6 +42,17 @@ namespace Household.Data.Context
 			}
 
 			return strDay;
+		}
+
+		public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+		{
+			var list = new List<ValidationResult>();
+
+			if ((Day < 1) || (Day > 31)) { list.Add(new ValidationResult(Text.Error.Day.Invalid)); }
+
+			if (Db.CDbConnection.getInstance().txx_Day.Count(x => x.Day == Day && x.ID != ID) > 0) { list.Add(new ValidationResult(Text.Error.Day.DayExists)); }
+
+			return list;
 		}
 	}
 }

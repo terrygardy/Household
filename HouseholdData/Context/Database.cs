@@ -7,7 +7,7 @@ using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
 using System.Reflection;
 using System.Linq.Expressions;
-using System.Collections;
+using System.Text;
 
 namespace Household.Data.Context
 {
@@ -29,7 +29,17 @@ namespace Household.Data.Context
 			}
 			catch (DbEntityValidationException ex)
 			{
-				throw new ValidationException(ex);
+				var sb = new StringBuilder();
+
+				foreach (var validation in ex.EntityValidationErrors)
+				{
+					foreach (var error in validation.ValidationErrors)
+					{
+						sb.Append(Environment.NewLine + error.ErrorMessage);
+					}
+				}
+
+				throw new ValidationException(sb.ToString());
 			}
 			catch (NotSupportedException ex)
 			{

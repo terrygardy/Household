@@ -14,13 +14,6 @@ namespace Household.BL.Functions.txx
 	{
 		public CInterval() { }
 
-		public override void validate(txx_Interval pv_cEntity)
-		{
-			if (string.IsNullOrEmpty(pv_cEntity.Name)) { throw new ValidationException(Interval.EnterName); }
-
-			if (getModel(x => string.Compare(x.Name, pv_cEntity.Name, true) == 0 && x.ID != pv_cEntity.ID) != null) { throw new ValidationException(Interval.NameExists); }
-		}
-
 		protected override Expression<Func<txx_Interval, string>> getStandardOrderBy()
 		{
 			return x => x.Name;

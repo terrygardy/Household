@@ -102,8 +102,6 @@ namespace Household.Data.Models.Base
 		{
 			T tEntity = pv_cEntity;
 
-			validate(tEntity);
-
 			long lngID = getID(tEntity);
 
 			if (lngID > 0)
@@ -124,8 +122,6 @@ namespace Household.Data.Models.Base
 
 		public virtual int save(List<T> pv_lstEntities)
 		{
-			validate(pv_lstEntities);
-
 			return Database.AttachRange(pv_lstEntities, true);
 		}
 		#endregion
@@ -174,12 +170,5 @@ namespace Household.Data.Models.Base
 
 		protected abstract Expression<Func<T, bool>> getStandardWhereID(long pv_lngID);
 		#endregion
-
-		public abstract void validate(T pv_cEntity);
-
-		public void validate(List<T> pv_lstEntity)
-		{
-			foreach (T cEntity in pv_lstEntity) { validate(cEntity); }
-		}
 	}
 }

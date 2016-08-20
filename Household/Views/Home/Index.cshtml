@@ -44,8 +44,16 @@
 @section scripts{
 	@Scripts.Render("~/bundles/Helpers")
 	<script type="text/javascript">
+		var intervalEnvironment;
+
 		(function () {
-			Helpers.HttpRequests.CreateAsyncRequestHandlerPOST('@Url.Action("SetEnvironment", "Home")', Helpers.HttpRequests.GetContentTypeText()).send();
+			setInterval(setEnvironment, 200);
 		})();
+
+		function setEnvironment() {
+			clearInterval(intervalEnvironment);
+
+			Helpers.HttpRequests.CreateAsyncRequestHandlerPOST('@Url.Action("SetEnvironment", "Home")', Helpers.HttpRequests.GetContentTypeText()).send();
+		}
 	</script>
 }

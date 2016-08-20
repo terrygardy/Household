@@ -14,22 +14,6 @@ namespace Household.BL.Functions.txx
 	{
 		public CBankAccount() { }
 
-		public override void validate(txx_BankAccount pv_cEntity)
-		{
-			if (string.IsNullOrWhiteSpace(pv_cEntity.AccountName)) { throw new ValidationException(BankAccount.EnterName); }
-
-			if (!string.IsNullOrWhiteSpace(pv_cEntity.IBAN))
-			{
-				if (pv_cEntity.IBAN.Replace("-", "").Replace(" ", "").Length != 22) throw new ValidationException(BankAccount.IBANWrongLength);
-
-				pv_cEntity.IBAN = formatIBAN(pv_cEntity.IBAN);
-
-				if (getModel(x => string.Compare(x.IBAN, pv_cEntity.IBAN, true) == 0 && x.ID != pv_cEntity.ID) != null) { throw new ValidationException(BankAccount.IBANExists); }
-			}
-
-			if ((!string.IsNullOrWhiteSpace(pv_cEntity.BIC)) && (pv_cEntity.BIC.Length != 11)) { throw new ValidationException(BankAccount.BICWrongLength); }
-		}
-
 		public string formatIBAN(string pv_strIBAN) { return pv_strIBAN.ToUpper(); }
 
 		protected override Expression<Func<txx_BankAccount, string>> getStandardOrderBy()

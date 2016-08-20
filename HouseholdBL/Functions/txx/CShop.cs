@@ -14,13 +14,6 @@ namespace Household.BL.Functions.txx
 	{
 		public CShop() { }
 
-		public override void validate(txx_Shop pv_cEntity)
-		{
-			if (string.IsNullOrEmpty(pv_cEntity.Name)) { throw new ValidationException(Shop.EnterName); }
-
-			if (getModel(x => string.Compare(x.Name, pv_cEntity.Name, true) == 0 && x.ID != pv_cEntity.ID) != null) { throw new ValidationException(Shop.NameExists); }
-		}
-
 		protected override Expression<Func<txx_Shop, string>> getStandardOrderBy()
 		{
 			return x => x.Name;
