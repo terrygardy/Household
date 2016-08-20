@@ -29,7 +29,7 @@ var Expense;
             MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() });
         };
         return Expense;
-    }(MasterData.BaseMasterData));
+    }(MasterData.BaseDescMasterData));
     Expense_1.Expense = Expense;
     function Save() {
         this.m_objExpense.Save();

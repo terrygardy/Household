@@ -9,11 +9,11 @@ namespace Household.BL.Interfaces.t
 
 		DateTime? EndDate { get; set; }
 
-		long Interval_ID { get; set; }
+		long? Interval_ID { get; set; }
 
 		decimal Amount { get; set; }
 
-		long Payee_ID { get; set; }
+		long? Payee_ID { get; set; }
 
 		long? Company_ID { get; set; }
 

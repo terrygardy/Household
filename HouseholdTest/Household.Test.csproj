@@ -160,6 +160,7 @@
     <Compile Include="Controllers\MasterData\CTestDayController.cs" />
     <Compile Include="Controllers\MasterData\CTestBankAccountController.cs" />
     <Compile Include="MainObjects\CTestIncome.cs" />
+    <Compile Include="MainObjects\CTestWorkDay.cs" />
     <Compile Include="MainObjects\CTestPurchase.cs" />
     <Compile Include="MainObjects\CTestExpense.cs" />
     <Compile Include="MainObjects\CTestPerson.cs" />

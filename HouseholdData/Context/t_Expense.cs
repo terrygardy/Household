@@ -1,15 +1,19 @@
 namespace Household.Data.Context
 {
+	using Common;
 	using System;
-	using System.Collections.Generic;
 	using System.ComponentModel.DataAnnotations;
 	using System.ComponentModel.DataAnnotations.Schema;
-	using System.Data.Entity.Spatial;
+	using Text.Error;
+	using System.Collections.Generic;
 
-	public partial class t_Expense
+	public partial class t_Expense : IValidatableObject
 	{
+		#region Properties
+		[Key]
 		public long ID { get; set; }
 
+		[Required]
 		[Column(TypeName = "date")]
 		public DateTime StartDate { get; set; }
 
@@ -20,10 +24,11 @@ namespace Household.Data.Context
 
 		public long? Company_ID { get; set; }
 
+		[Required]
 		public decimal Amount { get; set; }
 
-		public long BankAccount_ID { get; set; }
-
+		public long? BankAccount_ID { get; set; }
+		
 		public long? PaymentDay_ID { get; set; }
 
 		public string Description { get; set; }
@@ -39,5 +44,20 @@ namespace Household.Data.Context
 
 		[ForeignKey("Interval_ID")]
 		public virtual txx_Interval txx_Interval { get; set; }
+		#endregion
+
+		public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+		{
+			var list = new List<ValidationResult>();
+			if (StartDate <= DbTools.MinDate) list.Add(new ValidationResult(Expense.EnterStartDate));
+			if ((EndDate > DbTools.MinDate) && (EndDate < StartDate)) list.Add(new ValidationResult(Expense.EnterEndDate));
+			if (Interval_ID < 1) list.Add(new ValidationResult(Expense.EnterInterval));
+			if (PaymentDay_ID < 1) list.Add(new ValidationResult(Expense.EnterDay));
+			if (BankAccount_ID < 1) list.Add(new ValidationResult(Expense.EnterBankAccount));
+			if ((Company_ID < 1) && (string.IsNullOrEmpty(Description))) list.Add(new ValidationResult(Expense.EnterCompanyOrDescription));
+			if (Amount <= 0) list.Add(new ValidationResult(Expense.EnterAmount));
+
+			return list;
+		}
 	}
 }

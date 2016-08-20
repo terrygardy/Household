@@ -14,7 +14,7 @@ namespace Household.BL.Interfaces.t
 
 		decimal Amount { get; set; }
 
-		long BankAccount_ID { get; set; }
+		long? BankAccount_ID { get; set; }
 
 		long? PaymentDay_ID { get; set; }
 

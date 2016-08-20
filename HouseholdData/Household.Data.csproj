@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\DbTools.cs" />
     <Compile Include="Context\Database.cs" />
     <Compile Include="Context\DataModel.cs" />
     <Compile Include="Context\tbr_BankAccountPerson.cs" />

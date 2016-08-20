@@ -4,8 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using Helpers.Exceptions;
-using Household.Data.Text.Error;
 using Household.BL.DATA.t;
 using Household.BL.Returns;
 
@@ -14,17 +12,7 @@ namespace Household.BL.Functions.t
 	public class CPurchase : CModelBase<t_Purchase, DateTime, string, CPurchaseData>
 	{
 		public CPurchase() { }
-
-		public override void validate(t_Purchase pv_cEntity)
-		{
-			if (pv_cEntity.Occurrence <= MinDate) throw new ValidationException(Purchase.EnterDate);
-			if (pv_cEntity.Occurrence > DateTime.Now) throw new ValidationException(Purchase.DateInFuture);
-
-			if (pv_cEntity.Amount < 0) throw new ValidationException(Purchase.EnterAmount);
-			if (pv_cEntity.Payer_ID == 0) throw new ValidationException(Purchase.EnterPayer);
-			if ((pv_cEntity.Shop_ID == 0) && (string.IsNullOrEmpty(pv_cEntity.Description))) { throw new ValidationException(Purchase.EnterShopOrDescription); }
-		}
-
+		
 		protected override Expression<Func<t_Purchase, DateTime>> getStandardOrderBy()
 		{
 			return x => x.Occurrence;

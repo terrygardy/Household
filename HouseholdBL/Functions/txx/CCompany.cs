@@ -14,13 +14,6 @@ namespace Household.BL.Functions.txx
 	{
 		public CCompany() { }
 
-		public override void validate(txx_Company pv_cEntity)
-		{
-			if (string.IsNullOrEmpty(pv_cEntity.Name)) { throw new ValidationException(Company.EnterName); }
-
-			if (getModel(x => string.Compare(x.Name, pv_cEntity.Name, true) == 0 && x.ID != pv_cEntity.ID) != null) { throw new ValidationException(Company.NameExists); }
-		}
-
 		protected override void deleteAllowed(txx_Company pv_cEntity)
 		{
 			if (Database.t_Income.Where(x => x.Company_ID == pv_cEntity.ID).Count() > 0) throw new DeleteNotAllowedException(Company.InUseIncome);
