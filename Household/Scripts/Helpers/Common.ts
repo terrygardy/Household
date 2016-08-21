@@ -132,16 +132,16 @@
 	export function ActivateSearchDiv(): void {
 		var elSearch: JQuery;
 
-		toggleSearch();
+		ToggleSearch();
 
 		elSearch = $(GetSearchSelector());
 
 		if (elSearch.length > 0) {
-			elSearch.click(toggleSearch);
+			elSearch.click(ToggleSearch);
 		}
 	}
 
-	function toggleSearch(): void {
+	export function ToggleSearch(): void {
 		var elSearch: JQuery = $(GetSearchContainerClassSelector());
 
 		if (elSearch.hasClass(m_strInvisibleClass) === true) {
@@ -161,7 +161,7 @@
 			alert('Error while searching: ' + ex);
 		}
 
-		toggleSearch();
+		ToggleSearch();
 		stopPleaseWait();
 	}
 
