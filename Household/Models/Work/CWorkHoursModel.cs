@@ -3,17 +3,29 @@ using Household.BL.Functions.t;
 using GARTE.TypeHandling;
 using System.Linq;
 using System.Collections.Generic;
+using System.Linq.Expressions;
+using System;
+using Household.Data.Context;
+using Household.Models.Search;
 
 namespace Household.Models.Work
 {
 	public class CWorkHoursModel
 	{
+		private DateTime m_datNull = new DateTime(1753, 1, 1);
+		private TimeSpan m_tsNull = new TimeSpan(0, 0, 0);
+
 		public CWorkHoursModel() { }
 
 		public CDisplayTable getDisplayTable()
 		{
+			return getDisplayTable(null);
+		}
+
+		public CDisplayTable getDisplayTable(Expression<Func<t_WorkDay, bool>> exSearch)
+		{
 			var cWorkDay = new CWorkDay();
-			var lstWorkDays = cWorkDay.getWorkingDays();
+			var lstWorkDays = cWorkDay.getWorkingDays(exSearch);
 			var dtTable = new CDisplayTable()
 			{
 				OnClickAction = "WorkDay",
@@ -129,7 +141,17 @@ namespace Household.Models.Work
 
 			drFoot = new CDisplayRow();
 
-			var averageHours = (hoursWorked / (decimal)countDays).ToString("N2");
+
+			string averageHours;
+
+			try
+			{
+				averageHours = (hoursWorked / (decimal)countDays).ToString("N2");
+			}
+			catch (Exception)
+			{
+				averageHours = "0";
+			}
 
 			drFoot.Columns.Add(new CDisplayColumn()
 			{
@@ -144,6 +166,21 @@ namespace Household.Models.Work
 			dtTable.Foot = drFeet;
 
 			return dtTable;
+		}
+
+		public CDisplayTable search(CSearchWorkDay pv_swSearch)
+		{
+			pv_swSearch.WorkDayFrom = Base.convertDate(pv_swSearch.WorkDayFrom);
+			pv_swSearch.WorkDayTo = Base.convertDate(pv_swSearch.WorkDayTo);
+			pv_swSearch.Begin = Base.convertTime(pv_swSearch.Begin);
+			pv_swSearch.End = Base.convertTime(pv_swSearch.End);
+			pv_swSearch.BreakDuration = Base.convertDec(pv_swSearch.BreakDuration);
+
+			return getDisplayTable(x => (((pv_swSearch.WorkDayFrom <= m_datNull) || (x.WorkDay >= pv_swSearch.WorkDayFrom))
+									&& ((pv_swSearch.WorkDayTo <= m_datNull) || (x.WorkDay <= pv_swSearch.WorkDayTo))
+									&& ((pv_swSearch.Begin <= m_tsNull) || (x.Begin >= pv_swSearch.Begin))
+									&& ((pv_swSearch.End <= m_tsNull) || (x.End <= pv_swSearch.End))
+									&& ((pv_swSearch.BreakDuration <= 0) || (x.BreakDuration == pv_swSearch.BreakDuration))));
 		}
 	}
 }
