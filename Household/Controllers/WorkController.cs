@@ -6,6 +6,7 @@ using Household.Models.Work;
 using System.Web.Mvc;
 using Household.Data.Context;
 using Household.Controllers.Base;
+using Household.Models.Search;
 
 namespace Household.Controllers
 {
@@ -39,6 +40,12 @@ namespace Household.Controllers
 		public PartialViewResult WorkDay(long id)
 		{
 			return PartialView(new CWorkDayModel(id));
+		}
+
+		[HttpPost]
+		public PartialViewResult Search([System.Web.Http.FromBody]CSearchWorkDay Search)
+		{
+			return PartialView(m_strMasterDataUrl, new CMasterData() { DisplayTable = new CWorkHoursModel().search(Search), Title = "Work Hours" });
 		}
 	}
 }

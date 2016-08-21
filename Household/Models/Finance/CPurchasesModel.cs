@@ -7,6 +7,7 @@ using Household.Models.Search;
 using System.Linq.Expressions;
 using System;
 using System.Linq;
+using GARTE.TypeHandling;
 
 namespace Household.Models.Finance
 {
@@ -57,7 +58,7 @@ namespace Household.Models.Finance
 
 			foreach (var tPurchase in lstPurchases)
 			{
-				var strDate = GARTE.TypeHandling.Base.convertShortDateString(tPurchase.Occurrence);
+				var strDate = Base.convertShortDateString(tPurchase.Occurrence);
 				string strPurchase, strBuyer, strShop, strAmount;
 				var drBody = new CDisplayRow()
 				{
@@ -163,11 +164,11 @@ namespace Household.Models.Finance
 
 		public CDisplayTable search(CSearchPurchase pv_spSearch)
 		{
-			pv_spSearch.Description = GARTE.TypeHandling.Base.convertString(pv_spSearch.Description).ToLower();
-			pv_spSearch.From = GARTE.TypeHandling.Base.convertDate(pv_spSearch.From);
-			pv_spSearch.To = GARTE.TypeHandling.Base.convertDate(pv_spSearch.To);
-			pv_spSearch.Where = GARTE.TypeHandling.Base.convertString(pv_spSearch.Where).ToLower();
-			pv_spSearch.Who = GARTE.TypeHandling.Base.convertString(pv_spSearch.Who).ToLower();
+			pv_spSearch.Description = Base.convertString(pv_spSearch.Description).ToLower();
+			pv_spSearch.From = Base.convertDate(pv_spSearch.From);
+			pv_spSearch.To = Base.convertDate(pv_spSearch.To);
+			pv_spSearch.Where = Base.convertString(pv_spSearch.Where).ToLower();
+			pv_spSearch.Who = Base.convertString(pv_spSearch.Who).ToLower();
 
 			return getDisplayTable(x => (((pv_spSearch.To <= m_datNull) || (x.Occurrence <= pv_spSearch.To))
 									&& ((pv_spSearch.From <= m_datNull) || (x.Occurrence >= pv_spSearch.From))

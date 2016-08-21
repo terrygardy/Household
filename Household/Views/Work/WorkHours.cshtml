@@ -10,6 +10,36 @@
 </div>
 <div class="row">
 	<div class="col-xs-12">
+		<div id="divSearch" title="search" />
+		<div class="searchContainer">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<span>Work Day from (dd.mm.yyyy)</span><input type="text" id="tbxSearchWorkDayFrom" value="" />
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<span>Work Day to (dd.mm.yyyy)</span><input type="text" id="tbxSearchWorkDayTo" value="" />
+				</div>
+				<div class="col-xs-12 col-sm-6 col-lg-4">
+					<span>Begin (hh:mm)</span><input type="text" id="tbxSearchBegin" value="" />
+				</div>
+				<div class="col-xs-12 col-sm-6 col-lg-4">
+					<span>End (hh:mm)</span><input type="text" id="tbxSearchEnd" value="" />
+				</div>
+				<div class="col-xs-12 col-sm-6 col-lg-4">
+					<span>Break Duration</span><input type="text" id="tbxSearchBreakDuration" value="" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 pT4">
+					<button onclick="search();">Search</button><button onclick="Common.ToggleSearch();">Cancel</button>
+				</div>
+			</div>
+		</div>
+		<div class="fClear"></div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12">
 		<div id="divWorkHours" class="contentContainer">
 		</div>
 	</div>
@@ -17,4 +47,18 @@
 
 <script type="text/javascript">
 	Common.LoadContentWithSelector('@Url.Action("WorkHoursList", "Work")', '#divWorkHours');
+
+	Common.ActivateSearchDiv();
+
+	function search() {
+		var objSearch = {};
+
+		objSearch.WorkDayFrom = $('#tbxSearchWorkDayFrom').val();
+		objSearch.WorkDayTo = $('#tbxSearchWorkDayTo').val();
+		objSearch.Begin = $('#tbxSearchBegin').val();
+		objSearch.End = $('#tbxSearchEnd').val();
+		objSearch.BreakDuration = $('#tbxSearchBreakDuration').val();
+
+		Common.Search('@Url.Action("Search", "Work")', JSON.stringify({ Search: objSearch }), '#divWorkHours');
+	}
 </script>
