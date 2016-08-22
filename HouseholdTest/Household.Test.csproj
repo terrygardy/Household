@@ -171,6 +171,7 @@
     <Compile Include="Base\ITestBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MasterData\CTestShop.cs" />
+    <Compile Include="Search\MainObjects\CTestSearchWorkDay.cs" />
     <Compile Include="Search\MainObjects\CTestSearchPurchase.cs" />
     <Compile Include="Text\TextBase.cs" />
     <Compile Include="UI\BrowserHost.cs" />
