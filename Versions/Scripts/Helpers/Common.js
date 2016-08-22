@@ -119,14 +119,14 @@ var Common;
     Common.AddCharacterToText = AddCharacterToText;
     function ActivateSearchDiv() {
         var elSearch;
-        toggleSearch();
+        ToggleSearch();
         elSearch = $(GetSearchSelector());
         if (elSearch.length > 0) {
-            elSearch.click(toggleSearch);
+            elSearch.click(ToggleSearch);
         }
     }
     Common.ActivateSearchDiv = ActivateSearchDiv;
-    function toggleSearch() {
+    function ToggleSearch() {
         var elSearch = $(GetSearchContainerClassSelector());
         if (elSearch.hasClass(m_strInvisibleClass) === true) {
             elSearch.removeClass(m_strInvisibleClass);
@@ -137,6 +137,7 @@ var Common;
             $(GetSearchSelector()).removeClass(m_strInvisibleClass);
         }
     }
+    Common.ToggleSearch = ToggleSearch;
     function Search(pv_strURL, pv_objSearch, pv_strTarget) {
         try {
             LoadContentWithSelectorJSON(pv_strURL, pv_strTarget, pv_objSearch);
@@ -144,7 +145,7 @@ var Common;
         catch (ex) {
             alert('Error while searching: ' + ex);
         }
-        toggleSearch();
+        ToggleSearch();
         stopPleaseWait();
     }
     Common.Search = Search;
