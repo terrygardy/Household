@@ -114,11 +114,11 @@ namespace Household.Test.MasterData
 			}
 		}
 
-		public CInterval getTestObject()
+		public CIntervalManagement getTestObject()
 		{
 			try
 			{
-				return new CInterval();
+				return new CIntervalManagement();
 			}
 			catch (Exception ex)
 			{
@@ -132,9 +132,9 @@ namespace Household.Test.MasterData
 
 		public txx_Interval GetTestEntity(bool pv_blnWithAssert) { return GetTestEntity(getTestObject(), pv_blnWithAssert); }
 
-		public txx_Interval GetTestEntity(CInterval pv_toInterval) { return GetTestEntity(pv_toInterval, true); }
+		public txx_Interval GetTestEntity(CIntervalManagement pv_toInterval) { return GetTestEntity(pv_toInterval, true); }
 
-		public txx_Interval GetTestEntity(CInterval pv_toInterval, bool pv_blnWithAssert)
+		public txx_Interval GetTestEntity(CIntervalManagement pv_toInterval, bool pv_blnWithAssert)
 		{
 			try
 			{

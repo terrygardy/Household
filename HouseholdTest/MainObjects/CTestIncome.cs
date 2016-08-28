@@ -29,10 +29,10 @@ namespace Household.Test.MainObjects
 
 		public CTestIncome()
 		{
-			m_xxInterval = new CInterval().getIntervals()[0];
-			m_xxDay = new CDay().getDays()[0];
-			m_xxPayee = new CBankAccount().getBankAccounts()[0];
-			m_xxCompany = new CCompany().getCompanies()[0];
+			m_xxInterval = new CIntervalManagement().getIntervals()[0];
+			m_xxDay = new CDayManagement().getDays()[0];
+			m_xxPayee = new CBankAccountManagement().getBankAccounts()[0];
+			m_xxCompany = new CCompanyManagement().getCompanies()[0];
 		}
 
 		[Test]
@@ -321,11 +321,11 @@ namespace Household.Test.MainObjects
 			}
 		}
 
-		private CIncome getTestObject()
+		private CIncomeManagement getTestObject()
 		{
 			try
 			{
-				return new CIncome();
+				return new CIncomeManagement();
 			}
 			catch (Exception ex)
 			{
@@ -335,13 +335,13 @@ namespace Household.Test.MainObjects
 			return null;
 		}
 
-		public t_Income GetTestEntity(CIncome pv_toIncome) { return GetTestEntity(pv_toIncome, true); }
+		public t_Income GetTestEntity(CIncomeManagement pv_toIncome) { return GetTestEntity(pv_toIncome, true); }
 
 		public t_Income GetTestEntity() { return GetTestEntity(getTestObject(), true); }
 
 		public t_Income GetTestEntity(bool pv_blnWithAssert) { return GetTestEntity(getTestObject(), pv_blnWithAssert); }
 
-		public t_Income GetTestEntity(CIncome pv_toIncome, bool pv_blnWithAssert)
+		public t_Income GetTestEntity(CIncomeManagement pv_toIncome, bool pv_blnWithAssert)
 		{
 			try
 			{

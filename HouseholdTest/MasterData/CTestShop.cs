@@ -109,11 +109,11 @@ namespace Household.Test.MasterData
 			}
 		}
 
-		private CShop getTestObject()
+		private CShopManagement getTestObject()
 		{
 			try
 			{
-				return new CShop();
+				return new CShopManagement();
 			}
 			catch (Exception ex)
 			{
@@ -127,9 +127,9 @@ namespace Household.Test.MasterData
 
 		public txx_Shop GetTestEntity(bool pv_blnWithAssert) { return GetTestEntity(getTestObject(), pv_blnWithAssert); }
 
-		public txx_Shop GetTestEntity(CShop pv_toShop) { return GetTestEntity(pv_toShop, true); }
+		public txx_Shop GetTestEntity(CShopManagement pv_toShop) { return GetTestEntity(pv_toShop, true); }
 
-		public txx_Shop GetTestEntity(CShop pv_toShop, bool pv_blnWithAssert)
+		public txx_Shop GetTestEntity(CShopManagement pv_toShop, bool pv_blnWithAssert)
 		{
 			try
 			{

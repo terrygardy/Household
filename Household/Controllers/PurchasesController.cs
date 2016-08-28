@@ -1,5 +1,4 @@
-﻿using Household.BL.Functions.t;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System;
 using Household.BL.DATA.t;
 using Household.Models;
@@ -7,12 +6,17 @@ using Household.Models.Finance;
 using Household.Models.Search;
 using Household.Data.Context;
 using Household.Controllers.Base;
+using Household.BL.Functions.Management.t;
 
 namespace Household.Controllers
 {
-	public class PurchasesController : CRUDController<t_Purchase, CPurchase, DateTime, string, CPurchaseData>
+	public class PurchasesController : CRUDController<t_Purchase, IPurchaseManagement, DateTime, string, CPurchaseData>
 	{
 		private string m_strMasterDataUrl = "../Shared/MasterData";
+
+		public PurchasesController(IPurchaseManagement management)
+			: base(management)
+		{ }
 
 		protected override long GetDataID(CPurchaseData data)
 		{

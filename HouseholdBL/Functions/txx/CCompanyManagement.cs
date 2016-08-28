@@ -7,12 +7,13 @@ using Helpers.Exceptions;
 using Household.Data.Text.Error;
 using System.Collections.Generic;
 using Household.BL.DATA.txx;
+using Household.BL.Functions.Management.txx;
 
 namespace Household.BL.Functions.txx
 {
-	public class CCompany : CModelBase<txx_Company, string, string, CCompanyData>
+	public class CCompanyManagement : CModelBase<txx_Company, string, string, CCompanyData>, ICompanyManagement
 	{
-		public CCompany() { }
+		public CCompanyManagement() { }
 
 		protected override void deleteAllowed(txx_Company pv_cEntity)
 		{

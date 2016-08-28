@@ -9,7 +9,7 @@ namespace Household.Models.MasterData
 
 		public CDisplayTable getDisplayTable()
 		{
-			var cPerson = new CPerson();
+			var cPerson = new CPersonManagement();
 			var lstPeople = cPerson.getPeople();
 			var dtTable = new CDisplayTable()
 			{

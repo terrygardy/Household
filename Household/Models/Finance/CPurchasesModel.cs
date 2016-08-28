@@ -24,7 +24,7 @@ namespace Household.Models.Finance
 
 		public CDisplayTable getDisplayTable(Expression<Func<t_Purchase, bool>> exSearch)
 		{
-			var cPurchase = new CPurchase();
+			var cPurchase = new CPurchaseManagement();
 			var lstPurchases = cPurchase.getPurchases(exSearch);
 			var dtTable = new CDisplayTable()
 			{
@@ -157,7 +157,7 @@ namespace Household.Models.Finance
 
 			cYearChart.name = pv_intYear.ToString();
 
-			cYearChart.data = new List<object>() { pv_intYear.ToString(), new CPurchase().getSumByYear(pv_intYear) };
+			cYearChart.data = new List<object>() { pv_intYear.ToString(), new CPurchaseManagement().getSumByYear(pv_intYear) };
 
 			return cYearChart;
 		}

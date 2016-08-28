@@ -24,8 +24,8 @@ namespace Household.Test.MainObjects
 
 		public CTestPurchase()
 		{
-			m_xxPayer = new CBankAccount().getBankAccounts()[0];
-			m_xxShop = new CShop().getShops()[0];
+			m_xxPayer = new CBankAccountManagement().getBankAccounts()[0];
+			m_xxShop = new CShopManagement().getShops()[0];
 		}
 
 		[Test]
@@ -243,11 +243,11 @@ namespace Household.Test.MainObjects
 			}
 		}
 
-		private CPurchase getTestObject()
+		private CPurchaseManagement getTestObject()
 		{
 			try
 			{
-				return new CPurchase();
+				return new CPurchaseManagement();
 			}
 			catch (Exception ex)
 			{
@@ -261,9 +261,9 @@ namespace Household.Test.MainObjects
 
 		public t_Purchase GetTestEntity(bool pv_blnWithAsserts) { return GetTestEntity(getTestObject(), pv_blnWithAsserts); }
 
-		public t_Purchase GetTestEntity(CPurchase pv_toPurchase) { return GetTestEntity(pv_toPurchase, true); }
+		public t_Purchase GetTestEntity(CPurchaseManagement pv_toPurchase) { return GetTestEntity(pv_toPurchase, true); }
 
-		public t_Purchase GetTestEntity(CPurchase pv_toPurchase, bool pv_blnWithAssert)
+		public t_Purchase GetTestEntity(CPurchaseManagement pv_toPurchase, bool pv_blnWithAssert)
 		{
 			try
 			{

@@ -53,7 +53,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult Person(long id)
 		{
-			IPerson objPerson = new CPerson().getDataByID(id);
+			IPerson objPerson = new CPersonManagement().getDataByID(id);
 
 			if (objPerson == null) objPerson = new CPersonData();
 
@@ -99,7 +99,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult BankAccount(long id)
 		{
-			IBankAccount objBankAccount = new CBankAccount().getDataByID(id);
+			IBankAccount objBankAccount = new CBankAccountManagement().getDataByID(id);
 
 			if (objBankAccount == null) objBankAccount = new CBankAccountData();
 
@@ -145,7 +145,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult Company(long id)
 		{
-			ICompany objCompany = new CCompany().getDataByID(id);
+			ICompany objCompany = new CCompanyManagement().getDataByID(id);
 
 			if (objCompany == null) objCompany = new CCompanyData();
 
@@ -191,7 +191,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult Day(long id)
 		{
-			var objDay = new CDay().getDataByID(id);
+			var objDay = new CDayManagement().getDataByID(id);
 
 			if (objDay == null) objDay = new CDayData();
 
@@ -237,7 +237,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult Interval(long id)
 		{
-			IInterval objInterval = new CInterval().getDataByID(id);
+			IInterval objInterval = new CIntervalManagement().getDataByID(id);
 
 			if (objInterval == null) objInterval = new CIntervalData();
 
@@ -283,7 +283,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult Shop(long id)
 		{
-			IShop objShop = new CShop().getDataByID(id);
+			IShop objShop = new CShopManagement().getDataByID(id);
 
 			if (objShop == null) objShop = new CShopData();
 

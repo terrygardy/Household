@@ -7,12 +7,13 @@ using Helpers.Exceptions;
 using Household.Data.Text.Error;
 using System.Collections.Generic;
 using Household.BL.DATA.txx;
+using Household.BL.Functions.Management.txx;
 
 namespace Household.BL.Functions.txx
 {
-	public class CBankAccount : CModelBase<txx_BankAccount, string, string, CBankAccountData>
+	public class CBankAccountManagement : CModelBase<txx_BankAccount, string, string, CBankAccountData>, IBankAccountManagement
 	{
-		public CBankAccount() { }
+		public CBankAccountManagement() { }
 
 		public string formatIBAN(string pv_strIBAN) { return pv_strIBAN.ToUpper(); }
 

@@ -16,14 +16,14 @@ namespace Household.Models.MasterData
 
 		public CIncomeModel(long pv_lngID)
 		{
-			Income = new CIncome().getDataByID(pv_lngID);
+			Income = new CIncomeManagement().getDataByID(pv_lngID);
 
 			if (Income == null) Income = new CIncomeData();
 
-			BankAccounts = new CBankAccount().getBankAccounts();
-			Companies = new CCompany().getCompanies();
-			Days = new CDay().getDays();
-			Intervals = new CInterval().getIntervals();
+			BankAccounts = new CBankAccountManagement().getBankAccounts();
+			Companies = new CCompanyManagement().getCompanies();
+			Days = new CDayManagement().getDays();
+			Intervals = new CIntervalManagement().getIntervals();
 		}
 	}
 }

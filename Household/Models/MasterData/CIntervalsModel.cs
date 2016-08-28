@@ -9,7 +9,7 @@ namespace Household.Models.MasterData
 
 		public CDisplayTable getDisplayTable()
 		{
-			var cInterval = new CInterval();
+			var cInterval = new CIntervalManagement();
 			var lstIntervals = cInterval.getIntervals();
 			var dtTable = new CDisplayTable()
 			{

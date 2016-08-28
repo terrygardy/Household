@@ -1,18 +1,22 @@
 ﻿using System;
 using Household.BL.DATA.t;
-using Household.BL.Functions.t;
 using Household.Models;
 using Household.Models.Work;
 using System.Web.Mvc;
 using Household.Data.Context;
 using Household.Controllers.Base;
 using Household.Models.Search;
+using Household.BL.Functions.Management.t;
 
 namespace Household.Controllers
 {
-	public class WorkController : CRUDController<t_WorkDay, CWorkDay, DateTime, TimeSpan, CWorkDayData>
+	public class WorkController : CRUDController<t_WorkDay, IWorkDayManagement, DateTime, TimeSpan, CWorkDayData>
 	{
 		private string m_strMasterDataUrl = "../Shared/MasterData";
+
+		public WorkController(IWorkDayManagement management)
+			: base(management)
+		{ }
 
 		protected override long GetDataID(CWorkDayData data)
 		{

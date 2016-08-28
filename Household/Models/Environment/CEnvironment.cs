@@ -14,7 +14,7 @@ namespace Household.Models.Environment
 		{
 			await Task.Run(() =>
 			{
-				var cxxGet = new CShop().getDataByID(1);
+				var cxxGet = new CShopManagement().getDataByID(1);
 
 				cxxGet = null;
 			});

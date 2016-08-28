@@ -13,7 +13,7 @@ namespace Household.Models.MasterData
 
 		public CDisplayTable getDisplayTable()
 		{
-			var cIncome = new CIncome();
+			var cIncome = new CIncomeManagement();
 			var lstIncomes = cIncome.getIncomes();
 			var dtTable = new CDisplayTable()
 			{
@@ -23,7 +23,7 @@ namespace Household.Models.MasterData
 			var drHead = new CDisplayRow();
 			var drFoot = new CDisplayRow();
 			var dcColumn = new CDisplayColumn();
-			var cCompany = new CCompany();
+			var cCompany = new CCompanyManagement();
 
 			dcColumn.Content = "Start";
 			dcColumn.Tooltip = dcColumn.Content;

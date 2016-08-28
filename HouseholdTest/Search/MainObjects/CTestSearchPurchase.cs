@@ -48,7 +48,7 @@ namespace Household.Test.Search.MainObjects
 		[Test]
 		public void EmptySearch()
 		{
-			int intRowsExpected = new CPurchase().getPurchases().Count;
+			int intRowsExpected = new CPurchaseManagement().getPurchases().Count;
 			int intRowsFound = new CPurchasesModel().search(new CSearchPurchase()).Body.Count;
 
 			Assert.That(intRowsExpected == intRowsFound);
