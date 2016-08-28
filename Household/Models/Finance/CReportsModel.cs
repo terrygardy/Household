@@ -28,7 +28,7 @@ namespace Household.Models.Finance
 
 		public void FillShops()
 		{
-			Shops = new CShop().getShops();
+			Shops = new CShopManagement().getShops();
 		}
 	}
 }

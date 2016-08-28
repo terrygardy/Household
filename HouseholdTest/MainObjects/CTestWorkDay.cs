@@ -205,11 +205,11 @@ namespace Household.Test.MainObjects
 			}
 		}
 
-		private CWorkDay getTestObject()
+		private CWorkDayManagement getTestObject()
 		{
 			try
 			{
-				return new CWorkDay();
+				return new CWorkDayManagement();
 			}
 			catch (Exception ex)
 			{
@@ -223,9 +223,9 @@ namespace Household.Test.MainObjects
 
 		public t_WorkDay GetTestEntity(bool pv_blnWithAsserts) { return GetTestEntity(getTestObject(), pv_blnWithAsserts); }
 
-		public t_WorkDay GetTestEntity(CWorkDay pv_toWorkDay) { return GetTestEntity(pv_toWorkDay, true); }
+		public t_WorkDay GetTestEntity(CWorkDayManagement pv_toWorkDay) { return GetTestEntity(pv_toWorkDay, true); }
 
-		public t_WorkDay GetTestEntity(CWorkDay pv_toWorkDay, bool pv_blnWithAssert)
+		public t_WorkDay GetTestEntity(CWorkDayManagement pv_toWorkDay, bool pv_blnWithAssert)
 		{
 			try
 			{

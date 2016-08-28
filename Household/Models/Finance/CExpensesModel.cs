@@ -8,7 +8,7 @@ namespace Household.Models.Finance
 	{
 		public CDisplayTable getDisplayTable()
 		{
-			var cExpense = new CExpense();
+			var cExpense = new CExpenseManagement();
 			var lstExpenses = cExpense.getExpenses();
 			var dtTable = new CDisplayTable()
 			{

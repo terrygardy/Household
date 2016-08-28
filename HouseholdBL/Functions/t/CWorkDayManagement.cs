@@ -4,12 +4,13 @@ using System;
 using System.Linq.Expressions;
 using Household.BL.DATA.t;
 using System.Collections.Generic;
+using Household.BL.Functions.Management.t;
 
 namespace Household.BL.Functions.t
 {
-	public class CWorkDay : CModelBase<t_WorkDay, DateTime, TimeSpan, CWorkDayData>
+	public class CWorkDayManagement : CModelBase<t_WorkDay, DateTime, TimeSpan, CWorkDayData>, IWorkDayManagement
 	{
-		public CWorkDay() { }
+		public CWorkDayManagement() { }
 
 		protected override Expression<Func<t_WorkDay, DateTime>> getStandardOrderBy()
 		{

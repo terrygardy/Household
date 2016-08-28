@@ -6,12 +6,13 @@ using System.Linq;
 using System.Linq.Expressions;
 using Household.BL.DATA.t;
 using Household.BL.Returns;
+using Household.BL.Functions.Management.t;
 
 namespace Household.BL.Functions.t
 {
-	public class CPurchase : CModelBase<t_Purchase, DateTime, string, CPurchaseData>
+	public class CPurchaseManagement : CModelBase<t_Purchase, DateTime, string, CPurchaseData>, IPurchaseManagement
 	{
-		public CPurchase() { }
+		public CPurchaseManagement() { }
 		
 		protected override Expression<Func<t_Purchase, DateTime>> getStandardOrderBy()
 		{

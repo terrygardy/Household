@@ -8,7 +8,7 @@ using System.Reflection;
 
 namespace Household.Data.Models.Base
 {
-	public abstract class CModelBase<T, Tob, Ttb, Tdata>
+	public abstract class CModelBase<T, Tob, Ttb, Tdata> : IManagementBase<T, Tob, Ttb, Tdata>
 		where T : class, new()
 		where Tdata : class, new()
 	{

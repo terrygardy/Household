@@ -14,12 +14,12 @@ namespace Household.Models.Finance
 
 		public CPurchaseModel(long pv_lngID)
 		{
-			Purchase = new CPurchase().getDataByID(pv_lngID);
+			Purchase = new CPurchaseManagement().getDataByID(pv_lngID);
 
 			if (Purchase == null) Purchase = new CPurchaseData();
 
-			BankAccounts = new CBankAccount().getBankAccounts();
-			Shops = new CShop().getShops();
+			BankAccounts = new CBankAccountManagement().getBankAccounts();
+			Shops = new CShopManagement().getShops();
 		}
 	}
 }

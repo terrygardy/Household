@@ -47,7 +47,7 @@ namespace Household.Test.Search.MainObjects
 		[Test]
 		public void EmptySearch()
 		{
-			int intRowsExpected = new CWorkDay().getWorkingDays().Count;
+			int intRowsExpected = new CWorkDayManagement().getWorkingDays().Count;
 			int intRowsFound = new CWorkHoursModel().search(new CSearchWorkDay()).Body.Count;
 
 			Assert.That(intRowsExpected == intRowsFound);

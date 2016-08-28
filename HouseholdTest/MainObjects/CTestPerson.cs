@@ -107,11 +107,11 @@ namespace Household.Test.MainObjects
 			}
 		}
 
-		private CPerson getTestObject()
+		private CPersonManagement getTestObject()
 		{
 			try
 			{
-				return new CPerson();
+				return new CPersonManagement();
 			}
 			catch (Exception ex)
 			{
@@ -125,9 +125,9 @@ namespace Household.Test.MainObjects
 
 		public t_Person GetTestEntity(bool pv_blnWithAssert) { return GetTestEntity(getTestObject(), pv_blnWithAssert); }
 
-		public t_Person GetTestEntity(CPerson pv_toPerson) { return GetTestEntity(pv_toPerson, true); }
+		public t_Person GetTestEntity(CPersonManagement pv_toPerson) { return GetTestEntity(pv_toPerson, true); }
 
-		public t_Person GetTestEntity(CPerson pv_toPerson, bool pv_blnWithAssert)
+		public t_Person GetTestEntity(CPersonManagement pv_toPerson, bool pv_blnWithAssert)
 		{
 			try
 			{

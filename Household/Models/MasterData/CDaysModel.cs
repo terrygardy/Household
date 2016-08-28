@@ -12,7 +12,7 @@ namespace Household.Models.MasterData
 
 		public CDisplayTable getDisplayTable()
 		{
-			var cDay = new CDay();
+			var cDay = new CDayManagement();
 			var lstDays = cDay.getDays();
 			var dtTable = new CDisplayTable()
 			{

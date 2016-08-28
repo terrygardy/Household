@@ -9,8 +9,14 @@ namespace Household.Controllers.Base
 	public abstract class CRUDController<TClass, TBL, Tob, Ttb, Tdata> : Controller
 		where TClass : class, new()
 		where Tdata : class, new()
-		where TBL : CModelBase<TClass, Tob, Ttb, Tdata>, new()
+		where TBL : IManagementBase<TClass, Tob, Ttb, Tdata>
 	{
+		protected readonly TBL _management;
+
+		protected CRUDController(TBL management) {
+			_management = management;
+		}
+
 		protected abstract long GetDataID(Tdata data);
 
 		[HttpPost]
@@ -20,7 +26,7 @@ namespace Household.Controllers.Base
 
 			try
 			{
-				new TBL().save(Data);
+				_management.save(Data);
 			}
 			catch (Exception ex)
 			{
@@ -37,7 +43,7 @@ namespace Household.Controllers.Base
 
 			try
 			{
-				new TBL().deleteByID(id);
+				_management.deleteByID(id);
 			}
 			catch (Exception ex)
 			{

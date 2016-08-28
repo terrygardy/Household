@@ -9,7 +9,7 @@ namespace Household.Models.Work
 
 		public CWorkDayModel(long pv_lngID)
 		{
-			WorkDay = new CWorkDay().getDataByID(pv_lngID);
+			WorkDay = new CWorkDayManagement().getDataByID(pv_lngID);
 
 			if (WorkDay == null) WorkDay = new CWorkDayData();
 		}

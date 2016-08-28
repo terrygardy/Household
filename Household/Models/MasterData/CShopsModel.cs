@@ -11,7 +11,7 @@ namespace Household.Models.MasterData
 
 		public CDisplayTable getDisplayTable()
 		{
-			var cShop = new CShop();
+			var cShop = new CShopManagement();
 			var lstShops = cShop.getShops();
 			var dtTable = new CDisplayTable()
 			{
@@ -75,10 +75,10 @@ namespace Household.Models.MasterData
 
 		public CShopChart GetCompareChartInfo(long pv_lngID, int pv_intYear)
 		{
-			var cPurchase = new CPurchase();
+			var cPurchase = new CPurchaseManagement();
 			var cShopChart = new CShopChart();
 
-			cShopChart.name = new CShop().getDataByID(pv_lngID).Name;
+			cShopChart.name = new CShopManagement().getDataByID(pv_lngID).Name;
 
 			foreach (var objInfo in cPurchase.getPurchaseInfoForShopChart(pv_lngID, pv_intYear))
 			{

@@ -7,12 +7,13 @@ using Helpers.Exceptions;
 using Household.Data.Text.Error;
 using System.Collections.Generic;
 using Household.BL.DATA.txx;
+using Household.BL.Functions.Management.txx;
 
 namespace Household.BL.Functions.txx
 {
-	public class CShop : CModelBase<txx_Shop, string, string, CShopData>
+	public class CShopManagement : CModelBase<txx_Shop, string, string, CShopData>, IShopManagement
 	{
-		public CShop() { }
+		public CShopManagement() { }
 
 		protected override Expression<Func<txx_Shop, string>> getStandardOrderBy()
 		{

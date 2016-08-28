@@ -28,10 +28,10 @@ namespace Household.Test.MainObjects
 
 		public CTestExpense()
 		{
-			m_xxInterval = new CInterval().getIntervals()[0];
-			m_xxDay = new CDay().getDays()[0];
-			m_xxBankAccount = new CBankAccount().getBankAccounts()[0];
-			m_xxCompany = new CCompany().getCompanies()[0];
+			m_xxInterval = new CIntervalManagement().getIntervals()[0];
+			m_xxDay = new CDayManagement().getDays()[0];
+			m_xxBankAccount = new CBankAccountManagement().getBankAccounts()[0];
+			m_xxCompany = new CCompanyManagement().getCompanies()[0];
 		}
 
 		[Test]
@@ -319,11 +319,11 @@ namespace Household.Test.MainObjects
 			}
 		}
 
-		private CExpense getTestObject()
+		private CExpenseManagement getTestObject()
 		{
 			try
 			{
-				return new CExpense();
+				return new CExpenseManagement();
 			}
 			catch (Exception ex)
 			{
@@ -335,9 +335,9 @@ namespace Household.Test.MainObjects
 
 		public t_Expense GetTestEntity(bool withAssert) { return GetTestEntity(getTestObject(), withAssert); }
 
-		public t_Expense GetTestEntity(CExpense pv_toExpense) { return GetTestEntity(pv_toExpense, true); }
+		public t_Expense GetTestEntity(CExpenseManagement pv_toExpense) { return GetTestEntity(pv_toExpense, true); }
 
-		public t_Expense GetTestEntity(CExpense pv_toExpense, bool pv_blnWithAssert)
+		public t_Expense GetTestEntity(CExpenseManagement pv_toExpense, bool pv_blnWithAssert)
 		{
 			try
 			{

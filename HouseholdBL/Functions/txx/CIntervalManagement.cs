@@ -7,12 +7,13 @@ using Helpers.Exceptions;
 using Household.Data.Text.Error;
 using System.Collections.Generic;
 using Household.BL.DATA.txx;
+using Household.BL.Functions.Management.txx;
 
 namespace Household.BL.Functions.txx
 {
-	public class CInterval : CModelBase<txx_Interval, string, string, CIntervalData>
+	public class CIntervalManagement : CModelBase<txx_Interval, string, string, CIntervalData> , IIntervalManagement
 	{
-		public CInterval() { }
+		public CIntervalManagement() { }
 
 		protected override Expression<Func<txx_Interval, string>> getStandardOrderBy()
 		{
