@@ -24,7 +24,7 @@ namespace Household.Models.Work
 
 		public CDisplayTable getDisplayTable(Expression<Func<t_WorkDay, bool>> exSearch)
 		{
-			var cWorkDay = new CWorkDay();
+			var cWorkDay = new CWorkDayManagement();
 			var lstWorkDays = cWorkDay.getWorkingDays(exSearch);
 			var dtTable = new CDisplayTable()
 			{

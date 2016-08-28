@@ -4,12 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using Household.BL.DATA.t;
+using Household.BL.Functions.Management.t;
 
 namespace Household.BL.Functions.t
 {
-	public class CPerson : CModelBase<t_Person, string, string, CPersonData>
+	public class CPersonManagement : CModelBase<t_Person, string, string, CPersonData>, IPersonManagement
 	{
-		public CPerson() { }
+		public CPersonManagement() { }
 
 		protected override Expression<Func<t_Person, string>> getStandardOrderBy()
 		{

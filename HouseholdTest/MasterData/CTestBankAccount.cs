@@ -158,11 +158,11 @@ namespace Household.Test.MasterData
 			}
 		}
 
-		public CBankAccount getTestObject()
+		public CBankAccountManagement getTestObject()
 		{
 			try
 			{
-				return new CBankAccount();
+				return new CBankAccountManagement();
 			}
 			catch (Exception ex)
 			{
@@ -176,9 +176,9 @@ namespace Household.Test.MasterData
 
 		public txx_BankAccount GetTestEntity(bool pv_blnWithAssert) { return GetTestEntity(getTestObject(), pv_blnWithAssert); }
 
-		public txx_BankAccount GetTestEntity(CBankAccount pv_toBankAccount) { return GetTestEntity(pv_toBankAccount, true); }
+		public txx_BankAccount GetTestEntity(CBankAccountManagement pv_toBankAccount) { return GetTestEntity(pv_toBankAccount, true); }
 
-		public txx_BankAccount GetTestEntity(CBankAccount pv_toBankAccount, bool pv_blnWithAssert)
+		public txx_BankAccount GetTestEntity(CBankAccountManagement pv_toBankAccount, bool pv_blnWithAssert)
 		{
 			try
 			{

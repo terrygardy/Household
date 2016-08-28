@@ -9,7 +9,7 @@ namespace Household.Models.MasterData
 
 		public CDisplayTable getDisplayTable()
 		{
-			var cBankAccount = new CBankAccount();
+			var cBankAccount = new CBankAccountManagement();
 			var lstAccounts = cBankAccount.getBankAccounts();
 			var dtTable = new CDisplayTable()
 			{

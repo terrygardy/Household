@@ -32,6 +32,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,7 +64,18 @@
     <Compile Include="DATA\txx\CIntervalData.cs" />
     <Compile Include="DATA\txx\CDayData.cs" />
     <Compile Include="DATA\t\CWorkDayData.cs" />
-    <Compile Include="Functions\t\CWorkDay.cs" />
+    <Compile Include="DependencyInjection\CDependencyContainer.cs" />
+    <Compile Include="Functions\Management\txx\IBankAccountManagement.cs" />
+    <Compile Include="Functions\Management\txx\ICompanyManagement.cs" />
+    <Compile Include="Functions\Management\txx\IDayManagement.cs" />
+    <Compile Include="Functions\Management\txx\IIntervalManagement.cs" />
+    <Compile Include="Functions\Management\txx\IShopManagement.cs" />
+    <Compile Include="Functions\Management\t\IExpenseManagement.cs" />
+    <Compile Include="Functions\Management\t\IIncomeManagement.cs" />
+    <Compile Include="Functions\Management\t\IPersonManagement.cs" />
+    <Compile Include="Functions\Management\t\IPurchaseManagement.cs" />
+    <Compile Include="Functions\Management\t\IWorkDayManagement.cs" />
+    <Compile Include="Functions\t\CWorkDayManagement.cs" />
     <Compile Include="Interfaces\t\IWorkDay.cs" />
     <Compile Include="Returns\CDateDecimal.cs" />
     <Compile Include="DATA\t\CExpenseData.cs" />
@@ -66,15 +93,15 @@
     <Compile Include="Interfaces\t\IIncome.cs" />
     <Compile Include="Interfaces\t\IPerson.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Functions\txx\CDay.cs" />
-    <Compile Include="Functions\txx\CBankAccount.cs" />
-    <Compile Include="Functions\txx\CShop.cs" />
-    <Compile Include="Functions\txx\CCompany.cs" />
-    <Compile Include="Functions\txx\CInterval.cs" />
-    <Compile Include="Functions\t\CIncome.cs" />
-    <Compile Include="Functions\t\CExpense.cs" />
-    <Compile Include="Functions\t\CPerson.cs" />
-    <Compile Include="Functions\t\CPurchase.cs" />
+    <Compile Include="Functions\txx\CDayManagement.cs" />
+    <Compile Include="Functions\txx\CBankAccountManagement.cs" />
+    <Compile Include="Functions\txx\CShopManagement.cs" />
+    <Compile Include="Functions\txx\CCompanyManagement.cs" />
+    <Compile Include="Functions\txx\CIntervalManagement.cs" />
+    <Compile Include="Functions\t\CIncomeManagement.cs" />
+    <Compile Include="Functions\t\CExpenseManagement.cs" />
+    <Compile Include="Functions\t\CPersonManagement.cs" />
+    <Compile Include="Functions\t\CPurchaseManagement.cs" />
     <Compile Include="Interfaces\t\IPurchase.cs" />
     <Compile Include="Returns\CIntDecimal.cs" />
   </ItemGroup>
@@ -94,6 +121,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DATA\tbr\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

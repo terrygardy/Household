@@ -1,16 +1,17 @@
-﻿using Household.BL.Functions.t;
-using WebHelpers;
-using System.Web.Mvc;
-using Household.Models.MasterData;
-using System;
+﻿using System;
 using Household.BL.DATA.t;
 using Household.Controllers.Base;
 using Household.Data.Context;
+using Household.BL.Functions.Management.t;
 
 namespace Household.Controllers
 {
-	public class IncomeController : CRUDController<t_Income, CIncome, DateTime, string, CIncomeData>
+	public class IncomeController : CRUDController<t_Income, IIncomeManagement, DateTime, string, CIncomeData>
 	{
+		public IncomeController(IIncomeManagement management)
+			: base(management)
+		{ }
+
 		protected override long GetDataID(CIncomeData data)
 		{
 			return data.ID;

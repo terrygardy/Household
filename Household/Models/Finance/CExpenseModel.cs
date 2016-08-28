@@ -16,14 +16,14 @@ namespace Household.Models.Finance
 
 		public CExpenseModel(long pv_lngID)
 		{
-			Expense = new CExpense().getDataByID(pv_lngID);
+			Expense = new CExpenseManagement().getDataByID(pv_lngID);
 
 			if (Expense == null) Expense = new CExpenseData();
 
-			BankAccounts = new CBankAccount().getBankAccounts();
-			Companies = new CCompany().getCompanies();
-			Intervals = new CInterval().getIntervals();
-			Days = new CDay().getDays();
+			BankAccounts = new CBankAccountManagement().getBankAccounts();
+			Companies = new CCompanyManagement().getCompanies();
+			Intervals = new CIntervalManagement().getIntervals();
+			Days = new CDayManagement().getDays();
 		}
 	}
 }

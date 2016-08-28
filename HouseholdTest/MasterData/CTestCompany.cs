@@ -108,11 +108,11 @@ namespace Household.Test.MasterData
 			}
 		}
 
-		private CCompany getTestObject()
+		private CCompanyManagement getTestObject()
 		{
 			try
 			{
-				return new CCompany();
+				return new CCompanyManagement();
 			}
 			catch (Exception ex)
 			{
@@ -126,9 +126,9 @@ namespace Household.Test.MasterData
 
 		public txx_Company GetTestEntity(bool pv_blnWithAssert) { return GetTestEntity(getTestObject(), pv_blnWithAssert); }
 
-		public txx_Company GetTestEntity(CCompany pv_toCompany) { return GetTestEntity(pv_toCompany, true); }
+		public txx_Company GetTestEntity(CCompanyManagement pv_toCompany) { return GetTestEntity(pv_toCompany, true); }
 
-		public txx_Company GetTestEntity(CCompany pv_toCompany, bool pv_blnWithAssert)
+		public txx_Company GetTestEntity(CCompanyManagement pv_toCompany, bool pv_blnWithAssert)
 		{
 			try
 			{

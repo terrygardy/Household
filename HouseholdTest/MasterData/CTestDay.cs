@@ -128,11 +128,11 @@ namespace Household.Test.MasterData
 			}
 		}
 
-		private CDay getTestObject()
+		private CDayManagement getTestObject()
 		{
 			try
 			{
-				return new CDay();
+				return new CDayManagement();
 			}
 			catch (Exception ex)
 			{
@@ -146,11 +146,11 @@ namespace Household.Test.MasterData
 
 		public txx_Day GetTestEntity(bool pv_blnWithAssert) { return GetTestEntity(getTestObject(), pv_blnWithAssert); }
 
-		public txx_Day GetTestEntity(CDay pv_toDay) { return GetTestEntity(pv_toDay, true, TestDay); }
+		public txx_Day GetTestEntity(CDayManagement pv_toDay) { return GetTestEntity(pv_toDay, true, TestDay); }
 
-		public txx_Day GetTestEntity(CDay pv_toDay, bool pv_blnWithAssert) { return GetTestEntity(pv_toDay, pv_blnWithAssert, TestDay); }
+		public txx_Day GetTestEntity(CDayManagement pv_toDay, bool pv_blnWithAssert) { return GetTestEntity(pv_toDay, pv_blnWithAssert, TestDay); }
 
-		public txx_Day GetTestEntity(CDay pv_toDay, bool pv_blnWithAssert, int pv_intDay)
+		public txx_Day GetTestEntity(CDayManagement pv_toDay, bool pv_blnWithAssert, int pv_intDay)
 		{
 			try
 			{
