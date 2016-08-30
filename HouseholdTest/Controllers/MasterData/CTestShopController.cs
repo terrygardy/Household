@@ -1,6 +1,6 @@
 ﻿using Household.BL.DATA.txx;
+using Household.BL.Functions.Management.txx;
 using Household.Controllers;
-using Household.Data.Context;
 using Household.Models.MasterData;
 using NUnit.Framework;
 using WebHelpers;
@@ -10,33 +10,23 @@ namespace Household.Test.Controllers.MasterData
 	[TestFixture]
 	public class CTestShopController : CTestBaseController<ShopController>
 	{
+		public CTestShopController()
+		{
+			Controller = new ShopController(CreateSubstitute<IShopManagement>());
+		}
+
 		[Test]
 		public void Delete()
-		{
-			var cShopTest = new Test.MasterData.CTestShop();
-			txx_Shop xxShop;
-
-			cShopTest.NewShop();
-
-			xxShop = cShopTest.GetTestEntity();
-
-			Assert.That(new ShopController().Delete(xxShop.ID), Is.EqualTo(""));
+		{			
+			Assert.That(Controller.Delete(0), Is.EqualTo(""));
 		}
 
 		[Test]
 		public void Save()
 		{
-			var cShopTest = new Test.MasterData.CTestShop();
 			CReturn rResult;
 
-			cShopTest.RemoveTestEntity();
-
-			rResult = JSON.deserialiseObject<CReturn>(new ShopController().Save(new CShopData()
-			{
-				Name = cShopTest.TestName
-			}));
-
-			cShopTest.RemoveTestEntity();
+			rResult = JSON.deserialiseObject<CReturn>(Controller.Save(new CShopData { Name = CreateFixture<string>() }));
 
 			Assert.That(rResult.Message, Is.EqualTo(""));
 		}
