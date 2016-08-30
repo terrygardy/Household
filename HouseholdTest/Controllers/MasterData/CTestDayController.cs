@@ -1,6 +1,6 @@
 ﻿using Household.BL.DATA.txx;
+using Household.BL.Functions.Management.txx;
 using Household.Controllers;
-using Household.Data.Context;
 using Household.Models.MasterData;
 using NUnit.Framework;
 using WebHelpers;
@@ -10,33 +10,21 @@ namespace Household.Test.Controllers.MasterData
 	[TestFixture]
 	public class CTestDayController : CTestBaseController<DayController>
 	{
+		public CTestDayController()
+		{
+			Controller = new DayController(CreateSubstitute<IDayManagement>());
+		}
+
 		[Test]
 		public void Delete()
 		{
-			var cDayTest = new Test.MasterData.CTestDay();
-			txx_Day xxDay;
-
-			cDayTest.NewDay();
-
-			xxDay = cDayTest.GetTestEntity();
-
-			Assert.That(new DayController().Delete(xxDay.ID), Is.EqualTo(""));
+			Assert.That(Controller.Delete(0), Is.EqualTo(""));
 		}
 
 		[Test]
 		public void Save()
 		{
-			var cDayTest = new Test.MasterData.CTestDay();
-			CReturn rResult;
-
-			cDayTest.RemoveTestEntity();
-
-			rResult = JSON.deserialiseObject<CReturn>(new DayController().Save(new CDayData()
-			{
-				Day = cDayTest.TestDay
-			}));
-
-			cDayTest.RemoveTestEntity();
+			var rResult = JSON.deserialiseObject<CReturn>(Controller.Save(new CDayData { Day = CreateFixture<int>() }));
 
 			Assert.That(rResult.Message, Is.EqualTo(""));
 		}

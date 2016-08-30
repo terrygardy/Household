@@ -7,6 +7,11 @@ namespace Household.Test.Controllers
 	[TestFixture]
 	public class CTestFinance : CTestBaseController<FinanceController>
 	{
+		public CTestFinance()
+		{
+			Controller = new FinanceController();
+		}
+
 		[Test]
 		public void Finance()
 		{
