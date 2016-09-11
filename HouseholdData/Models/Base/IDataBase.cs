@@ -3,5 +3,7 @@
 	public interface IDataBase
 	{
 		long ID { get; set; }
+
+		string ToString();
 	}
 }

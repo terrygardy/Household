@@ -13,6 +13,7 @@ namespace Household.Models.MasterData
 		public List<txx_Day> Days { get; set; }
 		public List<txx_Interval> Intervals { get; set; }
 		public CIncomeData Income { get; set; }
+		public string Name { get { return "Income"; } }
 
 		public CIncomeModel(long pv_lngID)
 		{

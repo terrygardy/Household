@@ -1,0 +1,12 @@
+﻿@model string
+
+@{ 
+	var m_Save = Model + ".Save();";
+	var m_Delete = Model + ".Delete();";
+}
+
+<div class="col-xs-12 mB10">
+	<input type="button" class="button-default" id="btnSave" value="Save" onclick="@m_Save" />
+	<input type="button" class="button-default" id="btnDelete" value="Delete" onclick="@m_Delete" />
+	<input type="button" class="button-default" id="btnClose" value="Close" onclick="Common.hideSubContent();" />
+</div>

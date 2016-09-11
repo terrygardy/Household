@@ -1,8 +1,4 @@
-﻿@model Household.BL.Interfaces.txx.IDay
-
-@{
-	string m_strBaseAction = Url.Action("", "Day");
-}
+﻿@model Household.BL.DATA.txx.CDayData
 
 <div class="row">
 	<div class="col-xs-12">
@@ -31,19 +27,11 @@
 </div>
 
 <form class="row">
-	<div class="col-xs-12 col-sm-6">
-		<span>Day</span>
-		<input type="text" id="tbxDay" data-bind="value: Day" required />
-	</div>
+	@Html.DisplayForModel()
 </form>
 
-@Scripts.Render("~/bundles/Day")
 <script type="text/javascript">
 	(function () {
-		Day.Fill('@Html.Raw(m_strBaseAction)', @Model.ID, '@Model.Day');
-		MasterData.start();
-		Day.start();
-
 		if(@Model.ID < 1){$('#btnDelete').remove();}
 	})();
 </script>

@@ -1,8 +1,4 @@
-﻿@model Household.BL.Interfaces.txx.IInterval
-
-@{
-	string m_strBaseAction = Url.Action("", "Interval");
-}
+﻿@model Household.BL.DATA.txx.CIntervalData
 
 <div class="row">
 	<div class="col-xs-12">
@@ -24,13 +20,8 @@
 	</div>
 </form>
 
-@Scripts.Render("~/bundles/Interval")
 <script type="text/javascript">
 	(function () {
-		Interval.Fill('@Html.Raw(m_strBaseAction)', @Model.ID, '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.Name))');
-		MasterData.start();
-		Interval.start();
-
 		if(@Model.ID < 1){$('#btnDelete').remove();}
 	})();
 </script>

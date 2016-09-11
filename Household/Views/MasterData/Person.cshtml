@@ -1,4 +1,4 @@
-﻿@model Household.BL.Interfaces.t.IPerson
+﻿@model Household.BL.DATA.t.CPersonData
 
 @{
 	string m_strBaseAction = Url.Action("", "Person");
@@ -18,23 +18,11 @@
 	</div>
 </div>
 <form class="row">
-	<div class="col-xs-12 col-sm-6">
-		<span>Surname</span>
-		<input type="text" id="tbxSurname" data-bind="value: Surname" required />
-	</div>
-	<div class="col-xs-12 col-sm-6">
-		<span>Forename</span>
-		<input type="text" id="tbxForename" data-bind="value: Forename" />
-	</div>
+	@Html.DisplayForModel()
 </form>
 
-@Scripts.Render("~/bundles/Person")
 <script type="text/javascript">
 	(function () {
-		Person.Fill('@Html.Raw(m_strBaseAction)', @Model.ID, '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.Surname))', '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.Forename))');
-		MasterData.start();
-		Person.start();
-
 		if(@Model.ID < 1){$('#btnDelete').remove();}
 	})();
 </script>

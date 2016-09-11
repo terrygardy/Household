@@ -1,8 +1,4 @@
-﻿@model Household.BL.Interfaces.txx.IBankAccount
-
-@{
-	string m_strBaseAction = Url.Action("", "BankAccount");
-}
+﻿@model Household.BL.DATA.txx.CBankAccountData
 
 <div class="row">
 	<div class="col-xs-12">
@@ -18,31 +14,11 @@
 	</div>
 </div>
 <form class="row">
-	<div class="col-xs-12 col-sm-6">
-		<span>Account Name</span>
-		<input type="text" id="tbxAccountName" data-bind="value: AccountName" required />
-	</div>
-	<div class="col-xs-12 col-sm-6">
-		<span>Bank Name</span>
-		<input type="text" id="tbxBankName" data-bind="value: BankName" />
-	</div>
-	<div class="col-xs-12 col-sm-6">
-		<span>IBAN</span>
-		<input type="text" id="tbxIBAN" data-bind="value: IBAN" maxlength="27" required />
-	</div>
-	<div class="col-xs-12 col-sm-6">
-		<span>BIC</span>
-		<input type="text" id="tbxBIC" data-bind="value: BIC" />
-	</div>
+	@Html.DisplayForModel()
 </form>
 
-@Scripts.Render("~/bundles/BankAccount")
 <script type="text/javascript">
 	(function () {
-		BankAccount.Fill('@Html.Raw(m_strBaseAction)', @Model.ID, '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.AccountName))', '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.BankName))', '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.IBAN))', '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.BIC))');
-		MasterData.start();
-		BankAccount.start();
-
 		if(@Model.ID < 1){$('#btnDelete').remove();}
 	})();
 </script>
