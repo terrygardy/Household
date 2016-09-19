@@ -12,8 +12,6 @@ namespace Household.Controllers
 {
 	public class WorkController : CRUDController<t_WorkDay, IWorkDayManagement, DateTime, TimeSpan, CWorkDayData>
 	{
-		private string m_strMasterDataUrl = "../Shared/MasterData";
-
 		public WorkController(IWorkDayManagement management)
 			: base(management)
 		{ }
@@ -37,7 +35,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult WorkHoursList()
 		{
-			return PartialView(m_strMasterDataUrl, new CMasterData() { DisplayTable = new CWorkHoursModel().getDisplayTable(), Title = "Work Hours" });
+			return PartialView("_MasterData", new CMasterData() { DisplayTable = new CWorkHoursModel().getDisplayTable(), Title = "Work Hours" });
 		}
 
 		[HttpPost]
@@ -49,7 +47,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult Search([System.Web.Http.FromBody]CSearchWorkDay Search)
 		{
-			return PartialView(m_strMasterDataUrl, new CMasterData() { DisplayTable = new CWorkHoursModel().search(Search), Title = "Work Hours" });
+			return PartialView("_MasterData", new CMasterData() { DisplayTable = new CWorkHoursModel().search(Search), Title = "Work Hours" });
 		}
 	}
 }

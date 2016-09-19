@@ -1,4 +1,6 @@
-﻿using Household.Models.DisplayTable;
+﻿using Household.Localisation.Main.Finance;
+using Household.Localisation.Common;
+using Household.Models.DisplayTable;
 using Household.BL.Functions.t;
 using Household.Data.Context;
 using Household.Models.Chart;
@@ -35,22 +37,22 @@ namespace Household.Models.Finance
 			var drFeet = new List<CDisplayRow>();
 			var dcColumn = new CDisplayColumn();
 
-			dcColumn.Content = "Date";
+			dcColumn.Content = PurchaseText.Occurrence;
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
-			dcColumn.Content = "Who";
+			dcColumn.Content = GeneralText.Who;
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
-			dcColumn.Content = "Where";
+			dcColumn.Content = GeneralText.Where;
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
-			dcColumn.Content = "Amount";
+			dcColumn.Content = PurchaseText.Amount;
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
@@ -125,9 +127,9 @@ namespace Household.Models.Finance
 
 			drFoot.Columns.Add(new CDisplayColumn()
 			{
-				Content = "Count: " + lstPurchases.Count.ToString(),
+				Content = $"{GeneralText.Count}: {lstPurchases.Count.ToString()}",
 				CSS = "right",
-				Tooltip = "Count: " + lstPurchases.Count.ToString(),
+				Tooltip = $"{GeneralText.Count}: {lstPurchases.Count.ToString()}",
 				ColumnSpan = 4
 			});
 
@@ -139,9 +141,9 @@ namespace Household.Models.Finance
 
 			drFoot.Columns.Add(new CDisplayColumn()
 			{
-				Content = "Sum: " + sumPurchases,
+				Content = $"{GeneralText.Sum}: {sumPurchases}",
 				CSS = "right",
-				Tooltip = "Sum: " + sumPurchases,
+				Tooltip = $"{GeneralText.Sum}: {sumPurchases}",
 				ColumnSpan = 4
 			});
 

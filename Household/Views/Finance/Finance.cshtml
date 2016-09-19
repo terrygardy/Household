@@ -1,4 +1,7 @@
-﻿
+﻿@using Household.Localisation.Common
+@using Household.Localisation.Main.Finance
+@using Household.Localisation.Main.MasterData
+
 @{
 	ViewBag.Title = "Finance";
 	Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,39 +9,39 @@
 
 <div id="divContent" class="container">
 	<ol class="breadcrumb">
-		<li><a href="@Url.Action("Index", "Home")">Home</a></li>
-		<li>Finance</li>
+		<li><a href="@Url.Action("Index", "Home")">@GeneralText.Home</a></li>
+		<li>@FinanceText.Finance</li>
 	</ol>
 	<div class="row">
 		<div class="col-md-3">
 			<div class="panel-purchases panel-main-clickable" onclick="Common.LoadContent('@Url.Action("Purchases", "Finance")');">
 				<div>
-					<h2>Purchases</h2>
-					<p>Add, edit and delete purchases</p>
+					<h2>@PurchaseText.Purchases</h2>
+					<p>@PurchaseText.AddEditAndDeletePurchases</p>
 				</div>
 			</div>
 		</div>
 		<div class="col-md-3">
 			<div class="panel-expenses panel-main-clickable" onclick="Common.LoadContent('@Url.Action("Expenses", "Finance")');">
 				<div>
-					<h2>Expenses</h2>
-					<p>Manage your monthly bills</p>
+					<h2>@ExpenseText.Expenses</h2>
+					<p>@ExpenseText.ManageYourMonthlyBills</p>
 				</div>
 			</div>
 		</div>
 		<div class="col-md-3">
 			<div class="panel-reports panel-main-clickable" onclick="Common.LoadContent('@Url.Action("Reports", "Finance")');">
 				<div>
-					<h2>Reports</h2>
-					<p>Create reports of your financial state</p>
+					<h2>@ReportText.Reports</h2>
+					<p>@ReportText.CreateReportsOfYourFinancialState</p>
 				</div>
 			</div>
 		</div>
 		<div class="col-md-3">
 			<div class="panel-masterData panel-main-clickable" onclick="document.location='@Url.Action("MasterData", "Finance")';">
 				<div>
-					<h2>Master Data</h2>
-					<p>People, bank accounts, companies, shops and so on</p>
+					<h2>@MasterDataText.MasterData</h2>
+					<p>@MasterDataText.PeopleBankAccountsCompaniesShopsAndSoOn</p>
 				</div>
 			</div>
 		</div>

@@ -1,3 +1,5 @@
+using Household.Localisation.Main.Finance;
+
 namespace Household.Data.Context
 {
 	using Common;
@@ -14,6 +16,7 @@ namespace Household.Data.Context
 		public long ID { get; set; }
 
 		[Required]
+		[Display(Name = "Occurrence", ResourceType = typeof(PurchaseText))]
 		public DateTime Occurrence { get; set; }
 
 		public long? Shop_ID { get; set; }
@@ -21,8 +24,10 @@ namespace Household.Data.Context
 		public long? Payer_ID { get; set; }
 
 		[Required]
+		[Display(Name = "Amount", ResourceType = typeof(PurchaseText))]
 		public decimal Amount { get; set; }
 
+		[Display(Name = "Description", ResourceType = typeof(PurchaseText))]
 		public string Description { get; set; }
 
 		[ForeignKey("Shop_ID")]

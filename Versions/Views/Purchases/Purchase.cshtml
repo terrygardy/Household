@@ -1,65 +1,27 @@
-﻿@model Household.Models.Finance.CPurchaseModel
+﻿@using Household.Localisation.Common
+@using Household.Localisation.Main.Finance
 
-@using GARTE.TypeHandling;
-
-@{
-	string m_strBaseAction = Url.Action("", "Purchases");
-}
+@model Household.Models.Finance.CPurchaseModel
 
 <div class="row">
 	<div class="col-xs-12">
-		<h3>Purchase</h3>
+		<h3>@PurchaseText.Purchase</h3>
 	</div>
 	<div class="col-xs-12 mB10">
-		<input type="button" class="button-default" id="btnSave" value="Save" onclick="Purchase.Save();" />
-		<input type="button" class="button-default" id="btnDelete" value="Delete" onclick="Purchase.Delete();" />
-		<input type="button" class="button-default" id="btnClose" value="Close" onclick="Common.hideSubContent();" />
+		<input type="button" class="button-default" id="btnSave" value="@GeneralText.Save" onclick="Purchase.Save();" />
+		<input type="button" class="button-default" id="btnDelete" value="@GeneralText.Delete" onclick="Purchase.Delete();" />
+		<input type="button" class="button-default" id="btnClose" value="@GeneralText.Close" onclick="Common.hideSubContent();" />
 	</div>
 	<div class="col-xs-12">
 		<ul class="" id="ulError"></ul>
 	</div>
 </div>
 <form class="row">
-	<div class="col-xs-12 col-sm-6">
-		<span>Purchase Date (dd.mm.yyyy)</span>
-		<input type="text" id="tbxDate" data-bind="value: Occurrence" required />
-	</div>
-	<div class="col-xs-12 col-sm-6">
-		<span>Shop</span>
-		<select id="cboShop" data-bind="value: Shop_ID" required>
-			@foreach (var cxShop in Model.Shops)
-			{
-				<option value="@cxShop.ID.ToString()">@cxShop.ToString()</option>
-			}
-		</select>
-	</div>
-	<div class="col-xs-12 col-sm-6">
-		<span>Bank Account</span>
-		<select id="cboBankAccount" data-bind="value: Payer_ID" required>
-			@foreach (var cxBankAccount in Model.BankAccounts)
-			{
-				<option value="@cxBankAccount.ID.ToString()">@cxBankAccount.ToString()</option>
-			}
-		</select>
-	</div>
-	<div class="col-xs-12 col-sm-6">
-		<span>Amount (€)</span>
-		<input type="text" id="tbxAmount" data-bind="value: Amount" required />
-	</div>
-	<div class="col-xs-12">
-		<span>Description</span>
-		<textarea id="tbxDescription" data-bind="value: Description" />
-	</div>
+	@Html.DisplayForModel()
 </form>
 
-@Scripts.Render("~/bundles/Purchase")
 <script type="text/javascript">
 	(function () {
-		Purchase.Fill('@m_strBaseAction', @Model.Purchase.ID, '@Base.convertShortDateString(Model.Purchase.Occurrence)', @Base.convertLong(Model.Purchase.Shop_ID).ToString(),
-						@Base.convertLong(Model.Purchase.Payer_ID).ToString(), '@Model.Purchase.Amount.ToString("N2")', '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.Purchase.Description))');
-		MasterData.start();
-		Purchase.start();
-
 		if(@Model.Purchase.ID < 1){$('#btnDelete').remove();}
 	})();
 </script>

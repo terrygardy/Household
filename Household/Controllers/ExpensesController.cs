@@ -11,8 +11,6 @@ namespace Household.Controllers
 {
 	public class ExpensesController : CRUDController<t_Expense, IExpenseManagement, DateTime, string, CExpenseData>
 	{
-		private string m_strMasterDataUrl = "../Shared/MasterData";
-
 		public ExpensesController(IExpenseManagement management)
 			: base(management)
 		{ }
@@ -25,7 +23,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult Expenses()
 		{
-			return PartialView(m_strMasterDataUrl, new CMasterData() { DisplayTable = new CExpensesModel().getDisplayTable(), Title = "Expenses" });
+			return PartialView("_MasterData", new CMasterData() { DisplayTable = new CExpensesModel().getDisplayTable(), Title = "Expenses" });
 		}
 
 		[HttpPost]

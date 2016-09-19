@@ -1,9 +1,10 @@
-﻿@model System.Web.Mvc.HandleErrorInfo
+﻿@using Household.Localisation.Common;
+
+@model System.Web.Mvc.HandleErrorInfo
 
 @{
-    ViewBag.Title = "Error";
+    ViewBag.Title = ErrorText.Error;
 }
 
-<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
-
+<h1 class="text-danger">@ErrorText.Error</h1>
+<h2 class="text-danger">@ErrorText.AnErrorOccurredWhileProcessingYourRequest</h2>

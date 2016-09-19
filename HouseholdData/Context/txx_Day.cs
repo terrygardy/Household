@@ -1,3 +1,5 @@
+using Household.Localisation.Main.MasterData;
+
 namespace Household.Data.Context
 {
 	using Models.Base;
@@ -16,6 +18,7 @@ namespace Household.Data.Context
 		public long ID { get; set; }
 
 		[Required]
+		[Display(Name = "Day", ResourceType = typeof(DayText))]
 		public int Day { get; set; }
 
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

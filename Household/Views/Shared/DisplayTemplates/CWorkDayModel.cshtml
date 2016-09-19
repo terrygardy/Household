@@ -1,0 +1,41 @@
+﻿@using Household.Localisation.Common;
+
+@model Household.Models.Work.CWorkDayModel
+
+@using GARTE.TypeHandling;
+
+@{
+	string m_strBaseAction = Url.Action("", "Work");
+}
+
+<div class="w100">
+	<div class="col-xs-12 col-sm-6">
+		@Html.LabelFor(m => m.WorkDay.WorkDay)<span> @GeneralText.DateFormat</span>
+		<input type="text" id="tbxWorkDay" data-bind="value: WorkDay" required />
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		<div class="w100"></div>
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		@Html.LabelFor(m => m.WorkDay.Begin)<span> @GeneralText.TimeFormat</span>
+		<input type="text" id="tbxBegin" data-bind="value: Begin" required />
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		@Html.LabelFor(m => m.WorkDay.End)<span> @GeneralText.TimeFormat</span>
+		<input type="text" id="tbxEnd" data-bind="value: End" required />
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		@Html.LabelFor(m => m.WorkDay.BreakDuration)
+		<input type="text" id="tbxBreakDuration" data-bind="value: BreakDuration" />
+	</div>
+</div>
+
+@Scripts.Render("~/bundles/WorkDay")
+<script type="text/javascript">
+	(function () {
+		WorkDay.Fill('@Html.Raw(m_strBaseAction)', @Model.WorkDay.ID, '@Base.convertShortDateString(Model.WorkDay.WorkDay)', '@Base.convertShortTimeString(Model.WorkDay.Begin)',
+						'@Base.convertShortTimeString(Model.WorkDay.End)', @Base.convertDec(Model.WorkDay.BreakDuration));
+		MasterData.start();
+		WorkDay.start();
+	})();
+</script>

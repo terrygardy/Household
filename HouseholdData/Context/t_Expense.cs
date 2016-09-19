@@ -1,3 +1,5 @@
+using Household.Localisation.Main.Finance;
+
 namespace Household.Data.Context
 {
 	using Common;
@@ -16,9 +18,11 @@ namespace Household.Data.Context
 
 		[Required]
 		[Column(TypeName = "date")]
+		[Display(Name = "StartDate", ResourceType = typeof(ExpenseText))]
 		public DateTime StartDate { get; set; }
 
 		[Column(TypeName = "date")]
+		[Display(Name = "EndDate", ResourceType = typeof(ExpenseText))]
 		public DateTime? EndDate { get; set; }
 
 		public long? Interval_ID { get; set; }
@@ -26,12 +30,14 @@ namespace Household.Data.Context
 		public long? Company_ID { get; set; }
 
 		[Required]
+		[Display(Name = "Amount", ResourceType = typeof(ExpenseText))]
 		public decimal Amount { get; set; }
 
 		public long? BankAccount_ID { get; set; }
 		
 		public long? PaymentDay_ID { get; set; }
 
+		[Display(Name = "Description", ResourceType = typeof(ExpenseText))]
 		public string Description { get; set; }
 
 		[ForeignKey("BankAccount_ID")]

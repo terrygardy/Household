@@ -1,3 +1,5 @@
+using Household.Localisation.Main.Work;
+
 namespace Household.Data.Context
 {
 	using Common;
@@ -16,16 +18,21 @@ namespace Household.Data.Context
 		public long ID { get; set; }
 
 		[Required]
+		[Display(Name = "WorkDay", ResourceType = typeof(WorkText))]
 		public DateTime WorkDay { get; set; }
 
 		[Required]
+		[Display(Name = "Begin", ResourceType = typeof(WorkText))]
 		public TimeSpan Begin { get; set; }
 
 		[Required]
+		[Display(Name = "End", ResourceType = typeof(WorkText))]
 		public TimeSpan End { get; set; }
 
+		[Display(Name = "BreakDuration", ResourceType = typeof(WorkText))]
 		public decimal BreakDuration { get; set; }
 
+		[Display(Name = "HoursWorked", ResourceType = typeof(WorkText))]
 		public decimal HoursWorked
 		{
 			get

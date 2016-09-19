@@ -1,4 +1,5 @@
-﻿using Household.BL.DATA.t;
+﻿using Household.Localisation.Main.MasterData;
+using Household.BL.DATA.t;
 using Household.BL.Functions.t;
 using Household.BL.Functions.txx;
 using Household.Data.Context;
@@ -13,6 +14,7 @@ namespace Household.Models.MasterData
 		public List<txx_Day> Days { get; set; }
 		public List<txx_Interval> Intervals { get; set; }
 		public CIncomeData Income { get; set; }
+		public string Name { get { return IncomeText.Income; } }
 
 		public CIncomeModel(long pv_lngID)
 		{

@@ -1,3 +1,5 @@
+using Household.Localisation.Main.MasterData;
+
 namespace Household.Data.Context
 {
 	using Models.Base;
@@ -19,9 +21,11 @@ namespace Household.Data.Context
 
 		[Required]
 		[StringLength(255)]
+		[Display(Name = "Surname", ResourceType = typeof(PersonText))]
 		public string Surname { get; set; }
 
 		[StringLength(255)]
+		[Display(Name = "Forename", ResourceType = typeof(PersonText))]
 		public string Forename { get; set; }
 
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

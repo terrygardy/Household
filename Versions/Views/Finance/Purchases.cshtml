@@ -1,46 +1,49 @@
-﻿<div class="row">
+﻿@using Household.Localisation.Common;
+@using Household.Localisation.Main.Finance;
+
+<div class="row">
 	<div class="fLeft">
 		<ol class="breadcrumb">
-			<li><a href="@Url.Action("Index", "Home")">Home</a></li>
-			<li><a href="@Url.Action("Finance", "Finance")">Finance</a></li>
-			<li>Purchases</li>
+			<li><a href="@Url.Action("Index", "Home")">@GeneralText.Home</a></li>
+			<li><a href="@Url.Action("Finance", "Finance")">@FinanceText.Finance</a></li>
+			<li>@PurchaseText.Purchases</li>
 		</ol>
 	</div>
 	<div class="fRight">
 		<ul class="pagination">
-			<li><button class="button-default" onclick="Common.LoadContent('@Url.Action("Expenses", "Finance")');">Expenses</button></li>
-			<li><button class="button-default" onclick="Common.LoadContent('@Url.Action("Reports", "Finance")');">Reports</button></li>
+			<li><button class="button-default" onclick="Common.LoadContent('@Url.Action("Expenses", "Finance")');">@ExpenseText.Expenses</button></li>
+			<li><button class="button-default" onclick="Common.LoadContent('@Url.Action("Reports", "Finance")');">@ReportText.Reports</button></li>
 		</ul>
 	</div>
 	<div class="fClear"></div>
 </div>
 <div class="row">
 	<div class="col-xs-12">
-		<div id="divSearch" title="search" />
+		<div id="divSearch" title="@GeneralText.Search" />
 		<div class="searchContainer">
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-lg-4">
-					<span>From (dd.mm.yyyy)</span><input type="text" id="tbxSearchFrom" value="" />
+					<span>@GeneralText.From @GeneralText.DateFormat</span><input type="text" id="tbxSearchFrom" value="" />
 				</div>
 				<div class="col-xs-12 col-sm-6 col-lg-4">
-					<span>To (dd.mm.yyyy)</span><input type="text" id="tbxSearchTo" value="" />
+					<span>@GeneralText.To @GeneralText.DateFormat</span><input type="text" id="tbxSearchTo" value="" />
 				</div>
 				<div class="col-xs-12 col-sm-6 col-lg-4">
-					<span>Where</span><input type="text" id="tbxSearchWhere" value="" />
+					<span>@GeneralText.Where</span><input type="text" id="tbxSearchWhere" value="" />
 				</div>
 				<div class="col-xs-12 col-sm-6 col-lg-4">
-					<span>Who</span><input type="text" id="tbxSearchWho" value="" />
+					<span>@GeneralText.Who</span><input type="text" id="tbxSearchWho" value="" />
 				</div>
 				<div class="col-xs-12 col-sm-6 col-lg-4">
-					<span>Amount (€)</span><input type="text" id="tbxSearchAmount" value="0" />
+					<span>@PurchaseText.Amount (€)</span><input type="text" id="tbxSearchAmount" value="0" />
 				</div>
 				<div class="col-xs-12 col-sm-6 col-lg-4">
-					<span>Description</span><input type="text" id="tbxSearchDescription" value="" />
+					<span>@PurchaseText.Description</span><input type="text" id="tbxSearchDescription" value="" />
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-xs-12 pT4">
-					<button onclick="search();">Search</button><button onclick="Common.ToggleSearch();">Cancel</button>
+					<button onclick="search();" title="@GeneralText.Search">@GeneralText.Search</button><button onclick="Common.ToggleSearch();" title="@GeneralText.Cancel">@GeneralText.Cancel</button>
 				</div>
 			</div>
 		</div>
