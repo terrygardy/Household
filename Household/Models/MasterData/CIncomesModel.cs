@@ -1,4 +1,6 @@
-﻿using Household.BL.Functions.t;
+﻿using Household.Localisation.Main.MasterData;
+using Household.Localisation.Common;
+using Household.BL.Functions.t;
 using Household.BL.Functions.txx;
 using Household.Models.DisplayTable;
 using System;
@@ -25,22 +27,22 @@ namespace Household.Models.MasterData
 			var dcColumn = new CDisplayColumn();
 			var cCompany = new CCompanyManagement();
 
-			dcColumn.Content = "Start";
+			dcColumn.Content = IncomeText.Start;
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
-			dcColumn.Content = "End";
+			dcColumn.Content = IncomeText.End;
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
-			dcColumn.Content = "Amount";
+			dcColumn.Content = IncomeText.Amount;
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
-			dcColumn.Content = "Company";
+			dcColumn.Content = CompanyText.Company;
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
@@ -51,7 +53,7 @@ namespace Household.Models.MasterData
 				var strIncome = tIncome.StartDate.ToShortDateString();
 				var strEndDate = "";
 				var strAmount = tIncome.Amount.ToString("C");
-				var strCompany = "unknown";
+				var strCompany = GeneralText.UnknownLower;
 				var drBody = new CDisplayRow()
 				{
 					OnClickParam = tIncome.ID.ToString()
@@ -65,7 +67,7 @@ namespace Household.Models.MasterData
 					strIncome += " - " + strEndDate;
 				}
 
-				strIncome += ", " + strAmount + ", from " + strCompany;
+				strIncome += $", {strAmount}, {GeneralText.FromLower} {strCompany}";
 
 				drBody.Columns.Add(new CDisplayColumn()
 				{
@@ -100,9 +102,9 @@ namespace Household.Models.MasterData
 
 			drFoot.Columns.Add(new CDisplayColumn()
 			{
-				Content = "Count: " + lstIncomes.Count.ToString(),
+				Content = $"{GeneralText.Count}: {lstIncomes.Count.ToString()}",
 				CSS = "right",
-				Tooltip = "Count: " + lstIncomes.Count.ToString(),
+				Tooltip = $"{GeneralText.Count}: {lstIncomes.Count.ToString()}",
 				ColumnSpan = 4
 			});
 

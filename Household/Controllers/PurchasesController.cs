@@ -12,8 +12,6 @@ namespace Household.Controllers
 {
 	public class PurchasesController : CRUDController<t_Purchase, IPurchaseManagement, DateTime, string, CPurchaseData>
 	{
-		private string m_strMasterDataUrl = "../Shared/MasterData";
-
 		public PurchasesController(IPurchaseManagement management)
 			: base(management)
 		{ }
@@ -26,7 +24,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult Purchases()
 		{
-			return PartialView(m_strMasterDataUrl, new CMasterData() { DisplayTable = new CPurchasesModel().getDisplayTable(), Title = "Purchases" });
+			return PartialView("_MasterData", new CMasterData() { DisplayTable = new CPurchasesModel().getDisplayTable(), Title = "Purchases" });
 		}
 
 		[HttpPost]
@@ -38,7 +36,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult Search([System.Web.Http.FromBody]CSearchPurchase Search)
 		{
-			return PartialView(m_strMasterDataUrl, new CMasterData() { DisplayTable = new CPurchasesModel().search(Search), Title = "Purchases" });
+			return PartialView("_MasterData", new CMasterData() { DisplayTable = new CPurchasesModel().search(Search), Title = "Purchases" });
 		}
 	}
 }

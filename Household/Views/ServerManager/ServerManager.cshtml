@@ -1,10 +1,12 @@
-﻿
+﻿@using Household.Localisation.Main
+@using Household.Localisation.Common
+
 @{
     ViewBag.Title = "Server Manager";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <ol class="breadcrumb">
-	<li><a href="@Url.Action("Index", "Home")">Home</a></li>
-	<li>Server Manager</li>
+	<li><a href="@Url.Action("Index", "Home")">@GeneralText.Home</a></li>
+	<li>@ServerManagerText.ServerManager</li>
 </ol>

@@ -1,4 +1,6 @@
-﻿using Household.BL.Functions.txx;
+﻿using Household.Localisation.Common;
+using Household.Localisation.Main.MasterData;
+using Household.BL.Functions.txx;
 using Household.Models.DisplayTable;
 
 namespace Household.Models.MasterData
@@ -20,17 +22,17 @@ namespace Household.Models.MasterData
 			var drFoot = new CDisplayRow();
 			var dcColumn = new CDisplayColumn();
 
-			dcColumn.Content = "Account Name";
+			dcColumn.Content = BankAccountText.AccountName;
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
-			dcColumn.Content = "Bank Name";
+			dcColumn.Content = BankAccountText.BankName;
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
-			dcColumn.Content = "IBAN";
+			dcColumn.Content = BankAccountText.IBAN;
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
@@ -73,9 +75,9 @@ namespace Household.Models.MasterData
 
 			drFoot.Columns.Add(new CDisplayColumn()
 			{
-				Content = "Count: " + lstAccounts.Count.ToString(),
+				Content = $"{GeneralText.Count}: {lstAccounts.Count.ToString()}",
 				CSS = "right",
-				Tooltip = "Count: " + lstAccounts.Count.ToString(),
+				Tooltip = $"{GeneralText.Count}: {lstAccounts.Count.ToString()}",
 				ColumnSpan = 3
 			});
 

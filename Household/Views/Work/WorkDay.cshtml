@@ -1,14 +1,10 @@
-﻿@model Household.Models.Work.CWorkDayModel
+﻿@using Household.Localisation.Main.Work;
 
-@using GARTE.TypeHandling;
-
-@{
-	string m_strBaseAction = Url.Action("", "Work");
-}
+@model Household.Models.Work.CWorkDayModel
 
 <div class="row">
 	<div class="col-xs-12">
-		<h3>Work Day</h3>
+		<h3>@WorkText.WorkDay</h3>
 	</div>
 	<div class="col-xs-12 mB10">
 		<input type="button" class="button-default" id="btnSave" value="Save" onclick="WorkDay.Save();" />
@@ -20,35 +16,12 @@
 	</div>
 </div>
 <form class="row">
-	<div class="col-xs-12 col-sm-6">
-		<span>Work Day (dd.mm.yyyy)</span>
-		<input type="text" id="tbxWorkDay" data-bind="value: WorkDay" required />
-	</div>
-	<div class="col-xs-12 col-sm-6">
-		<div class="w100"></div>
-	</div>
-	<div class="col-xs-12 col-sm-6">
-		<span>Begin (hh:mm)</span>
-		<input type="text" id="tbxBegin" data-bind="value: Begin" required />
-	</div>
-	<div class="col-xs-12 col-sm-6">
-		<span>End (hh:mm)</span>
-		<input type="text" id="tbxEnd" data-bind="value: End" required />
-	</div>
-	<div class="col-xs-12 col-sm-6">
-		<span>Break Duration</span>
-		<input type="text" id="tbxBreakDuration" data-bind="value: BreakDuration" />
-	</div>
+	@Html.DisplayForModel()
 </form>
 
 @Scripts.Render("~/bundles/WorkDay")
 <script type="text/javascript">
 	(function () {
-		WorkDay.Fill('@Html.Raw(m_strBaseAction)', @Model.WorkDay.ID, '@Base.convertShortDateString(Model.WorkDay.WorkDay)', '@Base.convertShortTimeString(Model.WorkDay.Begin)',
-						'@Base.convertShortTimeString(Model.WorkDay.End)', @Base.convertDec(Model.WorkDay.BreakDuration));
-		MasterData.start();
-		WorkDay.start();
-
 		if(@Model.WorkDay.ID < 1){$('#btnDelete').remove();}
 	})();
 </script>

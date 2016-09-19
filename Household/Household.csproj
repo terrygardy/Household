@@ -288,6 +288,7 @@
     <Compile Include="Models\Search\CSearchWorkDay.cs" />
     <Compile Include="Models\Work\CWorkDayModel.cs" />
     <Compile Include="Models\Work\CWorkHoursModel.cs" />
+    <Compile Include="MvcExtensions\HtmlExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Views\Home\Index.generated.cs">
@@ -594,7 +595,7 @@
     <Content Include="Scripts\validation.js" />
     <Content Include="Scripts\Work\WorkHours.js" />
     <Content Include="Views\Finance\MasterData.cshtml" />
-    <Content Include="Views\Shared\MasterData.cshtml" />
+    <Content Include="Views\Shared\_MasterData.cshtml" />
     <Content Include="Views\Shared\_LayoutNoM.cshtml" />
     <Content Include="Views\MasterData\BankAccount.cshtml" />
     <Content Include="Views\MasterData\Company.cshtml" />
@@ -618,6 +619,19 @@
     <Content Include="Views\Work\WorkHours.cshtml" />
     <Content Include="Views\Work\WorkDay.cshtml" />
     <Content Include="Scripts\Work\WorkHours.js.map" />
+    <Content Include="Views\Shared\DisplayTemplates\CPurchaseModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SelectOptions.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CBankAccountData.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CCompanyData.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CShopData.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CDayData.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CIncomeModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CIntervalData.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CPersonData.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\StandardRecordButtons.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ErrorContainer.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CExpenseModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CWorkDayModel.cshtml" />
     <TypeScriptCompile Include="Scripts\Finance\Expense.ts" />
     <TypeScriptCompile Include="Scripts\Finance\Purchase.ts" />
     <TypeScriptCompile Include="Scripts\Finance\Report.ts" />
@@ -687,6 +701,10 @@
     <ProjectReference Include="..\..\Helper\Helpers.csproj">
       <Project>{3c4faf9e-01d0-4711-ad71-34bfce920b40}</Project>
       <Name>Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Household.Localisation\Household.Localisation.csproj">
+      <Project>{83014f54-9564-4916-a7af-90cf694dc9fe}</Project>
+      <Name>Household.Localisation</Name>
     </ProjectReference>
     <ProjectReference Include="..\HouseholdData\Household.Data.csproj">
       <Project>{9eb8b86e-ae48-4945-a833-476a85e6b6e7}</Project>

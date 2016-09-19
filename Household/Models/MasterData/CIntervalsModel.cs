@@ -1,4 +1,6 @@
-﻿using Household.BL.Functions.txx;
+﻿using Household.Localisation.Main.MasterData;
+using Household.Localisation.Common;
+using Household.BL.Functions.txx;
 using Household.Models.DisplayTable;
 
 namespace Household.Models.MasterData
@@ -21,8 +23,8 @@ namespace Household.Models.MasterData
 
 			drHead.Columns.Add(new CDisplayColumn()
 			{
-				Content = "Interval",
-				Tooltip = "Interval"
+				Content = IntervalText.Interval,
+				Tooltip = IntervalText.Interval
 			});
 
 			dtTable.Head.Add(drHead);
@@ -47,9 +49,9 @@ namespace Household.Models.MasterData
 
 			drFoot.Columns.Add(new CDisplayColumn()
 			{
-				Content = "Count: " + lstIntervals.Count.ToString(),
+				Content = $"{GeneralText.Count}: {lstIntervals.Count.ToString()}",
 				CSS = "right",
-				Tooltip = "Count: " + lstIntervals.Count.ToString(),
+				Tooltip = $"{GeneralText.Count}: {lstIntervals.Count.ToString()}",
 				ColumnSpan = 1
 			});
 

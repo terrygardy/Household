@@ -1,15 +1,18 @@
-﻿<div class="row">
+﻿@using Household.Localisation.Main.Finance
+@using Household.Localisation.Common
+
+<div class="row">
 	<div class="fLeft">
 		<ol class="breadcrumb">
-			<li><a href="@Url.Action("Index", "Home")">Home</a></li>
-			<li><a href="@Url.Action("Finance", "Finance")">Finance</a></li>
-			<li>Expenses</li>
+			<li><a href="@Url.Action("Index", "Home")">@GeneralText.Home</a></li>
+			<li><a href="@Url.Action("Finance", "Finance")">@FinanceText.Finance</a></li>
+			<li>@ExpenseText.Expenses</li>
 		</ol>
 	</div>
 	<div class="fRight">
 		<ul class="pagination">
-			<li><button class="button-default" onclick="Common.LoadContent('@Url.Action("Purchases", "Finance")');">Purchases</button></li>
-			<li><button class="button-default" onclick="Common.LoadContent('@Url.Action("Reports", "Finance")');">Reports</button></li>
+			<li><button class="button-default" onclick="Common.LoadContent('@Url.Action("Purchases", "Finance")');">@PurchaseText.Purchases</button></li>
+			<li><button class="button-default" onclick="Common.LoadContent('@Url.Action("Reports", "Finance")');">@ReportText.Reports</button></li>
 		</ul>
 	</div>
 	<div class="fClear"></div>

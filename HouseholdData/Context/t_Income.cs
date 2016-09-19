@@ -1,3 +1,5 @@
+using Household.Localisation.Main.MasterData;
+
 namespace Household.Data.Context
 {
 	using Common;
@@ -15,20 +17,24 @@ namespace Household.Data.Context
 
 		[Required]
 		[Column(TypeName = "date")]
+		[Display(Name = "StartDate", ResourceType = typeof(IncomeText))]
 		public DateTime StartDate { get; set; }
 
 		[Column(TypeName = "date")]
+		[Display(Name = "EndDate", ResourceType = typeof(IncomeText))]
 		public DateTime? EndDate { get; set; }
 
 		public long? Interval_ID { get; set; }
 
 		[Required]
+		[Display(Name = "Amount", ResourceType = typeof(IncomeText))]
 		public decimal Amount { get; set; }
 
 		public long? Payee_ID { get; set; }
 
 		public long? Company_ID { get; set; }
 
+		[Display(Name = "Description", ResourceType = typeof(IncomeText))]
 		public string Description { get; set; }
 
 		[Required]
