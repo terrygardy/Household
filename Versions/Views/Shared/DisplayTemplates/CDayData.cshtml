@@ -1,0 +1,21 @@
+﻿@model Household.BL.DATA.txx.CDayData
+
+@{
+	string m_strBaseAction = Url.Action("", "Day");
+}
+
+<div class="w100">
+	<div class="col-xs-12 col-sm-6">
+		@Html.LabelFor(m => m.Day)
+		<input type="text" id="tbxDay" data-bind="value: Day" required />
+	</div>
+</div>
+
+@Scripts.Render("~/bundles/Day")
+<script type="text/javascript">
+	(function () {
+		Day.Fill('@Html.Raw(m_strBaseAction)', @Model.ID, '@Model.Day');
+		MasterData.start();
+		Day.start();
+	})();
+</script>

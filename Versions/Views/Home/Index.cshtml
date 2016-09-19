@@ -1,42 +1,47 @@
-﻿@{
+﻿@using Household.Localisation.Common
+@using Household.Localisation.Main
+@using Household.Localisation.Main.Finance
+@using Household.Localisation.Main.Work
+
+@{
 	ViewBag.Title = "Main Page";
 }
 
 <div class="jumbotron">
-	<h1>Household</h1>
-	<p class="lead">Welcome to our household management system</p>
+	<h1>@GeneralText.Household</h1>
+	<p class="lead">@GeneralText.WelcomeToOurHouseholdManagementSystem</p>
 </div>
 
 <div class="row">
 	<div class="col-sm-6">
 		<div class="panel-finance panel-main-clickable" onclick="document.location = '@Url.Action("Finance", "Finance")'">
 			<div>
-				<h2>Finance</h2>
-				<p>Expenses, purchases and monthly bills</p>
+				<h2>@FinanceText.Finance</h2>
+				<p>@FinanceText.ExpensesPurchasesAndMonthlyBills</p>
 			</div>
 		</div>
 	</div>
 	<div class="col-sm-6">
 		<div class="panel-work panel-main-clickable" onclick="document.location = '@Url.Action("Work", "Work")';">
 			<div>
-				<h2>Work</h2>
-				<p>Manage your working hours</p>
+				<h2>@WorkText.Work</h2>
+				<p>@WorkText.ManageYourWorkingHours</p>
 			</div>
 		</div>
 	</div>
 	<div class="col-sm-6">
 		<div class="panel-homeHDD panel-main-clickable" onclick="document.location = '@Url.Action("HomeHDD", "HomeHDD")';">
 			<div>
-				<h2>Home-HDD</h2>
-				<p>Come on in and manage your documents and pictures</p>
+				<h2>@HomeHDDText.HomeHDD</h2>
+				<p>@HomeHDDText.ComeOnInAndManageYourDocumentsAndPictures</p>
 			</div>
 		</div>
 	</div>
 	<div class="col-sm-6">
 		<div class="panel-serverManager panel-main-clickable" onclick="document.location = '@Url.Action("ServerManager", "ServerManager")'">
 			<div>
-				<h2>Server Manager</h2>
-				<p>Check out the server and look what's going on in the world</p>
+				<h2>@ServerManagerText.ServerManager</h2>
+				<p>@ServerManagerText.CheckOutTheServerAndLookWhatIsGgoingOnInTheWorld</p>
 			</div>
 		</div>
 	</div>

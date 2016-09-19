@@ -1,55 +1,53 @@
-﻿@model Household.Models.Finance.CReportsModel
+﻿@using Household.Localisation.Common;
+@using Household.Localisation.Main.MasterData;
+@using Household.Localisation.Main.Finance;
+
+@model Household.Models.Finance.CReportsModel
 <div class="row">
 	<div class="fLeft">
 		<ol class="breadcrumb">
 			<li><a href="@Url.Action("Index", "Home")">Home</a></li>
 			<li><a href="@Url.Action("Finance", "Finance")">Finance</a></li>
-			<li>Reports</li>
+			<li>@ReportText.Reports</li>
 		</ol>
 	</div>
 	<div class="fRight">
 		<ul class="pagination">
-			<li><button class="button-default" onclick="Common.LoadContent('@Url.Action("Purchases", "Finance")');">Purchases</button></li>
-			<li><button class="button-default" onclick="Common.LoadContent('@Url.Action("Expenses", "Finance")');">Expenses</button></li>
+			<li><button class="button-default" onclick="Common.LoadContent('@Url.Action("Purchases", "Finance")');">@PurchaseText.Purchases</button></li>
+			<li><button class="button-default" onclick="Common.LoadContent('@Url.Action("Expenses", "Finance")');">@ExpenseText.Expenses</button></li>
 		</ul>
 	</div>
 	<div class="fClear"></div>
 </div>
 <div class="row">
-	<h3>Shops</h3>
+	<h3>@ShopText.Shops</h3>
 	<div class="col-xs-12 col-sm-4">
-		<span>Shop</span>
+		<span>@ShopText.Shop</span>
 		<select class="fLeft" id="cboShopA" onchange="buildChartShop();">
-			@foreach (var cxxShop in Model.Shops)
-			{
-			<option value="@cxxShop.ID">@cxxShop.ToString()</option>
-			}
+			@Html.DisplayFor(m => m.Shops, "SelectOptions")
 		</select>
 	</div>
 	<div class="col-xs-12 col-sm-4">
-		<span>Shop</span>
+		<span>@ShopText.Shop</span>
 		<select id="cboShopB" onchange="buildChartShop();">
-			@foreach (var cxxShop in Model.Shops)
-			{
-			<option value="@cxxShop.ID">@cxxShop.ToString()</option>
-			}
+			@Html.DisplayFor(m => m.Shops, "SelectOptions")
 		</select>
 	</div>
 	<div class="col-xs-12 col-sm-4">
-		<span>Year</span>
+		<span>@GeneralText.Year</span>
 		<select id="cboYearB" onchange="buildChartShop();">
 			@for (int i = 0; i < 10; i++)
 			{
-			<option value="@(DateTime.Today.Year - i)">@(DateTime.Today.Year - i)</option>
+				<option value="@(DateTime.Today.Year - i)">@(DateTime.Today.Year - i)</option>
 			}
 		</select>
 	</div>
 </div>
 <div id="divReportShop" class="row"></div>
 <div class="row">
-	<h3>Year</h3>
+	<h3>@GeneralText.Year</h3>
 	<div class="col-xs-6">
-		<span>Year</span>
+		<span>@GeneralText.Year</span>
 		<select id="cboYearC" onchange="buildChartYear();">
 			@for (int i = 0; i < 10; i++)
 			{
@@ -58,7 +56,7 @@
 		</select>
 	</div>
 	<div class="col-xs-6">
-		<span>Year</span>
+		<span>@GeneralText.Year</span>
 		<select id="cboYearD" onchange="buildChartYear();">
 			@for (int i = 0; i < 10; i++)
 			{

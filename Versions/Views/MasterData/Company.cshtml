@@ -1,40 +1,27 @@
-﻿@model Household.BL.Interfaces.txx.ICompany
+﻿@using Household.Localisation.Common
+@using Household.Localisation.Main.MasterData
 
-@{
-	string m_strBaseAction = Url.Action("", "Company");
-}
+@model Household.BL.DATA.txx.CCompanyData
 
 <div class="row">
 	<div class="col-xs-12">
-		<h3>Company</h3>
+		<h3>@CompanyText.Company</h3>
 	</div>
 	<div class="col-xs-12 mB10">
-		<input type="button" class="button-default" id="btnSave" value="Save" onclick="Company.Save();" />
-		<input type="button" class="button-default" id="btnDelete" value="Delete" onclick="Company.Delete();" />
-		<input type="button" class="button-default" id="btnClose" value="Close" onclick="Common.hideSubContent();" />
+		<input type="button" class="button-default" id="btnSave" value="@GeneralText.Save" onclick="Company.Save();" />
+		<input type="button" class="button-default" id="btnDelete" value="@GeneralText.Delete" onclick="Company.Delete();" />
+		<input type="button" class="button-default" id="btnClose" value="@GeneralText.Close" onclick="Common.hideSubContent();" />
 	</div>
 	<div class="col-xs-12">
 		<ul class="" id="ulError"></ul>
 	</div>
 </div>
 <form class="row">
-	<div class="col-xs-12 col-sm-6">
-		<span>Name</span>
-		<input type="text" id="tbxName" data-bind="value: Name" required />
-	</div>
-	<div class="col-xs-12 col-sm-6">
-		<span>Description</span>
-		<input type="text" id="tbxDescription" data-bind="value: Description" />
-	</div>
+	@Html.DisplayForModel()
 </form>
 
-@Scripts.Render("~/bundles/Company")
 <script type="text/javascript">
 	(function () {
-		Company.Fill('@Html.Raw(m_strBaseAction)', @Model.ID, '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.Name))', '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.Description))');
-		MasterData.start();
-		Company.start();
-
 		if(@Model.ID < 1){$('#btnDelete').remove();}
 	})();
 </script>

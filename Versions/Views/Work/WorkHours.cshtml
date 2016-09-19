@@ -1,37 +1,40 @@
-﻿<div class="row">
+﻿@using Household.Localisation.Common;
+@using Household.Localisation.Main.Work;
+
+<div class="row">
 	<div class="fLeft">
 		<ol class="breadcrumb">
 			<li><a href="@Url.Action("Index", "Home")">Home</a></li>
 			<li><a href="@Url.Action("Work", "Work")">Work</a></li>
-			<li>Working Hours</li>
+			<li>@WorkText.WorkHours</li>
 		</ol>
 	</div>
 	<div class="fClear"></div>
 </div>
 <div class="row">
 	<div class="col-xs-12">
-		<div id="divSearch" title="search" />
+		<div id="divSearch" title="@GeneralText.Search" />
 		<div class="searchContainer">
 			<div class="row">
 				<div class="col-xs-12 col-sm-6">
-					<span>Work Day from (dd.mm.yyyy)</span><input type="text" id="tbxSearchWorkDayFrom" value="" />
+					<span>@WorkText.WorkDayFrom @GeneralText.DateFormat</span><input type="text" id="tbxSearchWorkDayFrom" value="" />
 				</div>
 				<div class="col-xs-12 col-sm-6">
-					<span>Work Day to (dd.mm.yyyy)</span><input type="text" id="tbxSearchWorkDayTo" value="" />
+					<span>@WorkText.WorkDayTo @GeneralText.DateFormat</span><input type="text" id="tbxSearchWorkDayTo" value="" />
 				</div>
 				<div class="col-xs-12 col-sm-6 col-lg-4">
-					<span>Begin (hh:mm)</span><input type="text" id="tbxSearchBegin" value="" />
+					<span>@WorkText.Begin @GeneralText.TimeFormat</span><input type="text" id="tbxSearchBegin" value="" />
 				</div>
 				<div class="col-xs-12 col-sm-6 col-lg-4">
-					<span>End (hh:mm)</span><input type="text" id="tbxSearchEnd" value="" />
+					<span>@WorkText.End @GeneralText.TimeFormat</span><input type="text" id="tbxSearchEnd" value="" />
 				</div>
 				<div class="col-xs-12 col-sm-6 col-lg-4">
-					<span>Break Duration</span><input type="text" id="tbxSearchBreakDuration" value="" />
+					<span>@WorkText.BreakDuration</span><input type="text" id="tbxSearchBreakDuration" value="" />
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-xs-12 pT4">
-					<button onclick="search();">Search</button><button onclick="Common.ToggleSearch();">Cancel</button>
+					<button onclick="search();" title="@GeneralText.Search">@GeneralText.Search</button><button onclick="Common.ToggleSearch();" title="@GeneralText.Cancel">@GeneralText.Cancel</button>
 				</div>
 			</div>
 		</div>

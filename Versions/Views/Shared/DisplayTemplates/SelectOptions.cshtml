@@ -1,0 +1,11 @@
+﻿@using Household.Data.Models.Base
+
+@foreach (var entry in Html.ViewData.Model)
+{
+	IDataBase iDb = entry as IDataBase;
+
+	if (iDb != null)
+	{
+		<option value="@iDb.ID.ToString()">@iDb.ToString()</option>
+	}
+}

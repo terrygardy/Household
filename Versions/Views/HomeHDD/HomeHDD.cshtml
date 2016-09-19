@@ -1,10 +1,12 @@
-﻿
+﻿@using Household.Localisation.Common
+@using Household.Localisation.Main
+
 @{
-    ViewBag.Title = "HomeHDD";
+    ViewBag.Title = HomeHDDText.HomeHDD;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <ol class="breadcrumb">
-	<li><a href="@Url.Action("Index", "Home")">Home</a></li>
-	<li>Home-HDD</li>
+	<li><a href="@Url.Action("Index", "Home")">@GeneralText.Home</a></li>
+	<li>@HomeHDDText.HomeHDD</li>
 </ol>
