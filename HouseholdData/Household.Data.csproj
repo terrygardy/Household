@@ -112,6 +112,10 @@
       <Project>{d0f10307-3590-49a5-b55a-9129dd0404c4}</Project>
       <Name>TypeHandling</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Household.Localisation\Household.Localisation.csproj">
+      <Project>{83014f54-9564-4916-a7af-90cf694dc9fe}</Project>
+      <Name>Household.Localisation</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

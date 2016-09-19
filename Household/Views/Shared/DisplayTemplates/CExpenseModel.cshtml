@@ -1,0 +1,62 @@
+﻿@using Household.Localisation.Main.MasterData;
+@using GARTE.TypeHandling;
+
+@model Household.Models.Finance.CExpenseModel
+
+@{
+	string m_strBaseAction = Url.Action("", "Expenses");
+}
+
+<div class="w100">
+	<div class="col-xs-12 col-sm-6">
+		@Html.LabelFor(m => m.Expense.StartDate)<span>(dd.mm.yyyy)</span>
+		<input type="text" id="tbxStartDate" data-bind="value: StartDate" required />
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		@Html.LabelFor(m => m.Expense.EndDate)<span>(dd.mm.yyyy)</span>
+		<input type="text" id="tbxEndDate" data-bind="value: EndDate" required />
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		<span>@CompanyText.Company</span>
+		<select id="cboCompany" data-bind="value: Company_ID" required>
+			@Html.DisplayFor(m => m.Companies, "SelectOptions")
+		</select>
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		<span>@IntervalText.Interval</span>
+		<select id="cboInterval" data-bind="value: Interval_ID" required>
+			@Html.DisplayFor(m => m.Intervals, "SelectOptions")
+		</select>
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		<span>@DayText.Day</span>
+		<select id="cboDay" data-bind="value: PaymentDay_ID" required>
+			@Html.DisplayFor(m => m.Days, "SelectOptions")
+		</select>
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		<span>@BankAccountText.BankAccount</span>
+		<select id="cboBankAccount" data-bind="value: BankAccount_ID" required>
+			@Html.DisplayFor(m => m.BankAccounts, "SelectOptions")
+		</select>
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		@Html.LabelFor(m => m.Expense.Amount)<span>(€)</span>
+		<input type="text" id="tbxAmount" data-bind="value: Amount" required />
+	</div>
+	<div class="col-xs-12">
+		@Html.LabelFor(m => m.Expense.Description)
+		<textarea id="tbxDescription" data-bind="value: Description" />
+	</div>
+</div>
+
+@Scripts.Render("~/bundles/Expense")
+<script type="text/javascript">
+	(function () {
+		Expense.Fill('@Html.Raw(m_strBaseAction)', @Model.Expense.ID, '@Base.convertShortDateString(Model.Expense.StartDate)', '@Base.convertShortDateString(Model.Expense.EndDate)',
+						@Base.convertLong(Model.Expense.Company_ID).ToString(), @Base.convertLong(Model.Expense.BankAccount_ID).ToString(), @Base.convertLong(Model.Expense.PaymentDay_ID).ToString(),
+						@Base.convertLong(Model.Expense.Interval_ID).ToString(), '@Model.Expense.Amount.ToString("N2")', '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.Expense.Description))');
+		MasterData.start();
+		Expense.start();
+	})();
+</script>

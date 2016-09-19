@@ -1,4 +1,6 @@
-﻿using Household.BL.Functions.t;
+﻿using Household.Localisation.Main.MasterData;
+using Household.Localisation.Common;
+using Household.BL.Functions.t;
 using Household.BL.Functions.txx;
 using Household.Models.Chart;
 using Household.Models.DisplayTable;
@@ -22,12 +24,12 @@ namespace Household.Models.MasterData
 			var drFoot = new CDisplayRow();
 			var dcColumn = new CDisplayColumn();
 
-			dcColumn.Content = "Name";
+			dcColumn.Content = ShopText.Name;
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
-			dcColumn.Content = "Description";
+			dcColumn.Content = ShopText.Description;
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
@@ -62,9 +64,9 @@ namespace Household.Models.MasterData
 
 			drFoot.Columns.Add(new CDisplayColumn()
 			{
-				Content = "Count: " + lstShops.Count.ToString(),
+				Content = $"{GeneralText.Count}: {lstShops.Count.ToString()}",
 				CSS = "right",
-				Tooltip = "Count: " + lstShops.Count.ToString(),
+				Tooltip = $"{GeneralText.Count}: {lstShops.Count.ToString()}",
 				ColumnSpan = 2
 			});
 

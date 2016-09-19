@@ -1,13 +1,16 @@
-﻿@model Household.BL.DATA.txx.CCompanyData
+﻿@using Household.Localisation.Common
+@using Household.Localisation.Main.MasterData
+
+@model Household.BL.DATA.txx.CCompanyData
 
 <div class="row">
 	<div class="col-xs-12">
-		<h3>Company</h3>
+		<h3>@CompanyText.Company</h3>
 	</div>
 	<div class="col-xs-12 mB10">
-		<input type="button" class="button-default" id="btnSave" value="Save" onclick="Company.Save();" />
-		<input type="button" class="button-default" id="btnDelete" value="Delete" onclick="Company.Delete();" />
-		<input type="button" class="button-default" id="btnClose" value="Close" onclick="Common.hideSubContent();" />
+		<input type="button" class="button-default" id="btnSave" value="@GeneralText.Save" onclick="Company.Save();" />
+		<input type="button" class="button-default" id="btnDelete" value="@GeneralText.Delete" onclick="Company.Delete();" />
+		<input type="button" class="button-default" id="btnClose" value="@GeneralText.Close" onclick="Common.hideSubContent();" />
 	</div>
 	<div class="col-xs-12">
 		<ul class="" id="ulError"></ul>

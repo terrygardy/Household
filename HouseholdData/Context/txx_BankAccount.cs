@@ -1,7 +1,8 @@
+using Household.Localisation.Main.MasterData;
+
 namespace Household.Data.Context
 {
 	using Models.Base;
-	using System;
 	using System.Collections.Generic;
 	using System.ComponentModel.DataAnnotations;
 	using System.Linq;
@@ -21,16 +22,20 @@ namespace Household.Data.Context
 
 		[Required]
 		[StringLength(255)]
+		[Display(Name = "AccountName", ResourceType = typeof(BankAccountText))]
 		public string AccountName { get; set; }
 
 		[Required]
 		[StringLength(27)]
+		[Display(Name = "IBAN", ResourceType = typeof(BankAccountText))]
 		public string IBAN { get; set; }
 
 		[StringLength(11)]
+		[Display(Name = "BIC", ResourceType = typeof(BankAccountText))]
 		public string BIC { get; set; }
 
 		[StringLength(255)]
+		[Display(Name = "BankName", ResourceType = typeof(BankAccountText))]
 		public string BankName { get; set; }
 
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

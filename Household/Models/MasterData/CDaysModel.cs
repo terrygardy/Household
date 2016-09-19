@@ -1,5 +1,6 @@
-﻿using Household.BL.Functions.txx;
-using Household.Data.Context;
+﻿using Household.Localisation.Main.MasterData;
+using Household.Localisation.Common;
+using Household.BL.Functions.txx;
 using Household.Models.DisplayTable;
 
 namespace Household.Models.MasterData
@@ -24,8 +25,8 @@ namespace Household.Models.MasterData
 
 			drHead.Columns.Add(new CDisplayColumn()
 			{
-				Content = "Day",
-				Tooltip = "Day"
+				Content = DayText.Day,
+				Tooltip = DayText.Day
 			});
 
 			dtTable.Head.Add(drHead);
@@ -50,9 +51,9 @@ namespace Household.Models.MasterData
 
 			drFoot.Columns.Add(new CDisplayColumn()
 			{
-				Content = "Count: " + lstDays.Count.ToString(),
+				Content = $"{GeneralText.Count}: {lstDays.Count.ToString()}",
 				CSS = "right",
-				Tooltip = "Count: " + lstDays.Count.ToString(),
+				Tooltip = $"{GeneralText.Count}: {lstDays.Count.ToString()}",
 				ColumnSpan = 1
 			});
 

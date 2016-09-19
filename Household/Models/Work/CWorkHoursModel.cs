@@ -1,4 +1,6 @@
-﻿using Household.Models.DisplayTable;
+﻿using Household.Localisation.Main.Work;
+using Household.Localisation.Common;
+using Household.Models.DisplayTable;
 using Household.BL.Functions.t;
 using GARTE.TypeHandling;
 using System.Linq;
@@ -35,27 +37,27 @@ namespace Household.Models.Work
 			var drFeet = new List<CDisplayRow>();
 			var dcColumn = new CDisplayColumn();
 
-			dcColumn.Content = "Day";
+			dcColumn.Content = WorkText.WorkDay;
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
-			dcColumn.Content = "Begin";
+			dcColumn.Content = WorkText.Begin;
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
-			dcColumn.Content = "End";
+			dcColumn.Content = WorkText.End;
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
-			dcColumn.Content = "Break [h]";
+			dcColumn.Content = $"{WorkText.Break} [h]";
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
-			dcColumn.Content = "Worked [h]";
+			dcColumn.Content = $"{WorkText.Worked} [h]";
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
@@ -66,13 +68,13 @@ namespace Household.Models.Work
 				var strDay = Base.convertShortDateString(tWorkDay.WorkDay, "...");
 				var strBegin = Base.convertShortTimeString(tWorkDay.Begin, "...");
 				var strEnd = Base.convertShortTimeString(tWorkDay.End, "...");
-				var strTooltip = $"{strDay}: from {strBegin}";
+				var strTooltip = $"{strDay}: {GeneralText.FromLower} {strBegin}";
 				var drBody = new CDisplayRow()
 				{
 					OnClickParam = tWorkDay.ID.ToString()
 				};
 
-				strTooltip = Strings.concatStrings(strTooltip, strEnd, " until ");
+				strTooltip = Strings.concatStrings(strTooltip, strEnd, $" {GeneralText.UntilLower} ");
 
 				drBody.Columns.Add(new CDisplayColumn()
 				{
@@ -117,9 +119,9 @@ namespace Household.Models.Work
 
 			drFoot.Columns.Add(new CDisplayColumn()
 			{
-				Content = "Count: " + countDays.ToString(),
+				Content = $"{GeneralText.Count}: {countDays.ToString()}",
 				CSS = "right",
-				Tooltip = "Count: " + countDays.ToString(),
+				Tooltip = $"{GeneralText.Count}: {countDays.ToString()}",
 				ColumnSpan = 5
 			});
 
@@ -131,9 +133,9 @@ namespace Household.Models.Work
 
 			drFoot.Columns.Add(new CDisplayColumn()
 			{
-				Content = "Total Hours Worked: " + hoursWorked.ToString("N2"),
+				Content = $"{WorkText.TotalHoursWorked}: {hoursWorked.ToString("N2")}",
 				CSS = "right",
-				Tooltip = "Total Hours Worked: " + hoursWorked.ToString("N2"),
+				Tooltip = $"{WorkText.TotalHoursWorked}: {hoursWorked.ToString("N2")}",
 				ColumnSpan = 5
 			});
 
@@ -155,9 +157,9 @@ namespace Household.Models.Work
 
 			drFoot.Columns.Add(new CDisplayColumn()
 			{
-				Content = "Average Hours Worked: " + averageHours,
+				Content = $"{WorkText.AverageHoursWorked}: {averageHours}",
 				CSS = "right",
-				Tooltip = "Average Hours Worked: " + averageHours,
+				Tooltip = $"{WorkText.AverageHoursWorked}: {averageHours}",
 				ColumnSpan = 5
 			});
 

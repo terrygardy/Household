@@ -1,4 +1,6 @@
-﻿using Household.Models.DisplayTable;
+﻿using Household.Localisation.Common;
+using Household.Localisation.Main.Finance;
+using Household.Models.DisplayTable;
 using Household.BL.Functions.t;
 using GARTE.TypeHandling;
 
@@ -19,27 +21,27 @@ namespace Household.Models.Finance
 			var drFoot = new CDisplayRow();
 			var dcColumn = new CDisplayColumn();
 
-			dcColumn.Content = "From";
+			dcColumn.Content = GeneralText.From;
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
-			dcColumn.Content = "Until";
+			dcColumn.Content = GeneralText.Until;
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
-			dcColumn.Content = "Who";
+			dcColumn.Content = GeneralText.Who;
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
-			dcColumn.Content = "Source";
+			dcColumn.Content = ExpenseText.Source;
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
-			dcColumn.Content = "Amount";
+			dcColumn.Content = ExpenseText.Amount;
 			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
@@ -49,7 +51,7 @@ namespace Household.Models.Finance
 			{
 				var strStartDate = Base.convertShortDateString(tExpense.StartDate, "...");
 				var strEndDate = Base.convertShortDateString(tExpense.EndDate);
-				var strDate = "from " + strStartDate;
+				var strDate = $"{GeneralText.FromLower} {strStartDate}";
 				string strExpense, strSpender, strCompany, strAmount, strDay, strInterval;
 				var drBody = new CDisplayRow()
 				{
@@ -92,14 +94,14 @@ namespace Household.Models.Finance
 					strInterval = "";
 				}
 
-				strDate = Strings.concatStrings(strDate, strEndDate, " until ");
+				strDate = Strings.concatStrings(strDate, strEndDate, $" {GeneralText.UntilLower} ");
 
 				strAmount = tExpense.Amount.ToString("C2");
 
 				strExpense = strSpender;
 				strExpense = Strings.concatStrings(strExpense, strCompany, " - ");
 				strExpense = Strings.concatStrings(strExpense, strAmount, " - ");
-				strExpense = Strings.concatStrings(strExpense, strDay, " - on ");
+				strExpense = Strings.concatStrings(strExpense, strDay, $" - {GeneralText.OnLower} ");
 				strExpense = Strings.concatStrings(strExpense, strInterval, " ");
 				strExpense = Strings.concatStrings(strExpense, tExpense.Description, ", ");
 				strExpense = Strings.concatStrings(strDate, strExpense, ", ");
@@ -144,9 +146,9 @@ namespace Household.Models.Finance
 
 			drFoot.Columns.Add(new CDisplayColumn()
 			{
-				Content = "Count: " + lstExpenses.Count.ToString(),
+				Content = $"{GeneralText.Count}: {lstExpenses.Count.ToString()}",
 				CSS = "right",
-				Tooltip = "Count: " + lstExpenses.Count.ToString(),
+				Tooltip = $"{GeneralText.Count}: {lstExpenses.Count.ToString()}",
 				ColumnSpan = 5
 			});
 

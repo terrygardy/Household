@@ -1,13 +1,16 @@
-﻿@model Household.Models.Finance.CPurchaseModel
+﻿@using Household.Localisation.Common
+@using Household.Localisation.Main.Finance
+
+@model Household.Models.Finance.CPurchaseModel
 
 <div class="row">
 	<div class="col-xs-12">
-		<h3>Purchase</h3>
+		<h3>@PurchaseText.Purchase</h3>
 	</div>
 	<div class="col-xs-12 mB10">
-		<input type="button" class="button-default" id="btnSave" value="Save" onclick="Purchase.Save();" />
-		<input type="button" class="button-default" id="btnDelete" value="Delete" onclick="Purchase.Delete();" />
-		<input type="button" class="button-default" id="btnClose" value="Close" onclick="Common.hideSubContent();" />
+		<input type="button" class="button-default" id="btnSave" value="@GeneralText.Save" onclick="Purchase.Save();" />
+		<input type="button" class="button-default" id="btnDelete" value="@GeneralText.Delete" onclick="Purchase.Delete();" />
+		<input type="button" class="button-default" id="btnClose" value="@GeneralText.Close" onclick="Common.hideSubContent();" />
 	</div>
 	<div class="col-xs-12">
 		<ul class="" id="ulError"></ul>

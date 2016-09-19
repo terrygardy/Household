@@ -630,6 +630,8 @@
     <Content Include="Views\Shared\DisplayTemplates\CPersonData.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\StandardRecordButtons.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ErrorContainer.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CExpenseModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CWorkDayModel.cshtml" />
     <TypeScriptCompile Include="Scripts\Finance\Expense.ts" />
     <TypeScriptCompile Include="Scripts\Finance\Purchase.ts" />
     <TypeScriptCompile Include="Scripts\Finance\Report.ts" />
@@ -699,6 +701,10 @@
     <ProjectReference Include="..\..\Helper\Helpers.csproj">
       <Project>{3c4faf9e-01d0-4711-ad71-34bfce920b40}</Project>
       <Name>Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Household.Localisation\Household.Localisation.csproj">
+      <Project>{83014f54-9564-4916-a7af-90cf694dc9fe}</Project>
+      <Name>Household.Localisation</Name>
     </ProjectReference>
     <ProjectReference Include="..\HouseholdData\Household.Data.csproj">
       <Project>{9eb8b86e-ae48-4945-a833-476a85e6b6e7}</Project>

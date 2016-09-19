@@ -6,11 +6,11 @@
 
 <div class="w100">
 	<div class="col-xs-12 col-sm-6">
-		<span>Surname</span>
+		@Html.LabelFor(m => m.Surname)
 		<input type="text" id="tbxSurname" data-bind="value: Surname" required />
 	</div>
 	<div class="col-xs-12 col-sm-6">
-		<span>Forename</span>
+		@Html.LabelFor(m => m.Forename)
 		<input type="text" id="tbxForename" data-bind="value: Forename" />
 	</div>
 </div>
