@@ -80,9 +80,41 @@ namespace Household.Data.Context
 								   EntityState.Modified;
 			}
 
-			if (pv_blnSave) return SaveChanges();
+			if (pv_blnSave)
+			{
+				try
+				{
+					return SaveChanges();
+				}
+				catch (Exception)
+				{
+					RollbackState(pv_cEntity);
+
+					throw;
+				}
+			}
 
 			return 0;
+		}
+
+		private void RollbackState<T>(T pv_cEntity)
+			where T : class
+		{
+			var entry = Entry(pv_cEntity);
+
+			switch (entry.State)
+			{
+				case EntityState.Added:
+					entry.State = EntityState.Detached;
+					break;
+				case EntityState.Modified:
+					entry.CurrentValues.SetValues(entry.OriginalValues);
+					entry.State = EntityState.Unchanged;
+					break;
+				case EntityState.Deleted:
+					entry.State = EntityState.Unchanged;
+					break;
+			}
 		}
 
 		public int Remove<T>(T pv_cEntity, bool pv_blnSave)

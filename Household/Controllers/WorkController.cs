@@ -7,6 +7,7 @@ using Household.Data.Context;
 using Household.Controllers.Base;
 using Household.Models.Search;
 using Household.BL.Functions.Management.t;
+using Household.Localisation.Main.Work;
 
 namespace Household.Controllers
 {
@@ -35,7 +36,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult WorkHoursList()
 		{
-			return PartialView("_MasterData", new CMasterData() { DisplayTable = new CWorkHoursModel().getDisplayTable(), Title = "Work Hours" });
+			return PartialView("_MasterData", new CMasterData() { DisplayTable = new CWorkHoursModel().getDisplayTable(), Title = WorkText.WorkHours });
 		}
 
 		[HttpPost]
@@ -47,7 +48,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult Search([System.Web.Http.FromBody]CSearchWorkDay Search)
 		{
-			return PartialView("_MasterData", new CMasterData() { DisplayTable = new CWorkHoursModel().search(Search), Title = "Work Hours" });
+			return PartialView("_MasterData", new CMasterData() { DisplayTable = new CWorkHoursModel().search(Search), Title = WorkText.WorkHours });
 		}
 	}
 }

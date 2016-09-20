@@ -89,7 +89,7 @@ namespace Household
 					  "~/Content/Bootstrap/bootstrap.css",
 					  "~/Content/*.css"));
 
-			BundleTable.EnableOptimizations = true;
+			BundleTable.EnableOptimizations = false;
 		}
 	}
 }
