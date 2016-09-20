@@ -298,6 +298,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Configs\ConnectionString.config" />
     <Content Include="Content\bootstrap\wells.less" />
     <Content Include="Content\bootstrap\variables.less" />
     <Content Include="Content\bootstrap\utilities.less" />

@@ -30,7 +30,14 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult Purchase(long id)
 		{
-			return PartialView("Purchase", new CPurchaseModel(id));
+			var model = new CPurchaseModel(id);
+
+			if (model.Purchase.ID == 0)
+			{
+				if (model.Purchase.Occurrence <= new DateTime(1753, 1, 1)) model.Purchase.Occurrence = DateTime.Today;
+			}
+
+			return PartialView("Purchase", model);
 		}
 
 		[HttpPost]

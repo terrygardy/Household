@@ -5,7 +5,11 @@
 @using GARTE.TypeHandling;
 
 @{
-	string m_strBaseAction = Url.Action("", "Work");
+	var m_strBaseAction = Url.Action("", "Work");
+	var m_workDay = Base.convertShortDateString(Model.WorkDay.WorkDay);
+	var m_begin = Base.convertShortTimeString(Model.WorkDay.Begin);
+	var m_end = Base.convertShortTimeString(Model.WorkDay.End);
+	var m_breakDuration = Base.convertDec(Model.WorkDay.BreakDuration);
 }
 
 <div class="w100">
@@ -33,8 +37,7 @@
 @Scripts.Render("~/bundles/WorkDay")
 <script type="text/javascript">
 	(function () {
-		WorkDay.Fill('@Html.Raw(m_strBaseAction)', @Model.WorkDay.ID, '@Base.convertShortDateString(Model.WorkDay.WorkDay)', '@Base.convertShortTimeString(Model.WorkDay.Begin)',
-						'@Base.convertShortTimeString(Model.WorkDay.End)', @Base.convertDec(Model.WorkDay.BreakDuration));
+		WorkDay.Fill('@Html.Raw(m_strBaseAction)', @Model.WorkDay.ID, '@m_workDay', '@m_begin', '@m_end', @m_breakDuration);
 		MasterData.start();
 		WorkDay.start();
 	})();

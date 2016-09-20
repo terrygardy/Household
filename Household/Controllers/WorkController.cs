@@ -42,7 +42,18 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult WorkDay(long id)
 		{
-			return PartialView(new CWorkDayModel(id));
+			var model = new CWorkDayModel(id);
+
+			if (model.WorkDay.ID == 0)
+			{
+
+				if (model.WorkDay.WorkDay <= new DateTime(1753, 1, 1)) model.WorkDay.WorkDay = DateTime.Today;
+				if (model.WorkDay.Begin.Hours == 0 && model.WorkDay.Begin.Minutes == 0) model.WorkDay.Begin = new TimeSpan(8,0,0);
+				if (model.WorkDay.End.Hours == 0 && model.WorkDay.End.Minutes == 0) model.WorkDay.End = new TimeSpan(17, 30, 0);
+				if (model.WorkDay.BreakDuration == 0) model.WorkDay.BreakDuration = 1;
+			}
+
+			return PartialView(model);
 		}
 
 		[HttpPost]
