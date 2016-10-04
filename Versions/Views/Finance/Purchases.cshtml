@@ -23,7 +23,7 @@
 		<div class="searchContainer">
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-lg-4">
-					<span>@GeneralText.From @GeneralText.DateFormat</span><input type="text" id="tbxSearchFrom" value="" />
+					<span>@GeneralText.From @GeneralText.DateFormat</span><input type="text" id="tbxSearchFrom" value="@DateTime.Today.ToString("01.MM.yyyy")" />
 				</div>
 				<div class="col-xs-12 col-sm-6 col-lg-4">
 					<span>@GeneralText.To @GeneralText.DateFormat</span><input type="text" id="tbxSearchTo" value="" />
@@ -43,7 +43,7 @@
 			</div>
 			<div class="row">
 				<div class="col-xs-12 pT4">
-					<button onclick="search();" title="@GeneralText.Search">@GeneralText.Search</button><button onclick="Common.ToggleSearch();" title="@GeneralText.Cancel">@GeneralText.Cancel</button>
+					<button id="btnSearch">@GeneralText.Search</button><button id="btnSearchCancel">@GeneralText.Cancel</button>
 				</div>
 			</div>
 		</div>
@@ -58,19 +58,18 @@
 </div>
 
 <script type="text/javascript">
-	Common.LoadContentWithSelector('@Url.Action("Purchases", "Purchases")', '#divPurchases');
-	Common.ActivateSearchDiv();
+	Common.ActivateSearch('@Url.Action("Search", "Purchases")', '#divPurchases', function search() {
+		var objSearch = {
+			From: $('#tbxSearchFrom').val(),
+			To: $('#tbxSearchTo').val(),
+			Where: $('#tbxSearchWhere').val(),
+			Who: $('#tbxSearchWho').val(),
+			Amount: $('#tbxSearchAmount').val(),
+			Description: $('#tbxSearchDescription').val()
+		};
 
-	function search() {
-		var objSearch = {};
+		return JSON.stringify({ Search: objSearch });
+	});
 
-		objSearch.From = $('#tbxSearchFrom').val();
-		objSearch.To = $('#tbxSearchTo').val();
-		objSearch.Where = $('#tbxSearchWhere').val();
-		objSearch.Who = $('#tbxSearchWho').val();
-		objSearch.Amount = $('#tbxSearchAmount').val();
-		objSearch.Description = $('#tbxSearchDescription').val();
-
-		Common.Search('@Url.Action("Search", "Purchases")', JSON.stringify({ Search: objSearch }), '#divPurchases');
-	}
+	Common.Search();Common.ToggleSearch();
 </script>

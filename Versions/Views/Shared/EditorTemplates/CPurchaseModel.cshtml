@@ -1,8 +1,9 @@
 ﻿@using GARTE.TypeHandling;
 @using Household.Localisation.Common;
-@using Household.Localisation.Main.MasterData;
+@using Household.MvcExtensions;
+@using Household.Models.Finance;
 
-@model Household.Models.Finance.CPurchaseModel
+@model CPurchaseModel
 
 @{
 	string m_strBaseAction = Url.Action("", "Purchases");
@@ -11,23 +12,19 @@
 <div class="w100">
 	<div class="col-xs-12 col-sm-6">
 		@Html.LabelFor(m => m.Purchase.Occurrence)<span> @GeneralText.DateFormat</span>
-		<input type="text" id="tbxDate" data-bind="value: Occurrence" required />
+		@Html.KnockoutTextBox("tbxDate", "value: Occurrence", true)
 	</div>
 	<div class="col-xs-12 col-sm-6">
 		@Html.LabelFor(m => m.Purchase.Amount)<span> (€)</span>
-		<input type="text" id="tbxAmount" data-bind="value: Amount" required />
+		@Html.KnockoutTextBox("tbxAmount", "value: Amount", true)
 	</div>
 	<div class="col-xs-12 col-sm-6">
-		<span>@ShopText.Shop</span>
-		<select id="cboShop" data-bind="value: Shop_ID" required>
-			@Html.DisplayFor(m => m.Shops, "SelectOptions")
-		</select>
+		@Html.LabelFor(m => m.Shops)
+		@Html.KnockoutDropDownListFor(m => m.Shops, "cboShop", "value: Shop_ID", true)
 	</div>
 	<div class="col-xs-12 col-sm-6">
-		<span>@BankAccountText.BankAccount</span>
-		<select id="cboBankAccount" data-bind="value: Payer_ID" required>
-			@Html.DisplayFor(m => m.BankAccounts, "SelectOptions")
-		</select>
+		@Html.LabelFor(m => m.BankAccounts)
+		@Html.KnockoutDropDownListFor(m => m.BankAccounts, "cboBankAccount", "value: Payer_ID", true)
 	</div>
 	<div class="col-xs-12">
 		@Html.LabelFor(m => m.Purchase.Description)

@@ -24,13 +24,13 @@
 	<div class="col-xs-12 col-sm-4">
 		<span>@ShopText.Shop</span>
 		<select class="fLeft" id="cboShopA" onchange="buildChartShop();">
-			@Html.DisplayFor(m => m.Shops, "SelectOptions")
+			@Html.EditorFor(m => m.Shops, "SelectOptions")
 		</select>
 	</div>
 	<div class="col-xs-12 col-sm-4">
 		<span>@ShopText.Shop</span>
 		<select id="cboShopB" onchange="buildChartShop();">
-			@Html.DisplayFor(m => m.Shops, "SelectOptions")
+			@Html.EditorFor(m => m.Shops, "SelectOptions")
 		</select>
 	</div>
 	<div class="col-xs-12 col-sm-4">

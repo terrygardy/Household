@@ -1,5 +1,8 @@
 ﻿@using Household.Localisation.Common;
 @using Household.Localisation.Main.Work;
+@using GARTE.TypeHandling
+
+@model Household.Models.Work.CWorkHoursModel
 
 <div class="row">
 	<div class="fLeft">
@@ -17,7 +20,7 @@
 		<div class="searchContainer">
 			<div class="row">
 				<div class="col-xs-12 col-sm-6">
-					<span>@WorkText.WorkDayFrom @GeneralText.DateFormat</span><input type="text" id="tbxSearchWorkDayFrom" value="" />
+					<span>@WorkText.WorkDayFrom @GeneralText.DateFormat</span><input type="text" id="tbxSearchWorkDayFrom" value="@Base.convertShortDateString(Model.Search.WorkDayFrom)" />
 				</div>
 				<div class="col-xs-12 col-sm-6">
 					<span>@WorkText.WorkDayTo @GeneralText.DateFormat</span><input type="text" id="tbxSearchWorkDayTo" value="" />
@@ -34,7 +37,7 @@
 			</div>
 			<div class="row">
 				<div class="col-xs-12 pT4">
-					<button onclick="search();" title="@GeneralText.Search">@GeneralText.Search</button><button onclick="Common.ToggleSearch();" title="@GeneralText.Cancel">@GeneralText.Cancel</button>
+					<button id="btnSearch">@GeneralText.Search</button><button id="btnSearchCancel">@GeneralText.Cancel</button>
 				</div>
 			</div>
 		</div>
@@ -49,19 +52,19 @@
 </div>
 
 <script type="text/javascript">
-	Common.LoadContentWithSelector('@Url.Action("WorkHoursList", "Work")', '#divWorkHours');
+	$(function () {
+		Common.ActivateSearch('@Url.Action("Search", "Work")', '#divWorkHours', function () {
+			var objSearch = {
+				WorkDayFrom: $('#tbxSearchWorkDayFrom').val(),
+				WorkDayTo: $('#tbxSearchWorkDayTo').val(),
+				Begin: $('#tbxSearchBegin').val(),
+				End: $('#tbxSearchEnd').val(),
+				BreakDuration: $('#tbxSearchBreakDuration').val()
+			};
 
-	Common.ActivateSearchDiv();
+			return JSON.stringify({ Search: objSearch });
+		});
 
-	function search() {
-		var objSearch = {};
-
-		objSearch.WorkDayFrom = $('#tbxSearchWorkDayFrom').val();
-		objSearch.WorkDayTo = $('#tbxSearchWorkDayTo').val();
-		objSearch.Begin = $('#tbxSearchBegin').val();
-		objSearch.End = $('#tbxSearchEnd').val();
-		objSearch.BreakDuration = $('#tbxSearchBreakDuration').val();
-
-		Common.Search('@Url.Action("Search", "Work")', JSON.stringify({ Search: objSearch }), '#divWorkHours');
-	}
+		$(function () { Common.Search(); Common.ToggleSearch(); });
+	})
 </script>

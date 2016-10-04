@@ -1,4 +1,6 @@
-﻿@model Household.BL.DATA.txx.CCompanyData
+﻿@using Household.MvcExtensions;
+
+@model Household.BL.DATA.txx.CCompanyData
 
 @{
 	string m_strBaseAction = Url.Action("", "Company");
@@ -7,11 +9,11 @@
 <div class="w100">
 	<div class="col-xs-12 col-sm-6">
 		@Html.LabelFor(m => m.Name)
-		<input type="text" id="tbxName" data-bind="value: Name" required />
+		@Html.KnockoutTextBox("tbxName", "value: Name", true)
 	</div>
 	<div class="col-xs-12 col-sm-6">
 		@Html.LabelFor(m => m.Description)
-		<input type="text" id="tbxDescription" data-bind="value: Description" />
+		@Html.KnockoutTextBox("tbxDescription", "value: Description", false)
 	</div>
 </div>
 
