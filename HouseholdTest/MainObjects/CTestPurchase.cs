@@ -16,7 +16,7 @@ namespace Household.Test.MainObjects
 		private txx_BankAccount m_xxPayer;
 		private txx_Shop m_xxShop;
 
-		public DateTime TestOccurrence { get { return new DateTime(1900, 1, 1); } }
+		public DateTime TestOccurrence { get { return new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1); } }
 		public decimal TestAmount { get { return 567; } }
 		public string TestDescription { get { return TextBase.TestDescription; } }
 		public txx_BankAccount TestPayer { get { return m_xxPayer; } }

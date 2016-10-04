@@ -4,15 +4,21 @@ using Household.BL.Functions.t;
 using Household.BL.Functions.txx;
 using Household.Data.Context;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Household.Models.MasterData
 {
 	public class CIncomeModel
 	{
+		[Display(Name = "BankAccount", ResourceType = typeof(BankAccountText))]
 		public List<txx_BankAccount> BankAccounts { get; set; }
+		[Display(Name = "Company", ResourceType = typeof(CompanyText))]
 		public List<txx_Company> Companies { get; set; }
+		[Display(Name = "Day", ResourceType = typeof(DayText))]
 		public List<txx_Day> Days { get; set; }
+		[Display(Name = "Interval", ResourceType = typeof(IntervalText))]
 		public List<txx_Interval> Intervals { get; set; }
+		[Display(Name = "Income", ResourceType = typeof(IncomeText))]
 		public CIncomeData Income { get; set; }
 		public string Name { get { return IncomeText.Income; } }
 

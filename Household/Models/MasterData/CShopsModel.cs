@@ -15,13 +15,21 @@ namespace Household.Models.MasterData
 		{
 			var cShop = new CShopManagement();
 			var lstShops = cShop.getShops();
+			var action = "Shop";
+			var controller = "MasterData";
 			var dtTable = new CDisplayTable()
 			{
-				OnClickAction = "Shop",
-				OnClickController = "MasterData"
+				AddAction = action,
+				AddController = controller
 			};
-			var drHead = new CDisplayRow();
-			var drFoot = new CDisplayRow();
+			var drHead = new CDisplayRow() {
+				OnClickAction = action,
+				OnClickController = controller
+			};
+			var drFoot = new CDisplayRow() {
+				OnClickAction = action,
+				OnClickController = controller
+			};
 			var dcColumn = new CDisplayColumn();
 
 			dcColumn.Content = ShopText.Name;
@@ -40,7 +48,9 @@ namespace Household.Models.MasterData
 				var strShop = txxShop.Name;
 				var drBody = new CDisplayRow()
 				{
-					OnClickParam = txxShop.ID.ToString()
+					OnClickParam = txxShop.ID.ToString(),
+					OnClickAction = action,
+					OnClickController = controller
 				};
 
 				if (!string.IsNullOrEmpty(txxShop.Description)) strShop += ", " + txxShop.Description;

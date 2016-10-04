@@ -12,13 +12,23 @@ namespace Household.Models.Finance
 		{
 			var cExpense = new CExpenseManagement();
 			var lstExpenses = cExpense.getExpenses();
+			var action = "Expense";
+			var controller = "Expenses";
 			var dtTable = new CDisplayTable()
 			{
-				OnClickAction = "Expense",
-				OnClickController = "Expenses"
+				AddAction = action,
+				AddController = controller
 			};
-			var drHead = new CDisplayRow();
-			var drFoot = new CDisplayRow();
+			var drHead = new CDisplayRow()
+			{
+				OnClickAction = action,
+				OnClickController = controller
+			};
+			var drFoot = new CDisplayRow()
+			{
+				OnClickAction = action,
+				OnClickController = controller
+			}; ;
 			var dcColumn = new CDisplayColumn();
 
 			dcColumn.Content = GeneralText.From;
@@ -55,7 +65,9 @@ namespace Household.Models.Finance
 				string strExpense, strSpender, strCompany, strAmount, strDay, strInterval;
 				var drBody = new CDisplayRow()
 				{
-					OnClickParam = tExpense.ID.ToString()
+					OnClickParam = tExpense.ID.ToString(),
+					OnClickAction = action,
+					OnClickController = controller
 				};
 
 				if (tExpense.Company_ID > 0)

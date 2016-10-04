@@ -12,6 +12,24 @@ module WorkDay {
 		BreakDuration: number;
 	}
 
+	interface ISearchWork {
+		WorkDayFrom: string,
+		WorkDayTo: string,
+		Begin: number,
+		End: string,
+		BreakDuration: number
+	}
+
+	interface ISearchOptions {
+		SearchURL: string,
+		ContainerSelector: string,
+		FromSelector: string,
+		ToSelector: string,
+		BeginSelector: string,
+		EndSelector: string,
+		BreakSelector: string
+	}
+
 	export class WorkDay extends MasterData.BaseMasterData {
 		WorkDay: any;
 		Begin: any;
@@ -57,7 +75,7 @@ module WorkDay {
 		});
 	}
 
-	export function start() {
+	export function Start() {
 		$('#tbxWorkDay').focus();
 	}
 }

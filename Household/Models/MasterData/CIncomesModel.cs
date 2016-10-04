@@ -17,13 +17,21 @@ namespace Household.Models.MasterData
 		{
 			var cIncome = new CIncomeManagement();
 			var lstIncomes = cIncome.getIncomes();
+			var action = "Income";
+			var controller = "MasterData";
 			var dtTable = new CDisplayTable()
 			{
-				OnClickAction = "Income",
-				OnClickController = "MasterData"
+				AddAction = action,
+				AddController = controller
 			};
-			var drHead = new CDisplayRow();
-			var drFoot = new CDisplayRow();
+			var drHead = new CDisplayRow() {
+				OnClickAction = action,
+				OnClickController = controller
+			};
+			var drFoot = new CDisplayRow() {
+				OnClickAction = action,
+				OnClickController = controller
+			};
 			var dcColumn = new CDisplayColumn();
 			var cCompany = new CCompanyManagement();
 
@@ -56,7 +64,9 @@ namespace Household.Models.MasterData
 				var strCompany = GeneralText.UnknownLower;
 				var drBody = new CDisplayRow()
 				{
-					OnClickParam = tIncome.ID.ToString()
+					OnClickParam = tIncome.ID.ToString(),
+					OnClickAction = action,
+					OnClickController = controller
 				};
 
 				if ((tIncome.Company_ID != null) && (tIncome.Company_ID > 0)) strCompany = cCompany.getDataByID((long)tIncome.Company_ID).Name;
