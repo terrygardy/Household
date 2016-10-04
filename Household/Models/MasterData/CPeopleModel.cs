@@ -13,13 +13,21 @@ namespace Household.Models.MasterData
 		{
 			var cPerson = new CPersonManagement();
 			var lstPeople = cPerson.getPeople();
+			var action = "Person";
+			var controller = "MasterData";
 			var dtTable = new CDisplayTable()
 			{
-				OnClickAction = "Person",
-				OnClickController = "MasterData"
+				AddAction = action,
+				AddController = controller
 			};
-			var drHead = new CDisplayRow();
-			var drFoot = new CDisplayRow();
+			var drHead = new CDisplayRow() {
+				OnClickAction = action,
+				OnClickController = controller
+			};
+			var drFoot = new CDisplayRow() {
+				OnClickAction = action,
+				OnClickController = controller
+			};
 			var dcColumn = new CDisplayColumn();
 
 			dcColumn.Content = PersonText.Surname;
@@ -38,7 +46,9 @@ namespace Household.Models.MasterData
 				var strPerson = tPerson.Surname;
 				var drBody = new CDisplayRow()
 				{
-					OnClickParam = tPerson.ID.ToString()
+					OnClickParam = tPerson.ID.ToString(),
+					OnClickAction = action,
+					OnClickController = controller
 				};
 
 				if (!string.IsNullOrEmpty(tPerson.Forename)) strPerson += ", " + tPerson.Forename;

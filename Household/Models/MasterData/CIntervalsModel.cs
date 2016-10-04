@@ -13,13 +13,21 @@ namespace Household.Models.MasterData
 		{
 			var cInterval = new CIntervalManagement();
 			var lstIntervals = cInterval.getIntervals();
+			var action = "Interval";
+			var controller = "MasterData";
 			var dtTable = new CDisplayTable()
 			{
-				OnClickAction = "Interval",
-				OnClickController = "MasterData"
+				AddAction = action,
+				AddController = controller
 			};
-			var drHead = new CDisplayRow();
-			var drFoot = new CDisplayRow();
+			var drHead = new CDisplayRow() {
+				OnClickAction = action,
+				OnClickController = controller
+			};
+			var drFoot = new CDisplayRow() {
+				OnClickAction = action,
+				OnClickController = controller
+			};
 
 			drHead.Columns.Add(new CDisplayColumn()
 			{
@@ -34,7 +42,9 @@ namespace Household.Models.MasterData
 				var strInterval = txxInterval.Name;
 				var drBody = new CDisplayRow()
 				{
-					OnClickParam = txxInterval.ID.ToString()
+					OnClickParam = txxInterval.ID.ToString(),
+					OnClickAction = action,
+					OnClickController = controller
 				};
 
 				drBody.Columns.Add(new CDisplayColumn()

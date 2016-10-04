@@ -1,4 +1,5 @@
 ﻿@using Household.Localisation.Common;
+@using Household.MvcExtensions;
 
 @model Household.Models.Work.CWorkDayModel
 
@@ -15,22 +16,22 @@
 <div class="w100">
 	<div class="col-xs-12 col-sm-6">
 		@Html.LabelFor(m => m.WorkDay.WorkDay)<span> @GeneralText.DateFormat</span>
-		<input type="text" id="tbxWorkDay" data-bind="value: WorkDay" required />
+		@Html.KnockoutTextBox("tbxWorkDay", "value: WorkDay", true)
 	</div>
 	<div class="col-xs-12 col-sm-6">
 		<div class="w100"></div>
 	</div>
 	<div class="col-xs-12 col-sm-6">
 		@Html.LabelFor(m => m.WorkDay.Begin)<span> @GeneralText.TimeFormat</span>
-		<input type="text" id="tbxBegin" data-bind="value: Begin" required />
+		@Html.KnockoutTextBox("tbxBegin", "value: Begin", true)
 	</div>
 	<div class="col-xs-12 col-sm-6">
 		@Html.LabelFor(m => m.WorkDay.End)<span> @GeneralText.TimeFormat</span>
-		<input type="text" id="tbxEnd" data-bind="value: End" required />
+		@Html.KnockoutTextBox("tbxEnd", "value: End", true)
 	</div>
 	<div class="col-xs-12 col-sm-6">
 		@Html.LabelFor(m => m.WorkDay.BreakDuration)
-		<input type="text" id="tbxBreakDuration" data-bind="value: BreakDuration" />
+		@Html.KnockoutTextBox("tbxBreakDuration", "value: BreakDuration", true)
 	</div>
 </div>
 

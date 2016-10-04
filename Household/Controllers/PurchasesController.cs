@@ -24,7 +24,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult Purchases()
 		{
-			return PartialView("_MasterData", new CMasterData() { DisplayTable = new CPurchasesModel().getDisplayTable(), Title = "Purchases" });
+			return PartialView();
 		}
 
 		[HttpPost]

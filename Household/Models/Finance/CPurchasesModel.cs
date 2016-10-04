@@ -28,12 +28,18 @@ namespace Household.Models.Finance
 		{
 			var cPurchase = new CPurchaseManagement();
 			var lstPurchases = cPurchase.getPurchases(exSearch);
+			var action = "Purchase";
+			var controller = "Purchases";
 			var dtTable = new CDisplayTable()
 			{
-				OnClickAction = "Purchase",
-				OnClickController = "Purchases"
+				AddAction = action,
+				AddController = controller
 			};
-			var drHead = new CDisplayRow();
+			var drHead = new CDisplayRow()
+			{
+				OnClickAction = action,
+				OnClickController = controller
+			};
 			var drFeet = new List<CDisplayRow>();
 			var dcColumn = new CDisplayColumn();
 
@@ -64,7 +70,9 @@ namespace Household.Models.Finance
 				string strPurchase, strBuyer, strShop, strAmount;
 				var drBody = new CDisplayRow()
 				{
-					OnClickParam = tPurchase.ID.ToString()
+					OnClickParam = tPurchase.ID.ToString(),
+					OnClickAction = action,
+					OnClickController = controller
 				};
 
 				if (tPurchase.Shop_ID > 0)

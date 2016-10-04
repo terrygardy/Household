@@ -1,0 +1,13 @@
+﻿@model List<Household.Models.DisplayTable.CDisplayRow>
+
+@foreach (var objRow in Model)
+{
+	<tr id="@objRow.OnClickParam" 
+		@if (!string.IsNullOrEmpty(objRow.OnClickAction))
+	{ <text> class="clickable" onclick="Common.LoadSubContent('@Url.Action(objRow.OnClickAction, objRow.OnClickController, new { id = objRow.OnClickParam })');Common.showSubContent();" </text> }>
+	@foreach (var objColumn in objRow.Columns)
+	{
+			<td colspan="@objColumn.ColumnSpan" class="@objColumn.CSS" onclick="@objColumn.OnClick" title="@objColumn.Tooltip">@objColumn.Content</td>
+	}
+	</tr>
+}

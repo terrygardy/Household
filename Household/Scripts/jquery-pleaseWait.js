@@ -38,11 +38,9 @@ function addPleaseWait() {
 }
 function stopPleaseWait() {
     $('#' + this.m_strPleaseWaitID).hide();
-    $('body').removeClass('noScroll');
 }
 function showPleaseWait() {
     var intHeight;
-    $('body').addClass('noScroll');
     addPleaseWait();
     $('#' + this.m_strPleaseWaitID).show();
     if (checkHTML5Support() == false) {

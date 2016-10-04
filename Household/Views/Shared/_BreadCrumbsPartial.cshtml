@@ -1,0 +1,15 @@
+﻿@model List<Household.Models.CBreadCrumb>
+
+@foreach (var cBreadCrumb in Model)
+{
+	<li>
+		@if (!string.IsNullOrEmpty(cBreadCrumb.ActionName))
+		{
+			@Html.ActionLink(cBreadCrumb.Text, cBreadCrumb.ActionName, cBreadCrumb.ActionController)
+		}
+		else
+		{
+			@cBreadCrumb.Text
+		}
+	</li>
+}

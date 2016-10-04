@@ -13,13 +13,21 @@ namespace Household.Models.MasterData
 		{
 			var cBankAccount = new CBankAccountManagement();
 			var lstAccounts = cBankAccount.getBankAccounts();
+			var action = "BankAccount";
+			var controller = "MasterData";
 			var dtTable = new CDisplayTable()
 			{
-				OnClickAction = "BankAccount",
-				OnClickController = "MasterData"
+				AddAction = action,
+				AddController = controller
 			};
-			var drHead = new CDisplayRow();
-			var drFoot = new CDisplayRow();
+			var drHead = new CDisplayRow() {
+				OnClickAction = action,
+				OnClickController = controller
+			};
+			var drFoot = new CDisplayRow() {
+				OnClickAction = action,
+				OnClickController = controller
+			};
 			var dcColumn = new CDisplayColumn();
 
 			dcColumn.Content = BankAccountText.AccountName;
@@ -43,7 +51,9 @@ namespace Household.Models.MasterData
 				var strAccount = txxAccount.AccountName;
 				var drBody = new CDisplayRow()
 				{
-					OnClickParam = txxAccount.ID.ToString()
+					OnClickParam = txxAccount.ID.ToString(),
+					OnClickAction = action,
+					OnClickController = controller
 				};
 
 				if (!string.IsNullOrEmpty(txxAccount.BankName)) strAccount += ", " + txxAccount.BankName;

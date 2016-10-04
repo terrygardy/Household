@@ -12,7 +12,7 @@ namespace Household.Test.MainObjects
 	[TestFixture]
 	public class CTestWorkDay : ITestBase<t_WorkDay>
 	{
-		public DateTime TestWorkDay { get { return new DateTime(1900, 1, 1); } }
+		public DateTime TestWorkDay { get { return new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1); } }
 		public TimeSpan TestBegin { get { return new TimeSpan(8, 0, 0); } }
 		public TimeSpan TestEnd { get { return new TimeSpan(17, 0, 0); } }
 		public int TestBreakDuration { get { return 1; } }
