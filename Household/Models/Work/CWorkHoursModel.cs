@@ -17,7 +17,12 @@ namespace Household.Models.Work
 		private DateTime m_datNull = new DateTime(1753, 1, 1);
 		private TimeSpan m_tsNull = new TimeSpan(0, 0, 0);
 
-		public CWorkHoursModel() { }
+		public CSearchWorkDay Search { get; set; } = new CSearchWorkDay();
+
+		public CWorkHoursModel()
+		{
+			Search.WorkDayFrom = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+		}
 
 		public CDisplayTable getDisplayTable()
 		{
@@ -28,12 +33,18 @@ namespace Household.Models.Work
 		{
 			var cWorkDay = new CWorkDayManagement();
 			var lstWorkDays = cWorkDay.getWorkingDays(exSearch);
+			var action = "WorkDay";
+			var controller = "Work";
 			var dtTable = new CDisplayTable()
 			{
-				OnClickAction = "WorkDay",
-				OnClickController = "Work"
+				AddAction = action,
+				AddController = controller
 			};
-			var drHead = new CDisplayRow();
+			var drHead = new CDisplayRow()
+			{
+				OnClickAction = action,
+				OnClickController = controller
+			};
 			var drFeet = new List<CDisplayRow>();
 			var dcColumn = new CDisplayColumn();
 
@@ -71,7 +82,9 @@ namespace Household.Models.Work
 				var strTooltip = $"{strDay}: {GeneralText.FromLower} {strBegin}";
 				var drBody = new CDisplayRow()
 				{
-					OnClickParam = tWorkDay.ID.ToString()
+					OnClickParam = tWorkDay.ID.ToString(),
+					OnClickAction = action,
+					OnClickController = controller
 				};
 
 				strTooltip = Strings.concatStrings(strTooltip, strEnd, $" {GeneralText.UntilLower} ");
@@ -142,7 +155,6 @@ namespace Household.Models.Work
 			drFeet.Add(drFoot);
 
 			drFoot = new CDisplayRow();
-
 
 			string averageHours;
 

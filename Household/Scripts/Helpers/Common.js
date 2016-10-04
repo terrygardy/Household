@@ -3,6 +3,7 @@ var Common;
     var m_strCoverId = "divContentCover";
     var m_strCoverSelector = "#" + m_strCoverId;
     var m_strInvisibleClass = "invisible";
+    var m_iSearch;
     var DateMultiplier = (function () {
         function DateMultiplier(pv_intMultiplier, pv_strDMY) {
             this.Multiplier = pv_intMultiplier;
@@ -18,6 +19,14 @@ var Common;
     Common.GetSearchId = GetSearchId;
     function GetSearchSelector() { return "#" + GetSearchId(); }
     Common.GetSearchSelector = GetSearchSelector;
+    function GetSearchButtonId() { return "btnSearch"; }
+    Common.GetSearchButtonId = GetSearchButtonId;
+    function GetSearchButtonSelector() { return "#" + GetSearchButtonId(); }
+    Common.GetSearchButtonSelector = GetSearchButtonSelector;
+    function GetSearchCancelButtonId() { return "btnSearchCancel"; }
+    Common.GetSearchCancelButtonId = GetSearchCancelButtonId;
+    function GetSearchCancelButtonSelector() { return "#" + GetSearchCancelButtonId(); }
+    Common.GetSearchCancelButtonSelector = GetSearchCancelButtonSelector;
     function GetContainerId() { return "divContent"; }
     Common.GetContainerId = GetContainerId;
     function GetContainerSelector() { return "#" + GetContainerId(); }
@@ -126,6 +135,30 @@ var Common;
         }
     }
     Common.ActivateSearchDiv = ActivateSearchDiv;
+    function ActivateSearchButtons() {
+        var elSearch;
+        elSearch = $(GetSearchButtonSelector());
+        if (elSearch.length > 0) {
+            elSearch.click(Search);
+            elSearch.attr('title', elSearch.text());
+        }
+        elSearch = $(GetSearchCancelButtonSelector());
+        if (elSearch.length > 0) {
+            elSearch.click(ToggleSearch);
+            elSearch.attr('title', elSearch.text());
+        }
+    }
+    Common.ActivateSearchButtons = ActivateSearchButtons;
+    function setSearchKeyUp(elem) {
+        $(this).keyup(function (e) {
+            if (e.keyCode == 13) {
+                Search();
+            }
+        });
+        $(this).children().each(function () {
+            setSearchKeyUp(this);
+        });
+    }
     function ToggleSearch() {
         var elSearch = $(GetSearchContainerClassSelector());
         if (elSearch.hasClass(m_strInvisibleClass) === true) {
@@ -138,14 +171,25 @@ var Common;
         }
     }
     Common.ToggleSearch = ToggleSearch;
-    function Search(pv_strURL, pv_objSearch, pv_strTarget) {
+    function ActivateSearch(pv_strURL, pv_strTarget, pv_fnGetSearchObject) {
+        ActivateSearchDiv();
+        ActivateSearchButtons();
+        m_iSearch = {
+            URL: pv_strURL,
+            TargetContainerSelector: pv_strTarget,
+            GetSearchObjectFunc: pv_fnGetSearchObject
+        };
+        setSearchKeyUp($('.searchContainer'));
+    }
+    Common.ActivateSearch = ActivateSearch;
+    function Search() {
         try {
-            LoadContentWithSelectorJSON(pv_strURL, pv_strTarget, pv_objSearch);
+            LoadContentWithSelectorJSON(m_iSearch.URL, m_iSearch.TargetContainerSelector, m_iSearch.GetSearchObjectFunc());
+            ToggleSearch();
         }
         catch (ex) {
             alert('Error while searching: ' + ex);
         }
-        ToggleSearch();
         stopPleaseWait();
     }
     Common.Search = Search;

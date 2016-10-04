@@ -1,4 +1,6 @@
-﻿@model Household.BL.DATA.txx.CBankAccountData
+﻿@using Household.MvcExtensions;
+
+@model Household.BL.DATA.txx.CBankAccountData
 
 @{
 	string m_strBaseAction = Url.Action("", "BankAccount");
@@ -7,19 +9,20 @@
 <div class="w100">
 	<div class="col-xs-12 col-sm-6">
 		@Html.LabelFor(m => m.AccountName)
-		<input type="text" id="tbxAccountName" data-bind="value: AccountName" required />
+		@Html.KnockoutTextBox("tbxAccountName", "value: AccountName", true)
 	</div>
 	<div class="col-xs-12 col-sm-6">
 		@Html.LabelFor(m => m.BankName)
-		<input type="text" id="tbxBankName" data-bind="value: BankName" />
+		@Html.KnockoutTextBox("tbxBankName", "value: BankName", false)
 	</div>
 	<div class="col-xs-12 col-sm-6">
 		@Html.LabelFor(m => m.IBAN)
-		<input type="text" id="tbxIBAN" data-bind="value: IBAN" maxlength="27" required />
+		@Html.KnockoutTextBox("tbxIBAN", "value: IBAN", true)
+		@*<input type="text" id="tbxIBAN" data-bind="value: IBAN" maxlength="27" required />*@
 	</div>
 	<div class="col-xs-12 col-sm-6">
 		@Html.LabelFor(m => m.BIC)
-		<input type="text" id="tbxBIC" data-bind="value: BIC" />
+		@Html.KnockoutTextBox("tbxBIC", "value: BIC", false)
 	</div>
 </div>
 

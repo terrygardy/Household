@@ -5,14 +5,8 @@ namespace Household.Models
 {
 	public class CMasterData
 	{
-		public string Title { get; set; }
-		public CDisplayTable DisplayTable { get; set; }
-		public List<CBreadCrumb> BreadCrumbs { get; set; }
-
-		public CMasterData() {
-			Title = "";
-			DisplayTable = new CDisplayTable();
-			BreadCrumbs = new List<CBreadCrumb>();
-		}
+		public string Title { get; set; } = "";
+		public CDisplayTable DisplayTable { get; set; } = new CDisplayTable();
+		public List<CBreadCrumb> BreadCrumbs { get; set; } = new List<CBreadCrumb>();
 	}
 }

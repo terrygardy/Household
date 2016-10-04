@@ -46,14 +46,11 @@ function addPleaseWait(): void {
 
 function stopPleaseWait(): void {
 	$('#' + this.m_strPleaseWaitID).hide();
-	$('body').removeClass('noScroll');
 }
 
 function showPleaseWait(): void {
 
 	var intHeight: number;
-
-	$('body').addClass('noScroll');
 
 	addPleaseWait();
 

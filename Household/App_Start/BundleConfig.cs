@@ -36,18 +36,18 @@ namespace Household
 			bundles.Add(new ScriptBundle("~/bundles/Finance").Include(
 					  "~/Scripts/Helpers/*.js",
 					  "~/Scripts/MasterData/MasterData.js",
-					  "~/Scripts/Finance/*.js"));
+					  "~/Scripts/Finance/Finance.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/Purchase").Include(
 				"~/Scripts/jquery-knockout.js",
-				"~/Scripts/Finace/Purchase.js"));
+				"~/Scripts/Finance/Purchase.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/Expense").Include(
 				"~/Scripts/jquery-knockout.js",
-				"~/Scripts/Finace/Expense.js"));
+				"~/Scripts/Finance/Expense.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/Report").Include(
-				"~/Scripts/Finace/Report.js"));
+				"~/Scripts/Finance/Report.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/MasterData").Include(
 					  "~/Scripts/Helpers/*.js",

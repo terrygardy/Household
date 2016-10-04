@@ -47,9 +47,9 @@ var WorkDay;
         });
     }
     WorkDay_1.Fill = Fill;
-    function start() {
+    function Start() {
         $('#tbxWorkDay').focus();
     }
-    WorkDay_1.start = start;
+    WorkDay_1.Start = Start;
 })(WorkDay || (WorkDay = {}));
 //# sourceMappingURL=WorkHours.js.map

@@ -1,0 +1,55 @@
+﻿@using GARTE.TypeHandling;
+@using Household.Models.Finance;
+@using Household.MvcExtensions;
+
+@model CExpenseModel
+
+@{
+	string m_strBaseAction = Url.Action("", "Expenses");
+}
+
+<div class="w100">
+	<div class="col-xs-12 col-sm-6">
+		@Html.LabelFor(m => m.Expense.StartDate)<span> (dd.mm.yyyy)</span>
+		@Html.KnockoutTextBox("tbxStartDate", "value: StartDate", true)
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		@Html.LabelFor(m => m.Expense.EndDate)<span> (dd.mm.yyyy)</span>
+		@Html.KnockoutTextBox("tbxEndDate", "value: EndDate", false)
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		@Html.LabelFor(m => m.Companies)
+		@Html.KnockoutDropDownListFor(m => m.Companies, "cboCompany", "value: Company_ID", true)
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		@Html.LabelFor(m => m.Intervals)
+		@Html.KnockoutDropDownListFor(m => m.Intervals, "cboInterval", "value: Interval_ID", true)
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		@Html.LabelFor(m => m.Days)
+		@Html.KnockoutDropDownListFor(m => m.Days, "cboDay", "value: PaymentDay_ID", true)
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		@Html.LabelFor(m => m.BankAccounts)
+		@Html.KnockoutDropDownListFor(m => m.BankAccounts, "cboBankAccount", "value: BankAccount_ID", true)
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		@Html.LabelFor(m => m.Expense.Amount)<span> (€)</span>
+		@Html.KnockoutTextBox("tbxAmount", "value: Amount", true)
+	</div>
+	<div class="col-xs-12">
+		@Html.LabelFor(m => m.Expense.Description)
+		<textarea id="tbxDescription" data-bind="value: Description" />
+	</div>
+</div>
+
+@Scripts.Render("~/bundles/Expense")
+<script type="text/javascript">
+	(function () {
+		Expense.Fill('@Html.Raw(m_strBaseAction)', @Model.Expense.ID, '@Base.convertShortDateString(Model.Expense.StartDate)', '@Base.convertShortDateString(Model.Expense.EndDate)',
+						@Base.convertLong(Model.Expense.Company_ID).ToString(), @Base.convertLong(Model.Expense.BankAccount_ID).ToString(), @Base.convertLong(Model.Expense.PaymentDay_ID).ToString(),
+						@Base.convertLong(Model.Expense.Interval_ID).ToString(), '@Model.Expense.Amount.ToString("N2")', '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.Expense.Description))');
+		MasterData.start();
+		Expense.start();
+	})();
+</script>

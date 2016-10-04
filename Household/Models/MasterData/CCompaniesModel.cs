@@ -13,13 +13,21 @@ namespace Household.Models.MasterData
 		{
 			var cCompany = new CCompanyManagement();
 			var lstCompanies = cCompany.getCompanies();
+			var action = "Company";
+			var controller = "MasterData";
 			var dtTable = new CDisplayTable()
 			{
-				OnClickAction = "Company",
-				OnClickController = "MasterData"
+				AddAction = action,
+				AddController = controller
 			};
-			var drHead = new CDisplayRow();
-			var drFoot = new CDisplayRow();
+			var drHead = new CDisplayRow() {
+				OnClickAction = action,
+				OnClickController = controller
+			};
+			var drFoot = new CDisplayRow() {
+				OnClickAction = action,
+				OnClickController = controller
+			};
 			var dcColumn = new CDisplayColumn();
 
 			dcColumn.Content = CompanyText.Name;
@@ -38,7 +46,9 @@ namespace Household.Models.MasterData
 				var strCompany = txxCompany.Name;
 				var drBody = new CDisplayRow()
 				{
-					OnClickParam = txxCompany.ID.ToString()
+					OnClickParam = txxCompany.ID.ToString(),
+					OnClickAction = action,
+					OnClickController = controller
 				};
 
 				if (!string.IsNullOrEmpty(txxCompany.Description)) strCompany += ", " + txxCompany.Description;

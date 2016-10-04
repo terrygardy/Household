@@ -4,13 +4,9 @@ namespace Household.Models.DisplayTable
 {
 	public class CDisplayRow
 	{
-		public List<CDisplayColumn> Columns { get; set; }
-		public string OnClickParam { get; set; }
-
-		public CDisplayRow()
-		{
-			Columns = new List<CDisplayColumn>();
-			OnClickParam = "";
-		}
+		public List<CDisplayColumn> Columns { get; set; } = new List<CDisplayColumn>();
+		public string OnClickParam { get; set; } = "";
+		public string OnClickAction { get; set; } = "";
+		public string OnClickController { get; set; } = "";
 	}
 }

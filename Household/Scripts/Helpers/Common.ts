@@ -1,7 +1,15 @@
 ﻿module Common {
+
+	interface ISearch {
+		URL: string,
+		TargetContainerSelector: string,
+		GetSearchObjectFunc();
+	}
+
 	var m_strCoverId: string = "divContentCover";
 	var m_strCoverSelector: string = "#" + m_strCoverId;
 	var m_strInvisibleClass: string = "invisible";
+	var m_iSearch: ISearch;
 
 	class DateMultiplier {
 		Multiplier: number;
@@ -17,6 +25,10 @@
 	export function GetSearchContainerClassSelector(): string { return "." + GetSearchContainerClass(); }
 	export function GetSearchId(): string { return "divSearch"; }
 	export function GetSearchSelector(): string { return "#" + GetSearchId(); }
+	export function GetSearchButtonId(): string { return "btnSearch"; }
+	export function GetSearchButtonSelector(): string { return "#" + GetSearchButtonId(); }
+	export function GetSearchCancelButtonId(): string { return "btnSearchCancel"; }
+	export function GetSearchCancelButtonSelector(): string { return "#" + GetSearchCancelButtonId(); }
 	export function GetContainerId(): string { return "divContent"; }
 	export function GetContainerSelector(): string { return "#" + GetContainerId(); }
 	export function GetSubContainerSelector(): string { return "#divSubContent"; }
@@ -141,6 +153,36 @@
 		}
 	}
 
+	export function ActivateSearchButtons(): void {
+		var elSearch: JQuery;
+
+		elSearch = $(GetSearchButtonSelector());
+
+		if (elSearch.length > 0) {
+			elSearch.click(Search);
+			elSearch.attr('title', elSearch.text());
+		}
+
+		elSearch = $(GetSearchCancelButtonSelector());
+
+		if (elSearch.length > 0) {
+			elSearch.click(ToggleSearch);
+			elSearch.attr('title', elSearch.text());
+		}
+	}
+
+	function setSearchKeyUp(elem: any) {
+		$(this).keyup(function (e) {
+			if (e.keyCode == 13) {
+				Search();
+			}
+		});
+
+		$(this).children().each(function () {
+			setSearchKeyUp(this);
+		});
+	}
+
 	export function ToggleSearch(): void {
 		var elSearch: JQuery = $(GetSearchContainerClassSelector());
 
@@ -153,15 +195,30 @@
 		}
 	}
 
-	export function Search(pv_strURL: string, pv_objSearch: any, pv_strTarget: string): void {
+	export function ActivateSearch(pv_strURL: string, pv_strTarget: string, pv_fnGetSearchObject: () => any): void {
+		ActivateSearchDiv();
+
+		ActivateSearchButtons();
+
+		m_iSearch = {
+			URL: pv_strURL,
+			TargetContainerSelector: pv_strTarget,
+			GetSearchObjectFunc: pv_fnGetSearchObject
+		};
+
+		setSearchKeyUp($('.searchContainer'));
+	}
+
+	export function Search(): void {
 		try {
-			LoadContentWithSelectorJSON(pv_strURL, pv_strTarget, pv_objSearch);
+			LoadContentWithSelectorJSON(m_iSearch.URL, m_iSearch.TargetContainerSelector, m_iSearch.GetSearchObjectFunc());
+
+			ToggleSearch();
 		}
 		catch (ex) {
 			alert('Error while searching: ' + ex);
 		}
 
-		ToggleSearch();
 		stopPleaseWait();
 	}
 
