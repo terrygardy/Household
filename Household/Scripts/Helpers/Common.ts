@@ -171,18 +171,6 @@
 		}
 	}
 
-	function setSearchKeyUp(elem: any) {
-		$(this).keyup(function (e) {
-			if (e.keyCode == 13) {
-				Search();
-			}
-		});
-
-		$(this).children().each(function () {
-			setSearchKeyUp(this);
-		});
-	}
-
 	export function ToggleSearch(): void {
 		var elSearch: JQuery = $(GetSearchContainerClassSelector());
 
@@ -205,8 +193,6 @@
 			TargetContainerSelector: pv_strTarget,
 			GetSearchObjectFunc: pv_fnGetSearchObject
 		};
-
-		setSearchKeyUp($('.searchContainer'));
 	}
 
 	export function Search(): void {

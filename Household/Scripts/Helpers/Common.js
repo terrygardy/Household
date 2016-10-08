@@ -149,16 +149,6 @@ var Common;
         }
     }
     Common.ActivateSearchButtons = ActivateSearchButtons;
-    function setSearchKeyUp(elem) {
-        $(this).keyup(function (e) {
-            if (e.keyCode == 13) {
-                Search();
-            }
-        });
-        $(this).children().each(function () {
-            setSearchKeyUp(this);
-        });
-    }
     function ToggleSearch() {
         var elSearch = $(GetSearchContainerClassSelector());
         if (elSearch.hasClass(m_strInvisibleClass) === true) {
@@ -179,7 +169,6 @@ var Common;
             TargetContainerSelector: pv_strTarget,
             GetSearchObjectFunc: pv_fnGetSearchObject
         };
-        setSearchKeyUp($('.searchContainer'));
     }
     Common.ActivateSearch = ActivateSearch;
     function Search() {
