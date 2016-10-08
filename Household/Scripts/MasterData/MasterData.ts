@@ -220,4 +220,38 @@ module MasterData {
 
 		Validation.validateForm();
 	}
+
+	export function setupHideables(): void {
+		toggleHideableColumns();
+
+		$(window).resize(toggleHideableColumns);
+	}
+
+	function toggleHideableColumns() {
+		$("#tblDisplay").removeClass("w90");
+
+		var windowWidth = $(window).width();
+		var tableWidth = $("#tblDisplay").width() + 10;
+
+		console.log("tableWidth > windowWidth = " + (tableWidth > windowWidth));
+
+		if (tableWidth > windowWidth) {
+			$("th.hideable").each(function () {
+				$(this).hide();
+			});
+			$("td.hideable").each(function () { $(this).hide(); });
+		}
+		else {
+			tableWidth += $("#tblDisplay thead tr > th").width();
+
+			if (tableWidth < windowWidth) {
+				$("th.hideable").each(function () {
+					$(this).show();
+				});
+				$("td.hideable").each(function () { $(this).show(); });
+			}
+		}
+
+		$("#tblDisplay").addClass("w90");
+	}
 }

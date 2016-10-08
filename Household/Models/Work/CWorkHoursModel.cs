@@ -65,6 +65,7 @@ namespace Household.Models.Work
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = $"{WorkText.Break} [h]";
 			dcColumn.Tooltip = dcColumn.Content;
+			dcColumn.CSS = "hideable";
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
@@ -113,7 +114,7 @@ namespace Household.Models.Work
 				drBody.Columns.Add(new CDisplayColumn()
 				{
 					Content = tWorkDay.BreakDuration.ToString("N2"),
-					CSS = "right",
+					CSS = "right hideable",
 					Tooltip = strTooltip
 				});
 

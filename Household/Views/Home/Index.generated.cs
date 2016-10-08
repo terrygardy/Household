@@ -277,22 +277,7 @@ Write(Scripts.Render("~/bundles/Helpers"));
             
             #line default
             #line hidden
-WriteLiteral("\r\n\t<script");
-
-WriteLiteral(" type=\"text/javascript\"");
-
-WriteLiteral(">\r\n\t\tvar intervalEnvironment;\r\n\r\n\t\t(function () {\r\n\t\t\tsetInterval(setEnvironment," +
-" 200);\r\n\t\t})();\r\n\r\n\t\tfunction setEnvironment() {\r\n\t\t\tclearInterval(intervalEnvir" +
-"onment);\r\n\r\n\t\t\tHelpers.HttpRequests.CreateAsyncRequestHandlerPOST(\'");
-
-            
-            #line 61 "..\..\Views\Home\Index.cshtml"
-                                                           Write(Url.Action("SetEnvironment", "Home"));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\', Helpers.HttpRequests.GetContentTypeText()).send();\r\n\t\t}\r\n\t</script>\r\n");
+WriteLiteral("\r\n");
 
 });
 

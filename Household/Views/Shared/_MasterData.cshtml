@@ -50,6 +50,7 @@
 		$(document).ready(function () {
 			window.document.title = '@Model.Title';
 			MasterData.OnClickAdd = '@Url.Action(m_dtTable.AddAction, m_dtTable.AddController)';
+			MasterData.setupHideables();
 		});
 	</script>
 }

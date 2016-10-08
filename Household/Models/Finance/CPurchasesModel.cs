@@ -50,6 +50,7 @@ namespace Household.Models.Finance
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = GeneralText.Who;
 			dcColumn.Tooltip = dcColumn.Content;
+			dcColumn.CSS = "hideable";
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
@@ -95,10 +96,10 @@ namespace Household.Models.Finance
 
 				strAmount = tPurchase.Amount.ToString("C2");
 
-				strPurchase = GARTE.TypeHandling.Strings.concatStrings(strBuyer, strShop, " - ");
-				strPurchase = GARTE.TypeHandling.Strings.concatStrings(strPurchase, strAmount, " - ");
-				strPurchase = GARTE.TypeHandling.Strings.concatStrings(strDate, strPurchase, ", ");
-				strPurchase = GARTE.TypeHandling.Strings.concatStrings(strPurchase, tPurchase.Description, ", ");
+				strPurchase = Strings.concatStrings(strBuyer, strShop, " - ");
+				strPurchase = Strings.concatStrings(strPurchase, strAmount, " - ");
+				strPurchase = Strings.concatStrings(strDate, strPurchase, ", ");
+				strPurchase = Strings.concatStrings(strPurchase, tPurchase.Description, ", ");
 
 				drBody.Columns.Add(new CDisplayColumn()
 				{
@@ -110,7 +111,7 @@ namespace Household.Models.Finance
 				drBody.Columns.Add(new CDisplayColumn()
 				{
 					Content = strBuyer,
-					CSS = "left",
+					CSS = "left hideable",
 					Tooltip = strPurchase
 				});
 
