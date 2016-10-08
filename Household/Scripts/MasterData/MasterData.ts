@@ -204,7 +204,7 @@ module MasterData {
 			});
 		});
 
-		$('input').each(function () {
+		$('input:text:not(textarea)').each(function () {
 			$(this).keyup(function (e) {
 				if (e.keyCode == 13) {
 					$('#btnSave').click();
