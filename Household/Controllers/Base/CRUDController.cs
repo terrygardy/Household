@@ -11,10 +11,11 @@ namespace Household.Controllers.Base
 		where Tdata : class, new()
 		where TBL : IManagementBase<TClass, Tob, Ttb, Tdata>
 	{
-		protected readonly TBL _management;
+		protected readonly TBL Management;
+		protected string MasterDataViewUrl => "_MasterData";
 
 		protected CRUDController(TBL management) {
-			_management = management;
+			Management = management;
 		}
 
 		protected abstract long GetDataID(Tdata data);
@@ -26,7 +27,7 @@ namespace Household.Controllers.Base
 
 			try
 			{
-				_management.save(Data);
+				Management.save(Data);
 			}
 			catch (Exception ex)
 			{
@@ -43,7 +44,7 @@ namespace Household.Controllers.Base
 
 			try
 			{
-				_management.deleteByID(id);
+				Management.deleteByID(id);
 			}
 			catch (Exception ex)
 			{

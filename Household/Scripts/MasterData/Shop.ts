@@ -18,7 +18,7 @@ module Shop {
 		}
 
 		Delete(): void {
-			MasterData.deleteMasterRecord({ ID: this.ID(), BaseAction: this.BaseAction });
+			MasterData.deleteMasterRecord({ ID: this.ID(), BaseAction: this.BaseAction }, false);
 		}
 	}
 

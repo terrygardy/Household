@@ -20,10 +20,10 @@ var WorkDay;
             ko.applyBindings(this);
         }
         WorkDay.prototype.Save = function () {
-            MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), [this.WorkDay(), this.Begin(), this.End(), this.BreakDuration()]);
+            MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), null);
         };
         WorkDay.prototype.Delete = function () {
-            MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() });
+            MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() }, true);
         };
         return WorkDay;
     }(MasterData.BaseMasterData));

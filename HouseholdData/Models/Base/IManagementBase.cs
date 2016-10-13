@@ -28,6 +28,8 @@ namespace Household.Data.Models.Base
 
 		Tdata getDataByID(long pv_lngID);
 
+		T getModelByID(long pv_lngID);
+
 		List<T> getEntities<Tobb, Ttbb>(Expression<Func<T, bool>> pv_fnWhere, 
 			Expression<Func<T, Tobb>> pv_fnOrderBy, 
 			Expression<Func<T, Ttbb>> pv_fnThenBy);

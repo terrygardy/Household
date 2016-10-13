@@ -1,0 +1,9 @@
+﻿@model Household.Models.DisplayTable.CDisplayRow
+
+<tr id="@Model.OnClickParam"
+	@if (!string.IsNullOrEmpty(Model.OnClickAction)) { <text> class="clickable" onclick="Common.LoadSubContent('@Url.Action(Model.OnClickAction, Model.OnClickController, new { id = Model.OnClickParam })');Common.showSubContent();" </text>    }>
+	@foreach (var dcColumn in Model.Columns)
+	{
+		<td colspan="@dcColumn.ColumnSpan" class="@dcColumn.CSS" onclick="@dcColumn.OnClick" title="@dcColumn.Tooltip">@dcColumn.Content</td>
+	}
+</tr>

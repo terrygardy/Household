@@ -20,7 +20,7 @@
 		<div class="searchContainer">
 			<div class="row">
 				<div class="col-xs-12 col-sm-6">
-					<span>@WorkText.WorkDayFrom @GeneralText.DateFormat</span><input type="text" id="tbxSearchWorkDayFrom" value="@Base.convertShortDateString(Model.Search.WorkDayFrom)" />
+					<span>@WorkText.WorkDayFrom @GeneralText.DateFormat</span><input type="text" id="tbxSearchWorkDayFrom" value="@Base.convertShortDateString(Model.SearchModel.WorkDayFrom)" />
 				</div>
 				<div class="col-xs-12 col-sm-6">
 					<span>@WorkText.WorkDayTo @GeneralText.DateFormat</span><input type="text" id="tbxSearchWorkDayTo" value="" />
@@ -54,15 +54,13 @@
 <script type="text/javascript">
 	$(function () {
 		Common.ActivateSearch('@Url.Action("Search", "Work")', '#divWorkHours', function () {
-			var objSearch = {
+			return {
 				WorkDayFrom: $('#tbxSearchWorkDayFrom').val(),
 				WorkDayTo: $('#tbxSearchWorkDayTo').val(),
 				Begin: $('#tbxSearchBegin').val(),
 				End: $('#tbxSearchEnd').val(),
 				BreakDuration: $('#tbxSearchBreakDuration').val()
 			};
-
-			return JSON.stringify({ Search: objSearch });
 		});
 
 		$(function () { Common.Search(); Common.ToggleSearch(); });

@@ -19,7 +19,7 @@ var Interval;
             MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), [this.Name()]);
         };
         Interval.prototype.Delete = function () {
-            MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() });
+            MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() }, false);
         };
         return Interval;
     }(MasterData.BaseNameMasterData));
