@@ -38,7 +38,6 @@ module Expense {
 		}
 
 		Save(): void {
-			console.log(this.StartDate());
 			MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), [this.StartDate(), this.EndDate(), getCurrentBankAccountText(), getCurrentCompanyText(), this.Amount() + ' €']);
 		}
 

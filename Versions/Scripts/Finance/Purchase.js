@@ -20,10 +20,10 @@ var Purchase;
             ko.applyBindings(this);
         }
         Purchase.prototype.Save = function () {
-            MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), [this.Occurrence(), getCurrentPayerText(), getCurrentShopText(), this.Amount() + ' €']);
+            MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), null);
         };
         Purchase.prototype.Delete = function () {
-            MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() }, false);
+            MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() }, true);
         };
         return Purchase;
     }(MasterData.BaseDescMasterData));
