@@ -12,9 +12,9 @@ namespace Household.Models.Interfaces
 
 		List<CDisplayRow> CreateTableHead(string actionMain, string controller);
 
-		List<CDisplayRow> CreateTableFooter(string actionMain, string controller, int count);
+		List<CDisplayRow> CreateTableFooter(string actionMain, string controller, int count, decimal sum);
 
-		List<CDisplayRow> CreateTableBody(string actionMain, string controller, ICollection<TEntity> lstEntities);
+		List<CDisplayRow> CreateTableBody(string actionMain, string controller, List<TEntity> lstEntities);
 
 		CDisplayRow CreateBodyRow(string actionMain, string controller, TEntity tEntity);
 

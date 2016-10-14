@@ -1,20 +1,27 @@
 ﻿using System.Web.Mvc;
 using System;
 using Household.BL.DATA.t;
-using Household.Models;
 using Household.Models.Finance;
 using Household.Models.Search;
 using Household.Data.Context;
 using Household.Controllers.Base;
 using Household.BL.Functions.Management.t;
+using System.Linq;
+using Household.Localisation.Main.Finance;
 
 namespace Household.Controllers
 {
-	public class PurchasesController : CRUDController<t_Purchase, IPurchaseManagement, DateTime, string, CPurchaseData>
+	public class PurchasesController : SearchableController
+		<t_Purchase, IPurchaseManagement, DateTime, string, CPurchaseData, CPurchasesModel, CSearchPurchase>
 	{
 		public PurchasesController(IPurchaseManagement management)
-			: base(management)
+			: base(management, "Purchase", "Purchases")
 		{ }
+
+		protected override string GetSearchTitle()
+		{
+			return PurchaseText.Purchases;
+		}
 
 		protected override long GetDataID(CPurchaseData data)
 		{
@@ -37,13 +44,18 @@ namespace Household.Controllers
 				if (model.Purchase.Occurrence <= new DateTime(1753, 1, 1)) model.Purchase.Occurrence = DateTime.Today;
 			}
 
-			return PartialView("Purchase", model);
+			return PartialView(model);
 		}
 
 		[HttpPost]
-		public PartialViewResult Search([System.Web.Http.FromBody]CSearchPurchase search)
+		public override PartialViewResult GetTableFooter(CSearchPurchase search)
 		{
-			return PartialView("_MasterData", new CMasterData() { DisplayTable = new CPurchasesModel().search(search), Title = "Purchases" });
+			var searchModel = new CPurchasesModel();
+			var purchases = Management.getPurchases(searchModel.GetSearchExpression(search));
+
+			var footerModel = searchModel.CreateTableFooter(ActionName, ControllerName, purchases.Count, purchases.Sum(x => x.Amount));
+
+			return PartialView("_MasterDataHeaderFooterPartial", footerModel);
 		}
 	}
 }

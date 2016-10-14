@@ -59,11 +59,6 @@ namespace Household.Models.Work
 			return new List<CDisplayRow> { drHead };
 		}
 
-		public List<CDisplayRow> CreateTableFooter(string actionMain, string controller, int workDaysCount)
-		{
-			return CreateTableFooter(actionMain, controller, 0, 0);
-		}
-
 		public List<CDisplayRow> CreateTableFooter(string actionMain, string controller, int workDaysCount, decimal workedHoursSum)
 		{
 			var drFeet = new List<CDisplayRow>();
@@ -129,7 +124,7 @@ namespace Household.Models.Work
 			return drFeet;
 		}
 
-		public List<CDisplayRow> CreateTableBody(string actionMain, string controller, ICollection<t_WorkDay> lstWorkDays) {
+		public List<CDisplayRow> CreateTableBody(string actionMain, string controller, List<t_WorkDay> lstWorkDays) {
 			var lstRows = new List<CDisplayRow>();
 
 			foreach (var tWorkDay in lstWorkDays)
