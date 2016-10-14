@@ -173,7 +173,7 @@ var Common;
     Common.ActivateSearch = ActivateSearch;
     function Search() {
         try {
-            LoadContentWithSelectorJSON(m_iSearch.URL, m_iSearch.TargetContainerSelector, m_iSearch.GetSearchObjectFunc());
+            LoadContentWithSelectorJSON(m_iSearch.URL, m_iSearch.TargetContainerSelector, JSON.stringify({ search: m_iSearch.GetSearchObjectFunc() }));
             ToggleSearch();
         }
         catch (ex) {
@@ -228,6 +228,12 @@ var Common;
         return strReturn;
     }
     Common.FormatDate = FormatDate;
+    function GetSearchObject() {
+        if (m_iSearch === null || m_iSearch === undefined || m_iSearch.GetSearchObjectFunc === null || m_iSearch.GetSearchObjectFunc === undefined)
+            return null;
+        return m_iSearch.GetSearchObjectFunc();
+    }
+    Common.GetSearchObject = GetSearchObject;
     function ConvertDate(pv_arrDate, pv_strDateString, pv_dmMultiplier) {
         var strErrorMessage = "Please check your entry: \n '01.09.2015' or '1.9.15' or '1,9,2015'";
         if (pv_arrDate.length != 3) {

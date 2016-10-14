@@ -41,9 +41,9 @@ namespace Household.Controllers
 		}
 
 		[HttpPost]
-		public PartialViewResult Search([System.Web.Http.FromBody]CSearchPurchase Search)
+		public PartialViewResult Search([System.Web.Http.FromBody]CSearchPurchase search)
 		{
-			return PartialView("_MasterData", new CMasterData() { DisplayTable = new CPurchasesModel().search(Search), Title = "Purchases" });
+			return PartialView("_MasterData", new CMasterData() { DisplayTable = new CPurchasesModel().search(search), Title = "Purchases" });
 		}
 	}
 }

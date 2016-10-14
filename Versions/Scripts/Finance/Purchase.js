@@ -23,7 +23,7 @@ var Purchase;
             MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), [this.Occurrence(), getCurrentPayerText(), getCurrentShopText(), this.Amount() + ' €']);
         };
         Purchase.prototype.Delete = function () {
-            MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() });
+            MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() }, false);
         };
         return Purchase;
     }(MasterData.BaseDescMasterData));

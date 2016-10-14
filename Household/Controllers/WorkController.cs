@@ -1,6 +1,5 @@
 ﻿using System;
 using Household.BL.DATA.t;
-using Household.Models;
 using Household.Models.Work;
 using System.Web.Mvc;
 using Household.Data.Context;
@@ -8,16 +7,20 @@ using Household.Controllers.Base;
 using Household.Models.Search;
 using Household.BL.Functions.Management.t;
 using Household.Localisation.Main.Work;
+using System.Linq;
 
 namespace Household.Controllers
 {
-	public class WorkController : CRUDController<t_WorkDay, IWorkDayManagement, DateTime, TimeSpan, CWorkDayData>
+	public class WorkController : SearchableController<t_WorkDay, IWorkDayManagement, DateTime, TimeSpan, CWorkDayData, CWorkHoursModel, CSearchWorkDay>
 	{
-		private const string c_MasterData = "_MasterData";
-
 		public WorkController(IWorkDayManagement management)
-			: base(management)
+			: base(management, "WorkDay", "Work")
 		{ }
+
+		protected override string GetSearchTitle()
+		{
+			return WorkText.WorkHours;
+		}
 
 		protected override long GetDataID(CWorkDayData data)
 		{
@@ -38,9 +41,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult WorkHoursList()
 		{
-			var model = new CWorkHoursModel();
-
-			return PartialView(c_MasterData, new CMasterData() { DisplayTable = model.search(model.Search), Title = WorkText.WorkHours });
+			return Search(new CWorkHoursModel().SearchModel);
 		}
 
 		[HttpPost]
@@ -61,9 +62,14 @@ namespace Household.Controllers
 		}
 
 		[HttpPost]
-		public PartialViewResult Search([System.Web.Http.FromBody]CSearchWorkDay Search)
+		public override PartialViewResult GetTableFooter(CSearchWorkDay search)
 		{
-			return PartialView(c_MasterData, new CMasterData() { DisplayTable = new CWorkHoursModel().search(Search), Title = WorkText.WorkHours });
+			var searchModel = new CWorkHoursModel();
+			var days = Management.getWorkingDays(searchModel.GetSearchExpression(search));
+
+			var footerModel = searchModel.CreateTableFooter(ActionName, ControllerName, days.Count, days.Sum(x => x.HoursWorked));
+
+			return PartialView("_MasterDataHeaderFooterPartial", footerModel);
 		}
 	}
 }

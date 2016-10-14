@@ -27,7 +27,7 @@ module Person {
 		}
 
 		Delete(): void {
-			MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() });
+			MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() }, false);
 		}
 	}
 

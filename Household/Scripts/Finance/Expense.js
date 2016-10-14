@@ -27,7 +27,7 @@ var Expense;
             MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), [this.StartDate(), this.EndDate(), getCurrentBankAccountText(), getCurrentCompanyText(), this.Amount() + ' €']);
         };
         Expense.prototype.Delete = function () {
-            MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() });
+            MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() }, false);
         };
         return Expense;
     }(MasterData.BaseDescMasterData));

@@ -58,8 +58,8 @@
 </div>
 
 <script type="text/javascript">
-	Common.ActivateSearch('@Url.Action("Search", "Purchases")', '#divPurchases', function search() {
-		var objSearch = {
+	Common.ActivateSearch('@Url.Action("Search", "Purchases")', '#divPurchases', function () {
+		return {
 			From: $('#tbxSearchFrom').val(),
 			To: $('#tbxSearchTo').val(),
 			Where: $('#tbxSearchWhere').val(),
@@ -67,8 +67,6 @@
 			Amount: $('#tbxSearchAmount').val(),
 			Description: $('#tbxSearchDescription').val()
 		};
-
-		return JSON.stringify({ Search: objSearch });
 	});
 
 	Common.Search();Common.ToggleSearch();

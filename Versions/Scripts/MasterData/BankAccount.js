@@ -25,7 +25,7 @@ var BankAccount;
             MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), [this.AccountName(), this.BankName(), this.IBAN()]);
         };
         BankAccount.prototype.Delete = function () {
-            MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() });
+            MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() }, false);
         };
         return BankAccount;
     }(MasterData.BaseMasterData));

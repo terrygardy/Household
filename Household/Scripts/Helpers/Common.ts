@@ -197,7 +197,7 @@
 
 	export function Search(): void {
 		try {
-			LoadContentWithSelectorJSON(m_iSearch.URL, m_iSearch.TargetContainerSelector, m_iSearch.GetSearchObjectFunc());
+			LoadContentWithSelectorJSON(m_iSearch.URL, m_iSearch.TargetContainerSelector, JSON.stringify({ search: m_iSearch.GetSearchObjectFunc() }));
 
 			ToggleSearch();
 		}
@@ -260,6 +260,12 @@
 		}
 
 		return strReturn;
+	}
+
+	export function GetSearchObject(): any {
+		if (m_iSearch === null || m_iSearch === undefined || m_iSearch.GetSearchObjectFunc === null || m_iSearch.GetSearchObjectFunc === undefined) return null;
+
+		return m_iSearch.GetSearchObjectFunc();
 	}
 
 	function ConvertDate(pv_arrDate: Array<string>, pv_strDateString: string, pv_dmMultiplier: DateMultiplier): string {

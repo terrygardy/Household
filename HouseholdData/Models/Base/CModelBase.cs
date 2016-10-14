@@ -142,7 +142,7 @@ namespace Household.Data.Models.Base
 			return Database.GetEntity<T>(pv_fnWhere);
 		}
 
-		protected virtual T getModelByID(long pv_lngID)
+		public virtual T getModelByID(long pv_lngID)
 		{
 			return Database.GetEntity(getStandardWhereID(pv_lngID));
 		}

@@ -19,7 +19,7 @@ var Shop;
             MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), [this.Name(), this.Description()]);
         };
         Shop.prototype.Delete = function () {
-            MasterData.deleteMasterRecord({ ID: this.ID(), BaseAction: this.BaseAction });
+            MasterData.deleteMasterRecord({ ID: this.ID(), BaseAction: this.BaseAction }, false);
         };
         return Shop;
     }(MasterData.BaseNameDescMasterData));
