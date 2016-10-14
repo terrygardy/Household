@@ -4,14 +4,49 @@
 /// <reference path="../validation.ts" />
 
 module MasterData {
+	/**
+	 * Internals
+	 */
+
 	var m_strTableId: string = "tblDisplay";
 	var m_strTableSelector: string = "#" + m_strTableId;
-	export var OnClickAdd: string = '';
 
 	class Return {
 		Message: string;
 		ID: number;
 	}
+
+	function toggleHideableColumns() {
+		$("#tblDisplay").removeClass("w90");
+
+		var windowWidth = $(window).width();
+		var tableWidth = $("#tblDisplay").width() + 10;
+
+		if (tableWidth > windowWidth) {
+			$("th.hideable").each(function () {
+				$(this).hide();
+			});
+			$("td.hideable").each(function () { $(this).hide(); });
+		}
+		else {
+			tableWidth += $("#tblDisplay thead tr > th").width();
+
+			if (tableWidth < windowWidth) {
+				$("th.hideable").each(function () {
+					$(this).show();
+				});
+				$("td.hideable").each(function () { $(this).show(); });
+			}
+		}
+
+		$("#tblDisplay").addClass("w90");
+	}
+
+	/**
+	 * Exports
+	 */
+
+	export var OnClickAdd: string = '';
 
 	export interface IMasterBaseOptions {
 		ID: any;
@@ -84,6 +119,42 @@ module MasterData {
 		}
 	}
 
+	export function replaceBodyRow(pv_strBaseURL: string, pv_intID: number): void {
+		$.ajax({
+			method: "POST",
+			url: pv_strBaseURL + "/GetTableBodyRow",
+			data: { id: pv_intID },
+			success: (data) => {
+				var row = $('#' + pv_intID);
+
+				if (row.length > 0) {
+					$(data).insertAfter(row);
+					row.remove();
+				}
+				else {
+					$(data).insertAfter($(m_strTableSelector + " tbody tr:last"));
+				}
+
+				MasterData.replaceTableFooter(pv_strBaseURL);
+			}
+		});
+	}
+
+	export function replaceTableFooter(pv_strBaseURL: string): void {
+		$.ajax({
+			method: "POST",
+			url: pv_strBaseURL + "/GetTableFooter",
+			data: {
+				search: Common.GetSearchObject()
+			},
+			success: (data) => {
+				var footer = $(m_strTableSelector + " tfoot");
+				footer.empty();
+				footer.html(data);
+			}
+		});
+	}
+
 	export function updateRow(pv_intID: number, pv_arrParams: Array<string>) {
 		var arrChildren: JQuery = $(m_strTableSelector + ' tbody tr[id="' + pv_intID.toString() + '"]').children();
 
@@ -116,7 +187,7 @@ module MasterData {
 		}
 	}
 
-	export function deleteMasterRecord(pv_objOptions: IMasterBaseOptions): void {
+	export function deleteMasterRecord(pv_objOptions: IMasterBaseOptions, replaceFooter: boolean): void {
 		showPleaseWait();
 
 		try {
@@ -131,6 +202,11 @@ module MasterData {
 			}
 			else {
 				MasterData.deleteRow(pv_objOptions.ID);
+
+				if (replaceFooter === true) {
+					MasterData.replaceTableFooter(pv_objOptions.BaseAction);
+				}
+				
 				Common.hideSubContent();
 			}
 		}
@@ -167,7 +243,12 @@ module MasterData {
 					return objReturn.Message;
 				}
 				else {
-					MasterData.updateRow(objReturn.ID, pv_arrDisplayCells);
+					if (pv_arrDisplayCells !== null) {
+						MasterData.updateRow(objReturn.ID, pv_arrDisplayCells);
+					}
+					else {
+						MasterData.replaceBodyRow(pv_strBaseURL, objReturn.ID);
+					}
 
 					if (pv_blnClose === true) { $('#btnClose').click(); }
 				}
@@ -219,5 +300,11 @@ module MasterData {
 		if ((olBC.length > 0) && (olBC.children().length < 1)) { olBC.remove(); }
 
 		Validation.validateForm();
+	}
+
+	export function setupHideables(): void {
+		toggleHideableColumns();
+
+		$(window).resize(toggleHideableColumns);
 	}
 }

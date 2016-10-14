@@ -159,4 +159,7 @@
   <data name="WorkHours" xml:space="preserve">
     <value>Work Hours</value>
   </data>
+  <data name="Overtime" xml:space="preserve">
+    <value>Overtime</value>
+  </data>
 </root>

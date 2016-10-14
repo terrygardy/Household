@@ -20,7 +20,7 @@ var Day;
             return MasterData.saveMasterRecordWithMessage(this.BaseAction, ko.toJSON({ Data: this }), [this.Day()], pv_blnClose);
         };
         Day.prototype.Delete = function () {
-            MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() });
+            MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() }, false);
         };
         return Day;
     }(MasterData.BaseMasterData));

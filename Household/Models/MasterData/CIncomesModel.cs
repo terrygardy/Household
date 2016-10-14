@@ -36,22 +36,18 @@ namespace Household.Models.MasterData
 			var cCompany = new CCompanyManagement();
 
 			dcColumn.Content = IncomeText.Start;
-			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = IncomeText.End;
-			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = IncomeText.Amount;
-			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = CompanyText.Company;
-			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dtTable.Head.Add(drHead);
@@ -81,21 +77,21 @@ namespace Household.Models.MasterData
 
 				drBody.Columns.Add(new CDisplayColumn()
 				{
-					Content = tIncome.StartDate.ToShortDateString(),
+					Content = tIncome.StartDate,
 					CSS = "center",
 					Tooltip = strIncome
 				});
 
 				drBody.Columns.Add(new CDisplayColumn()
 				{
-					Content = strEndDate,
+					Content = tIncome.EndDate,
 					CSS = "center",
 					Tooltip = strIncome
 				});
 
 				drBody.Columns.Add(new CDisplayColumn()
 				{
-					Content = strAmount,
+					Content = tIncome.Amount,
 					CSS = "right",
 					Tooltip = strIncome
 				});
@@ -114,7 +110,6 @@ namespace Household.Models.MasterData
 			{
 				Content = $"{GeneralText.Count}: {lstIncomes.Count.ToString()}",
 				CSS = "right",
-				Tooltip = $"{GeneralText.Count}: {lstIncomes.Count.ToString()}",
 				ColumnSpan = 4
 			});
 

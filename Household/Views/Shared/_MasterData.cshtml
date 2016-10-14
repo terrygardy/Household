@@ -45,11 +45,12 @@
 	<div class="row">
 		<div id="divSubContent" class="invisible"></div>
 	</div>
-	@Scripts.Render("~/bundles/MasterData", "~/bundles/jqueryval")
+	@Scripts.Render("~/bundles/jqueryval")
 	<script type="text/javascript">
 		$(document).ready(function () {
 			window.document.title = '@Model.Title';
 			MasterData.OnClickAdd = '@Url.Action(m_dtTable.AddAction, m_dtTable.AddController)';
+			MasterData.setupHideables();
 		});
 	</script>
 }

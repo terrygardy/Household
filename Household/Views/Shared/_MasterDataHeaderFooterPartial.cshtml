@@ -1,11 +1,11 @@
 ﻿@model List<Household.Models.DisplayTable.CDisplayRow>
 
-@foreach (var objRow in Model)
+@foreach (var drRow in Model)
 {
 	<tr>
-		@foreach (var objColumn in objRow.Columns)
+		@foreach (var dcColumn in drRow.Columns)
 		{
-			<th colspan="@objColumn.ColumnSpan" class="@objColumn.CSS" onclick="@objColumn.OnClick" title="@objColumn.Tooltip">@objColumn.Content</th>
+			@Html.Partial("~/Views/Shared/_MasterDataHeaderFooterCellPartial.cshtml", dcColumn)
 		}
 	</tr>
 }

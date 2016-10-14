@@ -21,7 +21,7 @@ var Person;
             MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), [this.Surname(), this.Forename()]);
         };
         Person.prototype.Delete = function () {
-            MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() });
+            MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() }, false);
         };
         return Person;
     }(MasterData.BaseMasterData));

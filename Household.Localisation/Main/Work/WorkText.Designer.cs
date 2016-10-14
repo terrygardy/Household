@@ -124,6 +124,15 @@ namespace Household.Localisation.Main.Work {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Overtime.
+        /// </summary>
+        public static string Overtime {
+            get {
+                return ResourceManager.GetString("Overtime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Total hours worked.
         /// </summary>
         public static string TotalHoursWorked {

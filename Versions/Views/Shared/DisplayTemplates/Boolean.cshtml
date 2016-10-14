@@ -1,0 +1,19 @@
+﻿@using Household.Localisation.Common
+
+@model bool?
+
+@if (Model.HasValue)
+{
+	@if (Model.Value)
+	{
+		@GeneralText.Yes
+	}
+	else
+	{
+		@GeneralText.No
+	}
+}
+else
+{
+	<text>-</text>
+}

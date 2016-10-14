@@ -1,0 +1,8 @@
+﻿@if (Html.ViewData.Model is TimeSpan)
+{
+	@Html.DisplayForModel("~/Views/Shared/DisplayTemplates/TimeSpan.cshtml")
+}
+else
+{
+	@Html.DisplayForModel()
+}

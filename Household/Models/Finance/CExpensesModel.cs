@@ -32,27 +32,22 @@ namespace Household.Models.Finance
 			var dcColumn = new CDisplayColumn();
 
 			dcColumn.Content = GeneralText.From;
-			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = GeneralText.Until;
-			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = GeneralText.Who;
-			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = ExpenseText.Source;
-			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = ExpenseText.Amount;
-			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dtTable.Head.Add(drHead);
@@ -120,14 +115,14 @@ namespace Household.Models.Finance
 
 				drBody.Columns.Add(new CDisplayColumn()
 				{
-					Content = strStartDate,
+					Content = tExpense.StartDate,
 					CSS = "center",
 					Tooltip = strExpense
 				});
 
 				drBody.Columns.Add(new CDisplayColumn()
 				{
-					Content = strEndDate,
+					Content = tExpense.EndDate,
 					CSS = "center",
 					Tooltip = strExpense
 				});
@@ -148,7 +143,7 @@ namespace Household.Models.Finance
 
 				drBody.Columns.Add(new CDisplayColumn()
 				{
-					Content = strAmount,
+					Content = tExpense.Amount,
 					CSS = "right",
 					Tooltip = strExpense
 				});
@@ -160,7 +155,6 @@ namespace Household.Models.Finance
 			{
 				Content = $"{GeneralText.Count}: {lstExpenses.Count.ToString()}",
 				CSS = "right",
-				Tooltip = $"{GeneralText.Count}: {lstExpenses.Count.ToString()}",
 				ColumnSpan = 5
 			});
 

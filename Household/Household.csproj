@@ -240,6 +240,7 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Controllers\Base\CRUDController.cs" />
+    <Compile Include="Controllers\Base\SearchableController.cs" />
     <Compile Include="Controllers\IncomeController.cs" />
     <Compile Include="Controllers\ExpensesController.cs" />
     <Compile Include="Controllers\PurchasesController.cs" />
@@ -275,6 +276,7 @@
     <Compile Include="Models\Finance\CExpensesModel.cs" />
     <Compile Include="Models\Finance\CPurchasesModel.cs" />
     <Compile Include="Models\Finance\CReportsModel.cs" />
+    <Compile Include="Models\Interfaces\ISearchModel.cs" />
     <Compile Include="Models\MasterData\CIncomeModel.cs" />
     <Compile Include="Models\MasterData\CIntervalsModel.cs" />
     <Compile Include="Models\MasterData\CDaysModel.cs" />
@@ -637,6 +639,17 @@
     <Content Include="Views\Shared\_BreadCrumbsPartial.cshtml" />
     <Content Include="Views\Shared\_MasterDataHeaderFooterPartial.cshtml" />
     <Content Include="Views\Shared\_MasterDataBodyPartial.cshtml" />
+    <Content Include="Views\Shared\_MasterDataBodyRowPartial.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\String.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Boolean.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Integer.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Double.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Decimal.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\TimeSpan.cshtml" />
+    <Content Include="Views\Shared\_MasterDataHeaderFooterCellPartial.cshtml" />
+    <Content Include="Views\Shared\_MasterDataBodyCellPartial.cshtml" />
+    <Content Include="Views\Shared\_GenericDisplayTemplate.cshtml" />
     <TypeScriptCompile Include="Scripts\Finance\Expense.ts" />
     <TypeScriptCompile Include="Scripts\Finance\Purchase.ts" />
     <TypeScriptCompile Include="Scripts\Finance\Report.ts" />

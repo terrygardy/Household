@@ -50,3 +50,15 @@ obj
 node_modules
 .vs
 packages
+Household/Properties/PublishProfiles/FileSystem.pubxml.user
+Household/Content/DisplayTable.css
+Household/Content/pleaseWait.css
+Household/Content/Styles.css
+Household/Scripts/Finance/*.js
+Household/Scripts/Finance/*.map
+Household/Scripts/Helpers/*.js
+Household/Scripts/Helpers/*.map
+Household/Scripts/MasterData/*.js
+Household/Scripts/MasterData/*.map
+Household/Scripts/Work/*.js
+Household/Scripts/Work/*.map

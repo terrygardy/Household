@@ -1,0 +1,3 @@
+﻿@model Household.Models.DisplayTable.CDisplayColumn
+
+<th colspan="@Model.ColumnSpan.ToString()" class="@Model.CSS" onclick="@Model.OnClick" title="@Model.Tooltip">@Html.Partial("~/Views/Shared/_GenericDisplayTemplate.cshtml", Model.Content)</th>

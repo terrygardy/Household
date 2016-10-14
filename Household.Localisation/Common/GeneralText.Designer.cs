@@ -178,6 +178,15 @@ namespace Household.Localisation.Common {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        public static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to on.
         /// </summary>
         public static string OnLower {
@@ -309,6 +318,15 @@ namespace Household.Localisation.Common {
         public static string Year {
             get {
                 return ResourceManager.GetString("Year", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        public static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }

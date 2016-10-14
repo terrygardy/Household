@@ -31,17 +31,14 @@ namespace Household.Models.MasterData
 			var dcColumn = new CDisplayColumn();
 
 			dcColumn.Content = BankAccountText.AccountName;
-			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = BankAccountText.BankName;
-			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = BankAccountText.IBAN;
-			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dtTable.Head.Add(drHead);
@@ -87,7 +84,6 @@ namespace Household.Models.MasterData
 			{
 				Content = $"{GeneralText.Count}: {lstAccounts.Count.ToString()}",
 				CSS = "right",
-				Tooltip = $"{GeneralText.Count}: {lstAccounts.Count.ToString()}",
 				ColumnSpan = 3
 			});
 

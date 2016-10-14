@@ -31,12 +31,10 @@ namespace Household.Models.MasterData
 			var dcColumn = new CDisplayColumn();
 
 			dcColumn.Content = PersonText.Surname;
-			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = PersonText.Forename;
-			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dtTable.Head.Add(drHead);
