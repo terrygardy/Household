@@ -36,5 +36,10 @@ namespace Household.BL.Functions.t
 		{
 			return base.getEntities(pv_exWhere, getStandardOrderBy(), getStandardThenBy());
 		}
+
+		public ICollection<t_WorkDay> getSearchResults(Expression<Func<t_WorkDay, bool>> pv_exWhere)
+		{
+			return getWorkingDays(pv_exWhere);
+		}
 	}
 }

@@ -11,7 +11,8 @@ using System.Linq;
 
 namespace Household.Controllers
 {
-	public class WorkController : SearchableController<t_WorkDay, IWorkDayManagement, DateTime, TimeSpan, CWorkDayData, CWorkHoursModel, CSearchWorkDay>
+	public class WorkController : SearchableController
+		<t_WorkDay, IWorkDayManagement, DateTime, TimeSpan, CWorkDayData, CWorkHoursModel, CSearchWorkDay>
 	{
 		public WorkController(IWorkDayManagement management)
 			: base(management, "WorkDay", "Work")

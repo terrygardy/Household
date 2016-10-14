@@ -25,7 +25,7 @@ namespace Household.Controllers.Base
 		[HttpPost]
 		public PartialViewResult Search([System.Web.Http.FromBody]TSearchModel search)
 		{
-			return PartialView(MasterDataViewUrl, new CMasterData() { DisplayTable = new TSearch().Search(search), Title = GetSearchTitle() });
+			return PartialView(MasterDataViewUrl, new CMasterData() { DisplayTable = new TSearch().Search(search, ActionName, ControllerName), Title = GetSearchTitle() });
 		}
 
 		[HttpPost]
@@ -34,7 +34,7 @@ namespace Household.Controllers.Base
 			var entity = Management.getModelByID(id);
 			var bodyRowModel = new TSearch().CreateBodyRow(ActionName, ControllerName, entity);
 
-			return PartialView("_BodyRowPartial", bodyRowModel);
+			return PartialView("_MasterDataBodyRowPartial", bodyRowModel);
 		}
 
 		[HttpPost]

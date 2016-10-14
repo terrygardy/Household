@@ -31,12 +31,10 @@ namespace Household.Models.MasterData
 			var dcColumn = new CDisplayColumn();
 
 			dcColumn.Content = CompanyText.Name;
-			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = CompanyText.Description;
-			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dtTable.Head.Add(drHead);

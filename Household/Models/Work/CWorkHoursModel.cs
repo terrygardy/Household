@@ -25,46 +25,46 @@ namespace Household.Models.Work
 			SearchModel.WorkDayFrom = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
 		}
 
-		public CDisplayTable GetDisplayTable() => GetDisplayTable(null);
+		public CDisplayTable GetDisplayTable(string actionMain, string controller) => GetDisplayTable(null, actionMain, controller);
 		
-		public List<CDisplayRow> CreateTableHead(string action, string controller)
+		public List<CDisplayRow> CreateTableHead(string actionMain, string controller)
 		{
 			var drHead = new CDisplayRow()
 			{
-				OnClickAction = action,
+				OnClickAction = actionMain,
 				OnClickController = controller
 			};
 
 			var dcColumn = new CDisplayColumn();
 			dcColumn.Content = WorkText.WorkDay;
-			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = WorkText.Begin;
-			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = WorkText.End;
-			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = $"{WorkText.Break} [h]";
-			dcColumn.Tooltip = dcColumn.Content;
 			dcColumn.CSS = "hideable";
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = $"{WorkText.Worked} [h]";
-			dcColumn.Tooltip = dcColumn.Content;
 			drHead.Columns.Add(dcColumn);
 
 			return new List<CDisplayRow> { drHead };
 		}
 
-		public List<CDisplayRow> CreateTableFooter(string action, string controller, int workDaysCount, decimal workedHoursSum)
+		public List<CDisplayRow> CreateTableFooter(string actionMain, string controller, int workDaysCount)
+		{
+			return CreateTableFooter(actionMain, controller, 0, 0);
+		}
+
+		public List<CDisplayRow> CreateTableFooter(string actionMain, string controller, int workDaysCount, decimal workedHoursSum)
 		{
 			var drFeet = new List<CDisplayRow>();
 			var drFoot = new CDisplayRow();
@@ -129,18 +129,18 @@ namespace Household.Models.Work
 			return drFeet;
 		}
 
-		public List<CDisplayRow> CreateTableBody(string action, string controller, List<t_WorkDay> lstWorkDays) {
+		public List<CDisplayRow> CreateTableBody(string actionMain, string controller, ICollection<t_WorkDay> lstWorkDays) {
 			var lstRows = new List<CDisplayRow>();
 
 			foreach (var tWorkDay in lstWorkDays)
 			{
-				lstRows.Add(CreateBodyRow(action, controller, tWorkDay));
+				lstRows.Add(CreateBodyRow(actionMain, controller, tWorkDay));
 			}
 
 			return lstRows;
 		}
 
-		public CDisplayRow CreateBodyRow(string action, string controller, t_WorkDay tWorkDay) {
+		public CDisplayRow CreateBodyRow(string actionMain, string controller, t_WorkDay tWorkDay) {
 			var strDay = Base.convertShortDateString(tWorkDay.WorkDay, "...");
 			var strBegin = Base.convertShortTimeString(tWorkDay.Begin, "...");
 			var strEnd = Base.convertShortTimeString(tWorkDay.End, "...");
@@ -148,7 +148,7 @@ namespace Household.Models.Work
 			var drBody = new CDisplayRow()
 			{
 				OnClickParam = tWorkDay.ID.ToString(),
-				OnClickAction = action,
+				OnClickAction = actionMain,
 				OnClickController = controller
 			};
 
@@ -156,35 +156,35 @@ namespace Household.Models.Work
 
 			drBody.Columns.Add(new CDisplayColumn()
 			{
-				Content = strDay,
+				Content = tWorkDay.WorkDay,
 				CSS = "center",
 				Tooltip = strTooltip
 			});
 
 			drBody.Columns.Add(new CDisplayColumn()
 			{
-				Content = strBegin,
+				Content = tWorkDay.Begin,
 				CSS = "center",
 				Tooltip = strTooltip
 			});
 
 			drBody.Columns.Add(new CDisplayColumn()
 			{
-				Content = strEnd,
+				Content = tWorkDay.End,
 				CSS = "center",
 				Tooltip = strTooltip
 			});
 
 			drBody.Columns.Add(new CDisplayColumn()
 			{
-				Content = tWorkDay.BreakDuration.ToString("N2"),
+				Content = tWorkDay.BreakDuration,
 				CSS = "right hideable",
 				Tooltip = strTooltip
 			});
 
 			drBody.Columns.Add(new CDisplayColumn()
 			{
-				Content = tWorkDay.HoursWorked.ToString("N2"),
+				Content = tWorkDay.HoursWorked,
 				CSS = "right",
 				Tooltip = strTooltip
 			});
@@ -192,28 +192,26 @@ namespace Household.Models.Work
 			return drBody;
 		}
 
-		public CDisplayTable GetDisplayTable(Expression<Func<t_WorkDay, bool>> exSearch)
+		public CDisplayTable GetDisplayTable(Expression<Func<t_WorkDay, bool>> exSearch, string actionMain, string controller)
 		{
 			var cWorkDay = new CWorkDayManagement();
 			var lstWorkDays = cWorkDay.getWorkingDays(exSearch);
-			var action = "WorkDay";
-			var controller = "Work";
 			var dtTable = new CDisplayTable()
 			{
-				AddAction = action,
+				AddAction = actionMain,
 				AddController = controller
 			};
 
-			dtTable.Head = CreateTableHead(action, controller);
-			dtTable.Body = CreateTableBody(action, controller, lstWorkDays);
-			dtTable.Foot = CreateTableFooter(action, controller, lstWorkDays.Count(), Convert.ToDecimal(lstWorkDays.Sum(w => w.HoursWorked)));
+			dtTable.Head = CreateTableHead(actionMain, controller);
+			dtTable.Body = CreateTableBody(actionMain, controller, lstWorkDays);
+			dtTable.Foot = CreateTableFooter(actionMain, controller, lstWorkDays.Count(), Convert.ToDecimal(lstWorkDays.Sum(w => w.HoursWorked)));
 
 			return dtTable;
 		}
 
-		public CDisplayTable Search(CSearchWorkDay pv_swSearch)
+		public CDisplayTable Search(CSearchWorkDay pv_swSearch, string actionMain, string controller)
 		{
-			return GetDisplayTable(GetSearchExpression(pv_swSearch));
+			return GetDisplayTable(GetSearchExpression(pv_swSearch), actionMain, controller);
 		}
 
 		public Expression<Func<t_WorkDay, bool>> GetSearchExpression(CSearchWorkDay pv_swSearch) {

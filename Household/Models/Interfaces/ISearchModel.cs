@@ -8,18 +8,18 @@ namespace Household.Models.Interfaces
 	public interface ISearchModel<TEntity, TSearchModel>
 		where TEntity : class, new()
 	{
-		CDisplayTable GetDisplayTable();
+		CDisplayTable GetDisplayTable(string actionMain, string controller);
 
-		List<CDisplayRow> CreateTableHead(string action, string controller);
+		List<CDisplayRow> CreateTableHead(string actionMain, string controller);
 
-		List<CDisplayRow> CreateTableFooter(string action, string controller, int workDaysCount, decimal workedHoursSum);
+		List<CDisplayRow> CreateTableFooter(string actionMain, string controller, int count);
 
-		List<CDisplayRow> CreateTableBody(string action, string controller, List<TEntity> lstWorkDays);
+		List<CDisplayRow> CreateTableBody(string actionMain, string controller, ICollection<TEntity> lstEntities);
 
-		CDisplayRow CreateBodyRow(string action, string controller, TEntity tWorkDay);
+		CDisplayRow CreateBodyRow(string actionMain, string controller, TEntity tEntity);
 
-		CDisplayTable GetDisplayTable(Expression<Func<TEntity, bool>> exSearch);
+		CDisplayTable GetDisplayTable(Expression<Func<TEntity, bool>> exSearch, string actionMain, string controller);
 
-		CDisplayTable Search(TSearchModel pv_swSearch);
+		CDisplayTable Search(TSearchModel pv_smSearch, string actionMain, string controller);
 	}
 }
