@@ -33,7 +33,7 @@ namespace Household.Test.Search.MainObjects
 				cSearch.BreakDuration = tWorkDay.BreakDuration;
 
 				cModel = new CWorkHoursModel();
-				intRows = cModel.Search(cSearch).Body.Count;
+				intRows = cModel.Search(cSearch, "WorkDay", "Work").Body.Count;
 
 				Assert.That(intRows == 1);
 			}
@@ -48,7 +48,7 @@ namespace Household.Test.Search.MainObjects
 		public void EmptySearch()
 		{
 			int intRowsExpected = new CWorkDayManagement().getWorkingDays().Count;
-			int intRowsFound = new CWorkHoursModel().Search(new CSearchWorkDay()).Body.Count;
+			int intRowsFound = new CWorkHoursModel().Search(new CSearchWorkDay(), "WorkDay", "Work").Body.Count;
 
 			Assert.That(intRowsExpected == intRowsFound);
 		}

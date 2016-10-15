@@ -34,7 +34,7 @@ namespace Household.Test.Search.MainObjects
 				cSearch.Who = tPurchase.txx_BankAccount.AccountName;
 
 				cModel = new CPurchasesModel();
-				intRows = cModel.search(cSearch).Body.Count;
+				intRows = cModel.Search(cSearch, "Purchase", "Purchases").Body.Count;
 
 				Assert.That(intRows == 1);
 			}
@@ -49,7 +49,7 @@ namespace Household.Test.Search.MainObjects
 		public void EmptySearch()
 		{
 			int intRowsExpected = new CPurchaseManagement().getPurchases().Count;
-			int intRowsFound = new CPurchasesModel().search(new CSearchPurchase()).Body.Count;
+			int intRowsFound = new CPurchasesModel().Search(new CSearchPurchase(), "Purchase", "Purchases").Body.Count;
 
 			Assert.That(intRowsExpected == intRowsFound);
 		}

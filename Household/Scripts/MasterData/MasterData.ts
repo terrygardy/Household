@@ -19,27 +19,41 @@ module MasterData {
 	function toggleHideableColumns() {
 		$("#tblDisplay").removeClass("w90");
 
+		showHideables();
+
 		var windowWidth = $(window).width();
 		var tableWidth = $("#tblDisplay").width() + 10;
 
 		if (tableWidth > windowWidth) {
-			$("th.hideable").each(function () {
-				$(this).hide();
-			});
-			$("td.hideable").each(function () { $(this).hide(); });
+			hideHideables();
 		}
 		else {
 			tableWidth += $("#tblDisplay thead tr > th").width();
 
 			if (tableWidth < windowWidth) {
-				$("th.hideable").each(function () {
-					$(this).show();
-				});
-				$("td.hideable").each(function () { $(this).show(); });
+				showHideables();
 			}
 		}
 
 		$("#tblDisplay").addClass("w90");
+	}
+
+	function showHideables() {
+		$("th.hideable").each(function () {
+			$(this).show();
+		});
+		$("td.hideable").each(function () {
+			$(this).show();
+		});
+	}
+
+	function hideHideables() {
+		$("th.hideable").each(function () {
+			$(this).hide();
+		});
+		$("td.hideable").each(function () {
+			$(this).hide();
+		});
 	}
 
 	/**
@@ -132,10 +146,16 @@ module MasterData {
 					row.remove();
 				}
 				else {
-					$(data).insertAfter($(m_strTableSelector + " tbody tr:last"));
+					var target = $(m_strTableSelector + " tbody");
+
+					if (target.length < 1) { $("<tbody></tbody>").insertAfter($(m_strTableSelector + " thead")); }
+
+					target.append(data);
 				}
 
 				MasterData.replaceTableFooter(pv_strBaseURL);
+
+				toggleHideableColumns();
 			}
 		});
 	}
@@ -178,6 +198,8 @@ module MasterData {
 			arrChildren = $(m_strTableSelector + ' tbody tr[id="' + pv_intID.toString() + '"]').children();
 
 			updateFooterText(1);
+
+			toggleHideableColumns();
 		}
 
 		for (var i: number = 0; i < pv_arrParams.length; i++) {
