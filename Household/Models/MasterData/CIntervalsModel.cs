@@ -61,7 +61,6 @@ namespace Household.Models.MasterData
 			{
 				Content = $"{GeneralText.Count}: {lstIntervals.Count.ToString()}",
 				CSS = "right",
-				Tooltip = $"{GeneralText.Count}: {lstIntervals.Count.ToString()}",
 				ColumnSpan = 1
 			});
 

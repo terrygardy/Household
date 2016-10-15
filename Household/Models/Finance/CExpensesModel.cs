@@ -65,7 +65,7 @@ namespace Household.Models.Finance
 					OnClickController = controller
 				};
 
-				if (tExpense.Company_ID > 0)
+				if (tExpense.txx_Company != null)
 				{
 					strCompany = tExpense.txx_Company.Name;
 				}
@@ -74,7 +74,7 @@ namespace Household.Models.Finance
 					strCompany = "";
 				}
 
-				if (tExpense.BankAccount_ID > 0)
+				if (tExpense.txx_BankAccount != null)
 				{
 					strSpender = tExpense.txx_BankAccount.AccountName;
 				}
@@ -83,7 +83,7 @@ namespace Household.Models.Finance
 					strSpender = "";
 				}
 
-				if (tExpense.PaymentDay_ID > 0)
+				if (tExpense.txx_Day != null)
 				{
 					strDay = tExpense.txx_Day.ToString();
 				}
@@ -92,7 +92,7 @@ namespace Household.Models.Finance
 					strDay = "";
 				}
 
-				if (tExpense.Interval_ID > 0)
+				if (tExpense.txx_Interval != null)
 				{
 					strInterval = tExpense.txx_Interval.ToString();
 				}
@@ -129,14 +129,14 @@ namespace Household.Models.Finance
 
 				drBody.Columns.Add(new CDisplayColumn()
 				{
-					Content = strSpender,
+					Content = tExpense.txx_BankAccount,
 					CSS = "left",
 					Tooltip = strExpense
 				});
 
 				drBody.Columns.Add(new CDisplayColumn()
 				{
-					Content = strCompany,
+					Content = tExpense.txx_Company,
 					CSS = "left",
 					Tooltip = strExpense
 				});

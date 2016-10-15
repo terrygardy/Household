@@ -1,3 +1,5 @@
-﻿@model Household.Models.DisplayTable.CDisplayColumn
+﻿@using Household.MvcExtensions
 
-<td class="@Model.CSS" onclick="@Model.OnClick" title="@Model.Tooltip" colspan="@Model.ColumnSpan.ToString()">@Html.Partial("~/Views/Shared/_GenericDisplayTemplate.cshtml", Model.Content)</td>
+@model Household.Models.DisplayTable.CDisplayColumn
+
+<td class="@Model.CSS" onclick="@Model.OnClick" title="@Html.DisplayTableCell(Model.Tooltip)" colspan="@Model.ColumnSpan.ToString()">@Html.DisplayTableCell(Model.Content)</td>

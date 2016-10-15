@@ -181,14 +181,14 @@ namespace Household.Models.Finance
 
 			drBody.Columns.Add(new CDisplayColumn()
 			{
-				Content = strBuyer,
+				Content = tPurchase.txx_BankAccount,
 				CSS = "left hideable",
 				Tooltip = strPurchase
 			});
 
 			drBody.Columns.Add(new CDisplayColumn()
 			{
-				Content = strShop,
+				Content = tPurchase.txx_Shop,
 				CSS = "left",
 				Tooltip = strPurchase
 			});

@@ -72,7 +72,6 @@ namespace Household.Models.MasterData
 			{
 				Content = $"{GeneralText.Count}: {lstPeople.Count.ToString()}",
 				CSS = "right",
-				Tooltip = $"{GeneralText.Count}: {lstPeople.Count.ToString()}",
 				ColumnSpan = 2
 			});
 

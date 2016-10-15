@@ -68,7 +68,6 @@ namespace Household.Models.Work
 			{
 				Content = $"{GeneralText.Count}: {workDaysCount}",
 				CSS = "right",
-				Tooltip = $"{GeneralText.Count}: {workDaysCount}",
 				ColumnSpan = 5
 			});
 
@@ -80,7 +79,6 @@ namespace Household.Models.Work
 			{
 				Content = $"{WorkText.TotalHoursWorked}: {workedHoursSum.ToString("N2")}",
 				CSS = "right",
-				Tooltip = $"{WorkText.TotalHoursWorked}: {workedHoursSum.ToString("N2")}",
 				ColumnSpan = 5
 			});
 
@@ -103,7 +101,6 @@ namespace Household.Models.Work
 			{
 				Content = $"{WorkText.AverageHoursWorked}: {averageHours}",
 				CSS = "right",
-				Tooltip = $"{WorkText.AverageHoursWorked}: {averageHours}",
 				ColumnSpan = 5
 			});
 
@@ -115,7 +112,6 @@ namespace Household.Models.Work
 			{
 				Content = $"{WorkText.Overtime}: {overtimeWorked.ToString("N2")}",
 				CSS = "right",
-				Tooltip = $"{WorkText.Overtime}: {overtimeWorked.ToString("N2")}",
 				ColumnSpan = 5
 			});
 

@@ -40,6 +40,7 @@ namespace Household.Models.MasterData
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = IncomeText.End;
+			dcColumn.CSS = "hideable";
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
@@ -65,7 +66,7 @@ namespace Household.Models.MasterData
 					OnClickController = controller
 				};
 
-				if ((tIncome.Company_ID != null) && (tIncome.Company_ID > 0)) strCompany = cCompany.getDataByID((long)tIncome.Company_ID).Name;
+				if (tIncome.txx_Company != null) strCompany = cCompany.getDataByID((long)tIncome.Company_ID).Name;
 
 				if ((tIncome.EndDate != null) && (tIncome.EndDate > DatNULL))
 				{
@@ -85,7 +86,7 @@ namespace Household.Models.MasterData
 				drBody.Columns.Add(new CDisplayColumn()
 				{
 					Content = tIncome.EndDate,
-					CSS = "center",
+					CSS = "center hideable",
 					Tooltip = strIncome
 				});
 
@@ -98,7 +99,7 @@ namespace Household.Models.MasterData
 
 				drBody.Columns.Add(new CDisplayColumn()
 				{
-					Content = strCompany,
+					Content = tIncome.txx_Company,
 					CSS = "left",
 					Tooltip = strIncome
 				});

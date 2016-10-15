@@ -35,6 +35,7 @@ namespace Household.Models.MasterData
 
 			dcColumn = new CDisplayColumn();
 			dcColumn.Content = BankAccountText.BankName;
+			dcColumn.CSS = "hideable";
 			drHead.Columns.Add(dcColumn);
 
 			dcColumn = new CDisplayColumn();
@@ -66,7 +67,7 @@ namespace Household.Models.MasterData
 				drBody.Columns.Add(new CDisplayColumn()
 				{
 					Content = txxAccount.BankName,
-					CSS = "left",
+					CSS = "left hideable",
 					Tooltip = strAccount
 				});
 

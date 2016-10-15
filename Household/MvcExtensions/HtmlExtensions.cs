@@ -14,5 +14,23 @@ namespace Household.MvcExtensions
 		{
 			return html.Partial("~/Views/Shared/DisplayTemplates/ErrorContainer.cshtml");
 		}
+
+		public static MvcHtmlString DisplayTableCell<TModel>(this HtmlHelper<TModel> html, object model)
+		{
+			if (model == null) return MvcHtmlString.Create("-");
+
+			var type = model.GetType();
+			string templateName;
+
+			if (type.Namespace.Contains("Proxies"))
+			{
+				templateName = type.BaseType.Name;
+			}
+			else {
+				templateName = type.Name;
+			}
+
+			return html.Partial($"~/Views/Shared/TableCellTemplates/{templateName}.cshtml", model);
+		}
 	}
 }
