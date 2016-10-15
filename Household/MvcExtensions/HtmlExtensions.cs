@@ -26,11 +26,18 @@ namespace Household.MvcExtensions
 			{
 				templateName = type.BaseType.Name;
 			}
-			else {
+			else
+			{
 				templateName = type.Name;
 			}
 
 			return html.Partial($"~/Views/Shared/TableCellTemplates/{templateName}.cshtml", model);
+		}
+
+		public static MvcHtmlString PreviewActionLink<TModel>(this HtmlHelper<TModel> html, string controller)
+			where TModel : Household.Data.Models.Base.IDataBase
+		{
+			return html.ActionLink(html.ViewData.Model.ToString(), "Preview", new { controller = controller, id = html.ViewData.Model.ID }, new { @class = "preview" });
 		}
 	}
 }

@@ -8,7 +8,7 @@ namespace Household.Controllers
 	public class DayController : CRUDController<txx_Day, IDayManagement, int, int, CDayData>
 	{
 		public DayController(IDayManagement management)
-			: base(management)
+			: base(management, "~/Views/MasterData/DayPreview.cshtml")
 		{ }
 
 		protected override long GetDataID(CDayData data)

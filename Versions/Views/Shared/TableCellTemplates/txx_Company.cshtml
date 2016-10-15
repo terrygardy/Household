@@ -1,8 +1,10 @@
-﻿@model Household.Data.Context.txx_Company
+﻿@using Household.MvcExtensions
+
+@model Household.Data.Context.txx_Company
 
 @if (Model != null)
 {
-	@Model.ToString()
+	@Html.PreviewActionLink("Company")
 }
 else
 {

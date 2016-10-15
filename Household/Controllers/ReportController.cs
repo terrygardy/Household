@@ -2,7 +2,6 @@
 using Household.Models.Chart;
 using System.Web.Mvc;
 using WebHelpers;
-using System.Collections.Generic;
 
 namespace Household.Controllers
 {

@@ -15,7 +15,7 @@ namespace Household.Controllers
 		<t_Purchase, IPurchaseManagement, DateTime, string, CPurchaseData, CPurchasesModel, CSearchPurchase>
 	{
 		public PurchasesController(IPurchaseManagement management)
-			: base(management, "Purchase", "Purchases")
+			: base(management, "Purchase", "Purchases", "~/Views/MasterData/PurchasePreview.cshtml")
 		{ }
 
 		protected override string GetSearchTitle()

@@ -7,7 +7,7 @@ namespace Household.Controllers
 {
 	public class ShopController : CRUDController<txx_Shop, IShopManagement, string, string, CShopData>
 	{
-		public ShopController(IShopManagement management) : base(management) { }
+		public ShopController(IShopManagement management) : base(management, "~/Views/MasterData/ShopPreview.cshtml") { }
 
 		protected override long GetDataID(CShopData data)
 		{

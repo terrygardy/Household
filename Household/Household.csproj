@@ -377,6 +377,7 @@
     <None Include="Content\DisplayTable.less" />
     <Content Include="Content\DisplayTable.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\jquery-ui.min.css" />
     <Content Include="Content\pleaseWait.css" />
     <Content Include="Content\Styles.css" />
     <Content Include="Content\Styles.less" />
@@ -576,6 +577,7 @@
     <Content Include="Scripts\jquery-3.0.0.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-pleaseWait.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\MasterData\BankAccount.js">
@@ -671,6 +673,9 @@
     <Content Include="Views\Shared\TableCellTemplates\CDayData.cshtml" />
     <Content Include="Views\Shared\TableCellTemplates\CIntervalDay.cshtml" />
     <Content Include="Views\Shared\TableCellTemplates\txx_Interval.cshtml" />
+    <Content Include="Views\MasterData\ShopPreview.cshtml" />
+    <Content Include="Views\MasterData\CompanyPreview.cshtml" />
+    <Content Include="Views\MasterData\BankAccountPreview.cshtml" />
     <TypeScriptCompile Include="Scripts\Finance\Expense.ts" />
     <TypeScriptCompile Include="Scripts\Finance\Purchase.ts" />
     <TypeScriptCompile Include="Scripts\Finance\Report.ts" />
@@ -716,6 +721,7 @@
     <TypeScriptCompile Include="Scripts\typings\highcharts\highcharts.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\highcharts\highstock.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery.validation\jquery.validation.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jqueryui\jqueryui.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\knockout\knockout.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\knockout\tests\jasmine.extensions.d.ts" />

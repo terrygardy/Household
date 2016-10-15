@@ -13,9 +13,11 @@ namespace Household.Controllers.Base
 	{
 		protected readonly TBL Management;
 		protected string MasterDataViewUrl => "_MasterData";
+		private string _previewViewName;
 
-		protected CRUDController(TBL management) {
+		protected CRUDController(TBL management, string previewViewName) {
 			Management = management;
+			_previewViewName = previewViewName;
 		}
 
 		protected abstract long GetDataID(Tdata data);
@@ -52,6 +54,12 @@ namespace Household.Controllers.Base
 			}
 
 			return strMessage;
+		}
+
+		[HttpPost]
+		public PartialViewResult Preview(long id)
+		{
+			return PartialView(_previewViewName, Management.getDataByID(id));
 		}
 	}
 }

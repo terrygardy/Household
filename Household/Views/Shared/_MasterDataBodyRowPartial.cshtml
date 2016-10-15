@@ -1,7 +1,7 @@
 ﻿@model Household.Models.DisplayTable.CDisplayRow
 
 <tr id="@Model.OnClickParam"
-	@if (!string.IsNullOrEmpty(Model.OnClickAction)) { <text> class="clickable" onclick="Common.LoadSubContent('@Url.Action(Model.OnClickAction, Model.OnClickController, new { id = Model.OnClickParam })');Common.showSubContent();" </text>     }>
+	@if (!string.IsNullOrEmpty(Model.OnClickAction)) { <text> class="clickable" data-url="@Url.Action(Model.OnClickAction, Model.OnClickController, new { id = Model.OnClickParam })" </text>     }>
 	@foreach (var dcColumn in Model.Columns)
 	{
 		@Html.Partial("~/Views/Shared/_MasterDataBodyCellPartial.cshtml", dcColumn)

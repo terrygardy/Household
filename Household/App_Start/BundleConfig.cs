@@ -8,7 +8,8 @@ namespace Household
 		public static void RegisterBundles(BundleCollection bundles)
 		{
 			bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-						"~/Scripts/jquery-{version}.js"));
+						"~/Scripts/jquery-{version}.js",
+						"~/Scripts/jquery-ui.min.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
 						"~/Scripts/jquery.validate*",
@@ -87,9 +88,10 @@ namespace Household
 
 			bundles.Add(new StyleBundle("~/Content/css").Include(
 					  "~/Content/Bootstrap/bootstrap.css",
-					  "~/Content/*.css"));
+					  "~/Content/*.css",
+					  "~/Content/jquery-ui.min.css"));
 
-			BundleTable.EnableOptimizations = true;
+			BundleTable.EnableOptimizations = false;
 		}
 	}
 }

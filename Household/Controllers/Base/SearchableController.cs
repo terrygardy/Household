@@ -14,7 +14,7 @@ namespace Household.Controllers.Base
 		protected readonly string ActionName;
 		protected readonly string ControllerName;
 
-		public SearchableController(TBL management, string action, string controller) : base(management)
+		public SearchableController(TBL management, string action, string controller, string previewViewName) : base(management, previewViewName)
 		{
 			ActionName = action;
 			ControllerName = controller;

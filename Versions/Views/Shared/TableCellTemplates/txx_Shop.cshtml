@@ -1,8 +1,10 @@
-﻿@model Household.Data.Context.txx_Shop
+﻿@using Household.MvcExtensions
+
+@model Household.Data.Context.txx_Shop
 
 @if (Model != null)
 {
-	@Model.ToString()
+	@Html.PreviewActionLink("Shop")
 }
 else
 {

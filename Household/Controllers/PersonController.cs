@@ -8,7 +8,7 @@ namespace Household.Controllers
 	public class PersonController : CRUDController<t_Person, IPersonManagement, string, string, CPersonData>
 	{
 		public PersonController(IPersonManagement management)
-			: base(management)
+			: base(management, "~/Views/MasterData/PersonPreview.cshtml")
 		{ }
 
 		protected override long GetDataID(CPersonData data)

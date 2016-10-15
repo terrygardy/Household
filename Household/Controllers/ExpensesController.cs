@@ -12,7 +12,7 @@ namespace Household.Controllers
 	public class ExpensesController : CRUDController<t_Expense, IExpenseManagement, DateTime, string, CExpenseData>
 	{
 		public ExpensesController(IExpenseManagement management)
-			: base(management)
+			: base(management, "~/Views/MasterData/ExpensePreview.cshtml")
 		{ }
 
 		protected override long GetDataID(CExpenseData data)

@@ -1,4 +1,7 @@
-﻿module Common {
+﻿/// <reference path="../typings/jquery/jquery.d.ts" />
+/// <reference path="../typings/jqueryui/jqueryui.d.ts" />
+
+module Common {
 
 	interface ISearch {
 		URL: string,
@@ -32,6 +35,18 @@
 	export function GetContainerId(): string { return "divContent"; }
 	export function GetContainerSelector(): string { return "#" + GetContainerId(); }
 	export function GetSubContainerSelector(): string { return "#divSubContent"; }
+
+	export function ShowError(errorMessage: string) {
+		$("body").append("<div id=\"dialog-message\">" + errorMessage + "</div>");
+		$("#dialog-message").dialog({
+			modal: true,
+			buttons: {
+				Ok: function () {
+					$(this).dialog("close");
+				}
+			}
+		});
+	}
 
 	export function LoadContentWithSelector(pv_strURL: string, pv_strSelector: string, pv_objData: any): void {
 		LoadContentWithSelectorText(pv_strURL, pv_strSelector, pv_objData);
@@ -202,7 +217,7 @@
 			ToggleSearch();
 		}
 		catch (ex) {
-			alert('Error while searching: ' + ex);
+			ShowError(ex);
 		}
 
 		stopPleaseWait();
@@ -272,7 +287,7 @@
 		var strErrorMessage = "Please check your entry: \n '01.09.2015' or '1.9.15' or '1,9,2015'";
 
 		if (pv_arrDate.length != 3) {
-			alert(strErrorMessage);
+			ShowError(strErrorMessage);
 			return pv_strDateString;
 		} else {
 			var i: number;
@@ -292,7 +307,7 @@
 				pv_arrDate[0] = "0" + pv_arrDate[0];
 			} else {
 				if (Number(pv_arrDate[0]) > 31) {
-					alert(strErrorMessage);
+					ShowError(strErrorMessage);
 					return pv_strDateString;
 				}
 			}
@@ -302,7 +317,7 @@
 				pv_arrDate[1] = "0" + pv_arrDate[1];
 			} else {
 				if (Number(pv_arrDate[1]) > 12) {
-					alert(strErrorMessage);
+					ShowError(strErrorMessage);
 					return pv_strDateString;
 				}
 			}
@@ -322,12 +337,12 @@
 					if ((intYear >= 1753) && (intYear < 9999)) {
 						intYear = intYear;
 					} else {
-						alert(strErrorMessage);
+						ShowError(strErrorMessage);
 						return pv_strDateString;
 					}
 				}
 			} else {
-				alert(strErrorMessage);
+				ShowError(strErrorMessage);
 				return pv_strDateString;
 			}
 
@@ -464,3 +479,28 @@
 		}
 	}
 }
+
+$(function () {
+	$(document).on("click", "a.preview", function (e) {
+		e.stopPropagation();
+		e.preventDefault();
+		showPleaseWait();
+
+		$.ajax({
+			method: "POST",
+			url: this.href,
+			success: function (data) {
+				$("#previewDiv").remove();
+				$("body").append("<div id=\"previewDiv\" title=\"Preview\">" + data + "</div>");
+				$("#previewDiv").dialog();
+				stopPleaseWait();
+			},
+			error: function (error) {
+				Common.ShowError(error.responseText);
+				stopPleaseWait();
+			}
+		});
+
+		return false;
+	});
+});

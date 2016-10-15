@@ -8,7 +8,7 @@ namespace Household.Controllers
 	public class IntervalController : CRUDController<txx_Interval, IIntervalManagement, string, string, CIntervalData>
 	{
 		public IntervalController(IIntervalManagement management)
-			: base(management)
+			: base(management, "~/Views/MasterData/IntervalPreview.cshtml")
 		{ }
 
 		protected override long GetDataID(CIntervalData data)

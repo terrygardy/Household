@@ -1,8 +1,11 @@
-﻿@model Household.Data.Context.txx_BankAccount
+﻿@using Household.MvcExtensions
+@using Household.Data.Context
+
+@model txx_BankAccount
 
 @if (Model != null)
 {
-	@Model.ToString()
+	@Html.PreviewActionLink("BankAccount")
 }
 else
 {

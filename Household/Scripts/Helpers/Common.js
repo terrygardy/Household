@@ -1,3 +1,5 @@
+/// <reference path="../typings/jquery/jquery.d.ts" />
+/// <reference path="../typings/jqueryui/jqueryui.d.ts" />
 var Common;
 (function (Common) {
     var m_strCoverId = "divContentCover";
@@ -33,6 +35,18 @@ var Common;
     Common.GetContainerSelector = GetContainerSelector;
     function GetSubContainerSelector() { return "#divSubContent"; }
     Common.GetSubContainerSelector = GetSubContainerSelector;
+    function ShowError(errorMessage) {
+        $("body").append("<div id=\"dialog-message\">" + errorMessage + "</div>");
+        $("#dialog-message").dialog({
+            modal: true,
+            buttons: {
+                Ok: function () {
+                    $(this).dialog("close");
+                }
+            }
+        });
+    }
+    Common.ShowError = ShowError;
     function LoadContentWithSelector(pv_strURL, pv_strSelector, pv_objData) {
         LoadContentWithSelectorText(pv_strURL, pv_strSelector, pv_objData);
     }
@@ -177,7 +191,7 @@ var Common;
             ToggleSearch();
         }
         catch (ex) {
-            alert('Error while searching: ' + ex);
+            ShowError(ex);
         }
         stopPleaseWait();
     }
@@ -237,7 +251,7 @@ var Common;
     function ConvertDate(pv_arrDate, pv_strDateString, pv_dmMultiplier) {
         var strErrorMessage = "Please check your entry: \n '01.09.2015' or '1.9.15' or '1,9,2015'";
         if (pv_arrDate.length != 3) {
-            alert(strErrorMessage);
+            ShowError(strErrorMessage);
             return pv_strDateString;
         }
         else {
@@ -257,7 +271,7 @@ var Common;
             }
             else {
                 if (Number(pv_arrDate[0]) > 31) {
-                    alert(strErrorMessage);
+                    ShowError(strErrorMessage);
                     return pv_strDateString;
                 }
             }
@@ -267,7 +281,7 @@ var Common;
             }
             else {
                 if (Number(pv_arrDate[1]) > 12) {
-                    alert(strErrorMessage);
+                    ShowError(strErrorMessage);
                     return pv_strDateString;
                 }
             }
@@ -286,13 +300,13 @@ var Common;
                         intYear = intYear;
                     }
                     else {
-                        alert(strErrorMessage);
+                        ShowError(strErrorMessage);
                         return pv_strDateString;
                     }
                 }
             }
             else {
-                alert(strErrorMessage);
+                ShowError(strErrorMessage);
                 return pv_strDateString;
             }
             switch (pv_dmMultiplier.DMY) {
@@ -406,4 +420,26 @@ var Common;
         }
     }
 })(Common || (Common = {}));
+$(function () {
+    $(document).on("click", "a.preview", function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        showPleaseWait();
+        $.ajax({
+            method: "POST",
+            url: this.href,
+            success: function (data) {
+                $("#previewDiv").remove();
+                $("body").append("<div id=\"previewDiv\" title=\"Preview\">" + data + "</div>");
+                $("#previewDiv").dialog();
+                stopPleaseWait();
+            },
+            error: function (error) {
+                Common.ShowError(error.responseText);
+                stopPleaseWait();
+            }
+        });
+        return false;
+    });
+});
 //# sourceMappingURL=Common.js.map

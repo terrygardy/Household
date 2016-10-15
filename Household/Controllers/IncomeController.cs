@@ -9,7 +9,7 @@ namespace Household.Controllers
 	public class IncomeController : CRUDController<t_Income, IIncomeManagement, DateTime, string, CIncomeData>
 	{
 		public IncomeController(IIncomeManagement management)
-			: base(management)
+			: base(management, "~/Views/MasterData/IncomePreview.cshtml")
 		{ }
 
 		protected override long GetDataID(CIncomeData data)

@@ -7,7 +7,7 @@ namespace Household.Controllers
 {
 	public class BankAccountController : CRUDController<txx_BankAccount, IBankAccountManagement, string, string, CBankAccountData>
 	{
-		public BankAccountController(IBankAccountManagement management) : base(management) { }
+		public BankAccountController(IBankAccountManagement management) : base(management, "~/Views/MasterData/BankAccountPreview.cshtml") { }
 
 		protected override long GetDataID(CBankAccountData data)
 		{

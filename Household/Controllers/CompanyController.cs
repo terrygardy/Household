@@ -8,7 +8,7 @@ namespace Household.Controllers
 	public class CompanyController : CRUDController<txx_Company, ICompanyManagement, string, string, CCompanyData>
 	{
 		public CompanyController(ICompanyManagement management)
-			: base(management)
+			: base(management, "~/Views/MasterData/CompanyPreview.cshtml")
 		{ }
 
 		protected override long GetDataID(CCompanyData data)

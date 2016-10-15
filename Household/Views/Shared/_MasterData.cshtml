@@ -1,14 +1,11 @@
 ﻿@using Household.Localisation.Common;
 @using Household.Models.DisplayTable
-
 @model Household.Models.CMasterData
-
 @{
 	CDisplayTable m_dtTable = Model.DisplayTable;
 
 	if (m_dtTable == null) { m_dtTable = new CDisplayTable(); }
 }
-
 @if (Model != null)
 {
 	<ol class="breadcrumb" id="olBC_MasterData">
@@ -51,6 +48,14 @@
 			window.document.title = '@Model.Title';
 			MasterData.OnClickAdd = '@Url.Action(m_dtTable.AddAction, m_dtTable.AddController)';
 			MasterData.setupHideables();
+
+			$(document).on('click', 'tr', function () {
+				var url = $(this).attr('data-url');
+
+				if (url !== undefined && url !== null && url.length > 0) {
+					Common.LoadSubContent(url); Common.showSubContent();
+				}
+			});
 		});
 	</script>
 }
