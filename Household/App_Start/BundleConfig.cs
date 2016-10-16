@@ -91,7 +91,7 @@ namespace Household
 					  "~/Content/*.css",
 					  "~/Content/jquery-ui.min.css"));
 
-			BundleTable.EnableOptimizations = false;
+			BundleTable.EnableOptimizations = true;
 		}
 	}
 }

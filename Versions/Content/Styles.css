@@ -2960,6 +2960,18 @@ body {
   margin-right: -15px;
   position: fixed;
 }
+.c-gray-light {
+  color: #777777;
+}
+.f-weight-normal {
+  font-weight: normal;
+}
+.pos-absolute {
+  position: absolute;
+}
+.pos-fixed {
+  position: fixed;
+}
 .button-default {
   display: inline-block;
   margin-bottom: 0;
@@ -3089,7 +3101,26 @@ fieldset[disabled] .button-default.focus {
 .left {
   text-align: left;
 }
+.mL0 {
+  margin-left: 0;
+}
+.mL8 {
+  margin-left: 8px;
+}
+.mL30 {
+  margin-left: 30px;
+}
+.mR-auto {
+  margin-right: auto;
+}
+.m-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
 .mB10 {
+  margin-top: 10px;
+}
+.mT10 {
   margin-top: 10px;
 }
 .mT60 {
@@ -3098,8 +3129,35 @@ fieldset[disabled] .button-default.focus {
 .invisible {
   display: none;
 }
+.pT4 {
+  padding-top: 4px;
+}
+.p4 {
+  padding: 4px 4px 4px 4px;
+}
+.p8 {
+  padding: 8px 8px 8px 8px;
+}
+.w100 {
+  width: 100%;
+}
 .w90 {
   width: 90%;
+}
+.w99 {
+  width: 99%;
+}
+.w35p {
+  width: 35px;
+}
+.h35p {
+  height: 35px;
+}
+.h-min60 {
+  min-height: 60px;
+}
+.h100 {
+  height: 100%;
 }
 @media (min-width: 480px) {
   #divSubContent {
@@ -3815,11 +3873,6 @@ select.error {
 .contentContainer > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: #ddd;
 }
-/*.searchCol {
-	.col-xs-12;
-	.col-sm-6;
-	.col-lg-4;
-}*/
 input[type=button],
 button {
   display: inline-block;
@@ -3979,12 +4032,18 @@ button .badge {
 label {
   font-weight: normal;
 }
-.pT4 {
-  padding-top: 4px;
+.previewContent {
+  width: 99%;
+  margin-left: auto;
+  margin-right: auto;
 }
-.mL30 {
-  margin-left: 30px;
+.previewContent div {
+  text-align: center;
 }
-.w100 {
-  width: 100%;
+.previewContent label {
+  color: #777777;
+}
+.ui-dialog-titlebar-close {
+  background: url('../Images/ui-icons_444444_256x240.png');
+  background-position: -96px -128px;
 }
