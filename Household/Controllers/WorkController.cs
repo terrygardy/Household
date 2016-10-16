@@ -15,17 +15,12 @@ namespace Household.Controllers
 		<t_WorkDay, IWorkDayManagement, DateTime, TimeSpan, CWorkDayData, CWorkHoursModel, CSearchWorkDay>
 	{
 		public WorkController(IWorkDayManagement management)
-			: base(management, "WorkDay", "Work", "~/Views/MasterData/WorkDayPreview.cshtml")
+			: base(management, "WorkDay")
 		{ }
 
 		protected override string GetSearchTitle()
 		{
 			return WorkText.WorkHours;
-		}
-
-		protected override long GetDataID(CWorkDayData data)
-		{
-			return data.ID;
 		}
 
 		public ActionResult Work()

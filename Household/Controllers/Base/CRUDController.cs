@@ -8,20 +8,19 @@ namespace Household.Controllers.Base
 {
 	public abstract class CRUDController<TClass, TBL, Tob, Ttb, Tdata> : Controller
 		where TClass : class, new()
-		where Tdata : class, new()
+		where Tdata : class, IDataBase, new()
 		where TBL : IManagementBase<TClass, Tob, Ttb, Tdata>
 	{
 		protected readonly TBL Management;
 		protected string MasterDataViewUrl => "_MasterData";
-		private string _previewViewName;
+		protected string ControllerName;
 
-		protected CRUDController(TBL management, string previewViewName) {
+		protected CRUDController(TBL management) {
 			Management = management;
-			_previewViewName = previewViewName;
+			var typeName = this.GetType().Name;
+			ControllerName = typeName.Substring(0, typeName.IndexOf("Controller"));
 		}
-
-		protected abstract long GetDataID(Tdata data);
-
+		
 		[HttpPost]
 		public string Save([System.Web.Http.FromBody]Tdata Data)
 		{
@@ -36,7 +35,7 @@ namespace Household.Controllers.Base
 				strMessage = ex.Message;
 			}
 
-			return JSON.serialiseObject(new CReturn() { ID = GetDataID(Data), Message = strMessage });
+			return JSON.serialiseObject(new CReturn() { ID = Data.ID, Message = strMessage });
 		}
 
 		[HttpPost]
@@ -59,7 +58,7 @@ namespace Household.Controllers.Base
 		[HttpPost]
 		public PartialViewResult Preview(long id)
 		{
-			return PartialView(_previewViewName, Management.getDataByID(id));
+			return PartialView($"~/Views/Shared/Previews/_{ControllerName}PreviewPartial.cshtml", Management.getDataByID(id));
 		}
 	}
 }

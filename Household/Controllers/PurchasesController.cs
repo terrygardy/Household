@@ -15,17 +15,12 @@ namespace Household.Controllers
 		<t_Purchase, IPurchaseManagement, DateTime, string, CPurchaseData, CPurchasesModel, CSearchPurchase>
 	{
 		public PurchasesController(IPurchaseManagement management)
-			: base(management, "Purchase", "Purchases", "~/Views/MasterData/PurchasePreview.cshtml")
+			: base(management, "Purchase")
 		{ }
 
 		protected override string GetSearchTitle()
 		{
 			return PurchaseText.Purchases;
-		}
-
-		protected override long GetDataID(CPurchaseData data)
-		{
-			return data.ID;
 		}
 
 		[HttpPost]

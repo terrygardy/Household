@@ -480,6 +480,12 @@
     <Content Include="Images\star32.png" />
     <Content Include="Images\stop32.png" />
     <Content Include="Images\turnright32.png" />
+    <Content Include="Images\ui-icons_444444_256x240.png" />
+    <Content Include="Images\ui-icons_555555_256x240.png" />
+    <Content Include="Images\ui-icons_777620_256x240.png" />
+    <Content Include="Images\ui-icons_777777_256x240.png" />
+    <Content Include="Images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Images\ui-icons_ffffff_256x240.png" />
     <Content Include="Images\unlock32.png" />
     <Content Include="Images\upload32.png" />
     <Content Include="Images\user32.png" />
@@ -673,9 +679,9 @@
     <Content Include="Views\Shared\TableCellTemplates\CDayData.cshtml" />
     <Content Include="Views\Shared\TableCellTemplates\CIntervalDay.cshtml" />
     <Content Include="Views\Shared\TableCellTemplates\txx_Interval.cshtml" />
-    <Content Include="Views\MasterData\ShopPreview.cshtml" />
-    <Content Include="Views\MasterData\CompanyPreview.cshtml" />
-    <Content Include="Views\MasterData\BankAccountPreview.cshtml" />
+    <Content Include="Views\Shared\Previews\_ShopPreviewPartial.cshtml" />
+    <Content Include="Views\Shared\Previews\_CompanyPreviewPartial.cshtml" />
+    <Content Include="Views\Shared\Previews\_BankAccountPreviewPartial.cshtml" />
     <TypeScriptCompile Include="Scripts\Finance\Expense.ts" />
     <TypeScriptCompile Include="Scripts\Finance\Purchase.ts" />
     <TypeScriptCompile Include="Scripts\Finance\Report.ts" />

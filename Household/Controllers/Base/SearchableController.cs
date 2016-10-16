@@ -7,17 +7,15 @@ namespace Household.Controllers.Base
 {
 	public abstract class SearchableController<TClass, TBL, Tob, Ttb, Tdata, TSearch, TSearchModel> : CRUDController<TClass, TBL, Tob, Ttb, Tdata>
 		where TClass : class, new()
-		where Tdata : class, new()
+		where Tdata : class, IDataBase , new()
 		where TBL : IManagementBase<TClass, Tob, Ttb, Tdata>
 		where TSearch : ISearchModel<TClass, TSearchModel>, new()
 	{
 		protected readonly string ActionName;
-		protected readonly string ControllerName;
 
-		public SearchableController(TBL management, string action, string controller, string previewViewName) : base(management, previewViewName)
+		public SearchableController(TBL management, string action) : base(management)
 		{
 			ActionName = action;
-			ControllerName = controller;
 		}
 
 		protected abstract string GetSearchTitle();

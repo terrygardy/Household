@@ -12,13 +12,8 @@ namespace Household.Controllers
 	public class ExpensesController : CRUDController<t_Expense, IExpenseManagement, DateTime, string, CExpenseData>
 	{
 		public ExpensesController(IExpenseManagement management)
-			: base(management, "~/Views/MasterData/ExpensePreview.cshtml")
+			: base(management)
 		{ }
-
-		protected override long GetDataID(CExpenseData data)
-		{
-			return data.ID;
-		}
 
 		[HttpPost]
 		public PartialViewResult Expenses()
