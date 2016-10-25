@@ -1,20 +1,22 @@
 ﻿@using Household.Localisation.Common
 @using Household.Localisation.Main.Finance
 @using Household.Localisation.Main.MasterData
+@using Household.MvcExtensions
+@using Household.Controllers
 
 @{
-	ViewBag.Title = "Finance";
+	ViewBag.Title = FinanceText.Finance;
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div id="divContent" class="container">
 	<ol class="breadcrumb">
-		<li><a href="@Url.Action("Index", "Home")">@GeneralText.Home</a></li>
+		<li>@Html.ActionLinkHome(GeneralText.Home, nameof(HomeController.Index))</li>
 		<li>@FinanceText.Finance</li>
 	</ol>
 	<div class="row">
 		<div class="col-md-3">
-			<div class="panel-purchases panel-main-clickable" onclick="Common.LoadContent('@Url.Action("Purchases", "Finance")');">
+			<div class="panel-purchases panel-main-clickable" onclick="Common.LoadContent('@Url.ActionFinance(nameof(FinanceController.Purchases))');">
 				<div>
 					<h2>@PurchaseText.Purchases</h2>
 					<p>@PurchaseText.AddEditAndDeletePurchases</p>
@@ -22,7 +24,7 @@
 			</div>
 		</div>
 		<div class="col-md-3">
-			<div class="panel-expenses panel-main-clickable" onclick="Common.LoadContent('@Url.Action("Expenses", "Finance")');">
+			<div class="panel-expenses panel-main-clickable" onclick="Common.LoadContent('@Url.ActionFinance(nameof(FinanceController.Expenses))');">
 				<div>
 					<h2>@ExpenseText.Expenses</h2>
 					<p>@ExpenseText.ManageYourMonthlyBills</p>
@@ -30,7 +32,7 @@
 			</div>
 		</div>
 		<div class="col-md-3">
-			<div class="panel-reports panel-main-clickable" onclick="Common.LoadContent('@Url.Action("Reports", "Finance")');">
+			<div class="panel-reports panel-main-clickable" onclick="Common.LoadContent('@Url.ActionFinance(nameof(FinanceController.Reports))');">
 				<div>
 					<h2>@ReportText.Reports</h2>
 					<p>@ReportText.CreateReportsOfYourFinancialState</p>
@@ -38,7 +40,7 @@
 			</div>
 		</div>
 		<div class="col-md-3">
-			<div class="panel-masterData panel-main-clickable" onclick="document.location='@Url.Action("MasterData", "Finance")';">
+			<div class="panel-masterData panel-main-clickable" onclick="document.location='@Url.ActionFinance(nameof(FinanceController.MasterData))';">
 				<div>
 					<h2>@MasterDataText.MasterData</h2>
 					<p>@MasterDataText.PeopleBankAccountsCompaniesShopsAndSoOn</p>

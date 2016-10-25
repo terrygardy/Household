@@ -1,14 +1,16 @@
 ﻿@using Household.Localisation.Common;
 @using Household.Localisation.Main.Work;
 @using GARTE.TypeHandling
+@using Household.MvcExtensions
+@using Household.Controllers
 
 @model Household.Models.Work.CWorkHoursModel
 
 <div class="row">
 	<div class="fLeft">
 		<ol class="breadcrumb">
-			<li><a href="@Url.Action("Index", "Home")">Home</a></li>
-			<li><a href="@Url.Action("Work", "Work")">Work</a></li>
+			<li>@Html.ActionLinkHome(GeneralText.Home, nameof(HomeController.Index))</li>
+			<li>@Html.ActionLinkWork(WorkText.Work, nameof(WorkController.Work))</li>
 			<li>@WorkText.WorkHours</li>
 		</ol>
 	</div>
@@ -53,7 +55,7 @@
 
 <script type="text/javascript">
 	$(function () {
-		Common.ActivateSearch('@Url.Action("Search", "Work")', '#divWorkHours', function () {
+		Common.ActivateSearch('@Url.ActionWork(nameof(WorkController.Search))', '#divWorkHours', function () {
 			return {
 				WorkDayFrom: $('#tbxSearchWorkDayFrom').val(),
 				WorkDayTo: $('#tbxSearchWorkDayTo').val(),

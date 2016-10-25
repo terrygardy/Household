@@ -1,18 +1,20 @@
 ﻿@using Household.Localisation.Main.Finance
 @using Household.Localisation.Common
+@using Household.MvcExtensions
+@using Household.Controllers
 
 <div class="row">
 	<div class="fLeft">
 		<ol class="breadcrumb">
-			<li><a href="@Url.Action("Index", "Home")">@GeneralText.Home</a></li>
-			<li><a href="@Url.Action("Finance", "Finance")">@FinanceText.Finance</a></li>
+			<li>@Html.ActionLinkHome(GeneralText.Home, nameof(HomeController.Index))</li>
+			<li>@Html.ActionLinkFinance(FinanceText.Finance, nameof(FinanceController.Finance))</li>
 			<li>@ExpenseText.Expenses</li>
 		</ol>
 	</div>
 	<div class="fRight">
 		<ul class="pagination">
-			<li><button class="button-default" onclick="Common.LoadContent('@Url.Action("Purchases", "Finance")');">@PurchaseText.Purchases</button></li>
-			<li><button class="button-default" onclick="Common.LoadContent('@Url.Action("Reports", "Finance")');">@ReportText.Reports</button></li>
+			<li><button class="button-default" onclick="Common.LoadContent('@Url.ActionFinance(nameof(FinanceController.Purchases))');">@PurchaseText.Purchases</button></li>
+			<li><button class="button-default" onclick="Common.LoadContent('@Url.ActionFinance(nameof(FinanceController.Reports))');">@ReportText.Reports</button></li>
 		</ul>
 	</div>
 	<div class="fClear"></div>
@@ -25,5 +27,5 @@
 </div>
 
 <script type="text/javascript">
-	Common.LoadContentWithSelector('@Url.Action("Expenses", "Expenses")', '#divExpenses');
+	Common.LoadContentWithSelector('@Url.ActionExpenses(nameof(FinanceController.Expenses))', '#divExpenses');
 </script>

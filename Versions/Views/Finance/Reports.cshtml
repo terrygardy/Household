@@ -1,20 +1,22 @@
 ﻿@using Household.Localisation.Common;
 @using Household.Localisation.Main.MasterData;
 @using Household.Localisation.Main.Finance;
+@using Household.MvcExtensions
+@using Household.Controllers
 
 @model Household.Models.Finance.CReportsModel
 <div class="row">
 	<div class="fLeft">
 		<ol class="breadcrumb">
-			<li><a href="@Url.Action("Index", "Home")">Home</a></li>
-			<li><a href="@Url.Action("Finance", "Finance")">Finance</a></li>
+			<li>@Html.ActionLinkHome(GeneralText.Home, nameof(HomeController.Index))</li>
+			<li>@Html.ActionLinkFinance(FinanceText.Finance, nameof(FinanceController.Finance))</li>
 			<li>@ReportText.Reports</li>
 		</ol>
 	</div>
 	<div class="fRight">
 		<ul class="pagination">
-			<li><button class="button-default" onclick="Common.LoadContent('@Url.Action("Purchases", "Finance")');">@PurchaseText.Purchases</button></li>
-			<li><button class="button-default" onclick="Common.LoadContent('@Url.Action("Expenses", "Finance")');">@ExpenseText.Expenses</button></li>
+			<li><button class="button-default" onclick="Common.LoadContent('@Url.ActionFinance(nameof(FinanceController.Purchases))');">@PurchaseText.Purchases</button></li>
+			<li><button class="button-default" onclick="Common.LoadContent('@Url.ActionFinance(nameof(FinanceController.Expenses))');">@ExpenseText.Expenses</button></li>
 		</ul>
 	</div>
 	<div class="fClear"></div>
@@ -74,10 +76,10 @@
 	})();
 
 	function buildChartShop() {
-		Report.RunCompareShop('divReportShop', '@Url.Action("CompareShopInfo", "Report")', [$('#cboShopA').val(), $('#cboShopB').val()], $('#cboYearB').val());
+		Report.RunCompareShop('divReportShop', '@Url.ActionReport(nameof(ReportController.CompareShopInfo))', [$('#cboShopA').val(), $('#cboShopB').val()], $('#cboYearB').val());
 	}
 
 	function buildChartYear() {
-		Report.RunCompareYear('divReportYear', '@Url.Action("CompareYearInfo", "Report")', [$('#cboYearC').val(), $('#cboYearD').val()]);
+		Report.RunCompareYear('divReportYear', '@Url.ActionReport(nameof(ReportController.CompareYearInfo))', [$('#cboYearC').val(), $('#cboYearD').val()]);
 	}
 </script>

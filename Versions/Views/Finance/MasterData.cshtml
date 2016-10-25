@@ -1,21 +1,23 @@
 ﻿@using Household.Localisation.Common
 @using Household.Localisation.Main.MasterData
 @using Household.Localisation.Main.Finance
+@using Household.MvcExtensions
+@using Household.Controllers
 
 @{
-	ViewBag.Title = "Master Data";
+	ViewBag.Title = MasterDataText.MasterData;
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div id="divContent" class="container">
 	<ol class="breadcrumb">
-		<li><a href="@Url.Action("Index", "Home")">@GeneralText.Home</a></li>
-		<li><a href="@Url.Action("Finance", "Finance")">@FinanceText.Finance</a></li>
+		<li>@Html.ActionLinkHome(GeneralText.Home, nameof(HomeController.Index))</li>
+		<li>@Html.ActionLinkFinance(FinanceText.Finance, nameof(FinanceController.Finance))</li>
 		<li>@MasterDataText.MasterData</li>
 	</ol>
 	<div class="row">
 		<div class="col-md-4">
-			<div class="panel-main-clickable panel-people" onclick="Common.LoadContent('@Url.Action("People", "MasterData")');">
+			<div class="panel-main-clickable panel-people" onclick="Common.LoadContent('@Url.ActionMasterData(nameof(MasterDataController.People))');">
 				<div>
 					<h2>@PersonText.People</h2>
 					<p>@PersonText.AddEditAndDeletePeople</p>
@@ -23,7 +25,7 @@
 			</div>
 		</div>
 		<div class="col-md-4">
-			<div class="panel-main-clickable panel-bankAccounts" onclick="Common.LoadContent('@Url.Action("BankAccounts", "MasterData")');">
+			<div class="panel-main-clickable panel-bankAccounts" onclick="Common.LoadContent('@Url.ActionMasterData(nameof(MasterDataController.BankAccounts))');">
 				<div>
 					<h2>@BankAccountText.BankAccounts</h2>
 					<p>@BankAccountText.ManageYourBankAccounts</p>
@@ -31,7 +33,7 @@
 			</div>
 		</div>
 		<div class="col-md-4">
-			<div class="panel-main-clickable panel-companies" onclick="Common.LoadContent('@Url.Action("Companies", "MasterData")');">
+			<div class="panel-main-clickable panel-companies" onclick="Common.LoadContent('@Url.ActionMasterData(nameof(MasterDataController.Companies))');">
 				<div>
 					<h2>@CompanyText.Companies</h2>
 					<p>@CompanyText.InputYourCompaniesForIncome</p>
@@ -41,7 +43,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-4">
-			<div class="panel-main-clickable panel-shops" onclick="Common.LoadContent('@Url.Action("Shops", "MasterData")');">
+			<div class="panel-main-clickable panel-shops" onclick="Common.LoadContent('@Url.ActionMasterData(nameof(MasterDataController.Shops))');">
 				<div>
 					<h2>@ShopText.Shops</h2>
 					<p>@ShopText.EnterShopsForYourPurchases</p>
@@ -49,7 +51,7 @@
 			</div>
 		</div>
 		<div class="col-md-4">
-			<div class="panel-main-clickable panel-days" onclick="Common.LoadContent('@Url.Action("Days", "MasterData")');">
+			<div class="panel-main-clickable panel-days" onclick="Common.LoadContent('@Url.ActionMasterData(nameof(MasterDataController.Days))');">
 				<div>
 					<h2>@DayText.Days</h2>
 					<p>@DayText.ManageYourPaymentDays</p>
@@ -57,7 +59,7 @@
 			</div>
 		</div>
 		<div class="col-md-4">
-			<div class="panel-main-clickable panel-intervals" onclick="Common.LoadContent('@Url.Action("Intervals", "MasterData")');">
+			<div class="panel-main-clickable panel-intervals" onclick="Common.LoadContent('@Url.ActionMasterData(nameof(MasterDataController.Intervals))');">
 				<div>
 					<h2>@IntervalText.Intervals</h2>
 					<p>@IntervalText.EditTheIntervalsForPayments</p>
@@ -65,7 +67,7 @@
 			</div>
 		</div>
 		<div class="col-md-4">
-			<div class="panel-main-clickable panel-incomes" onclick="Common.LoadContent('@Url.Action("Incomes", "MasterData")');">
+			<div class="panel-main-clickable panel-incomes" onclick="Common.LoadContent('@Url.ActionMasterData(nameof(MasterDataController.Incomes))');">
 				<div>
 					<h2>@IncomeText.Income</h2>
 					<p>@IncomeText.ManageYourIncomeForPaymentReports</p>

@@ -1,5 +1,7 @@
 ﻿@using Household.Localisation.Main
 @using Household.Localisation.Common
+@using Household.MvcExtensions
+@using Household.Controllers
 
 @{
     ViewBag.Title = "Server Manager";
@@ -7,6 +9,6 @@
 }
 
 <ol class="breadcrumb">
-	<li><a href="@Url.Action("Index", "Home")">@GeneralText.Home</a></li>
+	<li>@Html.ActionLinkHome(GeneralText.Home, nameof(HomeController.Index))</li>
 	<li>@ServerManagerText.ServerManager</li>
 </ol>
