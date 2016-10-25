@@ -1,4 +1,7 @@
 ﻿@using Household.Localisation.Main.Work;
+@using Household.MvcExtensions
+@using Household.Localisation.Common
+@using Household.Controllers
 
 @{
 	ViewBag.Title = "Work";
@@ -6,12 +9,12 @@
 }
 <div id="divContent" class="container">
 	<ol class="breadcrumb">
-		<li><a href="@Url.Action("Index", "Home")">Home</a></li>
+		<li>@Html.ActionLinkHome(GeneralText.Home, nameof(HomeController.Index))</li>
 		<li>@WorkText.Work</li>
 	</ol>
 	<div class="row">
 		<div>
-			<div class="panel-main-clickable panel-workHours" onclick="Common.LoadContent('@Url.Action("WorkHours", "Work")');">
+			<div class="panel-main-clickable panel-workHours" onclick="Common.LoadContent('@Url.ActionWork(nameof(WorkController.WorkHours))');">
 				<div>
 					<h2>@WorkText.WorkHours</h2>
 					<p>@WorkText.ManageYourWorkingHours</p>

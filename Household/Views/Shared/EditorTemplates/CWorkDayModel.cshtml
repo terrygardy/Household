@@ -6,7 +6,7 @@
 @using GARTE.TypeHandling;
 
 @{
-	var m_strBaseAction = Url.Action("", "Work");
+	var m_strBaseAction = Url.ActionWork("");
 	var m_workDay = Base.convertShortDateString(Model.WorkDay.WorkDay);
 	var m_begin = Base.convertShortTimeString(Model.WorkDay.Begin);
 	var m_end = Base.convertShortTimeString(Model.WorkDay.End);

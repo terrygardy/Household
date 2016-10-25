@@ -1,10 +1,11 @@
 ﻿@using Household.Localisation.Common
 @using Household.Localisation.Main.MasterData
+@using Household.MvcExtensions
 
 @model Household.BL.DATA.t.CPersonData
 
 @{
-	string m_strBaseAction = Url.Action("", "Person");
+	string m_strBaseAction = Url.ActionPerson("");
 }
 
 <div class="row">
