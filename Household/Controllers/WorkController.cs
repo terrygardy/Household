@@ -54,7 +54,7 @@ namespace Household.Controllers
 				if (model.WorkDay.BreakDuration == 0) model.WorkDay.BreakDuration = 1;
 			}
 
-			return PartialView(model);
+			return PartialView("DatabaseEntry", model);
 		}
 
 		[HttpPost]

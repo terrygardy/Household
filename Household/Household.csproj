@@ -613,12 +613,7 @@
     <Content Include="Views\Finance\MasterData.cshtml" />
     <Content Include="Views\Shared\_MasterData.cshtml" />
     <Content Include="Views\Shared\_LayoutNoM.cshtml" />
-    <Content Include="Views\MasterData\BankAccount.cshtml" />
-    <Content Include="Views\MasterData\Company.cshtml" />
     <Content Include="Views\MasterData\Day.cshtml" />
-    <Content Include="Views\MasterData\Interval.cshtml" />
-    <Content Include="Views\MasterData\Shop.cshtml" />
-    <Content Include="Views\MasterData\Person.cshtml" />
     <Content Include="Scripts\MasterData\Shop.js.map" />
     <Content Include="Scripts\MasterData\Person.js.map" />
     <Content Include="Scripts\MasterData\MasterData.js.map" />
@@ -626,14 +621,10 @@
     <Content Include="Scripts\MasterData\Day.js.map" />
     <Content Include="Scripts\MasterData\Company.js.map" />
     <Content Include="Scripts\MasterData\BankAccount.js.map" />
-    <Content Include="Views\MasterData\Income.cshtml" />
     <Content Include="Scripts\validation.js.map" />
     <Content Include="Scripts\MasterData\Income.js.map" />
-    <Content Include="Views\Purchases\Purchase.cshtml" />
-    <Content Include="Views\Expenses\Expense.cshtml" />
     <Content Include="Views\Work\Work.cshtml" />
     <Content Include="Views\Work\WorkHours.cshtml" />
-    <Content Include="Views\Work\WorkDay.cshtml" />
     <Content Include="Scripts\Work\WorkHours.js.map" />
     <Content Include="Views\Shared\EditorTemplates\CPurchaseModel.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\SelectOptions.cshtml" />
@@ -644,8 +635,8 @@
     <Content Include="Views\Shared\EditorTemplates\CIncomeModel.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\CIntervalData.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\CPersonData.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\StandardRecordButtons.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\ErrorContainer.cshtml" />
+    <Content Include="Views\Shared\StandardRecordButtons.cshtml" />
+    <Content Include="Views\Shared\ErrorContainer.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\CExpenseModel.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\CWorkDayModel.cshtml" />
     <Content Include="Views\Shared\_BreadCrumbsPartial.cshtml" />
@@ -685,6 +676,8 @@
     <Content Include="Views\Shared\Previews\_ShopPreviewPartial.cshtml" />
     <Content Include="Views\Shared\Previews\_CompanyPreviewPartial.cshtml" />
     <Content Include="Views\Shared\Previews\_BankAccountPreviewPartial.cshtml" />
+    <Content Include="Views\Shared\UpdateDeleteButton.cshtml" />
+    <Content Include="Views\Shared\DatabaseEntry.cshtml" />
     <TypeScriptCompile Include="Scripts\Finance\Expense.ts" />
     <TypeScriptCompile Include="Scripts\Finance\Purchase.ts" />
     <TypeScriptCompile Include="Scripts\Finance\Report.ts" />
@@ -740,6 +733,8 @@
   <ItemGroup>
     <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Expenses\" />
+    <Folder Include="Views\Purchases\" />
     <Folder Include="Views\Report\" />
   </ItemGroup>
   <ItemGroup>

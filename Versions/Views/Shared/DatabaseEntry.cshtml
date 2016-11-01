@@ -1,0 +1,21 @@
+﻿@using Household.MvcExtensions
+@using Household.Data.Models.Base
+
+@{
+	var currentEntry = ViewData.Model as IDataBase;
+}
+
+@if (currentEntry != null)
+{
+	<div class="row">
+		<div class="col-xs-12">
+			<h3>@currentEntry.EntityTitle</h3>
+		</div>
+		@Html.DisplayStandardRecordButtons(currentEntry.EntityName)
+		@Html.DisplayErrorContainer()
+	</div>
+	<form class="row">
+		@Html.EditorForModel()
+	</form>
+	@Html.UpdateDeleteButtonJs(currentEntry.ID)
+}

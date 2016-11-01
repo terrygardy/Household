@@ -119,6 +119,7 @@ var MasterData;
                     var target = $(m_strTableSelector + " tbody");
                     if (target.length < 1) {
                         $("<tbody></tbody>").insertAfter($(m_strTableSelector + " thead"));
+                        target = $(m_strTableSelector + " tbody");
                     }
                     target.append(data);
                 }

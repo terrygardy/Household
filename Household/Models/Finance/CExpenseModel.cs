@@ -2,6 +2,7 @@
 using Household.BL.Functions.t;
 using Household.BL.Functions.txx;
 using Household.Data.Context;
+using Household.Data.Models.Base;
 using Household.Localisation.Main.Finance;
 using Household.Localisation.Main.MasterData;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Household.Models.Finance
 {
-	public class CExpenseModel
+	public class CExpenseModel : IDataBase
 	{
 		[Display(Name = "BankAccount", ResourceType = typeof(BankAccountText))]
 		public List<txx_BankAccount> BankAccounts { get; set; }
@@ -21,6 +22,12 @@ namespace Household.Models.Finance
 		public List<txx_Day> Days { get; set; }
 		[Display(Name = "Expense", ResourceType = typeof(ExpenseText))]
 		public CExpenseData Expense { get; set; }
+
+		public long ID => Expense.ID;
+
+		public string EntityName => Expense.EntityName;
+
+		public string EntityTitle => Expense.EntityTitle;
 
 		public CExpenseModel(long pv_lngID)
 		{

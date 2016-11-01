@@ -1,4 +1,5 @@
-﻿using Household.BL.DATA.t;
+﻿using Household.BL.DATA.Base;
+using Household.BL.DATA.t;
 using Household.BL.Functions.t;
 using Household.BL.Functions.txx;
 using Household.Data.Context;
@@ -9,7 +10,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Household.Models.Finance
 {
-	public class CPurchaseModel
+	public class CPurchaseModel : IDataBase
 	{
 		[Display(Name = "BankAccount", ResourceType = typeof(BankAccountText))]
 		public List<txx_BankAccount> BankAccounts { get; set; }
@@ -17,6 +18,12 @@ namespace Household.Models.Finance
 		public List<txx_Shop> Shops { get; set; }
 		[Display(Name = "Purchase", ResourceType = typeof(PurchaseText))]
 		public CPurchaseData Purchase { get; set; }
+
+		public long ID => Purchase.ID;
+
+		public string EntityName => Purchase.EntityName;
+
+		public string EntityTitle => Purchase.EntityTitle;
 
 		public CPurchaseModel(long pv_lngID)
 		{

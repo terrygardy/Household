@@ -7,12 +7,12 @@ namespace Household.MvcExtensions
 	{
 		public static MvcHtmlString DisplayStandardRecordButtons<TModel>(this HtmlHelper<TModel> html, string objectName)
 		{
-			return html.Partial("~/Views/Shared/DisplayTemplates/StandardRecordButtons.cshtml", objectName);
+			return html.Partial("~/Views/Shared/StandardRecordButtons.cshtml", objectName);
 		}
 
 		public static MvcHtmlString DisplayErrorContainer<TModel>(this HtmlHelper<TModel> html)
 		{
-			return html.Partial("~/Views/Shared/DisplayTemplates/ErrorContainer.cshtml");
+			return html.Partial("~/Views/Shared/ErrorContainer.cshtml");
 		}
 
 		public static MvcHtmlString DisplayTableCell<TModel>(this HtmlHelper<TModel> html, object model)
@@ -56,6 +56,11 @@ namespace Household.MvcExtensions
 			where TModel : Data.Models.Base.IDataBase
 		{
 			return PreviewActionLink(html, ControllerNames.BankAccount);
+		}
+
+		public static MvcHtmlString UpdateDeleteButtonJs<TModel>(this HtmlHelper<TModel> html, long entityId)
+		{
+			return html.Partial("~/Views/Shared/UpdateDeleteButton.cshtml", entityId);
 		}
 
 		#region Actions

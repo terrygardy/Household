@@ -1,5 +1,6 @@
 ﻿@using Household.Localisation.Common
 @using Household.Localisation.Main.MasterData
+@using Household.MvcExtensions
 
 @model Household.BL.DATA.txx.CDayData
 
@@ -13,9 +14,7 @@
 		<input type="button" class="button-default" id="btnDelete" value="@GeneralText.Delete" onclick="Day.Delete();" />
 		<input type="button" class="button-default" id="btnClose" value="@GeneralText.Close" onclick="Common.hideSubContent();" />
 	</div>
-	<div class="col-xs-12">
-		<ul class="" id="ulError"></ul>
-	</div>
+	@Html.DisplayErrorContainer()
 </div>
 
 <div id="divMultiple" class="row invisible">
@@ -33,8 +32,4 @@
 	@Html.EditorForModel()
 </form>
 
-<script type="text/javascript">
-	(function () {
-		if(@Model.ID < 1){$('#btnDelete').remove();}
-	})();
-</script>
+@Html.UpdateDeleteButtonJs(Model.ID)

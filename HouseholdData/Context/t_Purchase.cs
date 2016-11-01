@@ -37,6 +37,9 @@ namespace Household.Data.Context
 		[ForeignKey("Payer_ID")]
 		public virtual txx_BankAccount txx_BankAccount { get; set; }
 
+		public override string EntityName => "Purchase";
+		public string EntityTitle => PurchaseText.Purchase;
+
 		public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
 		{
 			var list = new List<ValidationResult>();

@@ -32,6 +32,9 @@ namespace Household.Data.Context
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 		public virtual ICollection<tbr_BankAccountPerson> tbr_BankAccountPerson { get; set; }
 
+		public override string EntityName => "Person";
+		public string EntityTitle => PersonText.Person;
+
 		public override string ToString()
 		{
 			return GARTE.TypeHandling.Strings.concatStrings(Surname, Forename, ", ");

@@ -32,6 +32,9 @@ namespace Household.Data.Context
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 		public virtual ICollection<t_Income> t_Income { get; set; }
 
+		public override string EntityName => "Interval";
+		public string EntityTitle => IntervalText.Interval;
+
 		public override string ToString()
 		{
 			return GARTE.TypeHandling.Base.convertString(Name);

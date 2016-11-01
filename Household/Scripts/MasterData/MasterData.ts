@@ -148,7 +148,10 @@ module MasterData {
 				else {
 					var target = $(m_strTableSelector + " tbody");
 
-					if (target.length < 1) { $("<tbody></tbody>").insertAfter($(m_strTableSelector + " thead")); }
+					if (target.length < 1) {
+						$("<tbody></tbody>").insertAfter($(m_strTableSelector + " thead"));
+						target = $(m_strTableSelector + " tbody");
+					}
 
 					target.append(data);
 				}
@@ -228,7 +231,7 @@ module MasterData {
 				if (replaceFooter === true) {
 					MasterData.replaceTableFooter(pv_objOptions.BaseAction);
 				}
-				
+
 				Common.hideSubContent();
 			}
 		}

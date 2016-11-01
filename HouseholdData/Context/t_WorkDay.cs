@@ -43,6 +43,10 @@ namespace Household.Data.Context
 				return decResult - BreakDuration;
 			}
 		}
+
+		public override string EntityName => "WorkDay";
+		public string EntityTitle => WorkText.WorkDay;
+
 		#endregion
 
 		public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)

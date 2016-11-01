@@ -5,10 +5,11 @@ using Household.BL.Functions.txx;
 using Household.Data.Context;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Household.BL.DATA.Base;
 
 namespace Household.Models.MasterData
 {
-	public class CIncomeModel
+	public class CIncomeModel : IDataBase
 	{
 		[Display(Name = "BankAccount", ResourceType = typeof(BankAccountText))]
 		public List<txx_BankAccount> BankAccounts { get; set; }
@@ -20,7 +21,12 @@ namespace Household.Models.MasterData
 		public List<txx_Interval> Intervals { get; set; }
 		[Display(Name = "Income", ResourceType = typeof(IncomeText))]
 		public CIncomeData Income { get; set; }
-		public string Name { get { return IncomeText.Income; } }
+
+		public long ID => Income.ID;
+
+		public string EntityName => Income.EntityName;
+
+		public string EntityTitle => Income.EntityTitle;
 
 		public CIncomeModel(long pv_lngID)
 		{

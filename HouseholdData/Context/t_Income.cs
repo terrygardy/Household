@@ -53,6 +53,9 @@ namespace Household.Data.Context
 		[ForeignKey("Day_ID")]
 		public virtual txx_Day txx_Day { get; set; }
 
+		public override string EntityName => "Income";
+		public string EntityTitle => IncomeText.Income;
+
 		public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
 		{
 			var list = new List<ValidationResult>();

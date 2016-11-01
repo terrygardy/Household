@@ -39,7 +39,7 @@ namespace Household.Controllers
 				if (model.Purchase.Occurrence <= new DateTime(1753, 1, 1)) model.Purchase.Occurrence = DateTime.Today;
 			}
 
-			return PartialView(model);
+			return PartialView("DatabaseEntry", model);
 		}
 
 		[HttpPost]

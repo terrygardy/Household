@@ -54,6 +54,9 @@ namespace Household.Data.Context
 		public virtual txx_Interval txx_Interval { get; set; }
 		#endregion
 
+		public override string EntityName => "Expense";
+		public string EntityTitle => ExpenseText.Expense;
+
 		public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
 		{
 			var list = new List<ValidationResult>();

@@ -25,6 +25,9 @@ namespace Household.Data.Context
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 		public virtual ICollection<t_Expense> t_Expense { get; set; }
 
+		public override string EntityName => "Day";
+		public string EntityTitle => DayText.Day;
+
 		public override string ToString()
 		{
 			string strDay = Day.ToString();

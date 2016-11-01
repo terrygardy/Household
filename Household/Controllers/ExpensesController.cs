@@ -24,7 +24,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult Expense(long id)
 		{
-			return PartialView(new CExpenseModel(id));
+			return PartialView("DatabaseEntry", new CExpenseModel(id));
 		}
 	}
 }

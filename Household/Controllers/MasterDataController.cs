@@ -53,7 +53,7 @@ namespace Household.Controllers
 
 			if (objPerson == null) objPerson = new CPersonData();
 
-			return PartialView("Person", objPerson);
+			return PartialView("DatabaseEntry", objPerson);
 		}
 
 		[HttpPost]
@@ -99,7 +99,7 @@ namespace Household.Controllers
 
 			if (objBankAccount == null) objBankAccount = new CBankAccountData();
 
-			return PartialView("BankAccount", objBankAccount);
+			return PartialView("DatabaseEntry", objBankAccount);
 		}
 
 		[HttpPost]
@@ -145,7 +145,7 @@ namespace Household.Controllers
 
 			if (objCompany == null) objCompany = new CCompanyData();
 
-			return PartialView("Company", objCompany);
+			return PartialView("DatabaseEntry", objCompany);
 		}
 
 		[HttpPost]
@@ -237,7 +237,7 @@ namespace Household.Controllers
 
 			if (objInterval == null) objInterval = new CIntervalData();
 
-			return PartialView("Interval", objInterval);
+			return PartialView("DatabaseEntry", objInterval);
 		}
 
 		[HttpPost]
@@ -283,7 +283,7 @@ namespace Household.Controllers
 
 			if (objShop == null) objShop = new CShopData();
 
-			return PartialView("Shop", objShop);
+			return PartialView("DatabaseEntry", objShop);
 		}
 
 		[HttpPost]
@@ -325,7 +325,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult Income(long id)
 		{
-			return PartialView("Income", new CIncomeModel(id));
+			return PartialView("DatabaseEntry", new CIncomeModel(id));
 		}
 	}
 }
