@@ -2,12 +2,13 @@ using Household.Localisation.Main.MasterData;
 
 namespace Household.Data.Context
 {
+	using Audit;
 	using Models.Base;
 	using System.Collections.Generic;
 	using System.ComponentModel.DataAnnotations;
 	using System.Linq;
 
-	public partial class txx_Day : IValidatableObject, IDataBase
+	public partial class txx_Day : DataAuditBase, IValidatableObject, IDataBase
 	{
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
 		public txx_Day()

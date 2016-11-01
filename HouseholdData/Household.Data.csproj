@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\DbTools.cs" />
+    <Compile Include="Context\Audit\DataAuditBase.cs" />
     <Compile Include="Context\Database.cs" />
     <Compile Include="Context\DataModel.cs" />
     <Compile Include="Context\tbr_BankAccountPerson.cs" />
@@ -86,6 +87,10 @@
     <Compile Include="Migrations\201608121905384_AddWorkDay.cs" />
     <Compile Include="Migrations\201608121905384_AddWorkDay.Designer.cs">
       <DependentUpon>201608121905384_AddWorkDay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611011830078_DataAudit.cs" />
+    <Compile Include="Migrations\201611011830078_DataAudit.Designer.cs">
+      <DependentUpon>201611011830078_DataAudit.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Base\CModelBase.cs" />
@@ -137,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608121905384_AddWorkDay.resx">
       <DependentUpon>201608121905384_AddWorkDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611011830078_DataAudit.resx">
+      <DependentUpon>201611011830078_DataAudit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

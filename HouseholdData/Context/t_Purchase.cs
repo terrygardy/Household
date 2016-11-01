@@ -2,6 +2,7 @@ using Household.Localisation.Main.Finance;
 
 namespace Household.Data.Context
 {
+	using Audit;
 	using Common;
 	using Models.Base;
 	using System;
@@ -10,7 +11,7 @@ namespace Household.Data.Context
 	using System.ComponentModel.DataAnnotations.Schema;
 	using Text.Error;
 
-	public partial class t_Purchase : IValidatableObject, IDataBase
+	public partial class t_Purchase : DataAuditBase, IValidatableObject, IDataBase
 	{
 		[Key]
 		public long ID { get; set; }

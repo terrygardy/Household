@@ -2,6 +2,7 @@ using Household.Localisation.Main.Work;
 
 namespace Household.Data.Context
 {
+	using Audit;
 	using Common;
 	using Models.Base;
 	using System;
@@ -9,7 +10,7 @@ namespace Household.Data.Context
 	using System.ComponentModel.DataAnnotations;
 	using System.Linq;
 
-	public partial class t_WorkDay : IValidatableObject, IDataBase
+	public partial class t_WorkDay : DataAuditBase, IValidatableObject, IDataBase
 	{
 		#region Properties
 		public t_WorkDay() { }

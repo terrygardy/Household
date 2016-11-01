@@ -2,6 +2,7 @@ using Household.Localisation.Main.Finance;
 
 namespace Household.Data.Context
 {
+	using Audit;
 	using Common;
 	using System;
 	using System.ComponentModel.DataAnnotations;
@@ -10,7 +11,7 @@ namespace Household.Data.Context
 	using System.Collections.Generic;
 	using Models.Base;
 
-	public partial class t_Expense : IValidatableObject, IDataBase
+	public partial class t_Expense : DataAuditBase, IValidatableObject, IDataBase
 	{
 		#region Properties
 		[Key]
@@ -34,7 +35,7 @@ namespace Household.Data.Context
 		public decimal Amount { get; set; }
 
 		public long? BankAccount_ID { get; set; }
-		
+
 		public long? PaymentDay_ID { get; set; }
 
 		[Display(Name = "Description", ResourceType = typeof(ExpenseText))]

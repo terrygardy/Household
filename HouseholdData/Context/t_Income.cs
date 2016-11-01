@@ -2,6 +2,7 @@ using Household.Localisation.Main.MasterData;
 
 namespace Household.Data.Context
 {
+	using Audit;
 	using Common;
 	using GARTE.TypeHandling;
 	using Models.Base;
@@ -11,7 +12,7 @@ namespace Household.Data.Context
 	using System.ComponentModel.DataAnnotations.Schema;
 	using Text.Error;
 
-	public partial class t_Income : IValidatableObject, IDataBase
+	public partial class t_Income : DataAuditBase, IValidatableObject, IDataBase
 	{
 		public long ID { get; set; }
 

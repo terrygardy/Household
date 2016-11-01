@@ -8,6 +8,7 @@ using System.Data.Entity.Validation;
 using System.Reflection;
 using System.Linq.Expressions;
 using System.Text;
+using Household.Data.Context.Audit;
 
 namespace Household.Data.Context
 {
@@ -21,6 +22,8 @@ namespace Household.Data.Context
 		{
 			try
 			{
+				updateDataAudit();
+
 				return base.SaveChanges();
 			}
 			catch (DbUpdateException ex)
@@ -174,6 +177,33 @@ namespace Household.Data.Context
 		{
 			var obj = new MigrateDatabaseToLatestVersion<DataModel, Migrations.Configuration>();
 			obj.InitializeDatabase(new Database());
+		}
+
+		private void updateDataAudit()
+		{
+			var addedAuditEntities = getAuditEntities(EntityState.Added);
+
+			var modifiedAuditedEntities = getAuditEntities(EntityState.Modified);
+
+			var now = DateTime.UtcNow;
+
+			foreach (var added in addedAuditEntities)
+			{
+				added.CreatedOn = now;
+				added.LastModifiedOn = now;
+			}
+
+			foreach (var modified in modifiedAuditedEntities)
+			{
+				modified.LastModifiedOn = now;
+			}
+		}
+
+		private IEnumerable<IDataAudit> getAuditEntities(EntityState state)
+		{
+			return ChangeTracker.Entries<IDataAudit>()
+				.Where(p => p.State == state)
+				.Select(p => p.Entity);
 		}
 	}
 }
