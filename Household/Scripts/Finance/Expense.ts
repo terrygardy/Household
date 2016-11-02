@@ -38,11 +38,11 @@ module Expense {
 		}
 
 		Save(): void {
-			MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), [this.StartDate(), this.EndDate(), getCurrentBankAccountText(), getCurrentCompanyText(), this.Amount() + ' €']);
+			MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), null);
 		}
 
 		Delete(): void {
-			MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() }, false);
+			MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() }, true);
 		}
 	}
 

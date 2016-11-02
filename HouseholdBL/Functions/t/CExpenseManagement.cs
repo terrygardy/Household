@@ -27,9 +27,9 @@ namespace Household.BL.Functions.t
 			return x => x.ID == pv_lngID;
 		}
 
-		public List<t_Expense> getExpenses()
+		public List<t_Expense> getExpenses(Expression<Func<t_Expense, bool>> pv_exWhere)
 		{
-			return base.getEntities(null, getStandardOrderBy(), getStandardThenBy());
+			return base.getEntities(pv_exWhere, getStandardOrderBy(), getStandardThenBy());
 		}
 	}
 }

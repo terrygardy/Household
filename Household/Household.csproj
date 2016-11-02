@@ -286,6 +286,7 @@
     <Compile Include="Models\MasterData\CBankAccountsModel.cs" />
     <Compile Include="Models\MasterData\CPeopleModel.cs" />
     <Compile Include="Models\MasterData\CReturn.cs" />
+    <Compile Include="Models\Search\CSearchExpense.cs" />
     <Compile Include="Models\Search\CSearchPurchase.cs" />
     <Compile Include="Models\Search\CSearchWorkDay.cs" />
     <Compile Include="Models\Work\CWorkDayModel.cs" />

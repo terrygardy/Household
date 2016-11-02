@@ -34,32 +34,7 @@ namespace Household.Models.Finance
 
 			dtTable.Head = CreateTableHead(actionMain, controller);
 			dtTable.Body = CreateTableBody(actionMain, controller, lstPurchases);
-
-			var drFeet = new List<CDisplayRow>();
-			var drFoot = new CDisplayRow();
-
-			drFoot.Columns.Add(new CDisplayColumn()
-			{
-				Content = $"{GeneralText.Count}: {lstPurchases.Count.ToString()}",
-				CSS = "right",
-				ColumnSpan = 4
-			});
-
-			drFeet.Add(drFoot);
-
-			drFoot = new CDisplayRow();
-
-			var sumPurchases = lstPurchases.Sum(x => x.Amount).ToString("C2");
-
-			drFoot.Columns.Add(new CDisplayColumn()
-			{
-				Content = $"{GeneralText.Sum}: {sumPurchases}",
-				CSS = "right",
-				ColumnSpan = 4
-			});
-
-			drFeet.Add(drFoot);
-			dtTable.Foot = drFeet;
+			dtTable.Foot = CreateTableFooter(actionMain, controller, lstPurchases.Count, lstPurchases.Sum(x => x.Amount));
 
 			return dtTable;
 		}
@@ -100,9 +75,15 @@ namespace Household.Models.Finance
 
 			drFoot.Columns.Add(new CDisplayColumn()
 			{
+				CSS = "hideable",
+				ColumnSpan = 1
+			});
+
+			drFoot.Columns.Add(new CDisplayColumn()
+			{
 				Content = $"{GeneralText.Count}: {count.ToString()}",
 				CSS = "right",
-				ColumnSpan = 4
+				ColumnSpan = 3
 			});
 
 			drFeet.Add(drFoot);
@@ -113,9 +94,15 @@ namespace Household.Models.Finance
 
 			drFoot.Columns.Add(new CDisplayColumn()
 			{
+				CSS = "hideable",
+				ColumnSpan = 1
+			});
+
+			drFoot.Columns.Add(new CDisplayColumn()
+			{
 				Content = $"{GeneralText.Sum}: {sumPurchases}",
 				CSS = "right",
-				ColumnSpan = 4
+				ColumnSpan = 3
 			});
 
 			drFeet.Add(drFoot);

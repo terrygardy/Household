@@ -1,4 +1,5 @@
 ﻿@using Household.Localisation.Main.Finance
+@using Household.Localisation.Main.MasterData
 @using Household.Localisation.Common
 @using Household.MvcExtensions
 @using Household.Controllers
@@ -21,11 +22,55 @@
 </div>
 <div class="row">
 	<div class="col-xs-12">
+		<div id="divSearch" title="@GeneralText.Search" />
+		<div class="searchContainer">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-lg-4">
+					<span>@GeneralText.From @GeneralText.DateFormat</span><input type="text" id="tbxSearchStartDate" value="" />
+				</div>
+				<div class="col-xs-12 col-sm-6 col-lg-4">
+					<span>@GeneralText.To @GeneralText.DateFormat</span><input type="text" id="tbxSearchEndDate" value="" />
+				</div>
+				<div class="col-xs-12 col-sm-6 col-lg-4">
+					<span>@CompanyText.Company</span><input type="text" id="tbxSearchCompany" value="" />
+				</div>
+				<div class="col-xs-12 col-sm-6 col-lg-4">
+					<span>@GeneralText.Who</span><input type="text" id="tbxSearchWho" value="" />
+				</div>
+				<div class="col-xs-12 col-sm-6 col-lg-4">
+					<span>@PurchaseText.Amount (€)</span><input type="text" id="tbxSearchAmount" value="0" />
+				</div>
+				<div class="col-xs-12 col-sm-6 col-lg-4">
+					<span>@PurchaseText.Description</span><input type="text" id="tbxSearchDescription" value="" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 pT4">
+					<button id="btnSearch">@GeneralText.Search</button><button id="btnSearchCancel">@GeneralText.Cancel</button>
+				</div>
+			</div>
+		</div>
+		<div class="fClear"></div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12">
 		<div id="divExpenses" class="contentContainer">
 		</div>
 	</div>
 </div>
 
 <script type="text/javascript">
-	Common.LoadContentWithSelector('@Url.ActionExpenses(nameof(FinanceController.Expenses))', '#divExpenses');
+	Common.ActivateSearch('@Url.ActionExpenses(nameof(ExpensesController.Search))', '#divExpenses', function () {
+		return {
+			StartDate: $('#tbxSearchStartDate').val(),
+			EndDate: $('#tbxSearchEndDate').val(),
+			Company: $('#tbxSearchCompany').val(),
+			Who: $('#tbxSearchWho').val(),
+			Amount: $('#tbxSearchAmount').val(),
+			Description: $('#tbxSearchDescription').val()
+		};
+	});
+
+	$(function () { Common.Search(); Common.ToggleSearch(); });
 </script>
