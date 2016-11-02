@@ -66,9 +66,15 @@ namespace Household.Models.Work
 
 			drFoot.Columns.Add(new CDisplayColumn()
 			{
+				CSS = "right hideable",
+				ColumnSpan = 1
+			});
+
+			drFoot.Columns.Add(new CDisplayColumn()
+			{
 				Content = $"{GeneralText.Count}: {workDaysCount}",
 				CSS = "right",
-				ColumnSpan = 5
+				ColumnSpan = 4
 			});
 
 			drFeet.Add(drFoot);
@@ -77,9 +83,15 @@ namespace Household.Models.Work
 
 			drFoot.Columns.Add(new CDisplayColumn()
 			{
+				CSS = "right hideable",
+				ColumnSpan = 1
+			});
+
+			drFoot.Columns.Add(new CDisplayColumn()
+			{
 				Content = $"{WorkText.TotalHoursWorked}: {workedHoursSum.ToString("N2")}",
 				CSS = "right",
-				ColumnSpan = 5
+				ColumnSpan = 4
 			});
 
 			drFeet.Add(drFoot);

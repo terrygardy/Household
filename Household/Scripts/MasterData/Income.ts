@@ -1,7 +1,6 @@
 ﻿/// <reference path="../typings/knockout/knockout.d.ts" />
 /// <reference path="../Helpers/httprequest.ts" />
 /// <reference path="MasterData.ts" />
-/// <reference path="Company.ts" />
 
 module Income {
 	var m_objIncome: Income;
