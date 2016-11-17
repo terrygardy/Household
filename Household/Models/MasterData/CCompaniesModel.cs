@@ -1,18 +1,23 @@
 ﻿using Household.Localisation.Main.MasterData;
 using Household.Localisation.Common;
-using Household.BL.Functions.txx;
 using Household.Models.DisplayTable;
+using Household.BL.Functions.Management.txx;
+using System.Linq;
 
 namespace Household.Models.MasterData
 {
 	public class CCompaniesModel
 	{
-		public CCompaniesModel() { }
+		private readonly ICompanyManagement _companyManagement;
+
+		public CCompaniesModel(ICompanyManagement companyManagement)
+		{
+			_companyManagement = companyManagement;
+		}
 
 		public CDisplayTable getDisplayTable()
 		{
-			var cCompany = new CCompanyManagement();
-			var lstCompanies = cCompany.getCompanies();
+			var lstCompanies = _companyManagement.getCompanies();
 			var action = "Company";
 			var controller = "MasterData";
 			var dtTable = new CDisplayTable()
@@ -20,11 +25,13 @@ namespace Household.Models.MasterData
 				AddAction = action,
 				AddController = controller
 			};
-			var drHead = new CDisplayRow() {
+			var drHead = new CDisplayRow()
+			{
 				OnClickAction = action,
 				OnClickController = controller
 			};
-			var drFoot = new CDisplayRow() {
+			var drFoot = new CDisplayRow()
+			{
 				OnClickAction = action,
 				OnClickController = controller
 			};
@@ -70,7 +77,7 @@ namespace Household.Models.MasterData
 
 			drFoot.Columns.Add(new CDisplayColumn()
 			{
-				Content = $"{GeneralText.Count}: {lstCompanies.Count.ToString()}",
+				Content = $"{GeneralText.Count}: {lstCompanies.Count().ToString()}",
 				CSS = "right",
 				ColumnSpan = 2
 			});

@@ -8,39 +8,36 @@ using Household.Data.Text.Error;
 using System.Collections.Generic;
 using Household.BL.DATA.txx;
 using Household.BL.Functions.Management.txx;
+using Household.Data.Db;
 
 namespace Household.BL.Functions.txx
 {
-	public class CDayManagement : CModelBase<txx_Day, int, int, CDayData>, IDayManagement
+	public class CDayManagement : CManagementBase<txx_Day, int, int, CDayData>, IDayManagement
 	{
-		public CDayManagement() { }
+		public CDayManagement(IDb db)
+			: base(db) { }
 
-		protected override Expression<Func<txx_Day, Int32>> getStandardOrderBy()
+		protected override Expression<Func<txx_Day, int>> getStandardOrderBy()
 		{
 			return x => x.Day;
 		}
 
-		protected override Expression<Func<txx_Day, Int32>> getStandardThenBy()
+		protected override Expression<Func<txx_Day, int>> getStandardThenBy()
 		{
 			return x => x.Day;
-		}
-
-		protected override Expression<Func<txx_Day, bool>> getStandardWhereID(long pv_lngID)
-		{
-			return x => x.ID == pv_lngID;
 		}
 
 		protected override void deleteAllowed(txx_Day pv_cEntity)
 		{
-			if (Database.t_Income.Where(x => x.Day_ID == pv_cEntity.ID).Count() > 0) throw new DeleteNotAllowedException(Day.InUseIncome);
-			if (Database.t_Expense.Where(x => x.PaymentDay_ID == pv_cEntity.ID).Count() > 0) throw new DeleteNotAllowedException(Day.InUseExpense);
+			if (Db.GetGenericRepository<t_Income>().Where(x => x.Day_ID == pv_cEntity.ID).Count() > 0) throw new DeleteNotAllowedException(Day.InUseIncome);
+			if (Db.GetGenericRepository<t_Expense>().Where(x => x.PaymentDay_ID == pv_cEntity.ID).Count() > 0) throw new DeleteNotAllowedException(Day.InUseExpense);
 
 			base.deleteAllowed(pv_cEntity);
 		}
 
-		public List<txx_Day> getDays()
+		public IEnumerable<txx_Day> getDays()
 		{
-			return getEntities<int, int>(null, getStandardOrderBy(), getStandardThenBy());
+			return getEntities(null, getStandardOrderBy(), getStandardThenBy());
 		}
 	}
 }

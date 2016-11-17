@@ -5,12 +5,14 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using Household.BL.DATA.t;
 using Household.BL.Functions.Management.t;
+using Household.Data.Db;
 
 namespace Household.BL.Functions.t
 {
-	public class CIncomeManagement : CModelBase<t_Income, DateTime, string, CIncomeData>, IIncomeManagement
+	public class CIncomeManagement : CManagementBase<t_Income, DateTime, string, CIncomeData>, IIncomeManagement
 	{
-		public CIncomeManagement() { }
+		public CIncomeManagement(IDb db)
+			: base(db) { }
 
 		protected override Expression<Func<t_Income, DateTime>> getStandardOrderBy()
 		{
@@ -22,12 +24,7 @@ namespace Household.BL.Functions.t
 			return x => x.txx_BankAccount.AccountName;
 		}
 
-		protected override Expression<Func<t_Income, bool>> getStandardWhereID(long pv_lngID)
-		{
-			return x => x.ID == pv_lngID;
-		}
-
-		public List<t_Income> getIncomes()
+		public IEnumerable<t_Income> getIncomes()
 		{
 			return getEntities(null, getStandardOrderBy(), getStandardThenBy());
 		}

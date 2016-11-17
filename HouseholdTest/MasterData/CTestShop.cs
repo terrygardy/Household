@@ -1,10 +1,12 @@
 ﻿using Helpers.Exceptions;
 using Household.BL.Functions.txx;
 using Household.Data.Context;
+using Household.Data.Db;
 using Household.Test.Base;
 using Household.Test.Text;
 using NUnit.Framework;
 using System;
+using System.Linq;
 using System.Reflection;
 
 namespace Household.Test.MasterData
@@ -113,7 +115,7 @@ namespace Household.Test.MasterData
 		{
 			try
 			{
-				return new CShopManagement();
+				return new CShopManagement(new CDbDefault());
 			}
 			catch (Exception ex)
 			{
@@ -133,7 +135,7 @@ namespace Household.Test.MasterData
 		{
 			try
 			{
-				return pv_toShop.getEntities(x => x.Name == TestName, x => x.Name, x => x.Name)[0];
+				return pv_toShop.getEntities(x => x.Name == TestName, x => x.Name, x => x.Name).FirstOrDefault();
 			}
 			catch (Exception ex)
 			{

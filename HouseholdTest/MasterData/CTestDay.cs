@@ -1,10 +1,12 @@
 ﻿using Helpers.Exceptions;
 using Household.BL.Functions.txx;
 using Household.Data.Context;
+using Household.Data.Db;
 using Household.Test.Base;
 using Household.Test.Text;
 using NUnit.Framework;
 using System;
+using System.Linq;
 using System.Reflection;
 
 namespace Household.Test.MasterData
@@ -132,7 +134,7 @@ namespace Household.Test.MasterData
 		{
 			try
 			{
-				return new CDayManagement();
+				return new CDayManagement(new CDbDefault());
 			}
 			catch (Exception ex)
 			{
@@ -154,7 +156,7 @@ namespace Household.Test.MasterData
 		{
 			try
 			{
-				return pv_toDay.getEntities(x => x.Day == pv_intDay, x => x.Day, x => x.Day)[0];
+				return pv_toDay.getEntities(x => x.Day == pv_intDay, x => x.Day, x => x.Day).FirstOrDefault();
 			}
 			catch (Exception ex)
 			{

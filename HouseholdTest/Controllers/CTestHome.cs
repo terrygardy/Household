@@ -1,4 +1,6 @@
-﻿using Household.Controllers;
+﻿using Household.BL.Functions.txx;
+using Household.Controllers;
+using Household.Data.Db;
 using NUnit.Framework;
 
 namespace Household.Test.Controllers
@@ -8,7 +10,7 @@ namespace Household.Test.Controllers
 	{
 		public CTestHome()
 		{
-			Controller = new HomeController();
+			Controller = new HomeController(new CShopManagement(new CDbDefault()));
 		}
 
 		[Test]

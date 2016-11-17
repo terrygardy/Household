@@ -2,10 +2,12 @@
 using Household.BL.Functions.t;
 using Household.BL.Functions.txx;
 using Household.Data.Context;
+using Household.Data.Db;
 using Household.Test.Base;
 using Household.Test.Text;
 using NUnit.Framework;
 using System;
+using System.Linq;
 using System.Reflection;
 
 namespace Household.Test.MainObjects
@@ -26,13 +28,15 @@ namespace Household.Test.MainObjects
 		public txx_Day TestDay { get { return m_xxDay; } }
 		public txx_BankAccount TestPayee { get { return m_xxPayee; } }
 		public txx_Company TestCompany { get { return m_xxCompany; } }
+		private readonly IDb _db;
 
 		public CTestIncome()
 		{
-			m_xxInterval = new CIntervalManagement().getIntervals()[0];
-			m_xxDay = new CDayManagement().getDays()[0];
-			m_xxPayee = new CBankAccountManagement().getBankAccounts()[0];
-			m_xxCompany = new CCompanyManagement().getCompanies()[0];
+			_db = new CDbDefault();
+			m_xxInterval = new CIntervalManagement(_db).getIntervals().FirstOrDefault();
+			m_xxDay = new CDayManagement(_db).getDays().FirstOrDefault();
+			m_xxPayee = new CBankAccountManagement(_db).getBankAccounts().FirstOrDefault();
+			m_xxCompany = new CCompanyManagement(_db).getCompanies().FirstOrDefault();
 		}
 
 		[Test]
@@ -325,7 +329,7 @@ namespace Household.Test.MainObjects
 		{
 			try
 			{
-				return new CIncomeManagement();
+				return new CIncomeManagement(_db);
 			}
 			catch (Exception ex)
 			{
@@ -348,7 +352,7 @@ namespace Household.Test.MainObjects
 				return pv_toIncome.getEntities(x => x.StartDate == TestStartDate && x.EndDate == TestEndDate && x.Amount == TestAmount
 													&& x.Payee_ID == TestPayee.ID && x.Company_ID == TestCompany.ID
 													&& x.Interval_ID == TestInterval.ID && x.Day_ID == TestDay.ID,
-												x => x.StartDate, x => x.StartDate)[0];
+												x => x.StartDate, x => x.StartDate).FirstOrDefault();
 			}
 			catch (Exception ex)
 			{

@@ -2,10 +2,12 @@
 using Household.BL.DATA.txx;
 using Household.BL.Functions.txx;
 using Household.Data.Context;
+using Household.Data.Db;
 using Household.Test.Base;
 using Household.Test.Text;
 using NUnit.Framework;
 using System;
+using System.Linq;
 using System.Reflection;
 
 namespace Household.Test.MasterData
@@ -162,7 +164,7 @@ namespace Household.Test.MasterData
 		{
 			try
 			{
-				return new CBankAccountManagement();
+				return new CBankAccountManagement(new CDbDefault());
 			}
 			catch (Exception ex)
 			{
@@ -183,7 +185,7 @@ namespace Household.Test.MasterData
 			try
 			{
 				return pv_toBankAccount.getEntities(x => x.AccountName == TestAccountName,
-													x => x.IBAN, x => x.IBAN)[0];
+													x => x.IBAN, x => x.IBAN).FirstOrDefault();
 			}
 			catch (Exception ex)
 			{

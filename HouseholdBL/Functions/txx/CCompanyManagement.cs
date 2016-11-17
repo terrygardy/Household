@@ -8,17 +8,19 @@ using Household.Data.Text.Error;
 using System.Collections.Generic;
 using Household.BL.DATA.txx;
 using Household.BL.Functions.Management.txx;
+using Household.Data.Db;
 
 namespace Household.BL.Functions.txx
 {
-	public class CCompanyManagement : CModelBase<txx_Company, string, string, CCompanyData>, ICompanyManagement
+	public class CCompanyManagement : CManagementBase<txx_Company, string, string, CCompanyData>, ICompanyManagement
 	{
-		public CCompanyManagement() { }
+		public CCompanyManagement(IDb db)
+		: base(db) { }
 
 		protected override void deleteAllowed(txx_Company pv_cEntity)
 		{
-			if (Database.t_Income.Where(x => x.Company_ID == pv_cEntity.ID).Count() > 0) throw new DeleteNotAllowedException(Company.InUseIncome);
-			if (Database.t_Expense.Where(x => x.Company_ID == pv_cEntity.ID).Count() > 0) throw new DeleteNotAllowedException(Company.InUseExpense);
+			if (Db.GetGenericRepository<t_Income>().Where(x => x.Company_ID == pv_cEntity.ID).Count() > 0) throw new DeleteNotAllowedException(Company.InUseIncome);
+			if (Db.GetGenericRepository<t_Expense>().Where(x => x.Company_ID == pv_cEntity.ID).Count() > 0) throw new DeleteNotAllowedException(Company.InUseExpense);
 
 			base.deleteAllowed(pv_cEntity);
 		}
@@ -33,14 +35,9 @@ namespace Household.BL.Functions.txx
 			return x => x.Description;
 		}
 
-		protected override Expression<Func<txx_Company, bool>> getStandardWhereID(long pv_lngID)
+		public IEnumerable<txx_Company> getCompanies()
 		{
-			return x => x.ID == pv_lngID;
-		}
-
-		public List<txx_Company> getCompanies()
-		{
-			return getEntities<string, string>(null, getStandardOrderBy(), getStandardThenBy());
+			return getEntities(null, getStandardOrderBy(), getStandardThenBy());
 		}
 	}
 }

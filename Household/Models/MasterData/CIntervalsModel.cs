@@ -1,18 +1,23 @@
 ﻿using Household.Localisation.Main.MasterData;
 using Household.Localisation.Common;
-using Household.BL.Functions.txx;
 using Household.Models.DisplayTable;
+using Household.BL.Functions.Management.txx;
+using System.Linq;
 
 namespace Household.Models.MasterData
 {
 	public class CIntervalsModel
 	{
-		public CIntervalsModel() { }
+		private readonly IIntervalManagement _intervalManagement;
+
+		public CIntervalsModel(IIntervalManagement intervalManagement)
+		{
+			_intervalManagement = intervalManagement;
+		}
 
 		public CDisplayTable getDisplayTable()
 		{
-			var cInterval = new CIntervalManagement();
-			var lstIntervals = cInterval.getIntervals();
+			var lstIntervals = _intervalManagement.getIntervals();
 			var action = "Interval";
 			var controller = "MasterData";
 			var dtTable = new CDisplayTable()
@@ -20,11 +25,13 @@ namespace Household.Models.MasterData
 				AddAction = action,
 				AddController = controller
 			};
-			var drHead = new CDisplayRow() {
+			var drHead = new CDisplayRow()
+			{
 				OnClickAction = action,
 				OnClickController = controller
 			};
-			var drFoot = new CDisplayRow() {
+			var drFoot = new CDisplayRow()
+			{
 				OnClickAction = action,
 				OnClickController = controller
 			};
@@ -59,7 +66,7 @@ namespace Household.Models.MasterData
 
 			drFoot.Columns.Add(new CDisplayColumn()
 			{
-				Content = $"{GeneralText.Count}: {lstIntervals.Count.ToString()}",
+				Content = $"{GeneralText.Count}: {lstIntervals.Count().ToString()}",
 				CSS = "right",
 				ColumnSpan = 1
 			});

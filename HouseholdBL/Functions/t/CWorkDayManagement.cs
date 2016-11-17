@@ -5,12 +5,15 @@ using System.Linq.Expressions;
 using Household.BL.DATA.t;
 using System.Collections.Generic;
 using Household.BL.Functions.Management.t;
+using Household.Data.Db;
 
 namespace Household.BL.Functions.t
 {
-	public class CWorkDayManagement : CModelBase<t_WorkDay, DateTime, TimeSpan, CWorkDayData>, IWorkDayManagement
+	public class CWorkDayManagement : CManagementBase<t_WorkDay, DateTime, TimeSpan, CWorkDayData>, IWorkDayManagement
 	{
-		public CWorkDayManagement() { }
+		public CWorkDayManagement(IDb db)
+			: base(db)
+		{ }
 
 		protected override Expression<Func<t_WorkDay, DateTime>> getStandardOrderBy()
 		{
@@ -22,22 +25,17 @@ namespace Household.BL.Functions.t
 			return x => x.Begin;
 		}
 
-		protected override Expression<Func<t_WorkDay, bool>> getStandardWhereID(long pv_lngID)
-		{
-			return x => x.ID == pv_lngID;
-		}
-
-		public List<t_WorkDay> getWorkingDays()
+		public IEnumerable<t_WorkDay> getWorkingDays()
 		{
 			return getWorkingDays(null);
 		}
 
-		public List<t_WorkDay> getWorkingDays(Expression<Func<t_WorkDay, bool>> pv_exWhere)
+		public IEnumerable<t_WorkDay> getWorkingDays(Expression<Func<t_WorkDay, bool>> whereClause)
 		{
-			return base.getEntities(pv_exWhere, getStandardOrderBy(), getStandardThenBy());
+			return getEntities(whereClause, getStandardOrderBy(), getStandardThenBy());
 		}
 
-		public ICollection<t_WorkDay> getSearchResults(Expression<Func<t_WorkDay, bool>> pv_exWhere)
+		public IEnumerable<t_WorkDay> getSearchResults(Expression<Func<t_WorkDay, bool>> pv_exWhere)
 		{
 			return getWorkingDays(pv_exWhere);
 		}

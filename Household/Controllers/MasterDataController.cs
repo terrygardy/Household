@@ -1,7 +1,9 @@
 ﻿using Household.BL.DATA.t;
 using Household.BL.DATA.txx;
-using Household.BL.Functions.t;
-using Household.BL.Functions.txx;
+using Household.BL.Functions.Management.t;
+using Household.BL.Functions.Management.txx;
+using Household.Factory;
+using Household.Localisation.Main.MasterData;
 using Household.Models;
 using Household.Models.MasterData;
 using System.Web.Mvc;
@@ -10,38 +12,46 @@ namespace Household.Controllers
 {
 	public class MasterDataController : Controller
 	{
+		private readonly IPersonManagement _personManagement;
+		private readonly IBankAccountManagement _bankAccountManagement;
+		private readonly IDayManagement _dayManagement;
+		private readonly ICompanyManagement _companyManagement;
+		private readonly IIntervalManagement _intervalManagement;
+		private readonly IShopManagement _shopManagement;
+		private readonly IIncomeManagement _incomeManagement;
+
+		public MasterDataController(IPersonManagement personManagement,
+			IBankAccountManagement bankAccountManagement,
+			IDayManagement dayManagement,
+			ICompanyManagement companyManagement,
+			IIntervalManagement intervalManagement,
+			IShopManagement shopManagement,
+			IIncomeManagement incomeManagement)
+		{
+			_personManagement = personManagement;
+			_bankAccountManagement = bankAccountManagement;
+			_dayManagement = dayManagement;
+			_companyManagement = companyManagement;
+			_intervalManagement = intervalManagement;
+			_shopManagement = shopManagement;
+			_incomeManagement = incomeManagement;
+		}
+
 		[HttpPost]
 		public PartialViewResult People()
 		{
 			var cData = new CMasterData();
 
-			cData.BreadCrumbs.Add(new CBreadCrumb()
-			{
-				ActionController = "Home",
-				ActionName = "Index",
-				Text = "Home"
-			});
+			cData.BreadCrumbs.Add(BreadCrumbFactory.GetHomeIndex());
+			cData.BreadCrumbs.Add(BreadCrumbFactory.GetFinanceFinance());
+			cData.BreadCrumbs.Add(BreadCrumbFactory.GetFinanceMasterData());
 
 			cData.BreadCrumbs.Add(new CBreadCrumb()
 			{
-				ActionController = "Finance",
-				ActionName = "Finance",
-				Text = "Finance"
+				Text = PersonText.People
 			});
 
-			cData.BreadCrumbs.Add(new CBreadCrumb()
-			{
-				ActionController = "Finance",
-				ActionName = "MasterData",
-				Text = "Master Data"
-			});
-
-			cData.BreadCrumbs.Add(new CBreadCrumb()
-			{
-				Text = "People"
-			});
-
-			cData.DisplayTable = new CPeopleModel().getDisplayTable();
+			cData.DisplayTable = new CPeopleModel(_personManagement).getDisplayTable();
 
 			return PartialView("_MasterData", cData);
 		}
@@ -49,7 +59,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult Person(long id)
 		{
-			var objPerson = new CPersonManagement().getDataByID(id);
+			var objPerson = _personManagement.getDataByID(id);
 
 			if (objPerson == null) objPerson = new CPersonData();
 
@@ -61,33 +71,16 @@ namespace Household.Controllers
 		{
 			var cData = new CMasterData();
 
-			cData.BreadCrumbs.Add(new CBreadCrumb()
-			{
-				ActionController = "Home",
-				ActionName = "Index",
-				Text = "Home"
-			});
+			cData.BreadCrumbs.Add(BreadCrumbFactory.GetHomeIndex());
+			cData.BreadCrumbs.Add(BreadCrumbFactory.GetFinanceFinance());
+			cData.BreadCrumbs.Add(BreadCrumbFactory.GetFinanceMasterData());
 
 			cData.BreadCrumbs.Add(new CBreadCrumb()
 			{
-				ActionController = "Finance",
-				ActionName = "Finance",
-				Text = "Finance"
+				Text = BankAccountText.BankAccounts
 			});
 
-			cData.BreadCrumbs.Add(new CBreadCrumb()
-			{
-				ActionController = "Finance",
-				ActionName = "MasterData",
-				Text = "Master Data"
-			});
-
-			cData.BreadCrumbs.Add(new CBreadCrumb()
-			{
-				Text = "Bank Accounts"
-			});
-
-			cData.DisplayTable = new CBankAccountsModel().getDisplayTable();
+			cData.DisplayTable = new CBankAccountsModel(_bankAccountManagement).getDisplayTable();
 
 			return PartialView("_MasterData", cData);
 		}
@@ -95,7 +88,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult BankAccount(long id)
 		{
-			var objBankAccount = new CBankAccountManagement().getDataByID(id);
+			var objBankAccount = _bankAccountManagement.getDataByID(id);
 
 			if (objBankAccount == null) objBankAccount = new CBankAccountData();
 
@@ -107,33 +100,16 @@ namespace Household.Controllers
 		{
 			var cData = new CMasterData();
 
-			cData.BreadCrumbs.Add(new CBreadCrumb()
-			{
-				ActionController = "Home",
-				ActionName = "Index",
-				Text = "Home"
-			});
+			cData.BreadCrumbs.Add(BreadCrumbFactory.GetHomeIndex());
+			cData.BreadCrumbs.Add(BreadCrumbFactory.GetFinanceFinance());
+			cData.BreadCrumbs.Add(BreadCrumbFactory.GetFinanceMasterData());
 
 			cData.BreadCrumbs.Add(new CBreadCrumb()
 			{
-				ActionController = "Finance",
-				ActionName = "Finance",
-				Text = "Finance"
+				Text = CompanyText.Companies
 			});
 
-			cData.BreadCrumbs.Add(new CBreadCrumb()
-			{
-				ActionController = "Finance",
-				ActionName = "MasterData",
-				Text = "Master Data"
-			});
-
-			cData.BreadCrumbs.Add(new CBreadCrumb()
-			{
-				Text = "Companies"
-			});
-
-			cData.DisplayTable = new CCompaniesModel().getDisplayTable();
+			cData.DisplayTable = new CCompaniesModel(_companyManagement).getDisplayTable();
 
 			return PartialView("_MasterData", cData);
 		}
@@ -141,7 +117,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult Company(long id)
 		{
-			var objCompany = new CCompanyManagement().getDataByID(id);
+			var objCompany = _companyManagement.getDataByID(id);
 
 			if (objCompany == null) objCompany = new CCompanyData();
 
@@ -153,33 +129,16 @@ namespace Household.Controllers
 		{
 			var cData = new CMasterData();
 
-			cData.BreadCrumbs.Add(new CBreadCrumb()
-			{
-				ActionController = "Home",
-				ActionName = "Index",
-				Text = "Home"
-			});
+			cData.BreadCrumbs.Add(BreadCrumbFactory.GetHomeIndex());
+			cData.BreadCrumbs.Add(BreadCrumbFactory.GetFinanceFinance());
+			cData.BreadCrumbs.Add(BreadCrumbFactory.GetFinanceMasterData());
 
 			cData.BreadCrumbs.Add(new CBreadCrumb()
 			{
-				ActionController = "Finance",
-				ActionName = "Finance",
-				Text = "Finance"
+				Text = DayText.Days
 			});
 
-			cData.BreadCrumbs.Add(new CBreadCrumb()
-			{
-				ActionController = "Finance",
-				ActionName = "MasterData",
-				Text = "Master Data"
-			});
-
-			cData.BreadCrumbs.Add(new CBreadCrumb()
-			{
-				Text = "Days"
-			});
-
-			cData.DisplayTable = new CDaysModel().getDisplayTable();
+			cData.DisplayTable = new CDaysModel(_dayManagement).getDisplayTable();
 
 			return PartialView("_MasterData", cData);
 		}
@@ -187,7 +146,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult Day(long id)
 		{
-			var objDay = new CDayManagement().getDataByID(id);
+			var objDay = _dayManagement.getDataByID(id);
 
 			if (objDay == null) objDay = new CDayData();
 
@@ -199,33 +158,16 @@ namespace Household.Controllers
 		{
 			var cData = new CMasterData();
 
-			cData.BreadCrumbs.Add(new CBreadCrumb()
-			{
-				ActionController = "Home",
-				ActionName = "Index",
-				Text = "Home"
-			});
+			cData.BreadCrumbs.Add(BreadCrumbFactory.GetHomeIndex());
+			cData.BreadCrumbs.Add(BreadCrumbFactory.GetFinanceFinance());
+			cData.BreadCrumbs.Add(BreadCrumbFactory.GetFinanceMasterData());
 
 			cData.BreadCrumbs.Add(new CBreadCrumb()
 			{
-				ActionController = "Finance",
-				ActionName = "Finance",
-				Text = "Finance"
+				Text = IntervalText.Intervals
 			});
 
-			cData.BreadCrumbs.Add(new CBreadCrumb()
-			{
-				ActionController = "Finance",
-				ActionName = "MasterData",
-				Text = "Master Data"
-			});
-
-			cData.BreadCrumbs.Add(new CBreadCrumb()
-			{
-				Text = "Intervals"
-			});
-
-			cData.DisplayTable = new CIntervalsModel().getDisplayTable();
+			cData.DisplayTable = new CIntervalsModel(_intervalManagement).getDisplayTable();
 
 			return PartialView("_MasterData", cData);
 		}
@@ -233,7 +175,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult Interval(long id)
 		{
-			var objInterval = new CIntervalManagement().getDataByID(id);
+			var objInterval = _intervalManagement.getDataByID(id);
 
 			if (objInterval == null) objInterval = new CIntervalData();
 
@@ -245,33 +187,16 @@ namespace Household.Controllers
 		{
 			var cData = new CMasterData();
 
-			cData.BreadCrumbs.Add(new CBreadCrumb()
-			{
-				ActionController = "Home",
-				ActionName = "Index",
-				Text = "Home"
-			});
+			cData.BreadCrumbs.Add(BreadCrumbFactory.GetHomeIndex());
+			cData.BreadCrumbs.Add(BreadCrumbFactory.GetFinanceFinance());
+			cData.BreadCrumbs.Add(BreadCrumbFactory.GetFinanceMasterData());
 
 			cData.BreadCrumbs.Add(new CBreadCrumb()
 			{
-				ActionController = "Finance",
-				ActionName = "Finance",
-				Text = "Finance"
+				Text = ShopText.Shops
 			});
 
-			cData.BreadCrumbs.Add(new CBreadCrumb()
-			{
-				ActionController = "Finance",
-				ActionName = "MasterData",
-				Text = "Master Data"
-			});
-
-			cData.BreadCrumbs.Add(new CBreadCrumb()
-			{
-				Text = "Shops"
-			});
-
-			cData.DisplayTable = new CShopsModel().getDisplayTable();
+			cData.DisplayTable = new CShopsModel(_shopManagement).getDisplayTable();
 
 			return PartialView("_MasterData", cData);
 		}
@@ -279,7 +204,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult Shop(long id)
 		{
-			var objShop = new CShopManagement().getDataByID(id);
+			var objShop = _shopManagement.getDataByID(id);
 
 			if (objShop == null) objShop = new CShopData();
 
@@ -291,33 +216,16 @@ namespace Household.Controllers
 		{
 			var cData = new CMasterData();
 
-			cData.BreadCrumbs.Add(new CBreadCrumb()
-			{
-				ActionController = "Home",
-				ActionName = "Index",
-				Text = "Home"
-			});
+			cData.BreadCrumbs.Add(BreadCrumbFactory.GetHomeIndex());
+			cData.BreadCrumbs.Add(BreadCrumbFactory.GetFinanceFinance());
+			cData.BreadCrumbs.Add(BreadCrumbFactory.GetFinanceMasterData());
 
 			cData.BreadCrumbs.Add(new CBreadCrumb()
 			{
-				ActionController = "Finance",
-				ActionName = "Finance",
-				Text = "Finance"
+				Text = IncomeText.Income
 			});
 
-			cData.BreadCrumbs.Add(new CBreadCrumb()
-			{
-				ActionController = "Finance",
-				ActionName = "MasterData",
-				Text = "Master Data"
-			});
-
-			cData.BreadCrumbs.Add(new CBreadCrumb()
-			{
-				Text = "Income"
-			});
-
-			cData.DisplayTable = new CIncomesModel().getDisplayTable();
+			cData.DisplayTable = new CIncomesModel(_incomeManagement, _companyManagement).getDisplayTable();
 
 			return PartialView("_MasterData", cData);
 		}
@@ -325,7 +233,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult Income(long id)
 		{
-			return PartialView("DatabaseEntry", new CIncomeModel(id));
+			return PartialView("DatabaseEntry", new CIncomeModel(_incomeManagement, _bankAccountManagement, _companyManagement, _dayManagement, _intervalManagement, id));
 		}
 	}
 }

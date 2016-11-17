@@ -1,20 +1,23 @@
 ﻿using Household.Localisation.Main.MasterData;
 using Household.Localisation.Common;
-using Household.BL.Functions.txx;
 using Household.Models.DisplayTable;
+using System.Linq;
+using Household.BL.Functions.Management.txx;
 
 namespace Household.Models.MasterData
 {
 	public class CDaysModel
 	{
+		private readonly IDayManagement _dayManagement;
 
-
-		public CDaysModel() { }
+		public CDaysModel(IDayManagement dayManagement)
+		{
+			_dayManagement = dayManagement;
+		}
 
 		public CDisplayTable getDisplayTable()
 		{
-			var cDay = new CDayManagement();
-			var lstDays = cDay.getDays();
+			var lstDays = _dayManagement.getDays();
 			var action = "Day";
 			var controller = "MasterData";
 			var dtTable = new CDisplayTable()
@@ -22,11 +25,13 @@ namespace Household.Models.MasterData
 				AddAction = action,
 				AddController = controller
 			};
-			var drHead = new CDisplayRow() {
+			var drHead = new CDisplayRow()
+			{
 				OnClickAction = action,
 				OnClickController = controller
 			};
-			var drFoot = new CDisplayRow() {
+			var drFoot = new CDisplayRow()
+			{
 				OnClickAction = action,
 				OnClickController = controller
 			};
@@ -61,7 +66,7 @@ namespace Household.Models.MasterData
 
 			drFoot.Columns.Add(new CDisplayColumn()
 			{
-				Content = $"{GeneralText.Count}: {lstDays.Count.ToString()}",
+				Content = $"{GeneralText.Count}: {lstDays.Count().ToString()}",
 				CSS = "right",
 				ColumnSpan = 1
 			});

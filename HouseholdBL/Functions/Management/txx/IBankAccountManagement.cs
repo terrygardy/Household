@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 namespace Household.BL.Functions.Management.txx
 {
-	public interface IBankAccountManagement : IManagementBase<txx_BankAccount, string, string, CBankAccountData>
+	public interface IBankAccountManagement : IManagementBase<txx_BankAccount, CBankAccountData>
 	{
-		List<txx_BankAccount> getBankAccounts();
+		IEnumerable<txx_BankAccount> getBankAccounts();
 	}
 }

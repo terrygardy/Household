@@ -6,8 +6,8 @@ using System.Collections.Generic;
 
 namespace Household.BL.Functions.Management.t
 {
-	public interface IIncomeManagement : IManagementBase<t_Income, DateTime, string, CIncomeData>
+	public interface IIncomeManagement : IManagementBase<t_Income, CIncomeData>
 	{
-		List<t_Income> getIncomes();
+		IEnumerable<t_Income> getIncomes();
 	}
 }

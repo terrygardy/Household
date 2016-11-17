@@ -1,9 +1,11 @@
 ﻿using Household.BL.Functions.t;
 using Household.Data.Context;
+using Household.Data.Db;
 using Household.Models.Search;
 using Household.Models.Work;
 using Household.Test.MainObjects;
 using NUnit.Framework;
+using System.Linq;
 
 namespace Household.Test.Search.MainObjects
 {
@@ -32,7 +34,7 @@ namespace Household.Test.Search.MainObjects
 				cSearch.End = tWorkDay.End;
 				cSearch.BreakDuration = tWorkDay.BreakDuration;
 
-				cModel = new CWorkHoursModel();
+				cModel = new CWorkHoursModel(new CWorkDayManagement(new CDbDefault()));
 				intRows = cModel.Search(cSearch, "WorkDay", "Work").Body.Count;
 
 				Assert.That(intRows == 1);
@@ -47,8 +49,9 @@ namespace Household.Test.Search.MainObjects
 		[Test]
 		public void EmptySearch()
 		{
-			int intRowsExpected = new CWorkDayManagement().getWorkingDays().Count;
-			int intRowsFound = new CWorkHoursModel().Search(new CSearchWorkDay(), "WorkDay", "Work").Body.Count;
+			var workDayManagement = new CWorkDayManagement(new CDbDefault());
+			int intRowsExpected = workDayManagement.getWorkingDays().Count();
+			int intRowsFound = new CWorkHoursModel(workDayManagement).Search(new CSearchWorkDay(), "WorkDay", "Work").Body.Count;
 
 			Assert.That(intRowsExpected == intRowsFound);
 		}

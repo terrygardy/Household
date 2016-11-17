@@ -1,12 +1,13 @@
 ﻿using Household.BL.DATA.Base;
 using Household.BL.DATA.t;
-using Household.BL.Functions.t;
-using Household.BL.Functions.txx;
+using Household.BL.Functions.Management.t;
+using Household.BL.Functions.Management.txx;
 using Household.Data.Context;
 using Household.Localisation.Main.Finance;
 using Household.Localisation.Main.MasterData;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace Household.Models.Finance
 {
@@ -25,14 +26,17 @@ namespace Household.Models.Finance
 
 		public string EntityTitle => Purchase.EntityTitle;
 
-		public CPurchaseModel(long pv_lngID)
+		public CPurchaseModel(IPurchaseManagement purchaseManagement,
+			IBankAccountManagement bankAccountManagement,
+			IShopManagement shopManagement,
+			long pv_lngID)
 		{
-			Purchase = new CPurchaseManagement().getDataByID(pv_lngID);
+			Purchase = purchaseManagement.getDataByID(pv_lngID);
 
 			if (Purchase == null) Purchase = new CPurchaseData();
 
-			BankAccounts = new CBankAccountManagement().getBankAccounts();
-			Shops = new CShopManagement().getShops();
+			BankAccounts = bankAccountManagement.getBankAccounts().ToList();
+			Shops = shopManagement.getShops().ToList();
 		}
 	}
 }

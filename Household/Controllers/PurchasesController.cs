@@ -8,15 +8,24 @@ using Household.Controllers.Base;
 using Household.BL.Functions.Management.t;
 using System.Linq;
 using Household.Localisation.Main.Finance;
+using Household.BL.Functions.Management.txx;
 
 namespace Household.Controllers
 {
 	public class PurchasesController : SearchableController
-		<t_Purchase, IPurchaseManagement, DateTime, string, CPurchaseData, CPurchasesModel, CSearchPurchase>
+		<t_Purchase, IPurchaseManagement, CPurchaseData, CPurchasesModel, CSearchPurchase>
 	{
-		public PurchasesController(IPurchaseManagement management)
-			: base(management, "Purchase")
-		{ }
+		private readonly IBankAccountManagement _bankAccountManagement;
+		private readonly IShopManagement _shopManagement;
+
+		public PurchasesController(IPurchaseManagement management,
+			IBankAccountManagement bankAccountManagement,
+			IShopManagement shopManagement)
+			: base(management, nameof(Purchase))
+		{
+			_bankAccountManagement = bankAccountManagement;
+			_shopManagement = shopManagement;
+		}
 
 		protected override string GetSearchTitle()
 		{
@@ -32,7 +41,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult Purchase(long id)
 		{
-			var model = new CPurchaseModel(id);
+			var model = new CPurchaseModel(Management, _bankAccountManagement, _shopManagement, id);
 
 			if (model.Purchase.ID == 0)
 			{
@@ -45,12 +54,17 @@ namespace Household.Controllers
 		[HttpPost]
 		public override PartialViewResult GetTableFooter(CSearchPurchase search)
 		{
-			var searchModel = new CPurchasesModel();
+			var searchModel = getSearchClass();
 			var purchases = Management.getPurchases(searchModel.GetSearchExpression(search));
 
-			var footerModel = searchModel.CreateTableFooter(ActionName, ControllerName, purchases.Count, purchases.Sum(x => x.Amount));
+			var footerModel = searchModel.CreateTableFooter(ActionName, ControllerName, purchases.Count(), purchases.Sum(x => x.Amount));
 
 			return PartialView("_MasterDataHeaderFooterPartial", footerModel);
+		}
+
+		protected override CPurchasesModel getSearchClass()
+		{
+			return new CPurchasesModel(Management);
 		}
 	}
 }

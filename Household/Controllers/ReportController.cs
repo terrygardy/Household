@@ -2,11 +2,23 @@
 using Household.Models.Chart;
 using System.Web.Mvc;
 using WebHelpers;
+using Household.BL.Functions.Management.txx;
+using Household.BL.Functions.Management.t;
 
 namespace Household.Controllers
 {
 	public class ReportController : Controller
 	{
+		private readonly IShopManagement _shopManagement;
+		private readonly IPurchaseManagement _purchaseManagement;
+
+		public ReportController(IShopManagement shopManagement,
+			IPurchaseManagement purchaseManagement)
+		{
+			_shopManagement = shopManagement;
+			_purchaseManagement = purchaseManagement;
+		}
+
 		[HttpPost]
 		public string CompareShopInfo(long id, int year)
 		{
@@ -14,7 +26,7 @@ namespace Household.Controllers
 
 			try
 			{
-				objReturn = new CReturn() { Message = "", Return = new Models.Finance.CReportsModel().GetShopCompareChartInfo(id, year) };
+				objReturn = new CReturn() { Message = "", Return = new Models.Finance.CReportsModel(_shopManagement).GetShopCompareChartInfo(_purchaseManagement, id, year) };
 			}
 			catch (Exception ex)
 			{
@@ -31,7 +43,7 @@ namespace Household.Controllers
 
 			try
 			{
-				objReturn = new CReturn() { Message = "", Return = new Models.Finance.CReportsModel().GetYearCompareChartInfo(year) };
+				objReturn = new CReturn() { Message = "", Return = new Models.Finance.CReportsModel(_shopManagement).GetYearCompareChartInfo(_purchaseManagement, year) };
 			}
 			catch (Exception ex)
 			{

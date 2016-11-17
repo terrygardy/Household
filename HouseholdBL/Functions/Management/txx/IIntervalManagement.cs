@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 namespace Household.BL.Functions.Management.txx
 {
-	public interface IIntervalManagement : IManagementBase<txx_Interval, string, string, CIntervalData>
+	public interface IIntervalManagement : IManagementBase<txx_Interval, CIntervalData>
 	{
-		List<txx_Interval> getIntervals();
+		IEnumerable<txx_Interval> getIntervals();
 	}
 }

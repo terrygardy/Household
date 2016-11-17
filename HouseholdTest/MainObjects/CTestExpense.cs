@@ -2,10 +2,12 @@
 using Household.BL.Functions.t;
 using Household.BL.Functions.txx;
 using Household.Data.Context;
+using Household.Data.Db;
 using Household.Test.Base;
 using Household.Test.Text;
 using NUnit.Framework;
 using System;
+using System.Linq;
 using System.Reflection;
 
 namespace Household.Test.MainObjects
@@ -28,10 +30,11 @@ namespace Household.Test.MainObjects
 
 		public CTestExpense()
 		{
-			m_xxInterval = new CIntervalManagement().getIntervals()[0];
-			m_xxDay = new CDayManagement().getDays()[0];
-			m_xxBankAccount = new CBankAccountManagement().getBankAccounts()[0];
-			m_xxCompany = new CCompanyManagement().getCompanies()[0];
+			var db = new CDbDefault();
+			m_xxInterval = new CIntervalManagement(db).getIntervals().FirstOrDefault();
+			m_xxDay = new CDayManagement(db).getDays().FirstOrDefault();
+			m_xxBankAccount = new CBankAccountManagement(db).getBankAccounts().FirstOrDefault();
+			m_xxCompany = new CCompanyManagement(db).getCompanies().FirstOrDefault();
 		}
 
 		[Test]
@@ -323,7 +326,7 @@ namespace Household.Test.MainObjects
 		{
 			try
 			{
-				return new CExpenseManagement();
+				return new CExpenseManagement(new CDbDefault());
 			}
 			catch (Exception ex)
 			{
@@ -344,7 +347,7 @@ namespace Household.Test.MainObjects
 				return pv_toExpense.getEntities(x => x.StartDate == TestStartDate && x.EndDate == TestEndDate && x.Amount == TestAmount
 													&& x.BankAccount_ID == TestBankAccount.ID && x.Company_ID == TestCompany.ID
 													&& x.Interval_ID == TestInterval.ID && x.PaymentDay_ID == TestPaymentDay.ID,
-												x => x.StartDate, x => x.StartDate)[0];
+												x => x.StartDate, x => x.StartDate).FirstOrDefault();
 			}
 			catch (Exception ex)
 			{

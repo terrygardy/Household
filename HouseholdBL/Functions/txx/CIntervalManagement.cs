@@ -8,12 +8,14 @@ using Household.Data.Text.Error;
 using System.Collections.Generic;
 using Household.BL.DATA.txx;
 using Household.BL.Functions.Management.txx;
+using Household.Data.Db;
 
 namespace Household.BL.Functions.txx
 {
-	public class CIntervalManagement : CModelBase<txx_Interval, string, string, CIntervalData> , IIntervalManagement
+	public class CIntervalManagement : CManagementBase<txx_Interval, string, string, CIntervalData>, IIntervalManagement
 	{
-		public CIntervalManagement() { }
+		public CIntervalManagement(IDb db)
+		: base(db) { }
 
 		protected override Expression<Func<txx_Interval, string>> getStandardOrderBy()
 		{
@@ -25,20 +27,15 @@ namespace Household.BL.Functions.txx
 			return x => x.Name;
 		}
 
-		protected override Expression<Func<txx_Interval, bool>> getStandardWhereID(long pv_lngID)
-		{
-			return x => x.ID == pv_lngID;
-		}
-
 		protected override void deleteAllowed(txx_Interval pv_cEntity)
 		{
-			if (Database.t_Income.Where(x => x.Interval_ID == pv_cEntity.ID).Count() > 0) throw new DeleteNotAllowedException(Interval.InUseIncome);
-			if (Database.t_Expense.Where(x => x.Interval_ID == pv_cEntity.ID).Count() > 0) throw new DeleteNotAllowedException(Interval.InUseExpense);
+			if (Db.GetGenericRepository<t_Income>().Where(x => x.Interval_ID == pv_cEntity.ID).Count() > 0) throw new DeleteNotAllowedException(Interval.InUseIncome);
+			if (Db.GetGenericRepository<t_Expense>().Where(x => x.Interval_ID == pv_cEntity.ID).Count() > 0) throw new DeleteNotAllowedException(Interval.InUseExpense);
 
 			base.deleteAllowed(pv_cEntity);
 		}
 
-		public List<txx_Interval> getIntervals()
+		public IEnumerable<txx_Interval> getIntervals()
 		{
 			return getEntities(null, getStandardOrderBy(), getStandardThenBy());
 		}

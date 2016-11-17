@@ -1,9 +1,11 @@
 ﻿using Household.BL.Functions.t;
 using Household.Data.Context;
+using Household.Data.Db;
 using Household.Models.Finance;
 using Household.Models.Search;
 using Household.Test.MainObjects;
 using NUnit.Framework;
+using System.Linq;
 
 namespace Household.Test.Search.MainObjects
 {
@@ -33,7 +35,7 @@ namespace Household.Test.Search.MainObjects
 				cSearch.Where = tPurchase.txx_Shop.Name;
 				cSearch.Who = tPurchase.txx_BankAccount.AccountName;
 
-				cModel = new CPurchasesModel();
+				cModel = new CPurchasesModel(new CPurchaseManagement(new CDbDefault()));
 				intRows = cModel.Search(cSearch, "Purchase", "Purchases").Body.Count;
 
 				Assert.That(intRows == 1);
@@ -48,8 +50,9 @@ namespace Household.Test.Search.MainObjects
 		[Test]
 		public void EmptySearch()
 		{
-			int intRowsExpected = new CPurchaseManagement().getPurchases().Count;
-			int intRowsFound = new CPurchasesModel().Search(new CSearchPurchase(), "Purchase", "Purchases").Body.Count;
+			var purchaseManagement = new CPurchaseManagement(new CDbDefault());
+			int intRowsExpected = purchaseManagement.getPurchases().Count();
+			int intRowsFound = new CPurchasesModel(purchaseManagement).Search(new CSearchPurchase(), "Purchase", "Purchases").Body.Count;
 
 			Assert.That(intRowsExpected == intRowsFound);
 		}

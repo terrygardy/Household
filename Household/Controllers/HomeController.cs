@@ -1,10 +1,18 @@
-﻿using Household.Models.Environment;
+﻿using Household.BL.Functions.Management.txx;
+using Household.Models.Environment;
 using System.Web.Mvc;
 
 namespace Household.Controllers
 {
 	public class HomeController : Controller
 	{
+		private readonly IShopManagement _shopManagement;
+
+		public HomeController(IShopManagement shopManagement)
+		{
+			_shopManagement = shopManagement;
+		}
+
 		public ActionResult Index()
 		{
 			return View();
@@ -13,7 +21,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public void SetEnvironment()
 		{
-			new CEnvironment();
+			new CEnvironment(_shopManagement);
 		}
 	}
 }

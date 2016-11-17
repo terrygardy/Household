@@ -239,6 +239,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
+    <Compile Include="Controllers\BankingController.cs" />
     <Compile Include="Controllers\Base\CRUDController.cs" />
     <Compile Include="Controllers\Base\SearchableController.cs" />
     <Compile Include="Controllers\IncomeController.cs" />
@@ -257,6 +258,7 @@
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\ServerManagerController.cs" />
     <Compile Include="Controllers\WorkController.cs" />
+    <Compile Include="Factory\BreadCrumbFactory.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -679,6 +681,7 @@
     <Content Include="Views\Shared\Previews\_BankAccountPreviewPartial.cshtml" />
     <Content Include="Views\Shared\UpdateDeleteButton.cshtml" />
     <Content Include="Views\Shared\DatabaseEntry.cshtml" />
+    <Content Include="Views\Banking\_CurrentBankBalancePartial.cshtml" />
     <TypeScriptCompile Include="Scripts\Finance\Expense.ts" />
     <TypeScriptCompile Include="Scripts\Finance\Purchase.ts" />
     <TypeScriptCompile Include="Scripts\Finance\Report.ts" />
@@ -734,6 +737,7 @@
   <ItemGroup>
     <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
+    <Folder Include="Models\Banking\" />
     <Folder Include="Views\Expenses\" />
     <Folder Include="Views\Purchases\" />
     <Folder Include="Views\Report\" />

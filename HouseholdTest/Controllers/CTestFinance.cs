@@ -1,4 +1,6 @@
-﻿using Household.Controllers;
+﻿using Household.BL.Functions.txx;
+using Household.Controllers;
+using Household.Data.Db;
 using Household.Models.Finance;
 using NUnit.Framework;
 
@@ -9,7 +11,7 @@ namespace Household.Test.Controllers
 	{
 		public CTestFinance()
 		{
-			Controller = new FinanceController();
+			Controller = new FinanceController(new CShopManagement(new CDbDefault()));
 		}
 
 		[Test]
@@ -45,13 +47,13 @@ namespace Household.Test.Controllers
 		[Test]
 		public void ReportsModel()
 		{
-			Assert.That(new FinanceController().Reports().Model.GetType(), Is.EqualTo(typeof(CReportsModel)));
+			Assert.That(Controller.Reports().Model.GetType(), Is.EqualTo(typeof(CReportsModel)));
 		}
 
 		[Test]
 		public void ReportsShopsFilled()
 		{
-			Assert.That((new FinanceController().Reports().Model as CReportsModel).Shops, Is.Not.Null);
+			Assert.That((Controller.Reports().Model as CReportsModel).Shops, Is.Not.Null);
 		}
 	}
 }

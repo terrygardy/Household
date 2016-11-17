@@ -1,22 +1,29 @@
 ﻿using Household.Localisation.Main.MasterData;
 using Household.Localisation.Common;
-using Household.BL.Functions.t;
-using Household.BL.Functions.txx;
 using Household.Models.DisplayTable;
 using System;
+using Household.BL.Functions.Management.t;
+using Household.BL.Functions.Management.txx;
+using System.Linq;
 
 namespace Household.Models.MasterData
 {
 	public class CIncomesModel
 	{
 		private DateTime DatNULL { get { return new DateTime(1753, 1, 1, 0, 0, 0); } }
+		private readonly IIncomeManagement _incomeManagement;
+		private readonly ICompanyManagement _companyManagement;
 
-		public CIncomesModel() { }
+		public CIncomesModel(IIncomeManagement incomeManagement,
+			ICompanyManagement companyManagement)
+		{
+			_incomeManagement = incomeManagement;
+			_companyManagement = companyManagement;
+		}
 
 		public CDisplayTable getDisplayTable()
 		{
-			var cIncome = new CIncomeManagement();
-			var lstIncomes = cIncome.getIncomes();
+			var lstIncomes = _incomeManagement.getIncomes();
 			var action = "Income";
 			var controller = "MasterData";
 			var dtTable = new CDisplayTable()
@@ -24,16 +31,17 @@ namespace Household.Models.MasterData
 				AddAction = action,
 				AddController = controller
 			};
-			var drHead = new CDisplayRow() {
+			var drHead = new CDisplayRow()
+			{
 				OnClickAction = action,
 				OnClickController = controller
 			};
-			var drFoot = new CDisplayRow() {
+			var drFoot = new CDisplayRow()
+			{
 				OnClickAction = action,
 				OnClickController = controller
 			};
 			var dcColumn = new CDisplayColumn();
-			var cCompany = new CCompanyManagement();
 
 			dcColumn.Content = IncomeText.Start;
 			drHead.Columns.Add(dcColumn);
@@ -66,7 +74,7 @@ namespace Household.Models.MasterData
 					OnClickController = controller
 				};
 
-				if (tIncome.txx_Company != null) strCompany = cCompany.getDataByID((long)tIncome.Company_ID).Name;
+				if (tIncome.txx_Company != null) strCompany = _companyManagement.getDataByID((long)tIncome.Company_ID).Name;
 
 				if ((tIncome.EndDate != null) && (tIncome.EndDate > DatNULL))
 				{
@@ -109,7 +117,7 @@ namespace Household.Models.MasterData
 
 			drFoot.Columns.Add(new CDisplayColumn()
 			{
-				Content = $"{GeneralText.Count}: {lstIncomes.Count.ToString()}",
+				Content = $"{GeneralText.Count}: {lstIncomes.Count().ToString()}",
 				CSS = "right",
 				ColumnSpan = 4
 			});

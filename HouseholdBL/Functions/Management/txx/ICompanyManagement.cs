@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 namespace Household.BL.Functions.Management.txx
 {
-	public interface ICompanyManagement : IManagementBase<txx_Company, string, string, CCompanyData>
+	public interface ICompanyManagement : IManagementBase<txx_Company, CCompanyData>
 	{
-		List<txx_Company> getCompanies();
+		IEnumerable<txx_Company> getCompanies();
 	}
 }

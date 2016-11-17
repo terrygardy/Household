@@ -1,34 +1,39 @@
-﻿using Household.BL.Functions.txx;
+﻿using Household.BL.Functions.Management.t;
+using Household.BL.Functions.Management.txx;
 using Household.Data.Context;
 using Household.Models.Chart;
 using Household.Models.MasterData;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Household.Models.Finance
 {
 	public class CReportsModel
 	{
 		public List<txx_Shop> Shops { get; set; }
+		private readonly IShopManagement _shopManagement;
 
-		public CReportsModel() { }
-		public CReportsModel(bool pv_blnFill)
+		public CReportsModel(IShopManagement shopManagement) { _shopManagement = shopManagement; }
+
+		public CReportsModel(IShopManagement shopManagement, bool pv_blnFill)
+			: this(shopManagement)
 		{
-			if (pv_blnFill) FillShops();
+			if (pv_blnFill) FillShops(_shopManagement);
 		}
 
-		public CShopChart GetShopCompareChartInfo(long pv_lngShopID, int pv_intYear)
+		public CShopChart GetShopCompareChartInfo(IPurchaseManagement purchaseManagement, long pv_lngShopID, int pv_intYear)
 		{
-			return new CShopsModel().GetCompareChartInfo(pv_lngShopID, pv_intYear);
+			return new CShopsModel(_shopManagement).GetCompareChartInfo(purchaseManagement, pv_lngShopID, pv_intYear);
 		}
 
-		public CYearChart GetYearCompareChartInfo(int pv_intYear)
+		public CYearChart GetYearCompareChartInfo(IPurchaseManagement purchaseManagement, int pv_intYear)
 		{
-			return new CPurchasesModel().GetYearCompareChartInfo(pv_intYear);
+			return new CPurchasesModel(purchaseManagement).GetYearCompareChartInfo(pv_intYear);
 		}
 
-		public void FillShops()
+		public void FillShops(IShopManagement shopManagement)
 		{
-			Shops = new CShopManagement().getShops();
+			Shops = shopManagement.getShops().ToList();
 		}
 	}
 }

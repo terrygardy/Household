@@ -5,7 +5,7 @@ using Household.BL.Functions.Management.txx;
 
 namespace Household.Controllers
 {
-	public class CompanyController : CRUDController<txx_Company, ICompanyManagement, string, string, CCompanyData>
+	public class CompanyController : CRUDController<txx_Company, ICompanyManagement, CCompanyData>
 	{
 		public CompanyController(ICompanyManagement management)
 			: base(management)

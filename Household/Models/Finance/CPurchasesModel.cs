@@ -11,21 +11,25 @@ using System;
 using System.Linq;
 using GARTE.TypeHandling;
 using Household.Models.Interfaces;
+using Household.BL.Functions.Management.t;
 
 namespace Household.Models.Finance
 {
 	public class CPurchasesModel : ISearchModel<t_Purchase, CSearchPurchase>
 	{
 		private DateTime m_datNull = new DateTime(1753, 1, 1);
+		private readonly IPurchaseManagement _purchaseManagement;
 
-		public CPurchasesModel() { }
+		public CPurchasesModel(IPurchaseManagement purchaseManagement)
+		{
+			_purchaseManagement = purchaseManagement;
+		}
 
 		public CDisplayTable GetDisplayTable(string actionMain, string controller) => GetDisplayTable(null, actionMain, controller);
 
 		public CDisplayTable GetDisplayTable(Expression<Func<t_Purchase, bool>> exSearch, string actionMain, string controller)
 		{
-			var cPurchase = new CPurchaseManagement();
-			var lstPurchases = cPurchase.getPurchases(exSearch);
+			var lstPurchases = _purchaseManagement.getPurchases(exSearch);
 			var dtTable = new CDisplayTable()
 			{
 				AddAction = actionMain,
@@ -34,7 +38,7 @@ namespace Household.Models.Finance
 
 			dtTable.Head = CreateTableHead(actionMain, controller);
 			dtTable.Body = CreateTableBody(actionMain, controller, lstPurchases);
-			dtTable.Foot = CreateTableFooter(actionMain, controller, lstPurchases.Count, lstPurchases.Sum(x => x.Amount));
+			dtTable.Foot = CreateTableFooter(actionMain, controller, lstPurchases.Count(), lstPurchases.Sum(x => x.Amount));
 
 			return dtTable;
 		}
@@ -110,7 +114,7 @@ namespace Household.Models.Finance
 			return drFeet;
 		}
 
-		public List<CDisplayRow> CreateTableBody(string actionMain, string controller, List<t_Purchase> lstEntities)
+		public List<CDisplayRow> CreateTableBody(string actionMain, string controller, IEnumerable<t_Purchase> lstEntities)
 		{
 
 			var lstBody = new List<CDisplayRow>();
@@ -196,7 +200,7 @@ namespace Household.Models.Finance
 
 			cYearChart.name = pv_intYear.ToString();
 
-			cYearChart.data = new List<object>() { pv_intYear.ToString(), new CPurchaseManagement().getSumByYear(pv_intYear) };
+			cYearChart.data = new List<object>() { pv_intYear.ToString(), _purchaseManagement.getSumByYear(pv_intYear) };
 
 			return cYearChart;
 		}

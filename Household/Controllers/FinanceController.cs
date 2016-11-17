@@ -1,10 +1,18 @@
-﻿using Household.Models.Finance;
+﻿using Household.BL.Functions.Management.txx;
+using Household.Models.Finance;
 using System.Web.Mvc;
 
 namespace Household.Controllers
 {
 	public class FinanceController : Controller
 	{
+		private readonly IShopManagement _shopManagement;
+
+		public FinanceController(IShopManagement shopManagement)
+		{
+			_shopManagement = shopManagement;
+		}
+
 		// GET: Finance
 		public ActionResult Finance()
 		{
@@ -31,7 +39,7 @@ namespace Household.Controllers
 		[HttpPost]
 		public PartialViewResult Reports()
 		{
-			return PartialView(new CReportsModel(true));
+			return PartialView(new CReportsModel(_shopManagement, true));
 		}
 	}
 }

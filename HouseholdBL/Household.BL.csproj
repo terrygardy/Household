@@ -49,6 +49,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -64,6 +65,7 @@
     <Compile Include="DATA\txx\CShopData.cs" />
     <Compile Include="DATA\txx\CIntervalData.cs" />
     <Compile Include="DATA\txx\CDayData.cs" />
+    <Compile Include="DATA\t\CBankBalance.cs" />
     <Compile Include="DATA\t\CWorkDayData.cs" />
     <Compile Include="DependencyInjection\CDependencyContainer.cs" />
     <Compile Include="Functions\Management\txx\IBankAccountManagement.cs" />
@@ -74,9 +76,12 @@
     <Compile Include="Functions\Management\t\IExpenseManagement.cs" />
     <Compile Include="Functions\Management\t\IIncomeManagement.cs" />
     <Compile Include="Functions\Management\t\IPersonManagement.cs" />
+    <Compile Include="Functions\Management\t\IBankingManagement.cs" />
     <Compile Include="Functions\Management\t\IPurchaseManagement.cs" />
     <Compile Include="Functions\Management\t\IWorkDayManagement.cs" />
+    <Compile Include="Functions\t\CBankingManagement.cs" />
     <Compile Include="Functions\t\CWorkDayManagement.cs" />
+    <Compile Include="Interfaces\t\IBankBalance.cs" />
     <Compile Include="Interfaces\t\IWorkDay.cs" />
     <Compile Include="Returns\CDateDecimal.cs" />
     <Compile Include="DATA\t\CExpenseData.cs" />

@@ -14,7 +14,7 @@ namespace Household.Models.Interfaces
 
 		List<CDisplayRow> CreateTableFooter(string actionMain, string controller, int count, decimal sum);
 
-		List<CDisplayRow> CreateTableBody(string actionMain, string controller, List<TEntity> lstEntities);
+		List<CDisplayRow> CreateTableBody(string actionMain, string controller, IEnumerable<TEntity> lstEntities);
 
 		CDisplayRow CreateBodyRow(string actionMain, string controller, TEntity tEntity);
 

@@ -5,7 +5,7 @@ using Household.BL.Functions.Management.txx;
 
 namespace Household.Controllers
 {
-	public class BankAccountController : CRUDController<txx_BankAccount, IBankAccountManagement, string, string, CBankAccountData>
+	public class BankAccountController : CRUDController<txx_BankAccount, IBankAccountManagement, CBankAccountData>
 	{
 		public BankAccountController(IBankAccountManagement management) : base(management) { }
 	}

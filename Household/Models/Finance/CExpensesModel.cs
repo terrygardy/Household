@@ -1,7 +1,6 @@
 ﻿using Household.Localisation.Common;
 using Household.Localisation.Main.Finance;
 using Household.Models.DisplayTable;
-using Household.BL.Functions.t;
 using GARTE.TypeHandling;
 using Household.Models.Interfaces;
 using Household.Data.Context;
@@ -10,19 +9,26 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Linq;
 using Household.Models.Search;
+using Household.BL.Functions.Management.t;
 
 namespace Household.Models.Finance
 {
 	public class CExpensesModel : ISearchModel<t_Expense, CSearchExpense>
 	{
+		private readonly IExpenseManagement _expenseManagement;
+
+		public CExpensesModel(IExpenseManagement expenseManagement)
+		{
+			_expenseManagement = expenseManagement;
+		}
+
 		private DateTime m_datNull = new DateTime(1753, 1, 1);
 
 		public CDisplayTable GetDisplayTable(string actionMain, string controller) => GetDisplayTable(null, actionMain, controller);
 
 		public CDisplayTable GetDisplayTable(Expression<Func<t_Expense, bool>> exSearch, string actionMain, string controller)
 		{
-			var cExpense = new CExpenseManagement();
-			var lstExpenses = cExpense.getExpenses(exSearch);
+			var lstExpenses = _expenseManagement.getExpenses(exSearch);
 			var dtTable = new CDisplayTable()
 			{
 				AddAction = actionMain,
@@ -31,7 +37,7 @@ namespace Household.Models.Finance
 
 			dtTable.Head = CreateTableHead(actionMain, controller);
 			dtTable.Body = CreateTableBody(actionMain, controller, lstExpenses);
-			dtTable.Foot = CreateTableFooter(actionMain, controller, lstExpenses.Count, lstExpenses.Sum(e => e.Amount));
+			dtTable.Foot = CreateTableFooter(actionMain, controller, lstExpenses.Count(), lstExpenses.Sum(e => e.Amount));
 
 			return dtTable;
 		}
@@ -135,7 +141,7 @@ namespace Household.Models.Finance
 			return drBody;
 		}
 
-		public List<CDisplayRow> CreateTableBody(string actionMain, string controller, List<t_Expense> lstEntities)
+		public List<CDisplayRow> CreateTableBody(string actionMain, string controller, IEnumerable<t_Expense> lstEntities)
 		{
 			var lstBody = new List<CDisplayRow>();
 

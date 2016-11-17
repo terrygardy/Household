@@ -7,13 +7,15 @@ using System.Linq.Expressions;
 using Household.BL.DATA.t;
 using Household.BL.Returns;
 using Household.BL.Functions.Management.t;
+using Household.Data.Db;
 
 namespace Household.BL.Functions.t
 {
-	public class CPurchaseManagement : CModelBase<t_Purchase, DateTime, string, CPurchaseData>, IPurchaseManagement
+	public class CPurchaseManagement : CManagementBase<t_Purchase, DateTime, string, CPurchaseData>, IPurchaseManagement
 	{
-		public CPurchaseManagement() { }
-		
+		public CPurchaseManagement(IDb db)
+		: base(db) { }
+
 		protected override Expression<Func<t_Purchase, DateTime>> getStandardOrderBy()
 		{
 			return x => x.Occurrence;
@@ -24,14 +26,9 @@ namespace Household.BL.Functions.t
 			return x => x.txx_Shop.Name;
 		}
 
-		protected override Expression<Func<t_Purchase, bool>> getStandardWhereID(long pv_lngID)
+		public IEnumerable<CShopChartInfo> getPurchaseInfoForShopChart(long shopID, int year)
 		{
-			return x => x.ID == pv_lngID;
-		}
-
-		public List<CShopChartInfo> getPurchaseInfoForShopChart(long pv_lngShop, int pv_intYear)
-		{
-			return Database.t_Purchase.Where(x => x.Shop_ID == pv_lngShop && x.Occurrence.Year == pv_intYear)
+			return Db.GetGenericRepository<t_Purchase>().Where(x => x.Shop_ID == shopID && x.Occurrence.Year == year)
 										.GroupBy(x => x.Occurrence.Month)
 										.Select(x =>
 											new CShopChartInfo
@@ -39,15 +36,14 @@ namespace Household.BL.Functions.t
 												Integer = x.Key,
 												Decimal = x.Sum(w => w.Amount)
 											})
-											.OrderBy(x => x.Integer).ToList();
-			//return base.getEntities(x => x.Shop_ID == pv_lngShop && x.Occurrence.Year == pv_intYear, x => x.Occurrence.Month, getStandardThenBy());
+											.OrderBy(x => x.Integer);
 		}
 
 		public decimal getSumByYear(int pv_intYear)
 		{
-			var lstPurchases = Database.t_Purchase.Where(x => x.Occurrence.Year == pv_intYear).ToList();
+			var lstPurchases = getEntities(x => x.Occurrence.Year == pv_intYear, getStandardOrderBy(), getStandardThenBy());
 
-			if (lstPurchases.Count > 0)
+			if (lstPurchases.Any())
 			{
 				return lstPurchases.Sum(x => x.Amount);
 			}
@@ -57,14 +53,14 @@ namespace Household.BL.Functions.t
 			}
 		}
 
-		public List<t_Purchase> getPurchases()
+		public IEnumerable<t_Purchase> getPurchases()
 		{
 			return getPurchases(null);
 		}
 
-		public List<t_Purchase> getPurchases(Expression<Func<t_Purchase, bool>> pv_exWhere)
+		public IEnumerable<t_Purchase> getPurchases(Expression<Func<t_Purchase, bool>> whereClause)
 		{
-			return base.getEntities(pv_exWhere, getStandardOrderBy(), getStandardThenBy());
+			return getEntities(whereClause, getStandardOrderBy(), getStandardThenBy());
 		}
 	}
 }

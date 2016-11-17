@@ -10,6 +10,7 @@ using System;
 using Household.Data.Context;
 using Household.Models.Search;
 using Household.Models.Interfaces;
+using Household.BL.Functions.Management.t;
 
 namespace Household.Models.Work
 {
@@ -17,11 +18,14 @@ namespace Household.Models.Work
 	{
 		private DateTime m_datNull = new DateTime(1753, 1, 1);
 		private TimeSpan m_tsNull = new TimeSpan(0, 0, 0);
+		private readonly IWorkDayManagement _workDayManagement;
 
 		public CSearchWorkDay SearchModel { get; set; } = new CSearchWorkDay();
 
-		public CWorkHoursModel()
+		public CWorkHoursModel(IWorkDayManagement workDayManagement)
 		{
+			_workDayManagement = workDayManagement;
+
 			SearchModel.WorkDayFrom = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
 		}
 
@@ -132,7 +136,7 @@ namespace Household.Models.Work
 			return drFeet;
 		}
 
-		public List<CDisplayRow> CreateTableBody(string actionMain, string controller, List<t_WorkDay> lstWorkDays) {
+		public List<CDisplayRow> CreateTableBody(string actionMain, string controller, IEnumerable<t_WorkDay> lstWorkDays) {
 			var lstRows = new List<CDisplayRow>();
 
 			foreach (var tWorkDay in lstWorkDays)
@@ -197,8 +201,7 @@ namespace Household.Models.Work
 
 		public CDisplayTable GetDisplayTable(Expression<Func<t_WorkDay, bool>> exSearch, string actionMain, string controller)
 		{
-			var cWorkDay = new CWorkDayManagement();
-			var lstWorkDays = cWorkDay.getWorkingDays(exSearch);
+			var lstWorkDays = _workDayManagement.getWorkingDays(exSearch);
 			var dtTable = new CDisplayTable()
 			{
 				AddAction = actionMain,

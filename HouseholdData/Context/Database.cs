@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Linq.Expressions;
 using System.Text;
 using Household.Data.Context.Audit;
+using Household.Data.Models.Base;
 
 namespace Household.Data.Context
 {
@@ -58,8 +59,8 @@ namespace Household.Data.Context
 			}
 		}
 
-		public int AttachRange<T>(List<T> pv_lstEntities, bool pv_blnSave)
-			where T : class
+		public int AttachRange<T>(IEnumerable<T> pv_lstEntities, bool pv_blnSave)
+			where T : class, IDataBase
 		{
 			foreach (T cEntity in pv_lstEntities)
 			{
@@ -72,9 +73,9 @@ namespace Household.Data.Context
 		}
 
 		public int Attach<T>(T pv_cEntity, bool pv_blnSave)
-			where T : class
+			where T : class, IDataBase
 		{
-			long lngID = getID(pv_cEntity);
+			long lngID = pv_cEntity.ID;
 
 			if (lngID > -1)
 			{
@@ -130,10 +131,10 @@ namespace Household.Data.Context
 			return 0;
 		}
 
-		public int RemoveRange<T>(List<T> pv_lstEntities, bool pv_blnSave)
+		public int RemoveRange<T>(IEnumerable<T> pv_lstEntities, bool pv_blnSave)
 			where T : class
 		{
-			IEnumerable<T> objReturn = Set<T>().RemoveRange(pv_lstEntities);
+			var objReturn = Set<T>().RemoveRange(pv_lstEntities);
 
 			if (pv_blnSave) return SaveChanges();
 
@@ -153,24 +154,32 @@ namespace Household.Data.Context
 			return iqResults.FirstOrDefault();
 		}
 
-		public List<T> GetEntities<T, Tob, Ttb>(Expression<Func<T, bool>> pv_fnWhere, Expression<Func<T, Tob>> pv_fnOrderBy, Expression<Func<T, Ttb>> pv_fnThenBy)
+		public IQueryable<T> GetEntitiesQueryable<T, Tob, Ttb>(Expression<Func<T, bool>> pv_fnWhere, Expression<Func<T, Tob>> pv_fnOrderBy, Expression<Func<T, Ttb>> pv_fnThenBy)
 			where T : class
 		{
 			IQueryable<T> iqResults = Set<T>();
 
 			if (pv_fnWhere != null) iqResults = iqResults.Where(pv_fnWhere);
 
-			return iqResults.OrderBy(pv_fnOrderBy).ThenBy(pv_fnThenBy).ToList();
+			return iqResults.OrderBy(pv_fnOrderBy).ThenBy(pv_fnThenBy);
 		}
 
-		private long getID<T>(T pv_cEntity)
+		public IEnumerable<T> GetEntities<T, Tob, Ttb>(Expression<Func<T, bool>> pv_fnWhere, Expression<Func<T, Tob>> pv_fnOrderBy, Expression<Func<T, Ttb>> pv_fnThenBy)
 			where T : class
 		{
-			PropertyInfo piID = pv_cEntity.GetType().GetProperty("ID", typeof(long));
+			return GetEntitiesQueryable(pv_fnWhere, pv_fnOrderBy, pv_fnThenBy).AsEnumerable();
+		}
 
-			if (piID == null) { return -1; }
+		public IQueryable<T> GetEntitiesReadOnlyQueryable<T, Tob, Ttb>(Expression<Func<T, bool>> pv_fnWhere, Expression<Func<T, Tob>> pv_fnOrderBy, Expression<Func<T, Ttb>> pv_fnThenBy)
+			where T : class
+		{
+			return GetEntitiesQueryable(pv_fnWhere, pv_fnOrderBy, pv_fnThenBy).AsNoTracking();
+		}
 
-			return (long)piID.GetValue(pv_cEntity);
+		public IEnumerable<T> GetEntitiesReadOnly<T, Tob, Ttb>(Expression<Func<T, bool>> pv_fnWhere, Expression<Func<T, Tob>> pv_fnOrderBy, Expression<Func<T, Ttb>> pv_fnThenBy)
+			where T : class
+		{
+			return GetEntitiesQueryable(pv_fnWhere, pv_fnOrderBy, pv_fnThenBy).AsNoTracking().AsEnumerable();
 		}
 
 		public static void UpdateDatabase()
@@ -204,6 +213,13 @@ namespace Household.Data.Context
 			return ChangeTracker.Entries<IDataAudit>()
 				.Where(p => p.State == state)
 				.Select(p => p.Entity);
+		}
+
+		private IEnumerable<IDataAudit> getAuditEntitiesReadOnly(EntityState state)
+		{
+			return ChangeTracker.Entries<IDataAudit>()
+				.Where(p => p.State == state)
+				.Select(p => p.Entity).AsQueryable().AsNoTracking().AsEnumerable();
 		}
 	}
 }

@@ -2,10 +2,12 @@
 using Household.BL.Functions.t;
 using Household.BL.Functions.txx;
 using Household.Data.Context;
+using Household.Data.Db;
 using Household.Test.Base;
 using Household.Test.Text;
 using NUnit.Framework;
 using System;
+using System.Linq;
 using System.Reflection;
 
 namespace Household.Test.MainObjects
@@ -24,8 +26,9 @@ namespace Household.Test.MainObjects
 
 		public CTestPurchase()
 		{
-			m_xxPayer = new CBankAccountManagement().getBankAccounts()[0];
-			m_xxShop = new CShopManagement().getShops()[0];
+			var db = new CDbDefault();
+			m_xxPayer = new CBankAccountManagement(db).getBankAccounts().FirstOrDefault();
+			m_xxShop = new CShopManagement(db).getShops().FirstOrDefault();
 		}
 
 		[Test]
@@ -247,7 +250,7 @@ namespace Household.Test.MainObjects
 		{
 			try
 			{
-				return new CPurchaseManagement();
+				return new CPurchaseManagement(new CDbDefault());
 			}
 			catch (Exception ex)
 			{
@@ -269,7 +272,7 @@ namespace Household.Test.MainObjects
 			{
 				return pv_toPurchase.getEntities(x => x.Occurrence == TestOccurrence && x.Amount == TestAmount
 													&& x.Payer_ID == TestPayer.ID && x.Shop_ID == TestShop.ID,
-												x => x.Occurrence, x => x.Occurrence)[0];
+												x => x.Occurrence, x => x.Occurrence).FirstOrDefault();
 			}
 			catch (Exception ex)
 			{

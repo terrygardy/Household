@@ -7,8 +7,8 @@ using System.Linq.Expressions;
 
 namespace Household.BL.Functions.Management.t
 {
-	public interface IExpenseManagement : IManagementBase<t_Expense, DateTime, string, CExpenseData>
+	public interface IExpenseManagement : IManagementBase<t_Expense, CExpenseData>
 	{
-		List<t_Expense> getExpenses(Expression<Func<t_Expense, bool>> pv_exWhere);
+		IEnumerable<t_Expense> getExpenses(Expression<Func<t_Expense, bool>> pv_exWhere);
 	}
 }

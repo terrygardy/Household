@@ -5,12 +5,14 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using Household.BL.DATA.t;
 using Household.BL.Functions.Management.t;
+using Household.Data.Db;
 
 namespace Household.BL.Functions.t
 {
-	public class CPersonManagement : CModelBase<t_Person, string, string, CPersonData>, IPersonManagement
+	public class CPersonManagement : CManagementBase<t_Person, string, string, CPersonData>, IPersonManagement
 	{
-		public CPersonManagement() { }
+		public CPersonManagement(IDb db)
+			: base(db) { }
 
 		protected override Expression<Func<t_Person, string>> getStandardOrderBy()
 		{
@@ -22,14 +24,9 @@ namespace Household.BL.Functions.t
 			return x => x.Forename;
 		}
 
-		protected override Expression<Func<t_Person, bool>> getStandardWhereID(long pv_lngID)
+		public IEnumerable<t_Person> getPeople()
 		{
-			return x => x.ID == pv_lngID;
-		}
-
-		public List<t_Person> getPeople()
-		{
-			return getEntities<string, string>(null, getStandardOrderBy(), getStandardThenBy());
+			return getEntities(null, getStandardOrderBy(), getStandardThenBy());
 		}
 	}
 }

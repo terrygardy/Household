@@ -2,6 +2,7 @@
 using Household.BL.Functions.Management.txx;
 using Household.BL.Functions.t;
 using Household.BL.Functions.txx;
+using Household.Data.Db;
 using Microsoft.Practices.Unity;
 
 namespace Household.BL.DependencyInjection
@@ -20,8 +21,12 @@ namespace Household.BL.DependencyInjection
 			}
 		}
 
-		private static void BuildContainer() {
+		private static void BuildContainer()
+		{
 			_container = new UnityContainer();
+
+			//Db
+			_container.RegisterType<IDb, CDbDefault>(new ContainerControlledLifetimeManager());
 
 			//t
 			_container.RegisterType<IExpenseManagement, CExpenseManagement>(new ContainerControlledLifetimeManager());

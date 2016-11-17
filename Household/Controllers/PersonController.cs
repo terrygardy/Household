@@ -5,7 +5,7 @@ using Household.Controllers.Base;
 
 namespace Household.Controllers
 {
-	public class PersonController : CRUDController<t_Person, IPersonManagement, string, string, CPersonData>
+	public class PersonController : CRUDController<t_Person, IPersonManagement, CPersonData>
 	{
 		public PersonController(IPersonManagement management)
 			: base(management)

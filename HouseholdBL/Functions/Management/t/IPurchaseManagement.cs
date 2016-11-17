@@ -8,14 +8,14 @@ using System.Linq.Expressions;
 
 namespace Household.BL.Functions.Management.t
 {
-	public interface IPurchaseManagement : IManagementBase<t_Purchase, DateTime, string, CPurchaseData>
+	public interface IPurchaseManagement : IManagementBase<t_Purchase, CPurchaseData>
 	{
-		List<CShopChartInfo> getPurchaseInfoForShopChart(long pv_lngShop, int pv_intYear);
+		IEnumerable<CShopChartInfo> getPurchaseInfoForShopChart(long pv_lngShop, int pv_intYear);
 
 		decimal getSumByYear(int pv_intYear);
 
-		List<t_Purchase> getPurchases();
+		IEnumerable<t_Purchase> getPurchases();
 
-		List<t_Purchase> getPurchases(Expression<Func<t_Purchase, bool>> pv_exWhere);
+		IEnumerable<t_Purchase> getPurchases(Expression<Func<t_Purchase, bool>> pv_exWhere);
 	}
 }

@@ -5,7 +5,7 @@ using Household.BL.Functions.Management.txx;
 
 namespace Household.Controllers
 {
-	public class ShopController : CRUDController<txx_Shop, IShopManagement, string, string, CShopData>
+	public class ShopController : CRUDController<txx_Shop, IShopManagement, CShopData>
 	{
 		public ShopController(IShopManagement management) : base(management) { }
 	}

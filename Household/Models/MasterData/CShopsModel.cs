@@ -4,17 +4,23 @@ using Household.BL.Functions.t;
 using Household.BL.Functions.txx;
 using Household.Models.Chart;
 using Household.Models.DisplayTable;
+using Household.BL.Functions.Management.txx;
+using System.Linq;
+using Household.BL.Functions.Management.t;
 
 namespace Household.Models.MasterData
 {
 	public class CShopsModel
 	{
-		public CShopsModel() { }
+		private readonly IShopManagement _shopManagement;
+
+		public CShopsModel(IShopManagement shopManagement) {
+			_shopManagement = shopManagement;
+		}
 
 		public CDisplayTable getDisplayTable()
 		{
-			var cShop = new CShopManagement();
-			var lstShops = cShop.getShops();
+			var lstShops = _shopManagement.getShops();
 			var action = "Shop";
 			var controller = "MasterData";
 			var dtTable = new CDisplayTable()
@@ -72,7 +78,7 @@ namespace Household.Models.MasterData
 
 			drFoot.Columns.Add(new CDisplayColumn()
 			{
-				Content = $"{GeneralText.Count}: {lstShops.Count.ToString()}",
+				Content = $"{GeneralText.Count}: {lstShops.Count().ToString()}",
 				CSS = "right",
 				ColumnSpan = 2
 			});
@@ -82,14 +88,13 @@ namespace Household.Models.MasterData
 			return dtTable;
 		}
 
-		public CShopChart GetCompareChartInfo(long pv_lngID, int pv_intYear)
+		public CShopChart GetCompareChartInfo(IPurchaseManagement purchaseManagement, long pv_lngID, int pv_intYear)
 		{
-			var cPurchase = new CPurchaseManagement();
 			var cShopChart = new CShopChart();
 
-			cShopChart.name = new CShopManagement().getDataByID(pv_lngID).Name;
+			cShopChart.name = _shopManagement.getDataByID(pv_lngID).Name;
 
-			foreach (var objInfo in cPurchase.getPurchaseInfoForShopChart(pv_lngID, pv_intYear))
+			foreach (var objInfo in purchaseManagement.getPurchaseInfoForShopChart(pv_lngID, pv_intYear))
 			{
 				while (cShopChart.data.Count < objInfo.Integer - 1) cShopChart.data.Add(null);
 

@@ -1,10 +1,12 @@
 ﻿using Helpers.Exceptions;
 using Household.BL.Functions.t;
 using Household.Data.Context;
+using Household.Data.Db;
 using Household.Test.Base;
 using Household.Test.Text;
 using NUnit.Framework;
 using System;
+using System.Linq;
 using System.Reflection;
 
 namespace Household.Test.MainObjects
@@ -209,7 +211,7 @@ namespace Household.Test.MainObjects
 		{
 			try
 			{
-				return new CWorkDayManagement();
+				return new CWorkDayManagement(new CDbDefault());
 			}
 			catch (Exception ex)
 			{
@@ -230,7 +232,7 @@ namespace Household.Test.MainObjects
 			try
 			{
 				return pv_toWorkDay.getWorkingDays(x => x.WorkDay == TestWorkDay && x.Begin == TestBegin
-													&& x.End == TestEnd)[0];
+													&& x.End == TestEnd).FirstOrDefault();
 			}
 			catch (Exception ex)
 			{

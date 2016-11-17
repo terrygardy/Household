@@ -14,6 +14,7 @@ namespace Household.Data.Context
 
 	public partial class t_Income : DataAuditBase, IValidatableObject, IDataBase
 	{
+		[Key]
 		public long ID { get; set; }
 
 		[Required]

@@ -1,12 +1,13 @@
 ﻿using Household.BL.DATA.t;
-using Household.BL.Functions.t;
-using Household.BL.Functions.txx;
+using Household.BL.Functions.Management.t;
+using Household.BL.Functions.Management.txx;
 using Household.Data.Context;
 using Household.Data.Models.Base;
 using Household.Localisation.Main.Finance;
 using Household.Localisation.Main.MasterData;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace Household.Models.Finance
 {
@@ -29,16 +30,21 @@ namespace Household.Models.Finance
 
 		public string EntityTitle => Expense.EntityTitle;
 
-		public CExpenseModel(long pv_lngID)
+		public CExpenseModel(IExpenseManagement expenseManagement,
+			IBankAccountManagement bankAccountManagement,
+			ICompanyManagement companyManagement,
+			IIntervalManagement intervalManagement,
+			IDayManagement dayManagement,
+			long pv_lngID)
 		{
-			Expense = new CExpenseManagement().getDataByID(pv_lngID);
+			Expense = expenseManagement.getDataByID(pv_lngID);
 
 			if (Expense == null) Expense = new CExpenseData();
 
-			BankAccounts = new CBankAccountManagement().getBankAccounts();
-			Companies = new CCompanyManagement().getCompanies();
-			Intervals = new CIntervalManagement().getIntervals();
-			Days = new CDayManagement().getDays();
+			BankAccounts = bankAccountManagement.getBankAccounts().ToList();
+			Companies = companyManagement.getCompanies().ToList();
+			Intervals = intervalManagement.getIntervals().ToList();
+			Days = dayManagement.getDays().ToList();
 		}
 	}
 }

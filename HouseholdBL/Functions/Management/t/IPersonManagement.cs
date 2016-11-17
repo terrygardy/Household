@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 namespace Household.BL.Functions.Management.t
 {
-	public interface IPersonManagement : IManagementBase<t_Person, string, string, CPersonData>
+	public interface IPersonManagement : IManagementBase<t_Person, CPersonData>
 	{
-		List<t_Person> getPeople();
+		IEnumerable<t_Person> getPeople();
 	}
 }

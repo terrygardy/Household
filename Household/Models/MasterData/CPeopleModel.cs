@@ -1,18 +1,22 @@
 ﻿using Household.Localisation.Main.MasterData;
 using Household.Localisation.Common;
-using Household.BL.Functions.t;
 using Household.Models.DisplayTable;
+using Household.BL.Functions.Management.t;
+using System.Linq;
 
 namespace Household.Models.MasterData
 {
 	public class CPeopleModel
 	{
-		public CPeopleModel() { }
+		private readonly IPersonManagement _personManagement;
+
+		public CPeopleModel(IPersonManagement personManagement) {
+			_personManagement = personManagement;
+		}
 
 		public CDisplayTable getDisplayTable()
 		{
-			var cPerson = new CPersonManagement();
-			var lstPeople = cPerson.getPeople();
+			var lstPeople = _personManagement.getPeople();
 			var action = "Person";
 			var controller = "MasterData";
 			var dtTable = new CDisplayTable()
@@ -70,7 +74,7 @@ namespace Household.Models.MasterData
 
 			drFoot.Columns.Add(new CDisplayColumn()
 			{
-				Content = $"{GeneralText.Count}: {lstPeople.Count.ToString()}",
+				Content = $"{GeneralText.Count}: {lstPeople.Count().ToString()}",
 				CSS = "right",
 				ColumnSpan = 2
 			});

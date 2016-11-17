@@ -51,6 +51,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GeneralText.resx</DependentUpon>
     </Compile>
+    <Compile Include="Main\Banking\BankingText.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BankingText.resx</DependentUpon>
+    </Compile>
     <Compile Include="Main\Finance\ExpenseText.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -136,6 +141,10 @@
     <EmbeddedResource Include="Common\GeneralText.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>GeneralText.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Banking\BankingText.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>BankingText.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\Finance\ExpenseText.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

@@ -4,34 +4,43 @@ using System.Linq.Expressions;
 
 namespace Household.Data.Models.Base
 {
-	public interface IManagementBase<T, Tob, Ttb, Tdata>
+	public interface IManagementBase<T, Tdata>
 		where T : class, new()
 		where Tdata : class, new()
 	{
-		int delete(T pv_cEntity);
+		#region CRUD
+		int delete(T entity);
 
-		int delete(List<T> pv_lstEntities);
+		int delete(T entity, bool runSave);
 
-		int deleteByID(long pv_lngID);
+		int delete(IEnumerable<T> entities);
 
-		int save(Tdata pv_objEntity);
+		int delete(Expression<Func<T, bool>> whereClause);
 
-		int save(Tdata pv_objEntity, bool pv_blnSave);
+		int deleteByID(long id);
 
-		int save(List<Tdata> pv_lstEntity);
+		int save(Tdata entity);
 
-		int save(T pv_cEntity);
+		int save(Tdata entity, bool runSave);
 
-		int save(T pv_cEntity, bool pv_blnSave);
+		int save(IEnumerable<Tdata> entities);
 
-		int save(List<T> pv_lstEntities);
+		int save(T entity);
 
-		Tdata getDataByID(long pv_lngID);
+		int save(T entity, bool runSave);
 
-		T getModelByID(long pv_lngID);
+		int save(IEnumerable<T> entities);
+		#endregion
 
-		List<T> getEntities<Tobb, Ttbb>(Expression<Func<T, bool>> pv_fnWhere, 
-			Expression<Func<T, Tobb>> pv_fnOrderBy, 
-			Expression<Func<T, Ttbb>> pv_fnThenBy);
+		#region Gets
+
+		T getModel(Expression<Func<T, bool>> whereClause);
+
+		T getModelByID(long id);
+
+		Tdata getDataByID(long id);
+
+		IEnumerable<T> getEntities<Tobb, Ttbb>(Expression<Func<T, bool>> whereClause, Expression<Func<T, Tobb>> orderBy, Expression<Func<T, Ttbb>> thenBy);
+		#endregion
 	}
 }

@@ -1,11 +1,12 @@
 ﻿using Household.Localisation.Main.MasterData;
 using Household.BL.DATA.t;
-using Household.BL.Functions.t;
-using Household.BL.Functions.txx;
 using Household.Data.Context;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Household.BL.DATA.Base;
+using Household.BL.Functions.Management.t;
+using Household.BL.Functions.Management.txx;
+using System.Linq;
 
 namespace Household.Models.MasterData
 {
@@ -28,16 +29,21 @@ namespace Household.Models.MasterData
 
 		public string EntityTitle => Income.EntityTitle;
 
-		public CIncomeModel(long pv_lngID)
+		public CIncomeModel(IIncomeManagement incomeManagement,
+			IBankAccountManagement bankAccountManagement,
+			ICompanyManagement companyManagement,
+			IDayManagement dayManagement,
+			IIntervalManagement intervalManagement,
+			long pv_lngID)
 		{
-			Income = new CIncomeManagement().getDataByID(pv_lngID);
+			Income = incomeManagement.getDataByID(pv_lngID);
 
 			if (Income == null) Income = new CIncomeData();
 
-			BankAccounts = new CBankAccountManagement().getBankAccounts();
-			Companies = new CCompanyManagement().getCompanies();
-			Days = new CDayManagement().getDays();
-			Intervals = new CIntervalManagement().getIntervals();
+			BankAccounts = bankAccountManagement.getBankAccounts().ToList();
+			Companies = companyManagement.getCompanies().ToList();
+			Days = dayManagement.getDays().ToList();
+			Intervals = intervalManagement.getIntervals().ToList();
 		}
 	}
 }

@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 namespace Household.BL.Functions.Management.txx
 {
-	public interface IDayManagement : IManagementBase<txx_Day, int, int, CDayData>
+	public interface IDayManagement : IManagementBase<txx_Day, CDayData>
 	{
-		List<txx_Day> getDays();
+		IEnumerable<txx_Day> getDays();
 	}
 }

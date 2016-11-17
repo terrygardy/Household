@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 namespace Household.BL.Functions.Management.txx
 {
-	public interface IShopManagement : IManagementBase<txx_Shop, string, string, CShopData>
+	public interface IShopManagement : IManagementBase<txx_Shop, CShopData>
 	{
-		List<txx_Shop> getShops();
+		IEnumerable<txx_Shop> getShops();
 	}
 }

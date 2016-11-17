@@ -16,6 +16,8 @@
 		public static readonly string IBANUpper = "IBAN";
 		public static readonly string NameLower = "name";
 		public static readonly string NameUpper = "Name";
+		public static readonly string ReferenceDateLower = "reference date";
+		public static readonly string ReferenceDateUpper = "Reference Date";
 		public static readonly string OrLower = "or";
 		public static readonly string PayeeLower = "payee";
 		public static readonly string PayeeUpper = "Payee";

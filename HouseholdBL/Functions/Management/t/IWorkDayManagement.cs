@@ -7,10 +7,10 @@ using System.Linq.Expressions;
 
 namespace Household.BL.Functions.Management.t
 {
-	public interface IWorkDayManagement : IManagementBase<t_WorkDay, DateTime, TimeSpan, CWorkDayData>
+	public interface IWorkDayManagement : IManagementBase<t_WorkDay, CWorkDayData>
 	{
-		List<t_WorkDay> getWorkingDays();
+		IEnumerable<t_WorkDay> getWorkingDays();
 
-		List<t_WorkDay> getWorkingDays(Expression<Func<t_WorkDay, bool>> pv_exWhere);
+		IEnumerable<t_WorkDay> getWorkingDays(Expression<Func<t_WorkDay, bool>> pv_exWhere);
 	}
 }
