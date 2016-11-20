@@ -30,10 +30,14 @@ module Purchase {
 
 		Save(): void {
 			MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), null);
+
+			Finance.updateBankBalance();
 		}
 
 		Delete(): void {
 			MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() }, true);
+
+			Finance.updateBankBalance();
 		}
 	}
 

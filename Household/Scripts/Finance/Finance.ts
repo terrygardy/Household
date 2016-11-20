@@ -14,4 +14,33 @@ module Finance {
 		Amount: number;
 		Shop: Shop;
 	}
+
+	export function updateBankBalance() {
+		const jqBreadCrumb = $(".breadcrumb");
+
+		if (jqBreadCrumb.length > 0) {
+			try {
+				let jqBankBalance = jqBreadCrumb.children("li.bankBalance");
+
+				if (jqBankBalance.length < 1) {
+					jqBreadCrumb.append("<li class=\"bankBalance fRight\"></li>");
+
+					jqBankBalance = jqBreadCrumb.children("li.bankBalance")
+				}
+
+				let request = Helpers.HttpRequests.CreateAsyncRequestHandlerPOST("/Banking/GetCurrentBankBalance", Helpers.HttpRequests.GetContentTypeForm());
+
+				request.onload = (e) => {
+					jqBankBalance.html(request.responseText);
+				}
+
+				request.send(null);
+			}
+			catch (ex) {
+				alert(ex);
+			}
+		}
+	}
 }
+
+$(Finance.updateBankBalance);

@@ -39,10 +39,12 @@ module Income {
 
 		Save(): void {
 			MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), [this.StartDate(), this.EndDate(), this.Amount() + ' €', getCurrentCompanyText()]);
+			Finance.updateBankBalance();
 		}
 
 		Delete(): void {
 			MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() }, false);
+			Finance.updateBankBalance();
 		}
 	}
 

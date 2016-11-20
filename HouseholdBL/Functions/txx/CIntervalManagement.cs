@@ -37,7 +37,12 @@ namespace Household.BL.Functions.txx
 
 		public IEnumerable<txx_Interval> getIntervals()
 		{
-			return getEntities(null, getStandardOrderBy(), getStandardThenBy());
+			return getIntervals(null);
+		}
+
+		public IEnumerable<txx_Interval> getIntervals(Expression<Func<txx_Interval, bool>> whereClause)
+		{
+			return getEntities(whereClause, getStandardOrderBy(), getStandardThenBy());
 		}
 	}
 }

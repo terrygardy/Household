@@ -24,9 +24,11 @@ var Expense;
         }
         Expense.prototype.Save = function () {
             MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), null);
+            Finance.updateBankBalance();
         };
         Expense.prototype.Delete = function () {
             MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() }, true);
+            Finance.updateBankBalance();
         };
         return Expense;
     }(MasterData.BaseDescMasterData));

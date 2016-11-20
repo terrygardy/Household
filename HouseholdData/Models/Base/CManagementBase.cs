@@ -9,7 +9,6 @@ namespace Household.Data.Models.Base
 		where T : class, IDataBase, new()
 		where Tdata : class, new()
 	{
-		public static readonly DateTime MinDate = new DateTime(1753, 1, 1);
 		protected readonly IDb Db;
 
 		public CManagementBase(IDb db)

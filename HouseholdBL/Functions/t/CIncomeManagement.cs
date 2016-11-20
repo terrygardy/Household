@@ -26,7 +26,12 @@ namespace Household.BL.Functions.t
 
 		public IEnumerable<t_Income> getIncomes()
 		{
-			return getEntities(null, getStandardOrderBy(), getStandardThenBy());
+			return getIncomes(null);
+		}
+
+		public IEnumerable<t_Income> getIncomes(Expression<Func<t_Income, bool>> whereClause)
+		{
+			return getEntities(whereClause, getStandardOrderBy(), getStandardThenBy());
 		}
 	}
 }
