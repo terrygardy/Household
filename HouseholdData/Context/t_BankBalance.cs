@@ -27,7 +27,7 @@ namespace Household.Data.Context
 		[Required]
 		public long BankAccount_ID { get; set; }
 
-		[ForeignKey("BankAccountId")]
+		[ForeignKey("BankAccount_ID")]
 		public virtual txx_BankAccount BankAccount { get; set; }
 
 		public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
