@@ -242,6 +242,7 @@
     <Compile Include="Controllers\BankingController.cs" />
     <Compile Include="Controllers\Base\CRUDController.cs" />
     <Compile Include="Controllers\Base\SearchableController.cs" />
+    <Compile Include="Controllers\ImportController.cs" />
     <Compile Include="Controllers\IncomeController.cs" />
     <Compile Include="Controllers\ExpensesController.cs" />
     <Compile Include="Controllers\PurchasesController.cs" />
@@ -739,6 +740,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\Banking\" />
     <Folder Include="Views\Expenses\" />
+    <Folder Include="Views\Import\" />
     <Folder Include="Views\Purchases\" />
     <Folder Include="Views\Report\" />
   </ItemGroup>

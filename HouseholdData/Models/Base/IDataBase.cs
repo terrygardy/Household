@@ -2,7 +2,7 @@
 {
 	public interface IDataBase
 	{
-		long ID { get; }
+		long ID { get; set; }
 
 		string EntityName { get; }
 

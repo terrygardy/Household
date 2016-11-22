@@ -24,7 +24,11 @@ namespace Household.Models.Finance
 		[Display(Name = "Expense", ResourceType = typeof(ExpenseText))]
 		public CExpenseData Expense { get; set; }
 
-		public long ID => Expense.ID;
+		public long ID
+		{
+			get { return Expense.ID; }
+			set { }
+		}
 
 		public string EntityName => Expense.EntityName;
 

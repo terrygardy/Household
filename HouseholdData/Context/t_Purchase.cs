@@ -9,8 +9,11 @@ namespace Household.Data.Context
 	using System.Collections.Generic;
 	using System.ComponentModel.DataAnnotations;
 	using System.ComponentModel.DataAnnotations.Schema;
+	using System.Runtime.Serialization;
+	using System.Xml.Serialization;
 	using Text.Error;
 
+	[Serializable]
 	public partial class t_Purchase : DataAuditBase, IValidatableObject, IDataBase
 	{
 		[Key]
@@ -31,9 +34,13 @@ namespace Household.Data.Context
 		[Display(Name = "Description", ResourceType = typeof(PurchaseText))]
 		public string Description { get; set; }
 
+		[IgnoreDataMember]
+		[XmlIgnore]
 		[ForeignKey("Shop_ID")]
 		public virtual txx_Shop txx_Shop { get; set; }
 
+		[IgnoreDataMember]
+		[XmlIgnore]
 		[ForeignKey("Payer_ID")]
 		public virtual txx_BankAccount txx_BankAccount { get; set; }
 

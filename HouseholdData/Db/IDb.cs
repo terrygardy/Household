@@ -27,15 +27,15 @@ namespace Household.Data.Db
 
 		int save<T, Tdata>(Tdata pv_objEntity)
 			where T : class, IDataBase, new()
-			where Tdata : class;
+			where Tdata : class, IDataBase;
 
 		int save<T, Tdata>(Tdata pv_objEntity, bool pv_blnSave)
 			where T : class, IDataBase, new()
-			where Tdata : class;
+			where Tdata : class, IDataBase;
 
 		int save<T, Tdata>(IEnumerable<Tdata> pv_lstEntity)
 			where T : class, IDataBase, new()
-			where Tdata : class;
+			where Tdata : class, IDataBase;
 
 		int save<T>(T pv_cEntity)
 			where T : class, IDataBase, new();
@@ -62,7 +62,7 @@ namespace Household.Data.Db
 
 		Tdata getDataByID<T, Tdata>(long pv_lngID)
 			where T : class, IDataBase, new()
-			where Tdata : class, new();
+			where Tdata : class, IDataBase, new();
 
 		IEnumerable<T> getEntities<T, Tobb, Ttbb>(Expression<Func<T, bool>> pv_fnWhere, Expression<Func<T, Tobb>> pv_fnOrderBy, Expression<Func<T, Ttbb>> pv_fnThenBy)
 			where T : class, IDataBase, new();

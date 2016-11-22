@@ -20,7 +20,11 @@ namespace Household.Models.Finance
 		[Display(Name = "Purchase", ResourceType = typeof(PurchaseText))]
 		public CPurchaseData Purchase { get; set; }
 
-		public long ID => Purchase.ID;
+		public long ID
+		{
+			get { return Purchase.ID; }
+			set { }
+		}
 
 		public string EntityName => Purchase.EntityName;
 

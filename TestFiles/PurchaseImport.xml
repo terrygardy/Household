@@ -1,0 +1,1 @@
+﻿<?xml version="1.0" encoding="utf-8"?><t_Purchase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><CreatedOn xsi:nil="true" /><LastModifiedOn xsi:nil="true" /><ID>2</ID><Occurrence>2016-11-20T00:00:00+01:00</Occurrence><Shop_ID>1</Shop_ID><Payer_ID>1</Payer_ID><Amount>20</Amount><Description>Test</Description></t_Purchase>

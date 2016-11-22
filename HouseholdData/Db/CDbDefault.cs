@@ -61,38 +61,33 @@ namespace Household.Data.Db
 
 		public int save<T, Tdata>(Tdata pv_objEntity)
 			where T : class, IDataBase, new()
-			where Tdata : class
+			where Tdata : class, IDataBase
 		{
-			T objEntity = new T();
-			int intResult;
-
-			Helpers.Mapping.Mapping.mapObject(objEntity, pv_objEntity);
-
-			intResult = save(objEntity);
-
-			Helpers.Mapping.Mapping.mapObject(pv_objEntity, objEntity);
-
-			return intResult;
+			return save<T, Tdata>(pv_objEntity, true);
 		}
 
 		public int save<T, Tdata>(Tdata pv_objEntity, bool pv_blnSave)
 			where T : class, IDataBase, new()
-			where Tdata : class
+			where Tdata : class, IDataBase
 		{
 			T objEntity = new T();
 
 			Helpers.Mapping.Mapping.mapObject(objEntity, pv_objEntity);
 
-			return save(objEntity, pv_blnSave);
+			var result = save(objEntity, pv_blnSave);
+
+			pv_objEntity.ID = objEntity.ID;
+
+			return result;
 		}
 
 		public int save<T, Tdata>(IEnumerable<Tdata> pv_lstEntity)
 			where T : class, IDataBase, new()
-			where Tdata : class
+			where Tdata : class, IDataBase
 		{
 			foreach (var objEntity in pv_lstEntity)
 			{
-				save(objEntity as T, false);
+				save<T, Tdata>(objEntity, false);
 			}
 
 			return saveChanges();
@@ -113,15 +108,12 @@ namespace Household.Data.Db
 
 			if (lngID > 0)
 			{
-				if (_database.Entry(tEntity).State == System.Data.Entity.EntityState.Detached)
+				if (_database.Entry(tEntity).State == EntityState.Detached)
 				{
 					tEntity = getModel<T>(x => x.ID == lngID);
 					Helpers.Mapping.Mapping.mapObject(tEntity, pv_cEntity);
+					pv_cEntity = tEntity;
 				}
-			}
-			else
-			{
-				_database.Entry(tEntity).State = System.Data.Entity.EntityState.Added;
 			}
 
 			return _database.Attach(tEntity, pv_blnSave);
@@ -161,7 +153,7 @@ namespace Household.Data.Db
 
 		public Tdata getDataByID<T, Tdata>(long pv_lngID)
 			where T : class, IDataBase, new()
-			where Tdata : class, new()
+			where Tdata : class, IDataBase,  new()
 		{
 			T tEntity = getModelByID<T>(pv_lngID);
 			Tdata tReturn = new Tdata();

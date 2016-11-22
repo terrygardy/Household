@@ -7,7 +7,7 @@ namespace Household.Data.Models.Base
 {
 	public abstract class CManagementBase<T, Tob, Ttb, Tdata> : IManagementBase<T, Tdata>
 		where T : class, IDataBase, new()
-		where Tdata : class, new()
+		where Tdata : class, IDataBase, new()
 	{
 		protected readonly IDb Db;
 
@@ -80,7 +80,7 @@ namespace Household.Data.Models.Base
 
 		public virtual int save(IEnumerable<T> entities)
 		{
-			return Db.save<T>(entities, true);
+			return Db.save(entities, true);
 		}
 		#endregion
 

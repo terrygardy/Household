@@ -23,7 +23,11 @@ namespace Household.Models.MasterData
 		[Display(Name = "Income", ResourceType = typeof(IncomeText))]
 		public CIncomeData Income { get; set; }
 
-		public long ID => Income.ID;
+		public long ID
+		{
+			get { return Income.ID; }
+			set { }
+		}
 
 		public string EntityName => Income.EntityName;
 
