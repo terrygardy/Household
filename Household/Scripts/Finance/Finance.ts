@@ -16,10 +16,11 @@ module Finance {
 	}
 
 	export function updateBankBalance() {
-		const jqBreadCrumb = $(".breadcrumb");
+		let jqBreadCrumb = $(".breadcrumb");
 
 		if (jqBreadCrumb.length > 0) {
 			try {
+				jqBreadCrumb = $(jqBreadCrumb[0]);
 				let jqBankBalance = jqBreadCrumb.children("li.bankBalance");
 
 				if (jqBankBalance.length < 1) {

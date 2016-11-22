@@ -17,6 +17,7 @@ var Finance;
         var jqBreadCrumb = $(".breadcrumb");
         if (jqBreadCrumb.length > 0) {
             try {
+                jqBreadCrumb = $(jqBreadCrumb[0]);
                 var jqBankBalance_1 = jqBreadCrumb.children("li.bankBalance");
                 if (jqBankBalance_1.length < 1) {
                     jqBreadCrumb.append("<li class=\"bankBalance fRight\"></li>");

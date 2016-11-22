@@ -54,6 +54,7 @@ Household/Properties/PublishProfiles/FileSystem.pubxml.user
 Household/Content/DisplayTable.css
 Household/Content/pleaseWait.css
 Household/Content/Styles.css
+Household/Scripts/*.map
 Household/Scripts/Finance/*.js
 Household/Scripts/Finance/*.map
 Household/Scripts/Helpers/*.js
