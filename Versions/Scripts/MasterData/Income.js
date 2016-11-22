@@ -24,9 +24,11 @@ var Income;
         }
         Income.prototype.Save = function () {
             MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), [this.StartDate(), this.EndDate(), this.Amount() + ' €', getCurrentCompanyText()]);
+            Finance.updateBankBalance();
         };
         Income.prototype.Delete = function () {
             MasterData.deleteMasterRecord({ BaseAction: this.BaseAction, ID: this.ID() }, false);
+            Finance.updateBankBalance();
         };
         return Income;
     }(MasterData.BaseDescMasterData));
