@@ -25,7 +25,7 @@ namespace Household.Controllers.Base
 		[HttpPost]
 		public string Save([System.Web.Http.FromBody]Tdata Data)
 		{
-			string strMessage = "";
+			var strMessage = "";
 
 			try
 			{
@@ -42,7 +42,7 @@ namespace Household.Controllers.Base
 		[HttpPost]
 		public string Delete(long id)
 		{
-			string strMessage = "";
+			var strMessage = "";
 
 			try
 			{

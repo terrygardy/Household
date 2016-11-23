@@ -1,7 +1,6 @@
 ﻿using Household.Localisation.Main.Finance;
 using Household.Localisation.Common;
 using Household.Models.DisplayTable;
-using Household.BL.Functions.t;
 using Household.Data.Context;
 using Household.Models.Chart;
 using System.Collections.Generic;
@@ -11,7 +10,7 @@ using System;
 using System.Linq;
 using GARTE.TypeHandling;
 using Household.Models.Interfaces;
-using Household.BL.Functions.Management.t;
+using Household.BL.Management.t.Interfaces;
 
 namespace Household.Models.Finance
 {

@@ -1,6 +1,6 @@
-﻿using Household.BL.DATA.t;
-using Household.BL.Functions.Management.t;
-using Household.BL.Functions.Management.txx;
+﻿using Household.BL.DATA.t.Implementations;
+using Household.BL.Management.t.Interfaces;
+using Household.BL.Management.txx.Interfaces;
 using Household.Data.Context;
 using Household.Data.Models.Base;
 using Household.Localisation.Main.Finance;

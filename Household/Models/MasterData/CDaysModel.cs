@@ -2,7 +2,7 @@
 using Household.Localisation.Common;
 using Household.Models.DisplayTable;
 using System.Linq;
-using Household.BL.Functions.Management.txx;
+using Household.BL.Management.txx.Interfaces;
 
 namespace Household.Models.MasterData
 {

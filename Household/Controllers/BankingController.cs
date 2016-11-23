@@ -1,4 +1,4 @@
-﻿using Household.BL.Functions.Management.t;
+﻿using Household.BL.Management.t.Interfaces;
 using System.Web.Mvc;
 
 namespace Household.Controllers

@@ -1,8 +1,6 @@
-﻿using Household.BL.Functions.Management.t;
-using Household.Data.Context;
+﻿using Household.Data.Context;
 using System;
 using System.IO;
-using System.Linq;
 using System.Web.Mvc;
 using System.Xml;
 using System.Xml.Serialization;

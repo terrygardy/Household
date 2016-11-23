@@ -1,14 +1,14 @@
 ﻿using System.Web.Mvc;
 using System;
-using Household.BL.DATA.t;
 using Household.Models.Finance;
 using Household.Models.Search;
 using Household.Data.Context;
 using Household.Controllers.Base;
-using Household.BL.Functions.Management.t;
 using System.Linq;
 using Household.Localisation.Main.Finance;
-using Household.BL.Functions.Management.txx;
+using Household.BL.DATA.t.Implementations;
+using Household.BL.Management.t.Interfaces;
+using Household.BL.Management.txx.Interfaces;
 
 namespace Household.Controllers
 {

@@ -1,7 +1,6 @@
 ﻿using Household.Localisation.Main.Work;
 using Household.Localisation.Common;
 using Household.Models.DisplayTable;
-using Household.BL.Functions.t;
 using GARTE.TypeHandling;
 using System.Linq;
 using System.Collections.Generic;
@@ -10,7 +9,7 @@ using System;
 using Household.Data.Context;
 using Household.Models.Search;
 using Household.Models.Interfaces;
-using Household.BL.Functions.Management.t;
+using Household.BL.Management.t.Interfaces;
 
 namespace Household.Models.Work
 {

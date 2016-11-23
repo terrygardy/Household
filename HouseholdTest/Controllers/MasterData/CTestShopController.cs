@@ -1,5 +1,5 @@
-﻿using Household.BL.DATA.txx;
-using Household.BL.Functions.Management.txx;
+﻿using Household.BL.DATA.txx.Implementations;
+using Household.BL.Management.txx.Interfaces;
 using Household.Controllers;
 using Household.Models.MasterData;
 using NUnit.Framework;

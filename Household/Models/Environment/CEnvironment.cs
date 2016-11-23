@@ -1,4 +1,4 @@
-﻿using Household.BL.Functions.Management.txx;
+﻿using Household.BL.Management.txx.Interfaces;
 using System.Threading.Tasks;
 
 namespace Household.Models.Environment

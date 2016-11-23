@@ -2,9 +2,9 @@
 using Household.Localisation.Common;
 using Household.Models.DisplayTable;
 using System;
-using Household.BL.Functions.Management.t;
-using Household.BL.Functions.Management.txx;
 using System.Linq;
+using Household.BL.Management.t.Interfaces;
+using Household.BL.Management.txx.Interfaces;
 
 namespace Household.Models.MasterData
 {

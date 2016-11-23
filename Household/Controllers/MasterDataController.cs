@@ -1,7 +1,7 @@
-﻿using Household.BL.DATA.t;
-using Household.BL.DATA.txx;
-using Household.BL.Functions.Management.t;
-using Household.BL.Functions.Management.txx;
+﻿using Household.BL.DATA.t.Implementations;
+using Household.BL.DATA.txx.Implementations;
+using Household.BL.Management.t.Interfaces;
+using Household.BL.Management.txx.Interfaces;
 using Household.Factory;
 using Household.Localisation.Main.MasterData;
 using Household.Models;

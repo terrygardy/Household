@@ -1,5 +1,5 @@
-﻿using Household.BL.Functions.Management.t;
-using Household.BL.Functions.Management.txx;
+﻿using Household.BL.Management.t.Interfaces;
+using Household.BL.Management.txx.Interfaces;
 using Household.Data.Context;
 using Household.Models.Chart;
 using Household.Models.MasterData;
