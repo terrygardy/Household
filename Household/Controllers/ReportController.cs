@@ -2,8 +2,8 @@
 using Household.Models.Chart;
 using System.Web.Mvc;
 using WebHelpers;
-using Household.BL.Functions.Management.txx;
-using Household.BL.Functions.Management.t;
+using Household.BL.Management.txx.Interfaces;
+using Household.BL.Management.t.Interfaces;
 
 namespace Household.Controllers
 {

@@ -1,12 +1,12 @@
 ﻿using Household.Localisation.Main.MasterData;
-using Household.BL.DATA.t;
 using Household.Data.Context;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Household.BL.DATA.Base;
-using Household.BL.Functions.Management.t;
-using Household.BL.Functions.Management.txx;
 using System.Linq;
+using Household.Data.Models.Base;
+using Household.BL.DATA.t.Implementations;
+using Household.BL.Management.t.Interfaces;
+using Household.BL.Management.txx.Interfaces;
 
 namespace Household.Models.MasterData
 {

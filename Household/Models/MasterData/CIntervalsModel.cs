@@ -1,8 +1,8 @@
 ﻿using Household.Localisation.Main.MasterData;
 using Household.Localisation.Common;
 using Household.Models.DisplayTable;
-using Household.BL.Functions.Management.txx;
 using System.Linq;
+using Household.BL.Management.txx.Interfaces;
 
 namespace Household.Models.MasterData
 {

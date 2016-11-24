@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Household.Test", "Household
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Household.Localisation", "Household.Localisation\Household.Localisation.csproj", "{83014F54-9564-4916-A7AF-90CF694DC9FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Household.Common", "Household.Common\Household.Common.csproj", "{D08B62E2-0A0D-4718-B66A-0194A24310C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{83014F54-9564-4916-A7AF-90CF694DC9FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83014F54-9564-4916-A7AF-90CF694DC9FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83014F54-9564-4916-A7AF-90CF694DC9FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D08B62E2-0A0D-4718-B66A-0194A24310C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D08B62E2-0A0D-4718-B66A-0194A24310C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D08B62E2-0A0D-4718-B66A-0194A24310C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D08B62E2-0A0D-4718-B66A-0194A24310C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

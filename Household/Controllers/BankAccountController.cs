@@ -1,7 +1,7 @@
-﻿using Household.BL.DATA.txx;
-using Household.Data.Context;
+﻿using Household.Data.Context;
 using Household.Controllers.Base;
-using Household.BL.Functions.Management.txx;
+using Household.BL.Management.txx.Interfaces;
+using Household.BL.DATA.txx.Implementations;
 
 namespace Household.Controllers
 {

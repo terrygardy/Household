@@ -1,7 +1,9 @@
-﻿using Household.BL.Functions.Management.t;
-using Household.BL.Functions.Management.txx;
-using Household.BL.Functions.t;
-using Household.BL.Functions.txx;
+﻿using Household.BL.Management.t.Implementations;
+using Household.BL.Management.t.Interfaces;
+using Household.BL.Management.txx.Implementations;
+using Household.BL.Management.txx.Interfaces;
+using Household.Common.Reflection.Implementations;
+using Household.Common.Reflection.Interfaces;
 using Household.Data.Db;
 using Microsoft.Practices.Unity;
 
@@ -24,6 +26,9 @@ namespace Household.BL.DependencyInjection
 		private static void BuildContainer()
 		{
 			_container = new UnityContainer();
+
+			//Common
+			_container.RegisterType<IReflectionManager, CReflectionManager>(new ContainerControlledLifetimeManager());
 
 			//Db
 			_container.RegisterType<IDb, CDbDefault>(new ContainerControlledLifetimeManager());

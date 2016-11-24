@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Linq;
 using Household.Models.Search;
-using Household.BL.Functions.Management.t;
+using Household.BL.Management.t.Interfaces;
 
 namespace Household.Models.Finance
 {

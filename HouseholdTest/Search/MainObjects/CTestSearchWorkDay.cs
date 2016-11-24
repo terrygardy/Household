@@ -1,4 +1,4 @@
-﻿using Household.BL.Functions.t;
+﻿using Household.BL.Management.t.Implementations;
 using Household.Data.Context;
 using Household.Data.Db;
 using Household.Models.Search;

@@ -1,5 +1,5 @@
-﻿using Household.BL.DATA.t;
-using Household.BL.Functions.Management.t;
+﻿using Household.BL.DATA.t.Implementations;
+using Household.BL.Management.t.Interfaces;
 using Household.Data.Models.Base;
 
 namespace Household.Models.Work

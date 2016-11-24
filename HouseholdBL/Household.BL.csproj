@@ -59,62 +59,67 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DATA\Base\IDataBase.cs" />
-    <Compile Include="DATA\txx\CBankAccountData.cs" />
-    <Compile Include="DATA\txx\CCompanyData.cs" />
-    <Compile Include="DATA\txx\CShopData.cs" />
-    <Compile Include="DATA\txx\CIntervalData.cs" />
-    <Compile Include="DATA\txx\CDayData.cs" />
-    <Compile Include="DATA\t\CBankBalance.cs" />
-    <Compile Include="DATA\t\CWorkDayData.cs" />
+    <Compile Include="DATA\Base\Interfaces\IDataBase.cs" />
+    <Compile Include="DATA\txx\Implementations\CBankAccountData.cs" />
+    <Compile Include="DATA\txx\Implementations\CCompanyData.cs" />
+    <Compile Include="DATA\txx\Implementations\CShopData.cs" />
+    <Compile Include="DATA\txx\Implementations\CIntervalData.cs" />
+    <Compile Include="DATA\txx\Implementations\CDayData.cs" />
+    <Compile Include="DATA\t\Implementations\CBankBalance.cs" />
+    <Compile Include="DATA\t\Implementations\CWorkDayData.cs" />
     <Compile Include="DependencyInjection\CDependencyContainer.cs" />
-    <Compile Include="Functions\Management\txx\IBankAccountManagement.cs" />
-    <Compile Include="Functions\Management\txx\ICompanyManagement.cs" />
-    <Compile Include="Functions\Management\txx\IDayManagement.cs" />
-    <Compile Include="Functions\Management\txx\IIntervalManagement.cs" />
-    <Compile Include="Functions\Management\txx\IShopManagement.cs" />
-    <Compile Include="Functions\Management\t\IExpenseManagement.cs" />
-    <Compile Include="Functions\Management\t\IIncomeManagement.cs" />
-    <Compile Include="Functions\Management\t\IPersonManagement.cs" />
-    <Compile Include="Functions\Management\t\IBankingManagement.cs" />
-    <Compile Include="Functions\Management\t\IPurchaseManagement.cs" />
-    <Compile Include="Functions\Management\t\IWorkDayManagement.cs" />
-    <Compile Include="Functions\t\CBankingManagement.cs" />
-    <Compile Include="Functions\t\CWorkDayManagement.cs" />
-    <Compile Include="Interfaces\t\IBankBalance.cs" />
-    <Compile Include="Interfaces\t\IWorkDay.cs" />
+    <Compile Include="Management\txx\Interfaces\IBankAccountManagement.cs" />
+    <Compile Include="Management\txx\Interfaces\ICompanyManagement.cs" />
+    <Compile Include="Management\txx\Interfaces\IDayManagement.cs" />
+    <Compile Include="Management\txx\Interfaces\IIntervalManagement.cs" />
+    <Compile Include="Management\txx\Interfaces\IShopManagement.cs" />
+    <Compile Include="Management\t\Interfaces\IExpenseManagement.cs" />
+    <Compile Include="Management\t\Interfaces\IImportManagement.cs" />
+    <Compile Include="Management\t\Interfaces\IIncomeManagement.cs" />
+    <Compile Include="Management\t\Interfaces\IPersonManagement.cs" />
+    <Compile Include="Management\t\Interfaces\IBankingManagement.cs" />
+    <Compile Include="Management\t\Interfaces\IPurchaseManagement.cs" />
+    <Compile Include="Management\t\Interfaces\IWorkDayManagement.cs" />
+    <Compile Include="Management\t\Implementations\CBankingManagement.cs" />
+    <Compile Include="Management\t\Implementations\CWorkDayManagement.cs" />
+    <Compile Include="DATA\t\Interfaces\IBankBalance.cs" />
+    <Compile Include="DATA\t\Interfaces\IWorkDay.cs" />
     <Compile Include="Returns\CDateDecimal.cs" />
-    <Compile Include="DATA\t\CExpenseData.cs" />
-    <Compile Include="DATA\t\CIncomeData.cs" />
-    <Compile Include="DATA\t\CPersonData.cs" />
-    <Compile Include="DATA\t\CPurchaseData.cs" />
-    <Compile Include="Interfaces\IContextBase.cs" />
-    <Compile Include="Interfaces\txx\IBankAccount.cs" />
-    <Compile Include="Interfaces\txx\IInterval.cs" />
-    <Compile Include="Interfaces\txx\IShop.cs" />
-    <Compile Include="Interfaces\txx\ICompany.cs" />
-    <Compile Include="Interfaces\txx\IDay.cs" />
-    <Compile Include="Interfaces\txx\IMasterData.cs" />
-    <Compile Include="Interfaces\t\IExpense.cs" />
-    <Compile Include="Interfaces\t\IIncome.cs" />
-    <Compile Include="Interfaces\t\IPerson.cs" />
+    <Compile Include="DATA\t\Implementations\CExpenseData.cs" />
+    <Compile Include="DATA\t\Implementations\CIncomeData.cs" />
+    <Compile Include="DATA\t\Implementations\CPersonData.cs" />
+    <Compile Include="DATA\t\Implementations\CPurchaseData.cs" />
+    <Compile Include="DATA\Base\Interfaces\IContextBase.cs" />
+    <Compile Include="DATA\txx\Interfaces\IBankAccount.cs" />
+    <Compile Include="DATA\txx\Interfaces\IInterval.cs" />
+    <Compile Include="DATA\txx\Interfaces\IShop.cs" />
+    <Compile Include="DATA\txx\Interfaces\ICompany.cs" />
+    <Compile Include="DATA\txx\Interfaces\IDay.cs" />
+    <Compile Include="DATA\txx\Interfaces\IMasterData.cs" />
+    <Compile Include="DATA\t\Interfaces\IExpense.cs" />
+    <Compile Include="DATA\t\Interfaces\IIncome.cs" />
+    <Compile Include="DATA\t\Interfaces\IPerson.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Functions\txx\CDayManagement.cs" />
-    <Compile Include="Functions\txx\CBankAccountManagement.cs" />
-    <Compile Include="Functions\txx\CShopManagement.cs" />
-    <Compile Include="Functions\txx\CCompanyManagement.cs" />
-    <Compile Include="Functions\txx\CIntervalManagement.cs" />
-    <Compile Include="Functions\t\CIncomeManagement.cs" />
-    <Compile Include="Functions\t\CExpenseManagement.cs" />
-    <Compile Include="Functions\t\CPersonManagement.cs" />
-    <Compile Include="Functions\t\CPurchaseManagement.cs" />
-    <Compile Include="Interfaces\t\IPurchase.cs" />
+    <Compile Include="Management\txx\Implementations\CDayManagement.cs" />
+    <Compile Include="Management\txx\Implementations\CBankAccountManagement.cs" />
+    <Compile Include="Management\txx\Implementations\CShopManagement.cs" />
+    <Compile Include="Management\txx\Implementations\CCompanyManagement.cs" />
+    <Compile Include="Management\txx\Implementations\CIntervalManagement.cs" />
+    <Compile Include="Management\t\Implementations\CIncomeManagement.cs" />
+    <Compile Include="Management\t\Implementations\CExpenseManagement.cs" />
+    <Compile Include="Management\t\Implementations\CPersonManagement.cs" />
+    <Compile Include="Management\t\Implementations\CPurchaseManagement.cs" />
+    <Compile Include="DATA\t\Interfaces\IPurchase.cs" />
     <Compile Include="Returns\CIntDecimal.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Helper\Helpers.csproj">
       <Project>{3c4faf9e-01d0-4711-ad71-34bfce920b40}</Project>
       <Name>Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Household.Common\Household.Common.csproj">
+      <Project>{D08B62E2-0A0D-4718-B66A-0194A24310C0}</Project>
+      <Name>Household.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\HouseholdData\Household.Data.csproj">
       <Project>{9eb8b86e-ae48-4945-a833-476a85e6b6e7}</Project>
@@ -126,6 +131,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="DATA\Base\Implementations\" />
     <Folder Include="DATA\tbr\" />
   </ItemGroup>
   <ItemGroup>
