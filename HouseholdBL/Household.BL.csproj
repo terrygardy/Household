@@ -80,8 +80,8 @@
     <Compile Include="Management\t\Interfaces\IBankingManagement.cs" />
     <Compile Include="Management\t\Interfaces\IPurchaseManagement.cs" />
     <Compile Include="Management\t\Interfaces\IWorkDayManagement.cs" />
-    <Compile Include="Management\t\Implmentations\CBankingManagement.cs" />
-    <Compile Include="Management\t\Implmentations\CWorkDayManagement.cs" />
+    <Compile Include="Management\t\Implementations\CBankingManagement.cs" />
+    <Compile Include="Management\t\Implementations\CWorkDayManagement.cs" />
     <Compile Include="DATA\t\Interfaces\IBankBalance.cs" />
     <Compile Include="DATA\t\Interfaces\IWorkDay.cs" />
     <Compile Include="Returns\CDateDecimal.cs" />
@@ -105,10 +105,10 @@
     <Compile Include="Management\txx\Implementations\CShopManagement.cs" />
     <Compile Include="Management\txx\Implementations\CCompanyManagement.cs" />
     <Compile Include="Management\txx\Implementations\CIntervalManagement.cs" />
-    <Compile Include="Management\t\Implmentations\CIncomeManagement.cs" />
-    <Compile Include="Management\t\Implmentations\CExpenseManagement.cs" />
-    <Compile Include="Management\t\Implmentations\CPersonManagement.cs" />
-    <Compile Include="Management\t\Implmentations\CPurchaseManagement.cs" />
+    <Compile Include="Management\t\Implementations\CIncomeManagement.cs" />
+    <Compile Include="Management\t\Implementations\CExpenseManagement.cs" />
+    <Compile Include="Management\t\Implementations\CPersonManagement.cs" />
+    <Compile Include="Management\t\Implementations\CPurchaseManagement.cs" />
     <Compile Include="DATA\t\Interfaces\IPurchase.cs" />
     <Compile Include="Returns\CIntDecimal.cs" />
   </ItemGroup>

@@ -40,18 +40,25 @@ namespace Household.BL.Management.t.Implementations
 
 		public decimal getCurrentBankBalance()
 		{
-			var startDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+			var today = DateTime.Today;
+			var minDate = Data.Common.DbTools.MinDate;
+			var startDate = new DateTime(today.Year, today.Month, 1);
 			var endDate = startDate.AddMonths(1).AddDays(-1);
-			var intervalId = _intervalManagement.getIntervals(x => x.Name.Equals("monthly", StringComparison.OrdinalIgnoreCase)).Select(y => y.ID).FirstOrDefault();
-			var sumIncomes = _incomeManagement.getIncomes(x => x.Interval_ID == intervalId
-															&& x.StartDate <= DateTime.Today
-															&& (x.EndDate <= Data.Common.DbTools.MinDate || x.EndDate >= DateTime.Today)).Sum(y => y.Amount);
+			var monthlyIntervalId = _intervalManagement.getIntervals(x => x.Name.Equals("monthly", StringComparison.OrdinalIgnoreCase)).Select(y => y.ID).FirstOrDefault();
+			var yearlyIntervalId = _intervalManagement.getIntervals(x => x.Name.Equals("yearly", StringComparison.OrdinalIgnoreCase)).Select(y => y.ID).FirstOrDefault();
+			var sumIncomes = _incomeManagement.getIncomes(x => x.Interval_ID == monthlyIntervalId
+															&& x.StartDate <= today
+															&& (x.EndDate <= minDate || x.EndDate >= today)).Sum(y => y.Amount);
 			var sumPurchases = _purchaseManagement.getPurchases(p => p.Occurrence >= startDate && p.Occurrence <= endDate).Sum(x => x.Amount);
-			var sumExpensesMonthly = _expenseManagement.getExpenses(x => x.Interval_ID == intervalId
-																	&& x.StartDate <= DateTime.Today
-																	&& (x.EndDate <= Data.Common.DbTools.MinDate || x.EndDate >= DateTime.Today)).Sum(y => y.Amount);
+			var sumExpensesMonthly = _expenseManagement.getExpenses(x => x.Interval_ID == monthlyIntervalId
+																	&& x.StartDate <= today
+																	&& (x.EndDate <= minDate || x.EndDate >= today)).Sum(y => y.Amount);
+			var sumExpensesYearly = _expenseManagement.getExpenses(x => x.Interval_ID == yearlyIntervalId
+																	&& x.StartDate <= today
+																	&& (x.EndDate <= minDate || x.EndDate >= today))
+																	.Select(e => e.Amount / 12).Sum();
 
-			return sumIncomes - (sumPurchases + sumExpensesMonthly);
+			return sumIncomes - (sumPurchases + sumExpensesMonthly + sumExpensesYearly);
 		}
 	}
 }
