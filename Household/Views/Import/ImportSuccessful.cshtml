@@ -1,0 +1,19 @@
+﻿@using Household.Localisation.Main.Import
+@using Household.MvcExtensions
+@using Household.Controllers
+@using Household.Localisation.Common
+
+@{
+	ViewBag.Title = ImportText.ImportSuccessful;
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="divContent" class="container">
+	<ol class="breadcrumb">
+		<li>@Html.ActionLinkHome(GeneralText.Home, nameof(HomeController.Index))</li>
+		<li>@Html.ActionLinkImport(ImportText.Import, nameof(ImportController.Index))</li>
+		<li>@ImportText.ImportSuccessful</li>
+	</ol>
+	
+	<h1>@ImportText.ImportSuccessful</h1>
+</div>

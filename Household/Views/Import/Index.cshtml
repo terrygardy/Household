@@ -1,0 +1,39 @@
+﻿@using Household.Localisation.Main.Import
+@using Household.MvcExtensions
+@using Household.Controllers
+@using Household.Localisation.Common
+
+@{
+	ViewBag.Title = ImportText.Import;
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+	@Styles.Render("~/Content/dropzone")
+}
+
+<div id="divContent" class="container">
+	<ol class="breadcrumb">
+		<li>@Html.ActionLinkHome(GeneralText.Home, nameof(HomeController.Index))</li>
+		<li>@ImportText.Import</li>
+	</ol>
+	<form id="upload-widget" method="get" action="Import/Import" class="dropzone">
+		<input type="submit" class="invisible" />
+	</form>
+</div>
+
+@section scripts{
+	@Scripts.Render("~/bundles/Import")
+
+	<script type="text/javascript">
+		Dropzone.options.uploadWidget = {
+			init: function () {
+				this.on('success', function (file, resp) {
+					document.open();
+					document.write(resp);
+					document.close();
+				});
+			}
+		};
+	</script>
+}

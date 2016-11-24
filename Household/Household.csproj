@@ -524,6 +524,14 @@
     <None Include="Properties\PublishProfiles\FileSystem.pubxml" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\dropzone\basic.css" />
+    <Content Include="Scripts\dropzone\basic.min.css" />
+    <Content Include="Scripts\dropzone\dropzone-amd-module.js" />
+    <Content Include="Scripts\dropzone\dropzone-amd-module.min.js" />
+    <Content Include="Scripts\dropzone\dropzone.css" />
+    <Content Include="Scripts\dropzone\dropzone.js" />
+    <Content Include="Scripts\dropzone\dropzone.min.css" />
+    <Content Include="Scripts\dropzone\dropzone.min.js" />
     <Content Include="Scripts\Finance\Expense.js" />
     <Content Include="Scripts\Finance\Finance.js" />
     <Content Include="Scripts\Finance\Purchase.js" />
@@ -683,6 +691,10 @@
     <Content Include="Views\Shared\UpdateDeleteButton.cshtml" />
     <Content Include="Views\Shared\DatabaseEntry.cshtml" />
     <Content Include="Views\Banking\_CurrentBankBalancePartial.cshtml" />
+    <Content Include="Views\Import\Index.cshtml" />
+    <Content Include="Views\Import\ImportSuccessful.cshtml" />
+    <Content Include="Views\Shared\_GenericPartial.cshtml" />
+    <Content Include="Views\Import\ImportError.cshtml" />
     <TypeScriptCompile Include="Scripts\Finance\Expense.ts" />
     <TypeScriptCompile Include="Scripts\Finance\Purchase.ts" />
     <TypeScriptCompile Include="Scripts\Finance\Report.ts" />
@@ -725,6 +737,7 @@
     <TypeScriptCompile Include="Scripts\MasterData\BankAccount.ts" />
     <TypeScriptCompile Include="Scripts\MasterData\Person.ts" />
     <TypeScriptCompile Include="Scripts\typings\bootstrap\bootstrap.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\dropzone\dropzone.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\highcharts\highcharts.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\highcharts\highstock.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery.validation\jquery.validation.d.ts" />
@@ -740,7 +753,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\Banking\" />
     <Folder Include="Views\Expenses\" />
-    <Folder Include="Views\Import\" />
     <Folder Include="Views\Purchases\" />
     <Folder Include="Views\Report\" />
   </ItemGroup>

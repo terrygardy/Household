@@ -86,12 +86,22 @@ namespace Household
 				"~/Scripts/jquery-knockout.js",
 				"~/Scripts/Work/WorkHours.js"));
 
+			bundles.Add(new ScriptBundle("~/bundles/Import").Include(
+				"~/Scripts/dropzone/dropzone.js"));
+
 			bundles.Add(new StyleBundle("~/Content/css").Include(
 					  "~/Content/Bootstrap/bootstrap.css",
 					  "~/Content/*.css",
 					  "~/Content/jquery-ui.min.css"));
 
+			bundles.Add(new StyleBundle("~/Content/dropzone").Include(
+					  "~/Scripts/dropzone/dropzone.min.css"));
+
+#if DEBUG
+			BundleTable.EnableOptimizations = false;
+#else
 			BundleTable.EnableOptimizations = true;
+#endif
 		}
 	}
 }

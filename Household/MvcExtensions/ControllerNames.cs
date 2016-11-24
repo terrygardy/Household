@@ -48,6 +48,10 @@
 
 		#endregion
 
-		
+		#region Import
+
+		public static readonly string Import = "Import";
+
+		#endregion
 	}
 }

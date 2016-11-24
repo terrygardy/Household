@@ -286,6 +286,15 @@ namespace Household.Localisation.Common {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Upload.
+        /// </summary>
+        public static string Upload {
+            get {
+                return ResourceManager.GetString("Upload", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Welcome to our household management system.
         /// </summary>
         public static string WelcomeToOurHouseholdManagementSystem {

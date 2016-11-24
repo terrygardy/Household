@@ -74,6 +74,15 @@ namespace Household.MvcExtensions
 
 		#endregion
 
+		#region Import
+
+		public static MvcHtmlString ActionLinkImport(this HtmlHelper htmlHelper, string linkText, string actionName, object routeValues = null, object htmlAttributes = null)
+		{
+			return htmlHelper.ActionLink(linkText, actionName, ControllerNames.Import, routeValues, htmlAttributes);
+		}
+
+		#endregion
+
 		#region Home
 
 		public static MvcHtmlString ActionLinkHome(this HtmlHelper htmlHelper, string linkText, string actionName, object routeValues = null, object htmlAttributes = null)

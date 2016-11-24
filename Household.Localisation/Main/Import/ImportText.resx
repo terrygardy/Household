@@ -117,97 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Add" xml:space="preserve">
-    <value>Add</value>
+  <data name="Import" xml:space="preserve">
+    <value>Import</value>
   </data>
-  <data name="AddEntry" xml:space="preserve">
-    <value>Add Entry</value>
+  <data name="ImportFailed" xml:space="preserve">
+    <value>Import failed</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="Close" xml:space="preserve">
-    <value>Close</value>
-  </data>
-  <data name="Count" xml:space="preserve">
-    <value>Count</value>
-  </data>
-  <data name="DateFormat" xml:space="preserve">
-    <value>(dd.mm.yyyy)</value>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Delete</value>
-  </data>
-  <data name="From" xml:space="preserve">
-    <value>From</value>
-  </data>
-  <data name="FromLower" xml:space="preserve">
-    <value>from</value>
-  </data>
-  <data name="Home" xml:space="preserve">
-    <value>Home</value>
-  </data>
-  <data name="Household" xml:space="preserve">
-    <value>Household</value>
-  </data>
-  <data name="Manage" xml:space="preserve">
-    <value>Manage</value>
-  </data>
-  <data name="Multiple" xml:space="preserve">
-    <value>Multiple</value>
-  </data>
-  <data name="No" xml:space="preserve">
-    <value>No</value>
-  </data>
-  <data name="OnLower" xml:space="preserve">
-    <value>on</value>
-  </data>
-  <data name="Save" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="Search" xml:space="preserve">
-    <value>Search</value>
-  </data>
-  <data name="Sum" xml:space="preserve">
-    <value>Sum</value>
-  </data>
-  <data name="TimeFormat" xml:space="preserve">
-    <value>(hh:mm)</value>
-  </data>
-  <data name="To" xml:space="preserve">
-    <value>To</value>
-  </data>
-  <data name="ToLower" xml:space="preserve">
-    <value>to</value>
-  </data>
-  <data name="Unknown" xml:space="preserve">
-    <value>Unknown</value>
-  </data>
-  <data name="UnknownLower" xml:space="preserve">
-    <value>unknown</value>
-  </data>
-  <data name="Until" xml:space="preserve">
-    <value>Until</value>
-  </data>
-  <data name="UntilLower" xml:space="preserve">
-    <value>until</value>
-  </data>
-  <data name="Upload" xml:space="preserve">
-    <value>Upload</value>
-  </data>
-  <data name="WelcomeToOurHouseholdManagementSystem" xml:space="preserve">
-    <value>Welcome to our household management system</value>
-  </data>
-  <data name="Where" xml:space="preserve">
-    <value>Where</value>
-  </data>
-  <data name="Who" xml:space="preserve">
-    <value>Who</value>
-  </data>
-  <data name="Year" xml:space="preserve">
-    <value>Year</value>
-  </data>
-  <data name="Yes" xml:space="preserve">
-    <value>Yes</value>
+  <data name="ImportSuccessful" xml:space="preserve">
+    <value>Import successful</value>
   </data>
 </root>

@@ -81,6 +81,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HomeHDDText.resx</DependentUpon>
     </Compile>
+    <Compile Include="Main\Import\ImportText.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ImportText.resx</DependentUpon>
+    </Compile>
     <Compile Include="Main\MasterData\BankAccountText.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -165,6 +170,10 @@
     <EmbeddedResource Include="Main\HomeHDDText.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>HomeHDDText.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Import\ImportText.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ImportText.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\MasterData\BankAccountText.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

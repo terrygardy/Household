@@ -1,15 +1,26 @@
-﻿using Household.Data.Context;
-using System;
-using System.IO;
-using System.Web.Mvc;
-using System.Xml;
-using System.Xml.Serialization;
+﻿using System.Web.Mvc;
 
 namespace Household.Controllers
 {
 	public class ImportController : Controller
 	{
 		// GET: Import
+		public ActionResult Index() { return View(); }
+		
+		public ActionResult Import()
+		{
+			var file = Request.Files[0];
+
+			if (file != null) {
+				return View("ImportSuccessful");
+			}
+
+			return View("ImportError", (object)"This is an error!!!!");
+		}
+
+		/*
+		 Test
+
 		public ActionResult Index()
 		{
 			var filePath = @"C:\DATA\Projects\Household\TestFiles\PurchaseImport.xml";
@@ -56,5 +67,6 @@ namespace Household.Controllers
 			serializer.Serialize(writer, source);
 			fs.Close();
 		}
+		 */
 	}
 }
