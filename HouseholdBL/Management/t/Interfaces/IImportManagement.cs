@@ -8,6 +8,6 @@ namespace Household.BL.Management.t.Interfaces
 		List<IImportType> GetImportableTypes();
 
 		void SimpleImportExcelFile<T>(string fileName)
-			where T : class, IImportable;
+			where T : class, IImportable, new();
 	}
 }

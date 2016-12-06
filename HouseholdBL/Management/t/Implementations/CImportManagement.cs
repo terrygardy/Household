@@ -2,9 +2,11 @@
 using Household.BL.DATA.Base.Implementations;
 using Household.BL.DATA.Base.Interfaces;
 using Household.BL.DATA.t.Implementations;
+using Household.BL.ExcelHelpers.Exceptions;
 using Household.BL.Management.t.Interfaces;
 using Household.Common.Reflection.Interfaces;
 using Household.Localisation.Main.Import;
+using NPOI.SS.UserModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,53 +46,22 @@ namespace Household.BL.Management.t.Implementations
 		}
 
 		public void SimpleImportExcelFile<T>(string fileName)
-			where T : class, IImportable
+			where T : class, IImportable, new()
 		{
 			var worksheet = ExcelHelpers.Factory.GetFirstWorksheet(fileName);
 
 			if (worksheet.LastRowNum > 0)
 			{
 				var targets = new List<T>();
-				var targetProperties = _reflectionManager.GetProperties<T>();
 				var cellTitles = ExcelHelpers.Factory.GetTitleRow(worksheet).ToDictionary(tr => tr.Key, tr => tr.Value);
 
 				for (int rowIndex = 1; rowIndex <= worksheet.LastRowNum; rowIndex++)
 				{
-					var currentRow = worksheet.GetRow(rowIndex);
-
-					if (currentRow != null) //null is when the row only contains empty cells
+					try
 					{
-						var target = _reflectionManager.CreateInstance<T>();
-
-						for (var cellIndex = 0; cellIndex < currentRow.Cells.Count; cellIndex++)
-						{
-							try
-							{
-								var targetProp = targetProperties.FirstOrDefault(p => p.Name.Equals(cellTitles[cellIndex], StringComparison.OrdinalIgnoreCase));
-
-								targetProp.SetValue(target,
-									ExcelHelpers.Factory.GetTypedCellContent(currentRow.GetCell(cellIndex), targetProp.PropertyType));
-							}
-							catch (InvalidCastException)
-							{
-								//todo.tg: write protocol
-							}
-							catch (FormatException)
-							{
-								//todo.tg: write protocol
-							}
-							catch (ArgumentNullException)
-							{
-								//No protocol needed. Cells can be null!
-							}
-							catch (Exception ex)
-							{
-								//todo.tg: write protocol
-							}
-						}
-
-						targets.Add(target);
+						targets.Add(ImportRow<T>(worksheet.GetRow(rowIndex), cellTitles));
 					}
+					catch (NoDataToImportException) { break; }
 				}
 
 				if (targets.Count > 0)
@@ -105,6 +76,50 @@ namespace Household.BL.Management.t.Implementations
 					}
 				}
 			}
+		}
+
+		private T ImportRow<T>(IRow currentRow, IDictionary<int, string> cellTitles)
+			where T : class, IImportable, new()
+		{
+			if (currentRow != null) //null is when the row only contains empty cells
+			{
+				var targetProperties = _reflectionManager.GetProperties<T>();
+				var target = _reflectionManager.CreateInstance<T>();
+				var amountNullCells = 0;
+
+				for (var cellIndex = 0; cellIndex < currentRow.Cells.Count; cellIndex++)
+				{
+					try
+					{
+						var targetProp = targetProperties.FirstOrDefault(p => p.Name.Equals(cellTitles[cellIndex], StringComparison.OrdinalIgnoreCase));
+
+						targetProp.SetValue(target,
+							ExcelHelpers.Factory.GetTypedCellContent(currentRow.GetCell(cellIndex), targetProp.PropertyType));
+					}
+					catch (InvalidCastException)
+					{
+						amountNullCells += 1;
+					}
+					catch (FormatException)
+					{
+						amountNullCells += 1;
+					}
+					catch (ArgumentNullException)
+					{
+						amountNullCells += 1;
+					}
+					catch (NullReferenceException)
+					{
+						amountNullCells += 1;
+					}
+				}
+
+				if (amountNullCells == currentRow.Cells.Count) throw new NoDataToImportException();
+
+				return target;
+			}
+
+			throw new NoDataToImportException();
 		}
 	}
 }

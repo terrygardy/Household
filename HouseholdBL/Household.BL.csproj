@@ -92,6 +92,7 @@
     <Compile Include="DATA\t\Implementations\CBankBalance.cs" />
     <Compile Include="DATA\t\Implementations\CWorkDayData.cs" />
     <Compile Include="DependencyInjection\CDependencyContainer.cs" />
+    <Compile Include="ExcelHelpers\Exceptions\NoDataToImportException.cs" />
     <Compile Include="ExcelHelpers\Factory.cs" />
     <Compile Include="Management\txx\Interfaces\IBankAccountManagement.cs" />
     <Compile Include="Management\txx\Interfaces\ICompanyManagement.cs" />
