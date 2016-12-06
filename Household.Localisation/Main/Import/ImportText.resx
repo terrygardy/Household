@@ -126,4 +126,7 @@
   <data name="ImportSuccessful" xml:space="preserve">
     <value>Import successful</value>
   </data>
+  <data name="NotSupported" xml:space="preserve">
+    <value>The current import type is not support</value>
+  </data>
 </root>

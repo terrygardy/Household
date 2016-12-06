@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Household.Localisation", "H
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Household.Common", "Household.Common\Household.Common.csproj", "{D08B62E2-0A0D-4718-B66A-0194A24310C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GARTE.ExcelHelpers", "GARTE.ExcelHelpers\GARTE.ExcelHelpers.csproj", "{89371709-DEAC-48BA-B2E5-2C418352843B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GARTE.Log", "GARTE.Log\GARTE.Log.csproj", "{B1481000-7F15-4DA7-BAAA-64D3C6060FDB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,14 @@ Global
 		{D08B62E2-0A0D-4718-B66A-0194A24310C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D08B62E2-0A0D-4718-B66A-0194A24310C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D08B62E2-0A0D-4718-B66A-0194A24310C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89371709-DEAC-48BA-B2E5-2C418352843B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89371709-DEAC-48BA-B2E5-2C418352843B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89371709-DEAC-48BA-B2E5-2C418352843B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89371709-DEAC-48BA-B2E5-2C418352843B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1481000-7F15-4DA7-BAAA-64D3C6060FDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1481000-7F15-4DA7-BAAA-64D3C6060FDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1481000-7F15-4DA7-BAAA-64D3C6060FDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1481000-7F15-4DA7-BAAA-64D3C6060FDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

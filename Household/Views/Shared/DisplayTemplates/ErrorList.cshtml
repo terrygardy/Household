@@ -1,0 +1,15 @@
+﻿@model string[]
+<ul class="" id="ulError">
+	@{
+		if (Model != null)
+		{
+			foreach (var error in Model)
+			{
+				if (!string.IsNullOrWhiteSpace(error))
+				{
+					<li><label class="error">@error </label></li>
+				}
+			}
+		}
+	}
+</ul>

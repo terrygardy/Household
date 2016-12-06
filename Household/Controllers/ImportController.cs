@@ -1,21 +1,69 @@
-﻿using System.Web.Mvc;
+﻿using Household.BL.DATA.Base.Interfaces;
+using Household.BL.DATA.t.Implementations;
+using Household.BL.Management.t.Interfaces;
+using Household.Common.Reflection.Interfaces;
+using Household.Localisation.Main.Import;
+using System;
+using System.IO;
+using System.Web.Mvc;
 
 namespace Household.Controllers
 {
 	public class ImportController : Controller
 	{
-		// GET: Import
-		public ActionResult Index() { return View(); }
-		
+		#region ctor
+
+		private readonly IImportManagement _importManagement;
+		private readonly IReflectionManager _reflectionManager;
+
+		public ImportController(IImportManagement importManagement,
+			IReflectionManager reflectionManager)
+		{
+			_importManagement = importManagement;
+			_reflectionManager = reflectionManager;
+		}
+		#endregion
+
+		public ActionResult Index()
+		{
+			return View(new CImportViewModel(_importManagement.GetImportableTypes()));
+		}
+
 		public ActionResult Import()
 		{
-			var file = Request.Files[0];
+			var file = Request.Files.Count > 0 ? Request.Files[0] : null;
 
-			if (file != null) {
+			if (file != null)
+			{
+				var fileName = Path.GetTempFileName();
+
+				file.SaveAs(fileName);
+
+				try
+				{
+					var type = Request.Form.GetValues(nameof(CImportViewModel.ImportableTypes))[0];
+
+					if (typeof(CWorkDayData).AssemblyQualifiedName.Equals(type, StringComparison.OrdinalIgnoreCase))
+					{
+						_importManagement.SimpleImportExcelFile<CWorkDayData>(fileName);
+					}
+					else {
+						return View("ImportError", (object)string.Format(ImportText.NotSupported));
+					}
+				}
+				catch (Exception ex)
+				{
+					return View("ImportError", (object)ex.Message);
+				}
+				finally
+				{
+					System.IO.File.Delete(fileName);
+				}
+
 				return View("ImportSuccessful");
 			}
 
-			return View("ImportError", (object)"This is an error!!!!");
+			return View("ImportError", (object)"No file found!");
 		}
 
 		/*
@@ -68,5 +116,24 @@ namespace Household.Controllers
 			fs.Close();
 		}
 		 */
+	}
+
+	public class CImportViewModel
+	{
+		public System.Collections.Generic.List<SelectListItem> ImportableTypes { get; private set; }
+
+		public CImportViewModel(System.Collections.Generic.List<IImportType> importableTypes)
+		{
+			LoadTypes(importableTypes);
+		}
+
+		public void LoadTypes(System.Collections.Generic.List<IImportType> importableTypes)
+		{
+			if (importableTypes != null)
+			{
+				ImportableTypes = new System.Collections.Generic.List<SelectListItem>();
+				importableTypes.ForEach(it => ImportableTypes.Add(new SelectListItem() { Value = it.AssemblyQualifiedName, Text = it.EntityTitle, Group = new SelectListGroup(), Disabled = false, Selected = false }));
+			}
+		}
 	}
 }

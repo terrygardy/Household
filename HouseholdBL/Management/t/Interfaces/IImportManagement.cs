@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Household.BL.DATA.Base.Interfaces;
 using System.Collections.Generic;
 
 namespace Household.BL.Management.t.Interfaces
 {
 	public interface IImportManagement
 	{
-		List<Type> GetImportableTypes();
+		List<IImportType> GetImportableTypes();
 
-		void ImportExcelFile(string fileName);
+		void SimpleImportExcelFile<T>(string fileName)
+			where T : class, IImportable;
 	}
 }

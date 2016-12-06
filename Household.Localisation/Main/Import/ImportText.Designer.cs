@@ -86,5 +86,14 @@ namespace Household.Localisation.Main.Import {
                 return ResourceManager.GetString("ImportSuccessful", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The current import type is not support.
+        /// </summary>
+        public static string NotSupported {
+            get {
+                return ResourceManager.GetString("NotSupported", resourceCulture);
+            }
+        }
     }
 }

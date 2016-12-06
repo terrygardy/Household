@@ -2,6 +2,7 @@
 @using Household.Localisation.Main.Finance
 @using Household.Localisation.Main.Work
 @using Household.Localisation.Main
+@using Household.Localisation.Main.Import
 @using Household.MvcExtensions
 @using Household.Controllers
 <!DOCTYPE html>
@@ -12,6 +13,7 @@
 	<title>@ViewBag.Title - @GeneralText.Household</title>
 	@Styles.Render("~/Content/css")
 	@Scripts.Render("~/bundles/modernizr")
+	@RenderSection("styles", required: false)
 </head>
 <body>
 	<div class="navbar navbar-inverse navbar-fixed-top">
@@ -30,7 +32,7 @@
 					<li>@Html.ActionLinkWork(WorkText.Work, nameof(WorkController.Work))</li>
 					<li>@Html.ActionLinkHomeHDD(HomeHDDText.HomeHDD, nameof(HomeHDDController.HomeHDD))</li>
 					<li>@Html.ActionLinkServerManager(ServerManagerText.ServerManager, nameof(ServerManagerController.ServerManager))</li>
-					@*<li>@Html.ActionLink("Import", "Index", new { controller = "Import" })</li>*@
+					<li>@Html.ActionLinkImport(ImportText.Import, nameof(ImportController.Index))</li>
 				</ul>
 				@*@Html.Partial("_LoginPartial")*@
 			</div>
