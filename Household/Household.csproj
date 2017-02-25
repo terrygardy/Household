@@ -258,6 +258,7 @@
     <Compile Include="Controllers\BankAccountController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\ServerManagerController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\WorkController.cs" />
     <Compile Include="Factory\BreadCrumbFactory.cs" />
     <Compile Include="Global.asax.cs">
@@ -292,6 +293,7 @@
     <Compile Include="Models\Search\CSearchExpense.cs" />
     <Compile Include="Models\Search\CSearchPurchase.cs" />
     <Compile Include="Models\Search\CSearchWorkDay.cs" />
+    <Compile Include="Models\TestModel.cs" />
     <Compile Include="Models\Work\CWorkDayModel.cs" />
     <Compile Include="Models\Work\CWorkHoursModel.cs" />
     <Compile Include="MvcExtensions\ControllerNames.cs" />
@@ -523,7 +525,9 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <None Include="Properties\PublishProfiles\FileSystem.pubxml" />
     <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Scripts\dropzone\basic.css" />
     <Content Include="Scripts\dropzone\basic.min.css" />
     <Content Include="Scripts\dropzone\dropzone-amd-module.js" />
@@ -587,6 +591,8 @@
     <Content Include="Scripts\highcharts\4.2.0\themes\sand-signika.js" />
     <Content Include="Scripts\highcharts\4.2.0\themes\skies.js" />
     <Content Include="Scripts\highcharts\highcharts.helpers.js" />
+    <None Include="Properties\PublishProfiles\gardner-household - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\gardner-household - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.0.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -756,6 +762,7 @@
     <Folder Include="Views\Expenses\" />
     <Folder Include="Views\Purchases\" />
     <Folder Include="Views\Report\" />
+    <Folder Include="Views\Test\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
