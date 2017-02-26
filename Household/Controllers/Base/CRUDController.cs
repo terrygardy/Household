@@ -3,10 +3,11 @@ using System.Web.Mvc;
 using Household.Models.MasterData;
 using System;
 using Household.Data.Models.Base;
+using System.Threading;
 
 namespace Household.Controllers.Base
 {
-	public abstract class CRUDController<TClass, TBL, Tdata> : Controller
+	public abstract class CRUDController<TClass, TBL, Tdata> : BaseController
 		where TClass : class, new()
 		where Tdata : class, IDataBase, new()
 		where TBL : IManagementBase<TClass, Tdata>
@@ -17,6 +18,8 @@ namespace Household.Controllers.Base
 
 		protected CRUDController(TBL management)
 		{
+			Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("de-DE");
+			Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture;
 			Management = management;
 			var typeName = this.GetType().Name;
 			ControllerName = typeName.Substring(0, typeName.IndexOf("Controller"));

@@ -240,6 +240,7 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Controllers\BankingController.cs" />
+    <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\Base\CRUDController.cs" />
     <Compile Include="Controllers\Base\SearchableController.cs" />
     <Compile Include="Controllers\ImportController.cs" />
@@ -311,7 +312,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Configs\Compilation.config" />
-    <None Include="Configs\ConnectionString.config" />
+    <Content Include="Configs\ConnectionString.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\bootstrap\wells.less" />
     <Content Include="Content\bootstrap\variables.less" />
     <Content Include="Content\bootstrap\utilities.less" />
@@ -591,8 +594,6 @@
     <Content Include="Scripts\highcharts\4.2.0\themes\sand-signika.js" />
     <Content Include="Scripts\highcharts\4.2.0\themes\skies.js" />
     <Content Include="Scripts\highcharts\highcharts.helpers.js" />
-    <None Include="Properties\PublishProfiles\gardner-household - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\gardner-household - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.0.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -759,6 +760,7 @@
     <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\Banking\" />
+    <Folder Include="Views\Base\" />
     <Folder Include="Views\Expenses\" />
     <Folder Include="Views\Purchases\" />
     <Folder Include="Views\Report\" />

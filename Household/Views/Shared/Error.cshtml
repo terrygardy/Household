@@ -8,3 +8,7 @@
 
 <h1 class="text-danger">@ErrorText.Error</h1>
 <h2 class="text-danger">@ErrorText.AnErrorOccurredWhileProcessingYourRequest</h2>
+<h3>
+	@Model.Exception.Message: @Model.Exception.InnerException?.Message
+</h3>
+<h3>@Model.Exception.StackTrace</h3>

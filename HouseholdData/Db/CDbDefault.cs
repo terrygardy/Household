@@ -1,5 +1,4 @@
-﻿using Household.Data.Context;
-using Household.Data.Models.Base;
+﻿using Household.Data.Models.Base;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
