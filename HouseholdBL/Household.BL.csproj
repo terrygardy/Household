@@ -90,7 +90,9 @@
     <Compile Include="DATA\txx\Implementations\CIntervalData.cs" />
     <Compile Include="DATA\txx\Implementations\CDayData.cs" />
     <Compile Include="DATA\t\Implementations\CBankBalance.cs" />
+    <Compile Include="DATA\t\Implementations\CShoppingListItemData.cs" />
     <Compile Include="DATA\t\Implementations\CWorkDayData.cs" />
+    <Compile Include="DATA\t\Interfaces\IPerson.cs" />
     <Compile Include="DependencyInjection\CDependencyContainer.cs" />
     <Compile Include="ExcelHelpers\Exceptions\NoDataToImportException.cs" />
     <Compile Include="ExcelHelpers\Factory.cs" />
@@ -100,9 +102,11 @@
     <Compile Include="Management\txx\Interfaces\IIntervalManagement.cs" />
     <Compile Include="Management\txx\Interfaces\IShopManagement.cs" />
     <Compile Include="Management\t\Implementations\CImportManagement.cs" />
+    <Compile Include="Management\t\Implementations\CShoppingListManagement.cs" />
     <Compile Include="Management\t\Interfaces\IExpenseManagement.cs" />
     <Compile Include="Management\t\Interfaces\IImportManagement.cs" />
     <Compile Include="Management\t\Interfaces\IIncomeManagement.cs" />
+    <Compile Include="Management\t\Interfaces\IShoppingListManagement.cs" />
     <Compile Include="Management\t\Interfaces\IPersonManagement.cs" />
     <Compile Include="Management\t\Interfaces\IBankingManagement.cs" />
     <Compile Include="Management\t\Interfaces\IPurchaseManagement.cs" />
@@ -125,7 +129,7 @@
     <Compile Include="DATA\txx\Interfaces\IMasterData.cs" />
     <Compile Include="DATA\t\Interfaces\IExpense.cs" />
     <Compile Include="DATA\t\Interfaces\IIncome.cs" />
-    <Compile Include="DATA\t\Interfaces\IPerson.cs" />
+    <Compile Include="DATA\t\Interfaces\IShoppingListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Management\txx\Implementations\CDayManagement.cs" />
     <Compile Include="Management\txx\Implementations\CBankAccountManagement.cs" />

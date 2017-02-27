@@ -1,0 +1,68 @@
+﻿@using Household.Localisation.Main.ShoppingList
+@using Household.Data.Context
+@using Household.Controllers
+
+@model List<t_ShoppingListItem>
+
+@{
+	ViewBag.Title = ShoppingListItemText.ShoppingList;
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="divContent" class="container">
+	<div class="row mT10">
+		<div class="col-sm-12">
+			<div data-url="@Url.Action(nameof(ShoppingListController.Add))">
+				<div style="width: 100%;">@ShoppingListItemText.ShoppingListItem</div>
+				<input type="text" class="fLeft" style="width: 300px;" name="@nameof(t_ShoppingListItem.Name)" />
+				<input type="button" class="button-default fLeft" value="Add" onclick="updateShoppingList(this)" />
+				<div class="fClear"></div>
+			</div>
+		</div>
+	</div>
+
+	<div id="shoppingListContainer" class="row mT10">
+		@Html.Partial("_ShoppingListPartial", Model)
+	</div>
+</div>
+
+@section scripts{
+	<script type="text/javascript">
+		function updateShoppingList(elem) {
+			var container = $(elem).parent();
+			var url = container.attr('data-url');
+			var data = container.find('input').serialize();
+
+			$.ajax({
+				url: url,
+				type: 'POST',
+				data: data,
+				error: function (e) {
+					alert(e);
+				},
+				success: function (result) {
+					$('#shoppingListContainer').html(result);
+				}
+			});
+		}
+
+		function deleteShoppingListItem(elem) {
+			var id = $(elem).siblings('input:hidden').val();
+			var container = $(elem).parent();
+			var url = container.attr('data-url');
+			var data = {id: id};
+			
+			$.ajax({
+				url: url,
+				type: 'POST',
+				data: data,
+				error: function (e) {
+					alert(e);
+				},
+				success: function (result) {
+					container.parent().remove()
+				}
+			});
+		}
+	</script>
+}

@@ -41,6 +41,7 @@ namespace Household.BL.DependencyInjection
 			_container.RegisterType<IWorkDayManagement, CWorkDayManagement>(new ContainerControlledLifetimeManager());
 			_container.RegisterType<IBankingManagement, CBankingManagement>(new ContainerControlledLifetimeManager());
 			_container.RegisterType<IImportManagement, CImportManagement>(new ContainerControlledLifetimeManager());
+			_container.RegisterType<IShoppingListManagement, CShoppingListManagement>(new ContainerControlledLifetimeManager());
 
 			//txx
 			_container.RegisterType<IBankAccountManagement, CBankAccountManagement>(new ContainerControlledLifetimeManager());

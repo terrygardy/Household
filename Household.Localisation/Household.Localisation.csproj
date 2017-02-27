@@ -126,6 +126,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ServerManagerText.resx</DependentUpon>
     </Compile>
+    <Compile Include="Main\ShoppingList\ShoppingListItemText.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShoppingListItemText.resx</DependentUpon>
+    </Compile>
     <Compile Include="Main\Work\WorkText.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -210,6 +215,10 @@
     <EmbeddedResource Include="Main\ServerManagerText.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ServerManagerText.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\ShoppingList\ShoppingListItemText.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ShoppingListItemText.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\Work\WorkText.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

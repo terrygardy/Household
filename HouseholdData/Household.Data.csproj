@@ -65,6 +65,7 @@
     <Compile Include="Context\t_BankBalance.cs" />
     <Compile Include="Context\t_Expense.cs" />
     <Compile Include="Context\t_Income.cs" />
+    <Compile Include="Context\t_ShoppingListItem.cs" />
     <Compile Include="Context\t_WorkDay.cs" />
     <Compile Include="Context\t_Person.cs" />
     <Compile Include="Context\t_Purchase.cs" />
@@ -95,6 +96,14 @@
     <Compile Include="Migrations\201611011830078_DataAudit.Designer.cs">
       <DependentUpon>201611011830078_DataAudit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702272007285_AddShoppingList.cs" />
+    <Compile Include="Migrations\201702272007285_AddShoppingList.Designer.cs">
+      <DependentUpon>201702272007285_AddShoppingList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702272011420_AddShoppingList1.cs" />
+    <Compile Include="Migrations\201702272011420_AddShoppingList1.Designer.cs">
+      <DependentUpon>201702272011420_AddShoppingList1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Base\CManagementBase.cs" />
     <Compile Include="Models\Base\IDataBase.cs" />
@@ -106,6 +115,7 @@
     <Compile Include="Text\Expense.cs" />
     <Compile Include="Text\Day.cs" />
     <Compile Include="Text\Person.cs" />
+    <Compile Include="Text\ShoppingList.cs" />
     <Compile Include="Text\Purchase.cs" />
     <Compile Include="Text\Shop.cs" />
     <Compile Include="Text\Company.cs" />
@@ -149,6 +159,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611011830078_DataAudit.resx">
       <DependentUpon>201611011830078_DataAudit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702272007285_AddShoppingList.resx">
+      <DependentUpon>201702272007285_AddShoppingList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702272011420_AddShoppingList1.resx">
+      <DependentUpon>201702272011420_AddShoppingList1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

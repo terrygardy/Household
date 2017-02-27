@@ -3089,6 +3089,9 @@ fieldset[disabled] .button-default.focus {
 .fClear {
   clear: both;
 }
+.fNone {
+  float: none;
+}
 .fLeft {
   float: left;
 }
@@ -3149,6 +3152,9 @@ fieldset[disabled] .button-default.focus {
 }
 .w35p {
   width: 35px;
+}
+.w200p {
+  width: 200px;
 }
 .h35p {
   height: 35px;

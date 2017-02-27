@@ -2,6 +2,7 @@
 @using Household.Localisation.Main
 @using Household.Localisation.Main.Finance
 @using Household.Localisation.Main.Work
+@using Household.Localisation.Main.ShoppingList
 @using Household.MvcExtensions
 @using Household.Controllers
 
@@ -20,6 +21,14 @@
 			<div>
 				<h2>@FinanceText.Finance</h2>
 				<p>@FinanceText.ExpensesPurchasesAndMonthlyBills</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-6">
+		<div class="panel-shoppinglist panel-main-clickable" onclick="document.location = '@Url.ActionShoppingList(nameof(ShoppingListController.Index))'">
+			<div>
+				<h2>@ShoppingListItemText.ShoppingList</h2>
+				<p>@ShoppingListItemText.CreateYourShoppingListWishes</p>
 			</div>
 		</div>
 	</div>

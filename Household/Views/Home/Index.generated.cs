@@ -29,7 +29,7 @@ namespace ASP
     using System.Web.WebPages;
     using Household;
     
-    #line 6 "..\..\Views\Home\Index.cshtml"
+    #line 7 "..\..\Views\Home\Index.cshtml"
     using Household.Controllers;
     
     #line default
@@ -53,13 +53,19 @@ namespace ASP
     #line default
     #line hidden
     
+    #line 5 "..\..\Views\Home\Index.cshtml"
+    using Household.Localisation.Main.ShoppingList;
+    
+    #line default
+    #line hidden
+    
     #line 4 "..\..\Views\Home\Index.cshtml"
     using Household.Localisation.Main.Work;
     
     #line default
     #line hidden
     
-    #line 5 "..\..\Views\Home\Index.cshtml"
+    #line 6 "..\..\Views\Home\Index.cshtml"
     using Household.MvcExtensions;
     
     #line default
@@ -77,7 +83,7 @@ namespace ASP
 WriteLiteral("\n");
 
             
-            #line 8 "..\..\Views\Home\Index.cshtml"
+            #line 9 "..\..\Views\Home\Index.cshtml"
   
 	ViewBag.Title = GeneralText.Home;
 
@@ -91,7 +97,7 @@ WriteLiteral(" class=\"jumbotron\"");
 WriteLiteral(">\n\t<h1>");
 
             
-            #line 13 "..\..\Views\Home\Index.cshtml"
+            #line 14 "..\..\Views\Home\Index.cshtml"
    Write(GeneralText.Household);
 
             
@@ -104,7 +110,7 @@ WriteLiteral(" class=\"lead\"");
 WriteLiteral(">");
 
             
-            #line 14 "..\..\Views\Home\Index.cshtml"
+            #line 15 "..\..\Views\Home\Index.cshtml"
                Write(GeneralText.WelcomeToOurHouseholdManagementSystem);
 
             
@@ -122,24 +128,24 @@ WriteLiteral(">\n\t\t<div");
 
 WriteLiteral(" class=\"panel-finance panel-main-clickable\"");
 
-WriteAttribute("onclick", Tuple.Create(" onclick=\"", 485), Tuple.Create("\"", 570)
-, Tuple.Create(Tuple.Create("", 495), Tuple.Create("document.location", 495), true)
-, Tuple.Create(Tuple.Create(" ", 512), Tuple.Create("=", 513), true)
-, Tuple.Create(Tuple.Create(" ", 514), Tuple.Create("\'", 515), true)
+WriteAttribute("onclick", Tuple.Create(" onclick=\"", 533), Tuple.Create("\"", 618)
+, Tuple.Create(Tuple.Create("", 543), Tuple.Create("document.location", 543), true)
+, Tuple.Create(Tuple.Create(" ", 560), Tuple.Create("=", 561), true)
+, Tuple.Create(Tuple.Create(" ", 562), Tuple.Create("\'", 563), true)
             
-            #line 19 "..\..\Views\Home\Index.cshtml"
-       , Tuple.Create(Tuple.Create("", 516), Tuple.Create<System.Object, System.Int32>(Url.ActionFinance(nameof(FinanceController.Finance))
+            #line 20 "..\..\Views\Home\Index.cshtml"
+       , Tuple.Create(Tuple.Create("", 564), Tuple.Create<System.Object, System.Int32>(Url.ActionFinance(nameof(FinanceController.Finance))
             
             #line default
             #line hidden
-, 516), false)
-, Tuple.Create(Tuple.Create("", 569), Tuple.Create("\'", 569), true)
+, 564), false)
+, Tuple.Create(Tuple.Create("", 617), Tuple.Create("\'", 617), true)
 );
 
 WriteLiteral(">\n\t\t\t<div>\n\t\t\t\t<h2>");
 
             
-            #line 21 "..\..\Views\Home\Index.cshtml"
+            #line 22 "..\..\Views\Home\Index.cshtml"
                Write(FinanceText.Finance);
 
             
@@ -148,7 +154,7 @@ WriteLiteral(">\n\t\t\t<div>\n\t\t\t\t<h2>");
 WriteLiteral("</h2>\n\t\t\t\t<p>");
 
             
-            #line 22 "..\..\Views\Home\Index.cshtml"
+            #line 23 "..\..\Views\Home\Index.cshtml"
               Write(FinanceText.ExpensesPurchasesAndMonthlyBills);
 
             
@@ -158,28 +164,68 @@ WriteLiteral("</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<div");
 
 WriteLiteral(" class=\"col-sm-6\"");
 
+WriteLiteral(">\r\n\t\t<div");
+
+WriteLiteral(" class=\"panel-shoppinglist panel-main-clickable\"");
+
+WriteAttribute("onclick", Tuple.Create(" onclick=\"", 827), Tuple.Create("\"", 920)
+, Tuple.Create(Tuple.Create("", 837), Tuple.Create("document.location", 837), true)
+, Tuple.Create(Tuple.Create(" ", 854), Tuple.Create("=", 855), true)
+, Tuple.Create(Tuple.Create(" ", 856), Tuple.Create("\'", 857), true)
+            
+            #line 28 "..\..\Views\Home\Index.cshtml"
+            , Tuple.Create(Tuple.Create("", 858), Tuple.Create<System.Object, System.Int32>(Url.ActionShoppingList(nameof(ShoppingListController.Index))
+            
+            #line default
+            #line hidden
+, 858), false)
+, Tuple.Create(Tuple.Create("", 919), Tuple.Create("\'", 919), true)
+);
+
+WriteLiteral(">\r\n\t\t\t<div>\r\n\t\t\t\t<h2>");
+
+            
+            #line 30 "..\..\Views\Home\Index.cshtml"
+               Write(ShoppingListItemText.ShoppingList);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</h2>\r\n\t\t\t\t<p>");
+
+            
+            #line 31 "..\..\Views\Home\Index.cshtml"
+              Write(ShoppingListItemText.CreateYourShoppingListWishes);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</p>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\n\t<div");
+
+WriteLiteral(" class=\"col-sm-6\"");
+
 WriteLiteral(">\n\t\t<div");
 
 WriteLiteral(" class=\"panel-work panel-main-clickable\"");
 
-WriteAttribute("onclick", Tuple.Create(" onclick=\"", 770), Tuple.Create("\"", 847)
-, Tuple.Create(Tuple.Create("", 780), Tuple.Create("document.location", 780), true)
-, Tuple.Create(Tuple.Create(" ", 797), Tuple.Create("=", 798), true)
-, Tuple.Create(Tuple.Create(" ", 799), Tuple.Create("\'", 800), true)
+WriteAttribute("onclick", Tuple.Create(" onclick=\"", 1145), Tuple.Create("\"", 1222)
+, Tuple.Create(Tuple.Create("", 1155), Tuple.Create("document.location", 1155), true)
+, Tuple.Create(Tuple.Create(" ", 1172), Tuple.Create("=", 1173), true)
+, Tuple.Create(Tuple.Create(" ", 1174), Tuple.Create("\'", 1175), true)
             
-            #line 27 "..\..\Views\Home\Index.cshtml"
-    , Tuple.Create(Tuple.Create("", 801), Tuple.Create<System.Object, System.Int32>(Url.ActionWork(nameof(WorkController.Work))
+            #line 36 "..\..\Views\Home\Index.cshtml"
+   , Tuple.Create(Tuple.Create("", 1176), Tuple.Create<System.Object, System.Int32>(Url.ActionWork(nameof(WorkController.Work))
             
             #line default
             #line hidden
-, 801), false)
-, Tuple.Create(Tuple.Create("", 845), Tuple.Create("\';", 845), true)
+, 1176), false)
+, Tuple.Create(Tuple.Create("", 1220), Tuple.Create("\';", 1220), true)
 );
 
 WriteLiteral(">\n\t\t\t<div>\n\t\t\t\t<h2>");
 
             
-            #line 29 "..\..\Views\Home\Index.cshtml"
+            #line 38 "..\..\Views\Home\Index.cshtml"
                Write(WorkText.Work);
 
             
@@ -188,7 +234,7 @@ WriteLiteral(">\n\t\t\t<div>\n\t\t\t\t<h2>");
 WriteLiteral("</h2>\n\t\t\t\t<p>");
 
             
-            #line 30 "..\..\Views\Home\Index.cshtml"
+            #line 39 "..\..\Views\Home\Index.cshtml"
               Write(WorkText.ManageYourWorkingHours);
 
             
@@ -202,24 +248,24 @@ WriteLiteral(">\n\t\t<div");
 
 WriteLiteral(" class=\"panel-homeHDD panel-main-clickable\"");
 
-WriteAttribute("onclick", Tuple.Create(" onclick=\"", 1031), Tuple.Create("\"", 1117)
-, Tuple.Create(Tuple.Create("", 1041), Tuple.Create("document.location", 1041), true)
-, Tuple.Create(Tuple.Create(" ", 1058), Tuple.Create("=", 1059), true)
-, Tuple.Create(Tuple.Create(" ", 1060), Tuple.Create("\'", 1061), true)
+WriteAttribute("onclick", Tuple.Create(" onclick=\"", 1406), Tuple.Create("\"", 1492)
+, Tuple.Create(Tuple.Create("", 1416), Tuple.Create("document.location", 1416), true)
+, Tuple.Create(Tuple.Create(" ", 1433), Tuple.Create("=", 1434), true)
+, Tuple.Create(Tuple.Create(" ", 1435), Tuple.Create("\'", 1436), true)
             
-            #line 35 "..\..\Views\Home\Index.cshtml"
-      , Tuple.Create(Tuple.Create("", 1062), Tuple.Create<System.Object, System.Int32>(Url.ActionHomeHDD(nameof(HomeHDDController.HomeHDD))
+            #line 44 "..\..\Views\Home\Index.cshtml"
+      , Tuple.Create(Tuple.Create("", 1437), Tuple.Create<System.Object, System.Int32>(Url.ActionHomeHDD(nameof(HomeHDDController.HomeHDD))
             
             #line default
             #line hidden
-, 1062), false)
-, Tuple.Create(Tuple.Create("", 1115), Tuple.Create("\';", 1115), true)
+, 1437), false)
+, Tuple.Create(Tuple.Create("", 1490), Tuple.Create("\';", 1490), true)
 );
 
 WriteLiteral(">\n\t\t\t<div>\n\t\t\t\t<h2>");
 
             
-            #line 37 "..\..\Views\Home\Index.cshtml"
+            #line 46 "..\..\Views\Home\Index.cshtml"
                Write(HomeHDDText.HomeHDD);
 
             
@@ -228,7 +274,7 @@ WriteLiteral(">\n\t\t\t<div>\n\t\t\t\t<h2>");
 WriteLiteral("</h2>\n\t\t\t\t<p>");
 
             
-            #line 38 "..\..\Views\Home\Index.cshtml"
+            #line 47 "..\..\Views\Home\Index.cshtml"
               Write(HomeHDDText.ComeOnInAndManageYourDocumentsAndPictures);
 
             
@@ -242,24 +288,24 @@ WriteLiteral(">\n\t\t<div");
 
 WriteLiteral(" class=\"panel-serverManager panel-main-clickable\"");
 
-WriteAttribute("onclick", Tuple.Create(" onclick=\"", 1335), Tuple.Create("\"", 1438)
-, Tuple.Create(Tuple.Create("", 1345), Tuple.Create("document.location", 1345), true)
-, Tuple.Create(Tuple.Create(" ", 1362), Tuple.Create("=", 1363), true)
-, Tuple.Create(Tuple.Create(" ", 1364), Tuple.Create("\'", 1365), true)
+WriteAttribute("onclick", Tuple.Create(" onclick=\"", 1710), Tuple.Create("\"", 1813)
+, Tuple.Create(Tuple.Create("", 1720), Tuple.Create("document.location", 1720), true)
+, Tuple.Create(Tuple.Create(" ", 1737), Tuple.Create("=", 1738), true)
+, Tuple.Create(Tuple.Create(" ", 1739), Tuple.Create("\'", 1740), true)
             
-            #line 43 "..\..\Views\Home\Index.cshtml"
-            , Tuple.Create(Tuple.Create("", 1366), Tuple.Create<System.Object, System.Int32>(Url.ActionServerManager(nameof(ServerManagerController.ServerManager))
+            #line 52 "..\..\Views\Home\Index.cshtml"
+            , Tuple.Create(Tuple.Create("", 1741), Tuple.Create<System.Object, System.Int32>(Url.ActionServerManager(nameof(ServerManagerController.ServerManager))
             
             #line default
             #line hidden
-, 1366), false)
-, Tuple.Create(Tuple.Create("", 1437), Tuple.Create("\'", 1437), true)
+, 1741), false)
+, Tuple.Create(Tuple.Create("", 1812), Tuple.Create("\'", 1812), true)
 );
 
 WriteLiteral(">\n\t\t\t<div>\n\t\t\t\t<h2>");
 
             
-            #line 45 "..\..\Views\Home\Index.cshtml"
+            #line 54 "..\..\Views\Home\Index.cshtml"
                Write(ServerManagerText.ServerManager);
 
             
@@ -268,7 +314,7 @@ WriteLiteral(">\n\t\t\t<div>\n\t\t\t\t<h2>");
 WriteLiteral("</h2>\n\t\t\t\t<p>");
 
             
-            #line 46 "..\..\Views\Home\Index.cshtml"
+            #line 55 "..\..\Views\Home\Index.cshtml"
               Write(ServerManagerText.CheckOutTheServerAndLookWhatIsGgoingOnInTheWorld);
 
             
@@ -283,7 +329,7 @@ WriteLiteral("\n");
 WriteLiteral("\t");
 
             
-            #line 52 "..\..\Views\Home\Index.cshtml"
+            #line 61 "..\..\Views\Home\Index.cshtml"
 Write(Scripts.Render("~/bundles/Helpers"));
 
             

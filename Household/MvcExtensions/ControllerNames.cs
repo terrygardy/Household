@@ -30,6 +30,12 @@
 
 		#endregion
 
+		#region Shopping List
+
+		public static readonly string ShoppingList = "ShoppingList";
+
+		#endregion
+
 		#region Home
 
 		public static readonly string Home = "Home";

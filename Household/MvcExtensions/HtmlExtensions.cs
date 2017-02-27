@@ -125,6 +125,15 @@ namespace Household.MvcExtensions
 
 		#endregion
 
+		#region ShoppingList
+
+		public static MvcHtmlString ActionLinkShoppingList(this HtmlHelper htmlHelper, string linkText, string actionName, object routeValues = null, object htmlAttributes = null)
+		{
+			return htmlHelper.ActionLink(linkText, actionName, ControllerNames.ShoppingList, routeValues, htmlAttributes);
+		}
+
+		#endregion
+
 		#region Work
 
 		public static MvcHtmlString ActionLinkWork(this HtmlHelper htmlHelper, string linkText, string actionName, object routeValues = null, object htmlAttributes = null)

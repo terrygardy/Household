@@ -55,6 +55,15 @@ namespace Household.MvcExtensions
 
 		#endregion
 
+		#region Shopping List
+
+		public static string ActionShoppingList(this UrlHelper url, string actionName, object routeValues = null)
+		{
+			return url.Action(actionName, ControllerNames.ShoppingList, routeValues);
+		}
+
+		#endregion
+
 		#region Work
 
 		public static string ActionWork(this UrlHelper url, string actionName, object routeValues = null)

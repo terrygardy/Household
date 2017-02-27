@@ -24,6 +24,7 @@ namespace Household.Data.Context
 		public virtual DbSet<txx_Interval> txx_Interval { get; set; }
 		public virtual DbSet<txx_Shop> txx_Shop { get; set; }
 		public virtual DbSet<t_BankBalance> t_BankBalance { get; set; }
+		public virtual DbSet<t_ShoppingListItem> t_ShoppingListItem { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
