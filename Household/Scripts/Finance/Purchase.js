@@ -12,12 +12,13 @@ var Purchase;
     var Purchase = (function (_super) {
         __extends(Purchase, _super);
         function Purchase(pv_objOptions) {
-            _super.call(this, pv_objOptions);
-            this.Occurrence = ko.observable(pv_objOptions.Occurrence);
-            this.Shop_ID = ko.observable(pv_objOptions.Shop_ID);
-            this.Payer_ID = ko.observable(pv_objOptions.Payer_ID);
-            this.Amount = ko.observable(pv_objOptions.Amount);
-            ko.applyBindings(this);
+            var _this = _super.call(this, pv_objOptions) || this;
+            _this.Occurrence = ko.observable(pv_objOptions.Occurrence);
+            _this.Shop_ID = ko.observable(pv_objOptions.Shop_ID);
+            _this.Payer_ID = ko.observable(pv_objOptions.Payer_ID);
+            _this.Amount = ko.observable(pv_objOptions.Amount);
+            ko.applyBindings(_this);
+            return _this;
         }
         Purchase.prototype.Save = function () {
             MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), null);

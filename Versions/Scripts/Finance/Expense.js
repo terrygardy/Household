@@ -12,15 +12,16 @@ var Expense;
     var Expense = (function (_super) {
         __extends(Expense, _super);
         function Expense(pv_objOptions) {
-            _super.call(this, pv_objOptions);
-            this.StartDate = ko.observable(pv_objOptions.StartDate);
-            this.EndDate = ko.observable(pv_objOptions.EndDate);
-            this.Company_ID = ko.observable(pv_objOptions.Company_ID);
-            this.BankAccount_ID = ko.observable(pv_objOptions.BankAccount_ID);
-            this.PaymentDay_ID = ko.observable(pv_objOptions.PaymentDay_ID);
-            this.Interval_ID = ko.observable(pv_objOptions.Interval_ID);
-            this.Amount = ko.observable(pv_objOptions.Amount);
-            ko.applyBindings(this);
+            var _this = _super.call(this, pv_objOptions) || this;
+            _this.StartDate = ko.observable(pv_objOptions.StartDate);
+            _this.EndDate = ko.observable(pv_objOptions.EndDate);
+            _this.Company_ID = ko.observable(pv_objOptions.Company_ID);
+            _this.BankAccount_ID = ko.observable(pv_objOptions.BankAccount_ID);
+            _this.PaymentDay_ID = ko.observable(pv_objOptions.PaymentDay_ID);
+            _this.Interval_ID = ko.observable(pv_objOptions.Interval_ID);
+            _this.Amount = ko.observable(pv_objOptions.Amount);
+            ko.applyBindings(_this);
+            return _this;
         }
         Expense.prototype.Save = function () {
             MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), null);

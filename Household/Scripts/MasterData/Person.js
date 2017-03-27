@@ -12,10 +12,11 @@ var Person;
     var Person = (function (_super) {
         __extends(Person, _super);
         function Person(pv_objOptions) {
-            _super.call(this, pv_objOptions);
-            this.Surname = ko.observable(pv_objOptions.Surname);
-            this.Forename = ko.observable(pv_objOptions.Forename);
-            ko.applyBindings(this);
+            var _this = _super.call(this, pv_objOptions) || this;
+            _this.Surname = ko.observable(pv_objOptions.Surname);
+            _this.Forename = ko.observable(pv_objOptions.Forename);
+            ko.applyBindings(_this);
+            return _this;
         }
         Person.prototype.Save = function () {
             MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), [this.Surname(), this.Forename()]);

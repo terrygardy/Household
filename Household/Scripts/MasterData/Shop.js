@@ -12,8 +12,9 @@ var Shop;
     var Shop = (function (_super) {
         __extends(Shop, _super);
         function Shop(pv_objOptions) {
-            _super.call(this, pv_objOptions);
-            ko.applyBindings(this);
+            var _this = _super.call(this, pv_objOptions) || this;
+            ko.applyBindings(_this);
+            return _this;
         }
         Shop.prototype.Save = function () {
             MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), [this.Name(), this.Description()]);

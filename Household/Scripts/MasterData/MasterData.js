@@ -66,8 +66,9 @@ var MasterData;
     var BaseNameMasterData = (function (_super) {
         __extends(BaseNameMasterData, _super);
         function BaseNameMasterData(pv_objOptions) {
-            _super.call(this, pv_objOptions);
-            this.Name = ko.observable(pv_objOptions.Name);
+            var _this = _super.call(this, pv_objOptions) || this;
+            _this.Name = ko.observable(pv_objOptions.Name);
+            return _this;
         }
         return BaseNameMasterData;
     }(BaseMasterData));
@@ -75,8 +76,9 @@ var MasterData;
     var BaseNameDescMasterData = (function (_super) {
         __extends(BaseNameDescMasterData, _super);
         function BaseNameDescMasterData(pv_objOptions) {
-            _super.call(this, pv_objOptions);
-            this.Description = ko.observable(pv_objOptions.Description);
+            var _this = _super.call(this, pv_objOptions) || this;
+            _this.Description = ko.observable(pv_objOptions.Description);
+            return _this;
         }
         return BaseNameDescMasterData;
     }(BaseNameMasterData));
@@ -84,8 +86,9 @@ var MasterData;
     var BaseDescMasterData = (function (_super) {
         __extends(BaseDescMasterData, _super);
         function BaseDescMasterData(pv_objOptions) {
-            _super.call(this, pv_objOptions);
-            this.Description = ko.observable(pv_objOptions.Description);
+            var _this = _super.call(this, pv_objOptions) || this;
+            _this.Description = ko.observable(pv_objOptions.Description);
+            return _this;
         }
         return BaseDescMasterData;
     }(BaseMasterData));

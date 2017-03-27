@@ -3,6 +3,7 @@
 @using Household.Localisation.Main.Work
 @using Household.Localisation.Main
 @using Household.Localisation.Main.Import
+@using Household.Localisation.Main.ShoppingList
 @using Household.MvcExtensions
 @using Household.Controllers
 <!DOCTYPE html>
@@ -29,6 +30,7 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li>@Html.ActionLinkFinance(FinanceText.Finance, nameof(FinanceController.Finance))</li>
+					<li>@Html.ActionLinkShoppingList(ShoppingListItemText.ShoppingList, nameof(ShoppingListController.Index))</li>
 					<li>@Html.ActionLinkWork(WorkText.Work, nameof(WorkController.Work))</li>
 					<li>@Html.ActionLinkHomeHDD(HomeHDDText.HomeHDD, nameof(HomeHDDController.HomeHDD))</li>
 					<li>@Html.ActionLinkServerManager(ServerManagerText.ServerManager, nameof(ServerManagerController.ServerManager))</li>

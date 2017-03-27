@@ -13,12 +13,13 @@ var BankAccount;
     var BankAccount = (function (_super) {
         __extends(BankAccount, _super);
         function BankAccount(pv_objOptions) {
-            _super.call(this, pv_objOptions);
-            this.AccountName = ko.observable(pv_objOptions.AccountName);
-            this.BankName = ko.observable(pv_objOptions.BankName);
-            this.IBAN = ko.observable(pv_objOptions.IBAN);
-            this.BIC = ko.observable(pv_objOptions.BIC);
-            ko.applyBindings(this);
+            var _this = _super.call(this, pv_objOptions) || this;
+            _this.AccountName = ko.observable(pv_objOptions.AccountName);
+            _this.BankName = ko.observable(pv_objOptions.BankName);
+            _this.IBAN = ko.observable(pv_objOptions.IBAN);
+            _this.BIC = ko.observable(pv_objOptions.BIC);
+            ko.applyBindings(_this);
+            return _this;
         }
         BankAccount.prototype.Save = function () {
             this.IBAN(this.IBAN().toString().toUpperCase());

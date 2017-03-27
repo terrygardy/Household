@@ -1,0 +1,12 @@
+﻿@using Household.Data.Context
+
+@model List<t_ShoppingListItem>
+
+@if (Model.Any())
+{
+	foreach (var shoppingListItem in Model)
+	{
+		@Html.Partial("_ShoppingListItemPartial", shoppingListItem)
+
+	}
+}

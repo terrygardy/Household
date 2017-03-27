@@ -12,8 +12,9 @@ var Interval;
     var Interval = (function (_super) {
         __extends(Interval, _super);
         function Interval(pv_objOptions) {
-            _super.call(this, pv_objOptions);
-            ko.applyBindings(this);
+            var _this = _super.call(this, pv_objOptions) || this;
+            ko.applyBindings(_this);
+            return _this;
         }
         Interval.prototype.Save = function () {
             MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), [this.Name()]);

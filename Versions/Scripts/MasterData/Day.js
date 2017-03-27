@@ -12,9 +12,10 @@ var Day;
     var Day = (function (_super) {
         __extends(Day, _super);
         function Day(pv_objOptions) {
-            _super.call(this, pv_objOptions);
-            this.Day = ko.observable(pv_objOptions.Day);
-            ko.applyBindings(this);
+            var _this = _super.call(this, pv_objOptions) || this;
+            _this.Day = ko.observable(pv_objOptions.Day);
+            ko.applyBindings(_this);
+            return _this;
         }
         Day.prototype.Save = function (pv_blnClose) {
             return MasterData.saveMasterRecordWithMessage(this.BaseAction, ko.toJSON({ Data: this }), [this.Day()], pv_blnClose);

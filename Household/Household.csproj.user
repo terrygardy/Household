@@ -17,6 +17,7 @@
     <UseGlobalApplicationHostFile />
     <WebStackScaffolding_DbContextTypeFullName>Household.Data.Context.Database</WebStackScaffolding_DbContextTypeFullName>
     <NameOfLastUsedPublishProfile>FileSystem</NameOfLastUsedPublishProfile>
+    <ToolsVersionPromptShown>2.1</ToolsVersionPromptShown>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

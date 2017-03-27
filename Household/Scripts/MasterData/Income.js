@@ -12,15 +12,16 @@ var Income;
     var Income = (function (_super) {
         __extends(Income, _super);
         function Income(pv_objOptions) {
-            _super.call(this, pv_objOptions);
-            this.StartDate = ko.observable(pv_objOptions.StartDate);
-            this.EndDate = ko.observable(pv_objOptions.EndDate);
-            this.Interval_ID = ko.observable(pv_objOptions.Interval_ID);
-            this.Day_ID = ko.observable(pv_objOptions.Day_ID);
-            this.Payee_ID = ko.observable(pv_objOptions.Payee_ID);
-            this.Company_ID = ko.observable(pv_objOptions.Company_ID);
-            this.Amount = ko.observable(pv_objOptions.Amount);
-            ko.applyBindings(this);
+            var _this = _super.call(this, pv_objOptions) || this;
+            _this.StartDate = ko.observable(pv_objOptions.StartDate);
+            _this.EndDate = ko.observable(pv_objOptions.EndDate);
+            _this.Interval_ID = ko.observable(pv_objOptions.Interval_ID);
+            _this.Day_ID = ko.observable(pv_objOptions.Day_ID);
+            _this.Payee_ID = ko.observable(pv_objOptions.Payee_ID);
+            _this.Company_ID = ko.observable(pv_objOptions.Company_ID);
+            _this.Amount = ko.observable(pv_objOptions.Amount);
+            ko.applyBindings(_this);
+            return _this;
         }
         Income.prototype.Save = function () {
             MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), [this.StartDate(), this.EndDate(), this.Amount() + ' €', getCurrentCompanyText()]);

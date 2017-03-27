@@ -12,12 +12,13 @@ var WorkDay;
     var WorkDay = (function (_super) {
         __extends(WorkDay, _super);
         function WorkDay(pv_objOptions) {
-            _super.call(this, pv_objOptions);
-            this.WorkDay = ko.observable(pv_objOptions.WorkDay);
-            this.Begin = ko.observable(pv_objOptions.Begin);
-            this.End = ko.observable(pv_objOptions.End);
-            this.BreakDuration = ko.observable(pv_objOptions.BreakDuration);
-            ko.applyBindings(this);
+            var _this = _super.call(this, pv_objOptions) || this;
+            _this.WorkDay = ko.observable(pv_objOptions.WorkDay);
+            _this.Begin = ko.observable(pv_objOptions.Begin);
+            _this.End = ko.observable(pv_objOptions.End);
+            _this.BreakDuration = ko.observable(pv_objOptions.BreakDuration);
+            ko.applyBindings(_this);
+            return _this;
         }
         WorkDay.prototype.Save = function () {
             MasterData.saveMasterRecord(this.BaseAction, ko.toJSON({ Data: this }), null);
