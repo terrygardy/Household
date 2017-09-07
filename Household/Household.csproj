@@ -26,7 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TypeScriptToolsVersion>2.1</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>2.2</TypeScriptToolsVersion>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -538,18 +538,10 @@
     <Content Include="Scripts\dropzone\dropzone.js" />
     <Content Include="Scripts\dropzone\dropzone.min.css" />
     <Content Include="Scripts\dropzone\dropzone.min.js" />
-    <Content Include="Scripts\Finance\Expense.js" />
-    <Content Include="Scripts\Finance\Finance.js" />
-    <Content Include="Scripts\Finance\Purchase.js" />
-    <Content Include="Scripts\Finance\Report.js" />
     <Content Include="Scripts\Helpers\Common.js.map" />
     <Content Include="Scripts\Helpers\httprequest.js.map" />
-    <Content Include="Scripts\Finance\Finance.js.map" />
     <Content Include="Scripts\Helpers\Common.js" />
     <Content Include="Scripts\Helpers\httprequest.js" />
-    <Content Include="Scripts\Finance\Purchase.js.map" />
-    <Content Include="Scripts\Finance\Expense.js.map" />
-    <Content Include="Scripts\Finance\Report.js.map" />
     <Content Include="Scripts\highcharts\highcharts.helpers.js.map" />
     <None Include="Properties\PublishProfiles\FTP.pubxml" />
     <Content Include="Scripts\highcharts\4.2.0\adapters\standalone-framework.js" />
@@ -607,43 +599,19 @@
     <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\MasterData\BankAccount.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Scripts\MasterData\Company.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Scripts\MasterData\Day.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Scripts\MasterData\Income.js" />
-    <Content Include="Scripts\MasterData\Interval.js" />
-    <Content Include="Scripts\MasterData\MasterData.js" />
-    <Content Include="Scripts\MasterData\Person.js" />
-    <Content Include="Scripts\MasterData\Shop.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\validation.js" />
-    <Content Include="Scripts\Work\WorkHours.js" />
     <Content Include="Views\Finance\MasterData.cshtml" />
     <Content Include="Views\Shared\_MasterData.cshtml" />
     <Content Include="Views\Shared\_LayoutNoM.cshtml" />
     <Content Include="Views\MasterData\Day.cshtml" />
-    <Content Include="Scripts\MasterData\Shop.js.map" />
-    <Content Include="Scripts\MasterData\Person.js.map" />
-    <Content Include="Scripts\MasterData\MasterData.js.map" />
-    <Content Include="Scripts\MasterData\Interval.js.map" />
-    <Content Include="Scripts\MasterData\Day.js.map" />
-    <Content Include="Scripts\MasterData\Company.js.map" />
-    <Content Include="Scripts\MasterData\BankAccount.js.map" />
     <Content Include="Scripts\validation.js.map" />
-    <Content Include="Scripts\MasterData\Income.js.map" />
     <Content Include="Views\Work\Work.cshtml" />
     <Content Include="Views\Work\WorkHours.cshtml" />
-    <Content Include="Scripts\Work\WorkHours.js.map" />
     <Content Include="Views\Shared\EditorTemplates\CPurchaseModel.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\SelectOptions.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\CBankAccountData.cshtml" />

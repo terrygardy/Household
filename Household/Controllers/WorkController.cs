@@ -62,8 +62,8 @@ namespace Household.Controllers
 		{
 			var searchModel = getSearchClass();
 			var days = Management.getWorkingDays(searchModel.GetSearchExpression(search));
-
-			var footerModel = searchModel.CreateTableFooter(ActionName, ControllerName, days.Count(), days.Sum(x => x.HoursWorked));
+            var weekdayCount = days.Where(wd => wd.WorkDay.DayOfWeek != DayOfWeek.Saturday && wd.WorkDay.DayOfWeek != DayOfWeek.Sunday).Count();
+            var footerModel = searchModel.CreateTableFooter(ActionName, ControllerName, weekdayCount, days.Sum(x => x.HoursWorked));
 
 			return PartialView("_MasterDataHeaderFooterPartial", footerModel);
 		}

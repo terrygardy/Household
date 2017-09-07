@@ -209,7 +209,10 @@ namespace Household.Models.Work
 
 			dtTable.Head = CreateTableHead(actionMain, controller);
 			dtTable.Body = CreateTableBody(actionMain, controller, lstWorkDays);
-			dtTable.Foot = CreateTableFooter(actionMain, controller, lstWorkDays.Count(), Convert.ToDecimal(lstWorkDays.Sum(w => w.HoursWorked)));
+
+            var weekdayCount = lstWorkDays.Count(wd => wd.WorkDay.DayOfWeek != DayOfWeek.Saturday && wd.WorkDay.DayOfWeek != DayOfWeek.Sunday);
+
+            dtTable.Foot = CreateTableFooter(actionMain, controller, weekdayCount, Convert.ToDecimal(lstWorkDays.Sum(w => w.HoursWorked)));
 
 			return dtTable;
 		}
