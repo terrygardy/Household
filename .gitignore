@@ -50,6 +50,7 @@ obj
 node_modules
 .vs
 packages
+Versions
 Household/Properties/PublishProfiles/FileSystem.pubxml.user
 Household/Content/DisplayTable.css
 Household/Content/pleaseWait.css
@@ -63,3 +64,5 @@ Household/Scripts/MasterData/*.js
 Household/Scripts/MasterData/*.map
 Household/Scripts/Work/*.js
 Household/Scripts/Work/*.map
+*.pubxml.user
+*.cproj.user

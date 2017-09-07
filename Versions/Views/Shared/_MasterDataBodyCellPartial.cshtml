@@ -1,5 +1,0 @@
-﻿@using Household.MvcExtensions
-
-@model Household.Models.DisplayTable.CDisplayColumn
-
-<td class="@Model.CSS" onclick="@Model.OnClick" title="@Html.DisplayTableCell(Model.Tooltip)" colspan="@Model.ColumnSpan.ToString()">@Html.DisplayTableCell(Model.Content)</td>
